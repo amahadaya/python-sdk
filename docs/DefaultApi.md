@@ -1,4 +1,4 @@
-# openapi_client.DefaultApi
+# freeclimb.DefaultApi
 
 All URIs are relative to *https://www.freeclimb.com/apiserver*
 
@@ -63,10 +63,10 @@ Buy a Phone Number
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -74,9 +74,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that owns this phone number.
-buy_incoming_number_request = openapi_client.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details (optional)
+buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details (optional)
 
 try:
     # Buy a Phone Number
@@ -124,10 +124,10 @@ Create a Conference
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -135,9 +135,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this Conference.
-create_conference_request = openapi_client.CreateConferenceRequest() # CreateConferenceRequest | Conference to create (optional)
+create_conference_request = freeclimb.CreateConferenceRequest() # CreateConferenceRequest | Conference to create (optional)
 
 try:
     # Create a Conference
@@ -185,10 +185,10 @@ Create a Queue
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -196,9 +196,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this Queue.
-queue_request = openapi_client.QueueRequest() # QueueRequest | Queue details used to create a queue (optional)
+queue_request = freeclimb.QueueRequest() # QueueRequest | Queue details used to create a queue (optional)
 
 try:
     # Create a Queue
@@ -246,10 +246,10 @@ Create an application
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -257,9 +257,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this application.
-application_request = openapi_client.ApplicationRequest() # ApplicationRequest | Application Details (optional)
+application_request = freeclimb.ApplicationRequest() # ApplicationRequest | Application Details (optional)
 
 try:
     # Create an application
@@ -307,10 +307,10 @@ Delete a Recording
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -318,7 +318,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
@@ -367,10 +367,10 @@ Delete an application
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -378,7 +378,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this application.
 application_id = 'application_id_example' # str | String that uniquely identifies this application resource.
 
@@ -427,10 +427,10 @@ Delete an Incoming Number
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -438,7 +438,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 
@@ -487,10 +487,10 @@ Dequeue a Member
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -498,11 +498,11 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created the Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 call_id = 'call_id_example' # str | ID if the Call that the Member belongs to
-dequeue_member_request = openapi_client.DequeueMemberRequest() # DequeueMemberRequest | Dequeue member request details (optional)
+dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest | Dequeue member request details (optional)
 
 try:
     # Dequeue a Member
@@ -552,10 +552,10 @@ Dequeue Head Member
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -563,10 +563,10 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this queue.
 queue_id = 'queue_id_example' # str | String that uniquely identifies this queue resource.
-dequeue_member_request = openapi_client.DequeueMemberRequest() # DequeueMemberRequest | Dequeue head member request details (optional)
+dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest | Dequeue head member request details (optional)
 
 try:
     # Dequeue Head Member
@@ -615,10 +615,10 @@ Download a Recording File
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -626,7 +626,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
@@ -676,10 +676,10 @@ Filter Logs
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -687,9 +687,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that this log was generated under.
-filter_logs_request = openapi_client.FilterLogsRequest() # FilterLogsRequest | Filter logs request paramters (optional)
+filter_logs_request = freeclimb.FilterLogsRequest() # FilterLogsRequest | Filter logs request paramters (optional)
 
 try:
     # Filter Logs
@@ -737,10 +737,10 @@ Get a Call
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -748,7 +748,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 
@@ -798,10 +798,10 @@ Get a Conference
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -809,7 +809,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this conference.
 conference_id = 'conference_id_example' # str | A string that uniquely identifies this conference resource.
 
@@ -859,10 +859,10 @@ Get a Member
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -870,7 +870,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 call_id = 'call_id_example' # str | ID of the Call that the Member belongs to
@@ -922,10 +922,10 @@ Get a Participant
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -933,7 +933,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 call_id = 'call_id_example' # str | ID of the Call associated with this participant.
@@ -985,10 +985,10 @@ Get a Queue
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -996,7 +996,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this queue.
 queue_id = 'queue_id_example' # str | A string that uniquely identifies this queue resource.
 
@@ -1046,10 +1046,10 @@ Get a Recording
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1057,7 +1057,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
@@ -1107,10 +1107,10 @@ Get an Account
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1118,7 +1118,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
 
 try:
@@ -1166,10 +1166,10 @@ Get an Application
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1177,7 +1177,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this application.
 application_id = 'application_id_example' # str | A string that uniquely identifies this application resource.
 
@@ -1227,10 +1227,10 @@ Get an Incoming Number
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1238,7 +1238,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 
@@ -1288,10 +1288,10 @@ Get an SMS Message
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1299,7 +1299,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
 message_id = 'message_id_example' # str | String that uniquely identifies this Message resource.
 
@@ -1349,10 +1349,10 @@ Get Head Member
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1360,7 +1360,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 
@@ -1410,10 +1410,10 @@ List Active Queues
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1421,7 +1421,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this Queue.
 alias = 'alias_example' # str | Return only the Queue resources with aliases that exactly match this name. (optional)
 
@@ -1471,10 +1471,10 @@ List All Account Logs
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1482,7 +1482,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that these Logs were generated under.
 
 try:
@@ -1530,10 +1530,10 @@ List applications
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1541,7 +1541,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this application.
 alias = 'alias_example' # str | Return only applications with aliases that exactly match this value. (optional)
 
@@ -1591,10 +1591,10 @@ List available numbers
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1602,7 +1602,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 alias = 'alias_example' # str | Filter on numbers based on the formatted string of the phone number. (optional)
 phone_number = 'phone_number_example' # str | PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format. (optional)
 
@@ -1652,10 +1652,10 @@ List Call Logs
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1663,7 +1663,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 
@@ -1713,10 +1713,10 @@ List Call Recordings
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1724,7 +1724,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 date_created = 'date_created_example' # str | Only show recordings created on the specified date, in the form *YYYY-MM-DD*. (optional)
@@ -1776,10 +1776,10 @@ List Calls
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1787,7 +1787,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this call.
 to = 'to_example' # str | Only show Calls to this phone number. (optional)
 _from = '_from_example' # str | Only show Calls from this phone number. (optional)
@@ -1847,10 +1847,10 @@ List Conferences
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1858,7 +1858,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this conference.
 status = 'status_example' # str | Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`. (optional)
 alias = 'alias_example' # str | List Conferences whose alias exactly matches this string. (optional)
@@ -1914,10 +1914,10 @@ List Incoming Numbers
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1925,7 +1925,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number = 'phone_number_example' # str | Only show incoming phone number resources that match this PCRE-compatible regular expression. (optional)
 alias = 'alias_example' # str | Only show incoming phone numbers with aliases that exactly match this value. (optional)
@@ -1977,10 +1977,10 @@ List Members
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1988,7 +1988,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 
@@ -2038,10 +2038,10 @@ List Participants
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2049,7 +2049,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 talk = True # bool | Only show Participants with the talk privilege. (optional)
@@ -2103,10 +2103,10 @@ List Recordings
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2114,7 +2114,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this recording.
 call_id = 'call_id_example' # str | Show only Recordings made during the Call with this ID. (optional)
 conference_id = 'conference_id_example' # str | Show only Recordings made during the conference with this ID. (optional)
@@ -2168,10 +2168,10 @@ List SMS Messages
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2179,7 +2179,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id2 = 'account_id_example' # str | ID of the account that sent this message.
 to = 'to_example' # str | Only show Messages to this phone number. (optional)
 _from = '_from_example' # str | Only show Messages from this phone number. (optional)
@@ -2239,10 +2239,10 @@ Make a Call
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2250,9 +2250,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this call.
-make_call_request = openapi_client.MakeCallRequest() # MakeCallRequest | Call details for making a call (optional)
+make_call_request = freeclimb.MakeCallRequest() # MakeCallRequest | Call details for making a call (optional)
 
 try:
     # Make a Call
@@ -2300,10 +2300,10 @@ Remove a Participant
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2311,7 +2311,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 call_id = 'call_id_example' # str | ID of the Call associated with this participant.
@@ -2362,10 +2362,10 @@ Send an SMS Message
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2373,9 +2373,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that sent this message.
-message_request = openapi_client.MessageRequest() # MessageRequest | Details to create a message (optional)
+message_request = freeclimb.MessageRequest() # MessageRequest | Details to create a message (optional)
 
 try:
     # Send an SMS Message
@@ -2423,10 +2423,10 @@ Stream a Recording File
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2434,7 +2434,7 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
@@ -2484,10 +2484,10 @@ Update a Conference
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2495,10 +2495,10 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this conference.
 conference_id = 'conference_id_example' # str | String that uniquely identifies this conference resource.
-update_conference_request = openapi_client.UpdateConferenceRequest() # UpdateConferenceRequest | Conference Details to update (optional)
+update_conference_request = freeclimb.UpdateConferenceRequest() # UpdateConferenceRequest | Conference Details to update (optional)
 
 try:
     # Update a Conference
@@ -2547,10 +2547,10 @@ Update a Live Call
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2558,10 +2558,10 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
-update_call_request = openapi_client.UpdateCallRequest() # UpdateCallRequest | Call details to update (optional)
+update_call_request = freeclimb.UpdateCallRequest() # UpdateCallRequest | Call details to update (optional)
 
 try:
     # Update a Live Call
@@ -2609,10 +2609,10 @@ Update a Participant
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2620,11 +2620,11 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 call_id = 'call_id_example' # str | ID of the Call associated with this participant.
-update_conference_participant_request = openapi_client.UpdateConferenceParticipantRequest() # UpdateConferenceParticipantRequest | Conference participant details to update (optional)
+update_conference_participant_request = freeclimb.UpdateConferenceParticipantRequest() # UpdateConferenceParticipantRequest | Conference participant details to update (optional)
 
 try:
     # Update a Participant
@@ -2674,10 +2674,10 @@ Update a Queue
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2685,10 +2685,10 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this queue.
 queue_id = 'queue_id_example' # str | A string that uniquely identifies this Queue resource.
-queue_request = openapi_client.QueueRequest() # QueueRequest | Queue Details to update (optional)
+queue_request = freeclimb.QueueRequest() # QueueRequest | Queue Details to update (optional)
 
 try:
     # Update a Queue
@@ -2737,10 +2737,10 @@ Manage an account
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2748,9 +2748,9 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
-account_request = openapi_client.AccountRequest() # AccountRequest | Account details to update (optional)
+account_request = freeclimb.AccountRequest() # AccountRequest | Account details to update (optional)
 
 try:
     # Manage an account
@@ -2797,10 +2797,10 @@ Update an application
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2808,10 +2808,10 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that created this application.
 application_id = 'application_id_example' # str | A string that uniquely identifies this application resource.
-application_request = openapi_client.ApplicationRequest() # ApplicationRequest | Application details to update. (optional)
+application_request = freeclimb.ApplicationRequest() # ApplicationRequest | Application details to update. (optional)
 
 try:
     # Update an application
@@ -2860,10 +2860,10 @@ Update an Incoming Number
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
+configuration = freeclimb.Configuration()
 # Configure HTTP basic authorization: fc
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2871,10 +2871,10 @@ configuration.password = 'YOUR_PASSWORD'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
-api_instance = openapi_client.DefaultApi(openapi_client.ApiClient(configuration))
+api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
 account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
-incoming_number_request = openapi_client.IncomingNumberRequest() # IncomingNumberRequest | Incoming Number details to update (optional)
+incoming_number_request = freeclimb.IncomingNumberRequest() # IncomingNumberRequest | Incoming Number details to update (optional)
 
 try:
     # Update an Incoming Number
