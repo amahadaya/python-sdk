@@ -2,32 +2,32 @@ import json
 
 class Sms(object):
     openapi_types = {
-        'destination': 'str',
-        'messaging_number': 'str',
+        'to': 'str',
+        'from': 'str',
         'text': 'str',
         'notification_url': 'str'
     }
 
     attribute_map = {
-        'destination': 'destination',
-        'messaging_number': 'messaging_number',
+        'to': 'to',
+        'from': 'from',
         'text': 'text',
         'notification_url': 'notification_url'
     }
 
-    def __init__(self, destination, messaging_number, text):
-        self._destination = destination
-        self._messaging_number = messaging_number
+    def __init__(self, to, from, text):
+        self._to = to
+        self._from = from
         self._text = text
         self._notification_url = None
 
     @property
-    def destination(self):
-        return self._destination
+    def to(self):
+        return self._to
     
     @property
-    def messaging_number(self):
-        return self._messaging_number
+    def from(self):
+        return self._from
 
     @property
     def notification_url(self):
@@ -37,13 +37,13 @@ class Sms(object):
     def text(self):
         return self._text
 
-    @destination.setter
-    def destination(self, destination):
-        self._destination = destination
+    @to.setter
+    def to(self, to):
+        self._to = to
 
-    @messaging_number.setter
-    def messaging_number(self, messaging_number):
-        self._messaging_number = messaging_number
+    @from.setter
+    def from(self, from):
+        self._from = from
     
     @notification_url.setter
     def notification_url(self, notification_url):
@@ -54,13 +54,13 @@ class Sms(object):
         self._text = text
  
     def to_dict(self):
-        """Returns the json representation of sms"""
+        """Returns the dictionary representation of sms"""
         as_dict = {
             self.__class__.__name__ : {
-                "destination": self._destination,
-                "messaging_number": self._messaging_number,
-                "notification_url": self._notification_url,
-                "text": self._text 
+                "from": self._from,
+                "to": self._to,
+                "text": self._text,
+                "notificationUrl": self._notification_url 
             }
         }
         return as_dict
