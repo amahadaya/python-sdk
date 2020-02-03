@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.available_number_list_all_of import AvailableNumberListAllOf  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.available_number_list_all_of import AvailableNumberListAllOf  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestAvailableNumberListAllOf(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestAvailableNumberListAllOf(unittest.TestCase):
     def testAvailableNumberListAllOf(self):
         """Test AvailableNumberListAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.available_number_list_all_of.AvailableNumberListAllOf()  # noqa: E501
+        # model = freeclimb.models.available_number_list_all_of.AvailableNumberListAllOf()  # noqa: E501
         pass
 
 

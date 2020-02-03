@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.recording_result_all_of import RecordingResultAllOf  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.recording_result_all_of import RecordingResultAllOf  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestRecordingResultAllOf(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestRecordingResultAllOf(unittest.TestCase):
     def testRecordingResultAllOf(self):
         """Test RecordingResultAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.recording_result_all_of.RecordingResultAllOf()  # noqa: E501
+        # model = freeclimb.models.recording_result_all_of.RecordingResultAllOf()  # noqa: E501
         pass
 
 

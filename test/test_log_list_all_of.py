@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.log_list_all_of import LogListAllOf  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.log_list_all_of import LogListAllOf  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestLogListAllOf(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestLogListAllOf(unittest.TestCase):
     def testLogListAllOf(self):
         """Test LogListAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.log_list_all_of.LogListAllOf()  # noqa: E501
+        # model = freeclimb.models.log_list_all_of.LogListAllOf()  # noqa: E501
         pass
 
 

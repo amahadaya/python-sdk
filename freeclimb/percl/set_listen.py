@@ -32,7 +32,7 @@ class SetListen(object):
         self._listen = listen
  
     def to_dict(self):
-        """Returns the json representation of set_listen"""
+        """Returns the dictionary representation of set_listen"""
         as_dict = {
             self.__class__.__name__ : {
                 "call_id": self._call_id,

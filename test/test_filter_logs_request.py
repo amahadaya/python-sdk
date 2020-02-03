@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.filter_logs_request import FilterLogsRequest  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.filter_logs_request import FilterLogsRequest  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestFilterLogsRequest(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestFilterLogsRequest(unittest.TestCase):
     def testFilterLogsRequest(self):
         """Test FilterLogsRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.filter_logs_request.FilterLogsRequest()  # noqa: E501
+        # model = freeclimb.models.filter_logs_request.FilterLogsRequest()  # noqa: E501
         pass
 
 

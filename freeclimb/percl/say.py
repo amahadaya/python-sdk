@@ -62,7 +62,7 @@ class Say(object):
         self._conference_id = conference_id
  
     def to_dict(self):
-        """Returns the json representation of say"""
+        """Returns the dictionary representation of say"""
         as_dict = {
             self.__class__.__name__ : {
                 "text": self._text,

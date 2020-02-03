@@ -32,7 +32,7 @@ class Hangup(object):
         self._reason = reason
  
     def to_dict(self):
-        """Returns the json representation of hangup"""
+        """Returns the dictionary representation of hangup"""
         as_dict = {
             self.__class__.__name__ : {
                 "call_id": self._call_id,

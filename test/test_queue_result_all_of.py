@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.queue_result_all_of import QueueResultAllOf  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.queue_result_all_of import QueueResultAllOf  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestQueueResultAllOf(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestQueueResultAllOf(unittest.TestCase):
     def testQueueResultAllOf(self):
         """Test QueueResultAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.queue_result_all_of.QueueResultAllOf()  # noqa: E501
+        # model = freeclimb.models.queue_result_all_of.QueueResultAllOf()  # noqa: E501
         pass
 
 

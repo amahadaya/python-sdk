@@ -21,7 +21,7 @@ class TerminateConference(object):
         self._conference_id = conference_id
 
     def to_dict(self):
-        """Returns the json representation of terminate_conference"""
+        """Returns the dictionary representation of terminate_conference"""
         as_dict = {
             self.__class__.__name__ : {
                 "conference_id": self._conference_id

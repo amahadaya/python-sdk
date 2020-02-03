@@ -32,7 +32,7 @@ class SendDigits(object):
         self._pause_ms = pause_ms
  
     def to_dict(self):
-        """Returns the json representation of send_digits"""
+        """Returns the dictionary representation of send_digits"""
         as_dict = {
             self.__class__.__name__ : {
                 "digits": self._digits,

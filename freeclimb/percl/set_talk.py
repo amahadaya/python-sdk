@@ -32,7 +32,7 @@ class SetTalk(object):
         self._talk = talk
  
     def to_dict(self):
-        """Returns the json representation of set_talk"""
+        """Returns the dictionary representation of set_talk"""
         as_dict = {
             self.__class__.__name__ : {
                 "call_id": self._call_id,

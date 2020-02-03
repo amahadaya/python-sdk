@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.make_call_request import MakeCallRequest  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.make_call_request import MakeCallRequest  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestMakeCallRequest(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestMakeCallRequest(unittest.TestCase):
     def testMakeCallRequest(self):
         """Test MakeCallRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.make_call_request.MakeCallRequest()  # noqa: E501
+        # model = freeclimb.models.make_call_request.MakeCallRequest()  # noqa: E501
         pass
 
 

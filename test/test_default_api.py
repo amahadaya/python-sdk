@@ -50,10 +50,12 @@ class TestDefaultApi(unittest.TestCase):
             #     {'Accept': 'application/json', 'Content-Type': 'application/json'},
             #     _preload_content=True,
             #     _request_timeout=None,
-            #     _return_http_data_only=True, async_req=None, auth_settings=['fc'], body={'alias': None,
+            #     _return_http_data_only=True, async_req=None, auth_settings=['fc'], body={
+            #         'alias': None,
             #         'application_id': None,
             #         'phone_number': '+12345678900',
-            #         'request_id': None},
+            #         'request_id': None
+            #     },
             #     collection_formats={},
             #     files={},
             #     post_params=[],

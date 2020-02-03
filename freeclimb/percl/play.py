@@ -43,7 +43,7 @@ class Play(object):
         self._conference_id = conference_id
  
     def to_dict(self):
-        """Returns the json representation of play"""
+        """Returns the dictionary representation of play"""
         as_dict = {
             self.__class__.__name__ : {
                 "file": self._file,

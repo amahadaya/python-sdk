@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.dequeue_member_request import DequeueMemberRequest  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.dequeue_member_request import DequeueMemberRequest  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestDequeueMemberRequest(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestDequeueMemberRequest(unittest.TestCase):
     def testDequeueMemberRequest(self):
         """Test DequeueMemberRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.dequeue_member_request.DequeueMemberRequest()  # noqa: E501
+        # model = freeclimb.models.dequeue_member_request.DequeueMemberRequest()  # noqa: E501
         pass
 
 

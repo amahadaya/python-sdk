@@ -21,7 +21,7 @@ class Pause(object):
         self._length = length
  
     def to_dict(self):
-        """Returns the json representation of pause """
+        """Returns the dictionary representation of pause """
         as_dict = {
             self.__class__.__name__ : {
                 "length": self._length

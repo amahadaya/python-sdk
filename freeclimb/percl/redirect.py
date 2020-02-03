@@ -21,7 +21,7 @@ class Redirect(object):
         self._action_url = action_url
  
     def to_dict(self):
-        """Returns the json representation of redirect"""
+        """Returns the dictionary representation of redirect"""
         as_dict = {
             self.__class__.__name__ : {
                 "action_url": self._action_url

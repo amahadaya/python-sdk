@@ -23,7 +23,7 @@ class TestAccountResult(unittest.TestCase):
     """AccountResult unit test stubs"""
 
     def setUp(self):
-        self.account_result = AccountResult("http://localhost:80")
+        self.account_result = AccountResult(uri="http://localhost:80")
 
     def tearDown(self):
         pass

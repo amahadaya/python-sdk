@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.message_result import MessageResult  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.message_result import MessageResult  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestMessageResult(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestMessageResult(unittest.TestCase):
     def testMessageResult(self):
         """Test MessageResult"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.message_result.MessageResult()  # noqa: E501
+        # model = freeclimb.models.message_result.MessageResult()  # noqa: E501
         pass
 
 

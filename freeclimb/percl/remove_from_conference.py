@@ -21,7 +21,7 @@ class RemoveFromConference(object):
         self._call_id = call_id
  
     def to_dict(self):
-        """Returns the json representation of remove_from_conference"""
+        """Returns the dictionary representation of remove_from_conference"""
         as_dict = {
             self.__class__.__name__ : {
                 "call_id": self._call_id

@@ -26,7 +26,7 @@ class TestApplicationList(unittest.TestCase):
     def setUp(self):
         self.application1 = ApplicationResult('http://localhost:80/application1')
         self.application2 = ApplicationResult('http://localhost:80/application2')
-        self.application_list = ApplicationList(2, 0, 1, 0, 1, 10, 'http://localhost:80', [self.application1, self.application2])
+        self.application_list = ApplicationList(next_page_uri='http://localhost:80/2', applications=[self.application1, self.application2])
 
     def tearDown(self):
         pass

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.incoming_number_request import IncomingNumberRequest  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.incoming_number_request import IncomingNumberRequest  # noqa: E501
+from freeclimb.rest import ApiException
 
 
 class TestIncomingNumberRequest(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestIncomingNumberRequest(unittest.TestCase):
     def testIncomingNumberRequest(self):
         """Test IncomingNumberRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.incoming_number_request.IncomingNumberRequest()  # noqa: E501
+        # model = freeclimb.models.incoming_number_request.IncomingNumberRequest()  # noqa: E501
         pass
 
 

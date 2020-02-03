@@ -24,8 +24,8 @@ class TestApplicationListAllOf(unittest.TestCase):
     """ApplicationListAllOf unit test stubs"""
 
     def setUp(self):
-        self.application1 = ApplicationResult('http://localhost:80/application1')
-        self.application2 = ApplicationResult('http://localhost:80/application2')
+        self.application1 = ApplicationResult(uri='http://localhost:80/application1')
+        self.application2 = ApplicationResult(uri='http://localhost:80/application2')
         self.application_list_all_of = ApplicationListAllOf([self.application1, self.application2])
 
     def tearDown(self):

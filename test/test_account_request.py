@@ -23,7 +23,7 @@ class TestAccountRequest(unittest.TestCase):
     """AccountRequest unit test stubs"""
 
     def setUp(self):
-        self.account_request = AccountRequest('Test Account')
+        self.account_request = AccountRequest(alias='Test Account')
 
     def tearDown(self):
         pass
