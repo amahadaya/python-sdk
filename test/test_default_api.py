@@ -426,63 +426,91 @@ class TestDefaultApi(unittest.TestCase):
 
         Send an SMS Message  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            message_request = freeclimb.MessageRequest(_from='fake_sender_phone_number', to='fake_recipient_phone_number',text='Test message')
+            self.test_send_an_sms_message = self.api.send_an_sms_message('ACCOUNT_ID', message_request=message_request)
+
+            mock_method.assert_called_once()
 
     def test_stream_a_recording_file(self):
         """Test case for stream_a_recording_file
 
         Stream a Recording File  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_stream_a_recording_file = self.api.stream_a_recording_file('ACCOUNT_ID', recording_id='fake_recording_id')
+
+            mock_method.assert_called_once()
 
     def test_update_a_conference(self):
         """Test case for update_a_conference
 
         Update a Conference  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_a_conference = self.api.update_a_conference('ACCOUNT_ID', conference_id='fake_conference_id', update_conference_request=freeclimb.UpdateConferenceRequest())
+
+            mock_method.assert_called_once()
 
     def test_update_a_live_call(self):
         """Test case for update_a_live_call
 
         Update a Live Call  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_a_live_call = self.api.update_a_live_call('ACCOUNT_ID', call_id='fake_call_id', update_call_request=freeclimb.UpdateCallRequest(status='completed'))
+
+            mock_method.assert_called_once()
 
     def test_update_a_participant(self):
         """Test case for update_a_participant
 
         Update a Participant  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_a_participant = self.api.update_a_participant('ACCOUNT_ID', call_id='fake_call_id', conference_id='fake_conference_id', update_conference_participant_request=freeclimb.UpdateConferenceParticipantRequest())
+
+            mock_method.assert_called_once()
 
     def test_update_a_queue(self):
         """Test case for update_a_queue
 
         Update a Queue  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_a_queue = self.api.update_a_queue('ACCOUNT_ID', queue_id='fake_queue_id', queue_request=freeclimb.QueueRequest())
+
+            mock_method.assert_called_once()
 
     def test_update_an_account(self):
         """Test case for update_an_account
 
         Manage an account  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_an_account = self.api.update_an_account('ACCOUNT_ID', account_request=freeclimb.AccountRequest())
+
+            mock_method.assert_called_once()
 
     def test_update_an_application(self):
         """Test case for update_an_application
 
         Update an application  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_an_application = self.api.update_an_application('ACCOUNT_ID', application_id='fake_application_id',application_request=freeclimb.ApplicationRequest())
+
+            mock_method.assert_called_once()
 
     def test_update_an_incoming_number(self):
         """Test case for update_an_incoming_number
 
         Update an Incoming Number  # noqa: E501
         """
-        pass
+        with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
+            self.test_update_an_incoming_number = self.api.update_an_incoming_number('ACCOUNT_ID', phone_number_id='fake_phone_number_id',incoming_number_request=freeclimb.IncomingNumberRequest())
+
+            mock_method.assert_called_once()
 
 
 if __name__ == '__main__':
