@@ -1,5 +1,5 @@
 import json
-from openapi_client.percl.finish_on_key import FinishOnKey
+from freeclimb.percl.finish_on_key import FinishOnKey
 
 class RecordUtterance(object):
     openapi_types = {

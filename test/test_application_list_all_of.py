@@ -14,25 +14,28 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.application_list_all_of import ApplicationListAllOf  # noqa: E501
-from openapi_client.rest import ApiException
+import freeclimb
+from freeclimb.models.application_list_all_of import ApplicationListAllOf  # noqa: E501
+from freeclimb.models.application_result import ApplicationResult
+from freeclimb.rest import ApiException
 
 
 class TestApplicationListAllOf(unittest.TestCase):
     """ApplicationListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.application1 = ApplicationResult('http://localhost:80/application1')
+        self.application2 = ApplicationResult('http://localhost:80/application2')
+        self.application_list_all_of = ApplicationListAllOf([self.application1, self.application2])
 
     def tearDown(self):
         pass
 
     def testApplicationListAllOf(self):
         """Test ApplicationListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.application_list_all_of.ApplicationListAllOf()  # noqa: E501
-        pass
+        # construct object with mandatory attributes with example values
+        # model = freeclimb.models.application_list_all_of.ApplicationListAllOf()  # noqa: E501
+        self.assertTrue(isinstance(self.application_list_all_of, ApplicationListAllOf))
 
 
 if __name__ == '__main__':

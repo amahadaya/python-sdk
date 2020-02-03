@@ -1,5 +1,5 @@
 import json
-from openapi_client.percl.grammar_type import GrammarType
+from freeclimb.percl.grammar_type import GrammarType
 
 class GetSpeech(object):
     openapi_types = {

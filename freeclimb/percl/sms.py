@@ -3,21 +3,21 @@ import json
 class Sms(object):
     openapi_types = {
         'to': 'str',
-        'from': 'str',
+        'from_number': 'str',
         'text': 'str',
         'notification_url': 'str'
     }
 
     attribute_map = {
         'to': 'to',
-        'from': 'from',
+        'from_number': 'from_number',
         'text': 'text',
         'notification_url': 'notification_url'
     }
 
-    def __init__(self, to, from, text):
+    def __init__(self, to, from_number, text):
         self._to = to
-        self._from = from
+        self._from_number = from_number
         self._text = text
         self._notification_url = None
 
@@ -26,8 +26,8 @@ class Sms(object):
         return self._to
     
     @property
-    def from(self):
-        return self._from
+    def from_number(self):
+        return self._from_number
 
     @property
     def notification_url(self):
@@ -41,9 +41,9 @@ class Sms(object):
     def to(self, to):
         self._to = to
 
-    @from.setter
-    def from(self, from):
-        self._from = from
+    @from_number.setter
+    def from_number(self, from_number):
+        self._from_number = from_number
     
     @notification_url.setter
     def notification_url(self, notification_url):
@@ -57,7 +57,7 @@ class Sms(object):
         """Returns the dictionary representation of sms"""
         as_dict = {
             self.__class__.__name__ : {
-                "from": self._from,
+                "from": self._from_number,
                 "to": self._to,
                 "text": self._text,
                 "notificationUrl": self._notification_url 

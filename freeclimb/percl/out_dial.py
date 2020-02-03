@@ -1,6 +1,6 @@
 import json
 
-from openapi_client.percl.out_dial_if_machine import OutDialIfMachine
+from freeclimb.percl.out_dial_if_machine import OutDialIfMachine
 
 class OutDial(object):
     openapi_types = {

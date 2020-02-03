@@ -1,6 +1,6 @@
 import json
 
-from openapi_client.percl.language import Language
+from freeclimb.percl.language import Language
 
 class Say(object):
     openapi_types = {

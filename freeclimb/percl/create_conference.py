@@ -1,5 +1,5 @@
 import json
-from openapi_client.percl.play_beep import PlayBeep
+from freeclimb.percl.play_beep import PlayBeep
 
 class CreateConference(object):
     openapi_types = {
