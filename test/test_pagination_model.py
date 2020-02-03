@@ -23,16 +23,16 @@ class TestPaginationModel(unittest.TestCase):
     """PaginationModel unit test stubs"""
 
     def setUp(self):
-        pass
+        self.pagination_model = PaginationModel()
 
     def tearDown(self):
         pass
 
     def testPaginationModel(self):
         """Test PaginationModel"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.pagination_model.PaginationModel()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.pagination_model, PaginationModel))
 
 
 if __name__ == '__main__':

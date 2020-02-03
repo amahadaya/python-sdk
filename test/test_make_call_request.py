@@ -23,16 +23,16 @@ class TestMakeCallRequest(unittest.TestCase):
     """MakeCallRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.make_call_request = MakeCallRequest(_from='+12223334444', to='+13332224444', application_id='fake_application_id')
 
     def tearDown(self):
         pass
 
     def testMakeCallRequest(self):
         """Test MakeCallRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.make_call_request.MakeCallRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.make_call_request, MakeCallRequest))
 
 
 if __name__ == '__main__':

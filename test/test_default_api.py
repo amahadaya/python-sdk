@@ -159,7 +159,7 @@ class TestDefaultApi(unittest.TestCase):
         Filter Logs  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_filter_logs = self.api.filter_logs('ACCOUNT_ID', filter_logs_request=freeclimb.FilterLogsRequest('fake_pql'))
+            self.test_filter_logs = self.api.filter_logs('ACCOUNT_ID', filter_logs_request=freeclimb.FilterLogsRequest(pql='fake_pql'))
 
             mock_method.assert_called_once()
 

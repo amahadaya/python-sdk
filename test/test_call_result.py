@@ -23,16 +23,16 @@ class TestCallResult(unittest.TestCase):
     """CallResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.call_result = CallResult()
 
     def tearDown(self):
         pass
 
     def testCallResult(self):
         """Test CallResult"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.call_result.CallResult()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.call_result, CallResult))
 
 
 if __name__ == '__main__':

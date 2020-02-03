@@ -23,16 +23,16 @@ class TestQueueRequest(unittest.TestCase):
     """QueueRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.queue_request = QueueRequest()
 
     def tearDown(self):
         pass
 
     def testQueueRequest(self):
         """Test QueueRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.queue_request.QueueRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.queue_request, QueueRequest))
 
 
 if __name__ == '__main__':

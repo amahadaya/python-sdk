@@ -23,16 +23,16 @@ class TestDequeueMemberRequest(unittest.TestCase):
     """DequeueMemberRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.dequeue_member_request = DequeueMemberRequest()
 
     def tearDown(self):
         pass
 
     def testDequeueMemberRequest(self):
         """Test DequeueMemberRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.dequeue_member_request.DequeueMemberRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.dequeue_member_request, DequeueMemberRequest))
 
 
 if __name__ == '__main__':

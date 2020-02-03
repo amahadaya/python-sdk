@@ -23,16 +23,16 @@ class TestUpdateConferenceParticipantRequest(unittest.TestCase):
     """UpdateConferenceParticipantRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.update_conference_participant_request = UpdateConferenceParticipantRequest()
 
     def tearDown(self):
         pass
 
     def testUpdateConferenceParticipantRequest(self):
         """Test UpdateConferenceParticipantRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.update_conference_participant_request.UpdateConferenceParticipantRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.update_conference_participant_request, UpdateConferenceParticipantRequest))
 
 
 if __name__ == '__main__':

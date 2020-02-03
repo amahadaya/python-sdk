@@ -23,16 +23,16 @@ class TestIncomingNumberRequest(unittest.TestCase):
     """IncomingNumberRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.incoming_number_request = IncomingNumberRequest()
 
     def tearDown(self):
         pass
 
     def testIncomingNumberRequest(self):
         """Test IncomingNumberRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.incoming_number_request.IncomingNumberRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.incoming_number_request, IncomingNumberRequest))
 
 
 if __name__ == '__main__':

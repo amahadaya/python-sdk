@@ -23,16 +23,16 @@ class TestLogResult(unittest.TestCase):
     """LogResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.log_result = LogResult()
 
     def tearDown(self):
         pass
 
     def testLogResult(self):
         """Test LogResult"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.log_result.LogResult()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.log_result, LogResult))
 
 
 if __name__ == '__main__':

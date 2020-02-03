@@ -23,16 +23,16 @@ class TestCreateConferenceRequest(unittest.TestCase):
     """CreateConferenceRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.create_conference_request = CreateConferenceRequest()
 
     def tearDown(self):
         pass
 
     def testCreateConferenceRequest(self):
         """Test CreateConferenceRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.create_conference_request.CreateConferenceRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.create_conference_request, CreateConferenceRequest))
 
 
 if __name__ == '__main__':

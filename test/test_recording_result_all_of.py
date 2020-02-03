@@ -23,16 +23,16 @@ class TestRecordingResultAllOf(unittest.TestCase):
     """RecordingResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.recording_result_all_of = RecordingResultAllOf()
 
     def tearDown(self):
         pass
 
     def testRecordingResultAllOf(self):
         """Test RecordingResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.recording_result_all_of.RecordingResultAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.recording_result_all_of, RecordingResultAllOf))
 
 
 if __name__ == '__main__':

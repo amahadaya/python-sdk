@@ -23,16 +23,16 @@ class TestMessageResult(unittest.TestCase):
     """MessageResult unit test stubs"""
 
     def setUp(self):
-        pass
+        self.message_result = MessageResult()
 
     def tearDown(self):
         pass
 
     def testMessageResult(self):
         """Test MessageResult"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.message_result.MessageResult()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.message_result, MessageResult))
 
 
 if __name__ == '__main__':

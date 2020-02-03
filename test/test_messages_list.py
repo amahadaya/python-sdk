@@ -23,16 +23,16 @@ class TestMessagesList(unittest.TestCase):
     """MessagesList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.messages_list = MessagesList()
 
     def tearDown(self):
         pass
 
     def testMessagesList(self):
         """Test MessagesList"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.messages_list.MessagesList()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.messages_list, MessagesList))
 
 
 if __name__ == '__main__':

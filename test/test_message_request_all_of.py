@@ -23,16 +23,16 @@ class TestMessageRequestAllOf(unittest.TestCase):
     """MessageRequestAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.message_request_all_of = MessageRequestAllOf(_from='+12223334444', to='+13332224444', text='Test message')
 
     def tearDown(self):
         pass
 
     def testMessageRequestAllOf(self):
         """Test MessageRequestAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.message_request_all_of.MessageRequestAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.message_request_all_of, MessageRequestAllOf))
 
 
 if __name__ == '__main__':

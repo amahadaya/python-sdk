@@ -23,7 +23,7 @@ class TestIncomingNumberResultAllOf(unittest.TestCase):
     """IncomingNumberResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.incoming_number_result_all_of = IncomingNumberResultAllOf()
 
     def tearDown(self):
         pass
@@ -32,7 +32,7 @@ class TestIncomingNumberResultAllOf(unittest.TestCase):
         """Test IncomingNumberResultAllOf"""
         # FIXME: construct object with mandatory attributes with example values
         # model = freeclimb.models.incoming_number_result_all_of.IncomingNumberResultAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.incoming_number_result_all_of, IncomingNumberResultAllOf))
 
 
 if __name__ == '__main__':

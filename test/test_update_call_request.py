@@ -23,16 +23,16 @@ class TestUpdateCallRequest(unittest.TestCase):
     """UpdateCallRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.update_call_request = UpdateCallRequest(status='canceled')
 
     def tearDown(self):
         pass
 
     def testUpdateCallRequest(self):
         """Test UpdateCallRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.update_call_request.UpdateCallRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.update_call_request, UpdateCallRequest))
 
 
 if __name__ == '__main__':

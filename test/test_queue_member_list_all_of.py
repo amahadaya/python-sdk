@@ -23,16 +23,16 @@ class TestQueueMemberListAllOf(unittest.TestCase):
     """QueueMemberListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.queue_member_list_all_of = QueueMemberListAllOf()
 
     def tearDown(self):
         pass
 
     def testQueueMemberListAllOf(self):
         """Test QueueMemberListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.queue_member_list_all_of.QueueMemberListAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.queue_member_list_all_of, QueueMemberListAllOf))
 
 
 if __name__ == '__main__':

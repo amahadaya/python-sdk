@@ -23,16 +23,16 @@ class TestIncomingNumberList(unittest.TestCase):
     """IncomingNumberList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.incoming_number_list = IncomingNumberList()
 
     def tearDown(self):
         pass
 
     def testIncomingNumberList(self):
         """Test IncomingNumberList"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.incoming_number_list.IncomingNumberList()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.incoming_number_list, IncomingNumberList))
 
 
 if __name__ == '__main__':

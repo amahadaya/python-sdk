@@ -23,16 +23,16 @@ class TestLogList(unittest.TestCase):
     """LogList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.log_list = LogList()
 
     def tearDown(self):
         pass
 
     def testLogList(self):
         """Test LogList"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.log_list.LogList()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.log_list, LogList))
 
 
 if __name__ == '__main__':

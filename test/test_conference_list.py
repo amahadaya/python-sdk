@@ -23,16 +23,16 @@ class TestConferenceList(unittest.TestCase):
     """ConferenceList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.conference_list = ConferenceList()
 
     def tearDown(self):
         pass
 
     def testConferenceList(self):
         """Test ConferenceList"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.conference_list.ConferenceList()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.conference_list, ConferenceList))
 
 
 if __name__ == '__main__':

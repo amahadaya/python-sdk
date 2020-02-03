@@ -23,16 +23,17 @@ class TestConferenceResultAllOf(unittest.TestCase):
     """ConferenceResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.conference_result_all_of = ConferenceResultAllOf()
 
     def tearDown(self):
         pass
 
     def testConferenceResultAllOf(self):
         """Test ConferenceResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.conference_result_all_of.ConferenceResultAllOf()  # noqa: E501
-        pass
+        print(self.conference_result_all_of)
+        self.assertTrue(isinstance(self.conference_result_all_of, freeclimb.application_result_all_of())
 
 
 if __name__ == '__main__':

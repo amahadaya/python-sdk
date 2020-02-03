@@ -23,16 +23,16 @@ class TestMutableResourceModel(unittest.TestCase):
     """MutableResourceModel unit test stubs"""
 
     def setUp(self):
-        pass
+        self.mutable_resource_model = MutableResourceModel()
 
     def tearDown(self):
         pass
 
     def testMutableResourceModel(self):
         """Test MutableResourceModel"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.mutable_resource_model.MutableResourceModel()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.mutable_resource_model, MutableResourceModel))
 
 
 if __name__ == '__main__':

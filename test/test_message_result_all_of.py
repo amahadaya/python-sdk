@@ -23,16 +23,16 @@ class TestMessageResultAllOf(unittest.TestCase):
     """MessageResultAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.message_result_all_of = MessageResultAllOf()
 
     def tearDown(self):
         pass
 
     def testMessageResultAllOf(self):
         """Test MessageResultAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.message_result_all_of.MessageResultAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.message_result_all_of, MessageResultAllOf))
 
 
 if __name__ == '__main__':

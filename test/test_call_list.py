@@ -23,16 +23,16 @@ class TestCallList(unittest.TestCase):
     """CallList unit test stubs"""
 
     def setUp(self):
-        pass
+        self.call_list = CallList()
 
     def tearDown(self):
         pass
 
     def testCallList(self):
         """Test CallList"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.call_list.CallList()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.call_list, CallList))
 
 
 if __name__ == '__main__':

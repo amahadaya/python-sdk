@@ -23,16 +23,16 @@ class TestRecordingListAllOf(unittest.TestCase):
     """RecordingListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.recording_list_all_of = RecordingListAllOf()
 
     def tearDown(self):
         pass
 
     def testRecordingListAllOf(self):
         """Test RecordingListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.recording_list_all_of.RecordingListAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.recording_list_all_of, RecordingListAllOf))
 
 
 if __name__ == '__main__':

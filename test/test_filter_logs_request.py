@@ -23,16 +23,16 @@ class TestFilterLogsRequest(unittest.TestCase):
     """FilterLogsRequest unit test stubs"""
 
     def setUp(self):
-        pass
+        self.filter_logs_request = FilterLogsRequest(pql='fake_pql')
 
     def tearDown(self):
         pass
 
     def testFilterLogsRequest(self):
         """Test FilterLogsRequest"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.filter_logs_request.FilterLogsRequest()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.filter_logs_request, FilterLogsRequest))
 
 
 if __name__ == '__main__':

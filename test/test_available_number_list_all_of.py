@@ -23,16 +23,16 @@ class TestAvailableNumberListAllOf(unittest.TestCase):
     """AvailableNumberListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.available_number_list_all_of = AvailableNumberListAllOf()
 
     def tearDown(self):
         pass
 
     def testAvailableNumberListAllOf(self):
         """Test AvailableNumberListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.available_number_list_all_of.AvailableNumberListAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.available_number_list_all_of, AvailableNumberListAllOf))
 
 
 if __name__ == '__main__':

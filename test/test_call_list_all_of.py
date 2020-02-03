@@ -23,16 +23,16 @@ class TestCallListAllOf(unittest.TestCase):
     """CallListAllOf unit test stubs"""
 
     def setUp(self):
-        pass
+        self.call_list_all_of = CallListAllOf()
 
     def tearDown(self):
         pass
 
     def testCallListAllOf(self):
         """Test CallListAllOf"""
-        # FIXME: construct object with mandatory attributes with example values
+        # construct object with mandatory attributes with example values
         # model = freeclimb.models.call_list_all_of.CallListAllOf()  # noqa: E501
-        pass
+        self.assertTrue(isinstance(self.call_list_all_of, CallListAllOf))
 
 
 if __name__ == '__main__':
