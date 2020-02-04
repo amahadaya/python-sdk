@@ -63,11 +63,11 @@ class OutDial(object):
         return self._timeout
 
     @property
-    def ifMachine(self):
+    def if_machine(self):
         return self._if_machine
  
     @property
-    def ifMachineUrl(self):
+    def if_machine_url(self):
         return self._if_machine_url
 
     @property
@@ -98,18 +98,16 @@ class OutDial(object):
     def timeout(self, timeout):
         self._timeout = timeout
 
-    @ifMachine.setter
-    def ifMachine(self, ifMachine):
-        out_dial_if_machine_instance = OutDialIfMachine('')
-        try:
-            out_dial_if_machine_code = getattr(out_dial_if_machine_instance, out_dial_if_machine.upper())
-            self._if_machine = ifMachine
-        except AttributeError:
-            raise ValueError("ifMachine must be set to one of the following values: 'REDIRECT' or 'HANGUP'. Default value is null.")
+    @if_machine.setter
+    def if_machine(self, if_machine):
+        if(isinstance(if_machine, OutDialIfMachine)):
+            self._if_machine = if_machine
+        else:
+            raise ValueError("if_machine must be an OutDialIfMachine PerCL object set to one of the following values: 'redirect' or 'hangup'. Default value is null.")
 
-    @ifMachineUrl.setter
-    def ifMachineUrl(self, ifMachineUrl):
-        self._if_machine_url = ifMachineUrl
+    @if_machine_url.setter
+    def if_machine_url(self, if_machine_url):
+        self._if_machine_url = if_machine_url
 
     @status_callback_url.setter
     def status_callback_url(self, status_callback_url):
@@ -124,7 +122,7 @@ class OutDial(object):
                 'call_connect_url': self._call_connect_url,
                 'send_digits': self._send_digits,
                 'timeout': self._timeout,
-                'if_machine': self._if_machine,
+                'if_machine': (self._if_machine.value if(isinstance(self._if_machine, OutDialIfMachine)) else None),
                 'if_machine_url': self._if_machine_url,
                 'status_callback_url': self._status_callback_url
             }

@@ -28,8 +28,7 @@ class GetDigits(object):
         self._action_url = action_url
         self._initial_max_digits_ms = None
         self._digit_max_digits_ms = None
-        finish_on_key_instance = FinishOnKey('')
-        self._finish_on_key = finish_on_key_instance.POUND
+        self._finish_on_key = FinishOnKey('#')
         self._min_digits = None
         self._max_digits = None
         self._flush_buffer = None
@@ -81,12 +80,10 @@ class GetDigits(object):
 
     @finish_on_key.setter
     def finish_on_key(self, finish_on_key):
-        finish_on_key_instance = FinishOnKey('')
-        try:
-            finish_on_key_code = getattr(finish_on_key_instance, finish_on_key.upper())
-        except AttributeError:
-            raise ValueError("finish_on_key must be set to the written form of a number from 0-9 or 'STAR'. Default value is 'POUND'")
-        self._finish_on_key = finish_on_key_code
+        if(isinstance(finish_on_key, FinishOnKey)):
+            self._finish_on_key = finish_on_key
+        else:
+            raise ValueError("finish_on_key must be a FinishOnKey PerCL object set to any stringified numeric digit, '#' or '*'. Default value is '#'")
 
     @min_digits.setter
     def min_digits(self, min_digits):
@@ -110,7 +107,7 @@ class GetDigits(object):
                 'initial_max_digits_ms': self._initial_max_digits_ms,
                 'digit_max_digits_ms': self._digit_max_digits_ms,
                 'action_url': self._action_url,
-                'finish_on_key': self._finish_on_key,
+                'finish_on_key': self._finish_on_key.value,
                 'min_digits': self._min_digits,
                 'max_digits': self._max_digits,
                 'flush_buffer': self._flush_buffer,

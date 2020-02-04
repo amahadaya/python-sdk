@@ -37,8 +37,7 @@ class GetSpeech(object):
     def __init__(self, action_url, grammar_file):
         self._action_url = action_url
         self._grammar_file = grammar_file
-        grammar_type_instance = GrammarType('')
-        self._grammar_type = grammar_type_instance.URL
+        self._grammar_type = GrammarType('URL')
         self._grammar_rule = None
         self._play_beep = None
         self._no_input_timeout_ms = None
@@ -108,12 +107,10 @@ class GetSpeech(object):
 
     @grammar_type.setter
     def grammar_type(self, grammar_type):
-        grammar_type_instance = GrammarType('')
-        try:
-            grammar_type_code = getattr(grammar_type_instance, grammar_type.upper())
-            self._grammar_type = grammar_type_code
-        except AttributeError:
-            raise ValueError("grammer_type must be set to one of the following values: 'URL' or 'BUILTIN'. Default is 'URL'. A value of 'URL' indicates the grammarFile attribute specifies a URL that points to the grammar file. A value of 'BUILTIN' indicates the grammarFile attribute specifies the name of one of the platform built-in grammar files.")
+        if(isinstance(grammar_type, GrammarType)):
+            self._grammar_type = grammar_type
+        else:
+            raise ValueError("grammar_type must be a GrammarType PerCL object set to one of the following values: 'URL' or 'BUILTIN'. Default is 'URL'. A value of 'URL' indicates the grammarFile attribute specifies a URL that points to the grammar file. A value of 'BUILTIN' indicates the grammarFile attribute specifies the name of one of the platform built-in grammar files.")
 
     @grammar_file.setter
     def grammar_file(self, grammar_file):
@@ -163,7 +160,7 @@ class GetSpeech(object):
         as_dict = {
             self.__class__.__name__ : {
                 'action_url': self._action_url,
-                'grammar_type': self._grammar_type,
+                'grammar_type': self._grammar_type.value,
                 'grammar_file': self._grammar_file,
                 'grammar_rule': self._grammar_rule,
                 'play_beep': self._play_beep,

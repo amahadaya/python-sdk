@@ -72,6 +72,11 @@ except ApiException as e:
 
 ```
 
+## Tests
+
+Run tests with command:
+```python -m unittest test```
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://www.freeclimb.com/apiserver*

@@ -23,8 +23,7 @@ class CreateConference(object):
     def __init__(self, action_url):
         self._action_url = action_url
         self._alias = None
-        play_beep_instance = PlayBeep('')
-        self._play_beep = play_beep_instance.ALWAYS
+        self._play_beep = PlayBeep('always')
         self._wait_url = None
         self._record = None
         self._status_callback_url = None
@@ -59,12 +58,10 @@ class CreateConference(object):
 
     @play_beep.setter
     def play_beep(self, play_beep):
-        play_beep_instance = PlayBeep('')
-        try:
-            play_beep_code = getattr(play_beep_instance, play_beep.upper())
-            self._play_beep = play_beep_code
-        except AttributeError:
-            raise ValueError("Within conferences, play_beep must be set to one of the following values: 'ALWAYS', 'NEVER', 'ENTRY_ONLY', OR 'EXIT_ONLY'. Default value is 'ALWAYS'")
+        if(isinstance(play_beep, PlayBeep)):
+            self._play_beep = play_beep
+        else:
+            raise ValueError("Within conferences, play_beep must be a PlayBeep PerCL object set to one of the following values: 'always', 'never', 'entryOnly', OR 'exitOnly'. Default value is 'always'")
 
     @action_url.setter
     def action_url(self, action_url):
@@ -86,7 +83,7 @@ class CreateConference(object):
         as_dict = {
             self.__class__.__name__ : {
                 'alias': self._alias,
-                'play_beep': self._play_beep,
+                'play_beep': self._play_beep.value,
                 'action_url': self._action_url,
                 'wait_url': self._wait_url,
                 'record': self._record,

@@ -23,8 +23,7 @@ class RecordUtterance(object):
     def __init__(self, action_url):
         self._action_url = action_url
         self._silence_timeout_ms = None
-        finish_on_key_instance = FinishOnKey('')
-        self._finish_on_key = finish_on_key_instance.POUND
+        self._finish_on_key = FinishOnKey('#')
         self._max_length_sec = None
         self._play_beep = None
         self._auto_start = None
@@ -63,12 +62,10 @@ class RecordUtterance(object):
 
     @finish_on_key.setter
     def finish_on_key(self, finish_on_key):
-        finish_on_key_instance = FinishOnKey('')
-        try:
-            finish_on_key_code = getattr(finish_on_key_instance, finish_on_key.upper())
-        except AttributeError:
-            raise ValueError("finish_on_key must be set to the written form of a number from 0-9 or 'STAR'. Default value is 'POUND'")
-        self._finish_on_key = finish_on_key_code
+        if(isinstance(finish_on_key, FinishOnKey)):
+            self._finish_on_key = finish_on_key
+        else:
+            raise ValueError("finish_on_key must be a FinishOnKey PerCL object set to any stringified numeric digit, '#' or '*'. Default value is '#'")
 
     @max_length_sec.setter
     def max_length_sec(self, max_length_sec):
@@ -85,10 +82,9 @@ class RecordUtterance(object):
     def to_dict(self):
         as_dict = {
             self.__class__.__name__ : {
-                'silence_timeout_ms': self._silence_timeout_ms,
-                'digit_play_beep_ms': self._digit_play_beep_ms,
                 'action_url': self._action_url,
-                'finish_on_key': self._finish_on_key,
+                'silence_timeout_ms': self._silence_timeout_ms,
+                'finish_on_key': self._finish_on_key.value,
                 'max_length_sec': self._max_length_sec,
                 'play_beep': self._play_beep,
                 'auto_start': self._auto_start

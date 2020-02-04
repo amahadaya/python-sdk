@@ -2,7 +2,7 @@ import json
 
 class Redirect(object):
     openapi_types = {
-        'action_url': 'int'
+        'action_url': 'str'
     }
 
     attribute_map = {
