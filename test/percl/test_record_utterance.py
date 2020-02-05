@@ -42,11 +42,15 @@ class TestRecordUtterance(unittest.TestCase):
         self.assertTrue(hasattr(self.record_utterance, 'auto_start'))
 
     def testAddFinishOnKey(self):
-        """AddFinishOnKey to conference"""
+        """Add FinishOnKey to record_utterance"""
         finish_on_key_symbol = '*'
-        self.record_utterance.finish_on_key = freeclimb.FinishOnKey(finish_on_key_symbol)
-        self.assertTrue(isinstance(self.record_utterance.finish_on_key, freeclimb.FinishOnKey))
-        self.assertEqual(self.record_utterance.finish_on_key.value, finish_on_key_symbol)
+        self.record_utterance.finish_on_key = finish_on_key_symbol
+        self.assertEqual(self.record_utterance.finish_on_key, finish_on_key_symbol)
+
+    def testAddFinishOnKeyFail(self):
+        """Fail to Add FinishOnKey to record_utterance"""
+        with self.assertRaises(ValueError):
+            self.record_utterance.finish_on_key = 'NotValidValue'
 
     def testToDict(self):
         """Test RecordUtterance to dictionary"""

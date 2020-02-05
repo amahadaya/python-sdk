@@ -35,7 +35,7 @@ class SetTalk(object):
         """Returns the dictionary representation of set_talk"""
         as_dict = {
             self.__class__.__name__ : {
-                "call_id": self._call_id,
+                "callId": self._call_id,
                 "talk": self._talk
             }
         }

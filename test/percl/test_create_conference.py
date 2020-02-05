@@ -44,9 +44,8 @@ class TestCreateConference(unittest.TestCase):
     def testAddPlayBeep(self):
         """AddPlayBeep to conference"""
         play_beep_status = 'exitOnly'
-        self.create_conference.play_beep = freeclimb.PlayBeep(play_beep_status)
-        self.assertTrue(isinstance(self.create_conference.play_beep, freeclimb.PlayBeep))
-        self.assertEqual(self.create_conference.play_beep.value, play_beep_status)
+        self.create_conference.play_beep = play_beep_status
+        self.assertEqual(self.create_conference.play_beep, play_beep_status)
 
     def testToDict(self):
         """Test CreateConference to dictionary"""

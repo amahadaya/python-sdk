@@ -24,7 +24,7 @@ class Redirect(object):
         """Returns the dictionary representation of redirect"""
         as_dict = {
             self.__class__.__name__ : {
-                "action_url": self._action_url
+                "actionUrl": self._action_url
             }
         }
         return as_dict

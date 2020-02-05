@@ -1,7 +1,5 @@
 import json
 
-from freeclimb.percl.out_dial_if_machine import OutDialIfMachine
-
 class OutDial(object):
     openapi_types = {
         'destination': 'str',
@@ -100,10 +98,10 @@ class OutDial(object):
 
     @if_machine.setter
     def if_machine(self, if_machine):
-        if(isinstance(if_machine, OutDialIfMachine)):
-            self._if_machine = if_machine
-        else:
-            raise ValueError("if_machine must be an OutDialIfMachine PerCL object set to one of the following values: 'redirect' or 'hangup'. Default value is null.")
+        allowed_values = ['redirect', 'hangup']
+        if if_machine not in allowed_values:
+            raise ValueError("if_machine must be set to one of the following values: 'redirect' or 'hangup'. Default value is null.")
+        self._if_machine = if_machine
 
     @if_machine_url.setter
     def if_machine_url(self, if_machine_url):
@@ -117,14 +115,14 @@ class OutDial(object):
         as_dict = {
             self.__class__.__name__ : {
                 'destination': self._destination,
-                'calling_number': self._calling_number,
-                'action_url': self._action_url,
-                'call_connect_url': self._call_connect_url,
-                'send_digits': self._send_digits,
+                'callingNumber': self._calling_number,
+                'actionUrl': self._action_url,
+                'callConnectUrl': self._call_connect_url,
+                'sendDigits': self._send_digits,
                 'timeout': self._timeout,
-                'if_machine': (self._if_machine.value if(isinstance(self._if_machine, OutDialIfMachine)) else None),
-                'if_machine_url': self._if_machine_url,
-                'status_callback_url': self._status_callback_url
+                'ifMachine': self._if_machine,
+                'ifMachineUrl': self._if_machine_url,
+                'statusCallbackUrl': self._status_callback_url
             }
         }
         return as_dict

@@ -46,9 +46,13 @@ class TestGetDigits(unittest.TestCase):
     def testAddFinishOnKey(self):
         """Add FinishOnKey to conference"""
         finish_on_key_symbol = '*'
-        self.get_digits.finish_on_key = freeclimb.FinishOnKey(finish_on_key_symbol)
-        self.assertTrue(isinstance(self.get_digits.finish_on_key, freeclimb.FinishOnKey))
-        self.assertEqual(self.get_digits.finish_on_key.value, finish_on_key_symbol)
+        self.get_digits.finish_on_key = finish_on_key_symbol
+        self.assertEqual(self.get_digits.finish_on_key, finish_on_key_symbol)
+
+    def testAddFinishOnKeyFail(self):
+        """Fail to Add FinishOnKey to conference"""
+        with self.assertRaises(ValueError):
+            self.get_digits.finish_on_key = 'NotValidValue'
 
     def testToDict(self):
         """Test GetDigits to dictionary"""

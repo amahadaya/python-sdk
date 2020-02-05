@@ -122,16 +122,16 @@ class AddToConference(object):
     def to_dict(self):
         as_dict = {
             self.__class__.__name__ : {
-                'conference_id': self._conference_id,
-                'call_id': self._call_id,
-                'start_conf_on_enter': self._start_conf_on_enter,
+                'conferenceId': self._conference_id,
+                'callId': self._call_id,
+                'startConfOnEnter': self._start_conf_on_enter,
                 'talk': self._talk,
                 'listen': self._listen,
-                'leave_conference_url': self._leave_conference_url,
-                'notification_url': self._notification_url,
-                'allow_call_control': self._allow_call_control,
-                'call_control_sequence': self._call_control_sequence,
-                'call_control_url': self._call_control_url
+                'leaveConferenceUrl': self._leave_conference_url,
+                'notificationUrl': self._notification_url,
+                'allowCallControl': self._allow_call_control,
+                'callControlSequence': self._call_control_sequence,
+                'callControlUrl': self._call_control_url
             }
         }
         return as_dict

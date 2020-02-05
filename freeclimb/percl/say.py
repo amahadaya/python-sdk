@@ -1,7 +1,5 @@
 import json
 
-from freeclimb.percl.language import Language
-
 class Say(object):
     openapi_types = {
         'text': 'str',
@@ -21,7 +19,7 @@ class Say(object):
 
     def __init__(self, text):
         self._text = text
-        self._language = Language('en-US')
+        self._language = None
         self._loop = None
         self._conference_id = None
         self._enforce_PCI = None
@@ -52,10 +50,10 @@ class Say(object):
 
     @language.setter
     def language(self, language):
-        if(isinstance(language, Language)):
-            self._language = language
-        else:
-            raise ValueError("Language must be set to one of the following values: 'CHINESE_TW', 'CHINESE_HK', 'CHINESE_CN', 'SWEDISH', 'RUSSIAN', 'PORTUGUESE_PT', 'PORTUGUESE_BR', 'POLISH', 'DUTCH', 'NORWEGIAN', 'KOREAN', 'JAPANESE', 'ITALIAN', 'FRENCH_CA', 'FRENCH_FR', 'FINNISH', 'SPANISH_MX', 'SPANISH_ES', 'ENGLISH_US', 'ENGLISH_IN','ENGLISH_GB', 'ENGLISH_CA', 'ENGLISH_AU', 'GERMAN', 'DANISH', 'CATALAN'. Default value is ENGLISH_US")
+        allowed_values = ['zh-TW', 'zh-HK', 'zh-CN', 'sv-SE', 'ru-RU', 'pt-PT', 'pt-BR', 'pl-PL', 'nl-NL', 'nb-NO', 'ko-KR', 'ja-JP', 'it-IT', 'fr-CA', 'fr-FR', 'fi-FI', 'es-MX', 'es-ES', 'en-US', 'en-IN','en-gb', 'en-CA', 'en-AU', 'de-DE', 'da-DK', 'ca-ES']
+        if language not in allowed_values:
+            raise ValueError("Language must be set to one of the following values: 'zh-TW', 'zh-HK', 'zh-CN', 'sv-SE', 'ru-RU', 'pt-PT', 'pt-BR', 'pl-PL', 'nl-NL', 'nb-NO', 'ko-KR', 'ja-JP', 'it-IT', 'fr-CA', 'fr-FR', 'fi-FI', 'es-MX', 'es-ES', 'en-US', 'en-IN','en-gb', 'en-CA', 'en-AU', 'de-DE', 'da-DK', 'ca-ES'. Default value is en-US")
+        self._language = language
     
     @loop.setter
     def loop(self, loop):
@@ -74,10 +72,10 @@ class Say(object):
         as_dict = {
             self.__class__.__name__ : {
                 "text": self._text,
-                "language": self._language.value,
+                "language": self._language,
                 "loop": self._loop,
-                "conference_id": self._conference_id,
-                "enforce_PCI": self._enforce_PCI
+                "conferenceId": self._conference_id,
+                "enforcePCI": self._enforce_PCI
             }
         }
         return as_dict

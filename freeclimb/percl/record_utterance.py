@@ -1,5 +1,4 @@
 import json
-from freeclimb.percl.finish_on_key import FinishOnKey
 
 class RecordUtterance(object):
     openapi_types = {
@@ -23,7 +22,7 @@ class RecordUtterance(object):
     def __init__(self, action_url):
         self._action_url = action_url
         self._silence_timeout_ms = None
-        self._finish_on_key = FinishOnKey('#')
+        self._finish_on_key = None
         self._max_length_sec = None
         self._play_beep = None
         self._auto_start = None
@@ -62,10 +61,10 @@ class RecordUtterance(object):
 
     @finish_on_key.setter
     def finish_on_key(self, finish_on_key):
-        if(isinstance(finish_on_key, FinishOnKey)):
-            self._finish_on_key = finish_on_key
-        else:
-            raise ValueError("finish_on_key must be a FinishOnKey PerCL object set to any stringified numeric digit, '#' or '*'. Default value is '#'")
+        allowed_values = ['1','2','3','4','5','6','7','8','9','0','#', '*']
+        if finish_on_key not in allowed_values:
+            raise ValueError("finish_on_key must be set to any stringified numeric digit, '#' or '*'. Default value is '#'")
+        self._finish_on_key = finish_on_key
 
     @max_length_sec.setter
     def max_length_sec(self, max_length_sec):
@@ -82,12 +81,12 @@ class RecordUtterance(object):
     def to_dict(self):
         as_dict = {
             self.__class__.__name__ : {
-                'action_url': self._action_url,
-                'silence_timeout_ms': self._silence_timeout_ms,
-                'finish_on_key': self._finish_on_key.value,
-                'max_length_sec': self._max_length_sec,
-                'play_beep': self._play_beep,
-                'auto_start': self._auto_start
+                'actionUrl': self._action_url,
+                'silenceTimeoutMs': self._silence_timeout_ms,
+                'finishOnKey': self._finish_on_key,
+                'maxLengthSec': self._max_length_sec,
+                'playBeep': self._play_beep,
+                'autoStart': self._auto_start
             }
         }
         return as_dict

@@ -36,7 +36,7 @@ class SendDigits(object):
         as_dict = {
             self.__class__.__name__ : {
                 "digits": self._digits,
-                "pause_ms": self._pause_ms
+                "pauseMs": self._pause_ms
             }
         }
         return as_dict

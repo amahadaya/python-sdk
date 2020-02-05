@@ -43,9 +43,8 @@ class TestSay(unittest.TestCase):
     def testAddLanguage(self):
         """Add Language to conference"""
         language_code = 'ru-RU'
-        self.say.language = freeclimb.Language(language_code)
-        self.assertTrue(isinstance(self.say.language, freeclimb.Language))
-        self.assertEqual(self.say.language.value, language_code)
+        self.say.language = language_code
+        self.assertEqual(self.say.language, language_code)
 
     def testToDict(self):
         """Test Say to dictionary"""

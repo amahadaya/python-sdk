@@ -1,5 +1,4 @@
 import json
-from freeclimb.percl.finish_on_key import FinishOnKey
 
 class GetDigits(object):
     openapi_types = {
@@ -10,7 +9,7 @@ class GetDigits(object):
         'min_digits': 'int',
         'max_digits': 'int',
         'flush_buffer': 'bool',
-        'prompts': 'str'
+        'prompts': 'array'
     }
 
     attribute_map = {
@@ -28,7 +27,7 @@ class GetDigits(object):
         self._action_url = action_url
         self._initial_max_digits_ms = None
         self._digit_max_digits_ms = None
-        self._finish_on_key = FinishOnKey('#')
+        self._finish_on_key = None
         self._min_digits = None
         self._max_digits = None
         self._flush_buffer = None
@@ -80,10 +79,10 @@ class GetDigits(object):
 
     @finish_on_key.setter
     def finish_on_key(self, finish_on_key):
-        if(isinstance(finish_on_key, FinishOnKey)):
-            self._finish_on_key = finish_on_key
-        else:
-            raise ValueError("finish_on_key must be a FinishOnKey PerCL object set to any stringified numeric digit, '#' or '*'. Default value is '#'")
+        allowed_values = ['1','2','3','4','5','6','7','8','9','0','#', '*']
+        if finish_on_key not in allowed_values:
+            raise ValueError("finish_on_key must be set to any stringified numeric digit, '#' or '*'. Default value is '#'")
+        self._finish_on_key = finish_on_key
 
     @min_digits.setter
     def min_digits(self, min_digits):
@@ -104,14 +103,14 @@ class GetDigits(object):
     def to_dict(self):
         as_dict = {
             self.__class__.__name__ : {
-                'initial_max_digits_ms': self._initial_max_digits_ms,
-                'digit_max_digits_ms': self._digit_max_digits_ms,
-                'action_url': self._action_url,
-                'finish_on_key': self._finish_on_key.value,
-                'min_digits': self._min_digits,
-                'max_digits': self._max_digits,
-                'flush_buffer': self._flush_buffer,
-                'prompts': self._prompts
+                'actionUrl': self._action_url,
+                'initialMaxDigitsMs': self._initial_max_digits_ms,
+                'digitMaxDigitsMs': self._digit_max_digits_ms,
+                'finishOnKey': self._finish_on_key,
+                'minDigits': self._min_digits,
+                'maxDigits': self._max_digits,
+                'flushBuffer': self._flush_buffer,
+                'prompts': [self._prompts]
             }
         }
         return as_dict

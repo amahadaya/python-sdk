@@ -1,5 +1,4 @@
 import json
-from freeclimb.percl.grammar_type import GrammarType
 
 class GetSpeech(object):
     openapi_types = {
@@ -37,7 +36,7 @@ class GetSpeech(object):
     def __init__(self, action_url, grammar_file):
         self._action_url = action_url
         self._grammar_file = grammar_file
-        self._grammar_type = GrammarType('URL')
+        self._grammar_type = None
         self._grammar_rule = None
         self._play_beep = None
         self._no_input_timeout_ms = None
@@ -107,10 +106,10 @@ class GetSpeech(object):
 
     @grammar_type.setter
     def grammar_type(self, grammar_type):
-        if(isinstance(grammar_type, GrammarType)):
-            self._grammar_type = grammar_type
-        else:
-            raise ValueError("grammar_type must be a GrammarType PerCL object set to one of the following values: 'URL' or 'BUILTIN'. Default is 'URL'. A value of 'URL' indicates the grammarFile attribute specifies a URL that points to the grammar file. A value of 'BUILTIN' indicates the grammarFile attribute specifies the name of one of the platform built-in grammar files.")
+        allowed_values = ['URL', 'BUILTIN']
+        if grammar_type not in allowed_values:
+            raise ValueError("grammar_type must be set to one of the following values: 'URL' or 'BUILTIN'. Default is 'URL'. A value of 'URL' indicates the grammarFile attribute specifies a URL that points to the grammar file. A value of 'BUILTIN' indicates the grammarFile attribute specifies the name of one of the platform built-in grammar files.")
+        self._grammar_type = grammar_type
 
     @grammar_file.setter
     def grammar_file(self, grammar_file):
@@ -159,19 +158,19 @@ class GetSpeech(object):
     def to_dict(self):
         as_dict = {
             self.__class__.__name__ : {
-                'action_url': self._action_url,
-                'grammar_type': self._grammar_type.value,
-                'grammar_file': self._grammar_file,
-                'grammar_rule': self._grammar_rule,
-                'play_beep': self._play_beep,
-                'no_input_timeout_ms': self._no_input_timeout_ms,
-                'recognition_timeout_ms': self._recognition_timeout_ms,
-                'confidence_threshold': self._confidence_threshold,
-                'n_best_list_length': self._n_best_list_length,
-                'sensitivity_level': self._sensitivity_level,
-                'speech_complete_timeout_ms': self._speech_complete_timeout_ms,
-                'speech_incomplete_timeout_ms': self._speech_incomplete_timeout_ms,
-                'prompts': self._prompts
+                'actionUrl': self._action_url,
+                'grammarType': self._grammar_type,
+                'grammarFile': self._grammar_file,
+                'grammarRule': self._grammar_rule,
+                'playBeep': self._play_beep,
+                'noInputTimeoutMs': self._no_input_timeout_ms,
+                'recognitionTimeoutMs': self._recognition_timeout_ms,
+                'confidenceThreshold': self._confidence_threshold,
+                'nBestListLength': self._n_best_list_length,
+                'sensitivityLevel': self._sensitivity_level,
+                'speechCompleteTimeoutMs': self._speech_complete_timeout_ms,
+                'speechIncompleteTimeoutMs': self._speech_incomplete_timeout_ms,
+                'prompts': [self._prompts]
             }
         }
         return as_dict

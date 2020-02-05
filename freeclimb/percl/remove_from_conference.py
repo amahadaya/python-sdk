@@ -24,7 +24,7 @@ class RemoveFromConference(object):
         """Returns the dictionary representation of remove_from_conference"""
         as_dict = {
             self.__class__.__name__ : {
-                "call_id": self._call_id
+                "callId": self._call_id
             }
         }
         return as_dict

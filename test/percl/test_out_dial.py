@@ -48,11 +48,10 @@ class TestOutDial(unittest.TestCase):
         self.assertTrue(hasattr(self.out_dial, 'status_callback_url'))
 
     def testAddOutDialIfMachine(self):
-        """AddOutDialIfMachine to conference"""
+        """AddOutDialIfMachine to OutDial"""
         out_dial_if_machine = 'redirect'
-        self.out_dial.out_dial_if_machine = freeclimb.OutDialIfMachine(out_dial_if_machine)
-        self.assertTrue(isinstance(self.out_dial.out_dial_if_machine, freeclimb.OutDialIfMachine))
-        self.assertEqual(self.out_dial.out_dial_if_machine.value, out_dial_if_machine)
+        self.out_dial.out_dial_if_machine = out_dial_if_machine
+        self.assertEqual(self.out_dial.out_dial_if_machine, out_dial_if_machine)
 
     def testToDict(self):
         """Test OutDial to dictionary"""

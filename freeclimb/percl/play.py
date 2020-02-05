@@ -48,7 +48,7 @@ class Play(object):
             self.__class__.__name__ : {
                 "file": self._file,
                 "loop": self._loop,
-                "conference_id": self._conference_id
+                "conferenceId": self._conference_id
             }
         }
         return as_dict

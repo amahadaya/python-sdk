@@ -24,7 +24,7 @@ class TerminateConference(object):
         """Returns the dictionary representation of terminate_conference"""
         as_dict = {
             self.__class__.__name__ : {
-                "conference_id": self._conference_id
+                "conferenceId": self._conference_id
             }
         }
         return as_dict

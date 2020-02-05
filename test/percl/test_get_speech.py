@@ -52,9 +52,8 @@ class TestGetSpeech(unittest.TestCase):
     def testAddGrammarType(self):
         """AddGrammarType to conference"""
         grammar_type = 'BUILTIN'
-        self.get_speech.grammar_type = freeclimb.GrammarType(grammar_type)
-        self.assertTrue(isinstance(self.get_speech.grammar_type, freeclimb.GrammarType))
-        self.assertEqual(self.get_speech.grammar_type.value, grammar_type)
+        self.get_speech.grammar_type = grammar_type
+        self.assertEqual(self.get_speech.grammar_type, grammar_type)
 
     def testToDict(self):
         """Test GetSpeech to dictionary"""

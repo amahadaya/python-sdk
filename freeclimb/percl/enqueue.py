@@ -56,10 +56,10 @@ class Enqueue(object):
     def to_dict(self):
         as_dict = {
             self.__class__.__name__ : {
-                'queue_id': self._queue_id,
-                'action_url': self._action_url,
-                'wait_url': self._wait_url,
-                'notification_url': self._notification_url
+                'queueId': self._queue_id,
+                'actionUrl': self._action_url,
+                'waitUrl': self._wait_url,
+                'notificationUrl': self._notification_url
             }
         }
         return as_dict

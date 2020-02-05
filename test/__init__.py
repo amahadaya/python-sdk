@@ -58,20 +58,15 @@ from test.models.test_update_call_request import TestUpdateCallRequest
 from test.models.test_update_conference_participant_request import TestUpdateConferenceParticipantRequest
 from test.models.test_update_conference_request import TestUpdateConferenceRequest
 # PerCL tests
-from test.percl.test_sms import TestSms
 from test.percl.test_add_to_conference import TestAddToConference
 from test.percl.test_create_conference import TestCreateConference
+from test.percl.test_dequeue import TestDequeue
 from test.percl.test_enqueue import TestEnqueue
-from test.percl.test_finish_on_key import TestFinishOnKey
 from test.percl.test_get_digits import TestGetDigits
 from test.percl.test_get_speech import TestGetSpeech
-from test.percl.test_grammar_type import TestGrammarType
 from test.percl.test_hangup import TestHangup
-from test.percl.test_language import TestLanguage
-from test.percl.test_out_dial_if_machine import TestOutDialIfMachine
 from test.percl.test_out_dial import TestOutDial
 from test.percl.test_pause import TestPause
-from test.percl.test_play_beep import TestPlayBeep
 from test.percl.test_play_early_media import TestPlayEarlyMedia
 from test.percl.test_play import TestPlay
 from test.percl.test_record_utterance import TestRecordUtterance
@@ -81,4 +76,6 @@ from test.percl.test_say import TestSay
 from test.percl.test_send_digits import TestSendDigits
 from test.percl.test_set_listen import TestSetListen
 from test.percl.test_set_talk import TestSetTalk
+from test.percl.test_sms import TestSms
+from test.percl.test_start_record_call import TestStartRecordCall
 from test.percl.test_terminate_conference import TestTerminateConference
