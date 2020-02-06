@@ -6,7 +6,7 @@ class Say(object):
         'language': 'str',
         'conference_id': 'str',
         'loop': 'int',
-        'enforce_PCI': 'bool'
+        'enforcePCI': 'bool'
     }
 
     attribute_map = {
@@ -14,15 +14,24 @@ class Say(object):
         'language': 'language',
         'conference_id': 'conference_id',
         'loop': 'loop',
-        'enforce_PCI': 'enforce_PCI'
+        'enforcePCI': 'enforcePCI'
     }
 
-    def __init__(self, text):
+    def __init__(self, text, language=None, loop=None, conference_id=None, enforcePCI=None):
         self._text = text
         self._language = None
         self._loop = None
         self._conference_id = None
-        self._enforce_PCI = None
+        self._enforcePCI = None
+
+        if language is not None:
+            self._language = language
+        if loop is not None:
+            self._loop = loop
+        if conference_id is not None:
+            self._conference_id = conference_id
+        if enforcePCI is not None:
+            self._enforcePCI = enforcePCI
 
     @property
     def text(self):
@@ -41,8 +50,8 @@ class Say(object):
         return self._conference_id
 
     @property
-    def enforce_PCI(self):
-        return self._enforce_PCI
+    def enforcePCI(self):
+        return self._enforcePCI
 
     @text.setter
     def text(self, text):
@@ -63,9 +72,9 @@ class Say(object):
     def conference_id(self, conference_id):
         self._conference_id = conference_id
 
-    @enforce_PCI.setter
-    def enforce_PCI(self, enforce_PCI):
-        self._enforce_PCI = enforce_PCI
+    @enforcePCI.setter
+    def enforcePCI(self, enforcePCI):
+        self._enforcePCI = enforcePCI
  
     def to_dict(self):
         """Returns the dictionary representation of say"""
@@ -75,7 +84,7 @@ class Say(object):
                 "language": self._language,
                 "loop": self._loop,
                 "conferenceId": self._conference_id,
-                "enforcePCI": self._enforce_PCI
+                "enforcePCI": self._enforcePCI
             }
         }
         return as_dict

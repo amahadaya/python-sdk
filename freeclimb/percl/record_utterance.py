@@ -19,13 +19,24 @@ class RecordUtterance(object):
         'auto_start': 'auto_start'
     }
 
-    def __init__(self, action_url):
+    def __init__(self, action_url, silence_timeout_ms=None, finish_on_key=None, max_length_sec=None, play_beep=None, auto_start=None):
         self._action_url = action_url
         self._silence_timeout_ms = None
         self._finish_on_key = None
         self._max_length_sec = None
         self._play_beep = None
         self._auto_start = None
+
+        if silence_timeout_ms is not None:
+            self._silence_timeout_ms = silence_timeout_ms
+        if finish_on_key is not None:
+            self._finish_on_key = finish_on_key
+        if max_length_sec is not None:
+            self._max_length_sec = max_length_sec
+        if play_beep is not None:
+            self._play_beep = play_beep
+        if auto_start is not None:
+            self._auto_start = auto_start
 
     @property
     def silence_timeout_ms(self):

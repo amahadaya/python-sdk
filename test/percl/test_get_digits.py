@@ -35,13 +35,14 @@ class TestGetDigits(unittest.TestCase):
         # percl = freeclimb.percl.GetDigits()  # noqa: E501
         self.assertTrue(isinstance(self.get_digits, GetDigits))
         self.assertEqual(self.action_url, self.get_digits.action_url)
-        self.assertTrue(hasattr(self.get_digits, 'initial_max_digits_ms'))
+        self.assertTrue(hasattr(self.get_digits, 'initial_timeout_ms'))
         self.assertTrue(hasattr(self.get_digits, 'finish_on_key'))
-        self.assertTrue(hasattr(self.get_digits, 'digit_max_digits_ms'))
+        self.assertTrue(hasattr(self.get_digits, 'digit_timeout_ms'))
         self.assertTrue(hasattr(self.get_digits, 'min_digits'))
         self.assertTrue(hasattr(self.get_digits, 'max_digits'))
         self.assertTrue(hasattr(self.get_digits, 'flush_buffer'))
         self.assertTrue(hasattr(self.get_digits, 'prompts'))
+        self.assertTrue(hasattr(self.get_digits, 'enforcePCI'))
 
     def testAddFinishOnKey(self):
         """Add FinishOnKey to conference"""

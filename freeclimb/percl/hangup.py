@@ -11,9 +11,14 @@ class Hangup(object):
         'reason': 'reason'
     }
 
-    def __init__(self):
+    def __init__(self, call_id=None, reason=None):
         self._call_id = None
         self._reason = None
+
+        if call_id is not None:
+            self._call_id = call_id
+        if reason is not None:
+            self._reason = reason
 
     @property
     def call_id(self):

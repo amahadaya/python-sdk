@@ -11,9 +11,12 @@ class SetListen(object):
         'listen': 'listen'
     }
 
-    def __init__(self, call_id):
+    def __init__(self, call_id, listen=None):
         self._call_id = call_id
         self._listen = None
+
+        if listen is not None:
+            self._listen = listen
 
     @property
     def call_id(self):

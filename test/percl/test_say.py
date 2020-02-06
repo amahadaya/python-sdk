@@ -38,7 +38,7 @@ class TestSay(unittest.TestCase):
         self.assertTrue(hasattr(self.say, 'language'))
         self.assertTrue(hasattr(self.say, 'conference_id'))
         self.assertTrue(hasattr(self.say, 'loop'))
-        self.assertTrue(hasattr(self.say, 'enforce_PCI'))
+        self.assertTrue(hasattr(self.say, 'enforcePCI'))
 
     def testAddLanguage(self):
         """Add Language to conference"""

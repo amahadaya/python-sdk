@@ -13,10 +13,15 @@ class Play(object):
         'conference_id': 'conference_id'
     }
 
-    def __init__(self, file):
+    def __init__(self, file, loop=None, conference_id=None):
         self._file = file
         self._loop = None
         self._conference_id = None
+
+        if loop is not None:
+            self._loop = loop
+        if conference_id is not None:
+            self._conference_id = conference_id
 
     @property
     def file(self):

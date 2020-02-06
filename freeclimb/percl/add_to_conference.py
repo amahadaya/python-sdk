@@ -27,7 +27,7 @@ class AddToConference(object):
         'call_control_url': 'call_control_url'
     }
 
-    def __init__(self, conference_id, call_id):
+    def __init__(self, conference_id, call_id, start_conf_on_enter=None, talk=None, listen=None, leave_conference_url=None, notification_url=None,allow_call_control=None, call_control_sequence=None, call_control_url=None):
         self._conference_id = conference_id
         self._call_id = call_id
         self._start_conf_on_enter = None
@@ -38,6 +38,23 @@ class AddToConference(object):
         self._allow_call_control = None
         self._call_control_sequence = None
         self._call_control_url = None
+
+        if start_conf_on_enter is not None:
+            self._start_conf_on_enter = start_conf_on_enter
+        if talk is not None:
+            self._talk = talk
+        if listen is not None:
+            self._listen = listen
+        if leave_conference_url is not None:
+            self._leave_conference_url = leave_conference_url
+        if notification_url is not None:
+            self._notification_url = notification_url
+        if allow_call_control is not None:
+            self._allow_call_control = allow_call_control
+        if call_control_sequence is not None:
+            self._call_control_sequence = call_control_sequence
+        if call_control_url is not None:
+            self._call_control_url = call_control_url
 
     @property
     def conference_id(self):

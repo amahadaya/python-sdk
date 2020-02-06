@@ -15,11 +15,14 @@ class Enqueue(object):
         'notification_url': 'notification_url'
     }
 
-    def __init__(self, queue_id, action_url, wait_url):
+    def __init__(self, queue_id, action_url, wait_url, notification_url=None):
         self._queue_id = queue_id
         self._action_url = action_url
         self._wait_url = wait_url
         self._notification_url = None
+
+        if notification_url is not None:
+            self._notification_url = notification_url
 
     @property
     def queue_id(self):

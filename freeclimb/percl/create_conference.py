@@ -19,13 +19,24 @@ class CreateConference(object):
         'record': 'record'
     }
 
-    def __init__(self, action_url):
+    def __init__(self, action_url, alias=None, play_beep=None, wait_url=None, record=None, status_callback_url=None):
         self._action_url = action_url
         self._alias = None
         self._play_beep = None
         self._wait_url = None
         self._record = None
         self._status_callback_url = None
+
+        if alias is not None:
+            self._alias = alias
+        if play_beep is not None:
+            self._play_beep = play_beep
+        if wait_url is not None:
+            self._wait_url = wait_url
+        if record is not None:
+            self._record = record
+        if status_callback_url is not None:
+            self._status_callback_url = status_callback_url
 
     @property
     def alias(self):

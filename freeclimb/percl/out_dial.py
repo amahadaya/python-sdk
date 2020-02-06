@@ -25,7 +25,7 @@ class OutDial(object):
         'status_callback_url': 'status_callback_url'
     }
 
-    def __init__(self, destination, calling_number, action_url, call_connect_url):
+    def __init__(self, destination, calling_number, action_url, call_connect_url, send_digits=None, timeout=None, if_machine=None, if_machine_url=None, status_callback_url=None):
         self._destination = destination
         self._calling_number = calling_number
         self._action_url = action_url
@@ -35,6 +35,17 @@ class OutDial(object):
         self._if_machine = None
         self._if_machine_url = None
         self._status_callback_url = None
+
+        if send_digits is not None:
+            self._send_digits = send_digits
+        if timeout is not None:
+            self._timeout = timeout
+        if if_machine is not None:
+            self._if_machine = if_machine
+        if if_machine_url is not None:
+            self._if_machine_url = if_machine_url
+        if status_callback_url is not None:
+            self._status_callback_url = status_callback_url
 
     @property
     def destination(self):

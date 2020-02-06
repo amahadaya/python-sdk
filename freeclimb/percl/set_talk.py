@@ -11,9 +11,12 @@ class SetTalk(object):
         'talk': 'talk'
     }
 
-    def __init__(self, call_id):
+    def __init__(self, call_id, talk=None):
         self._call_id = call_id
         self._talk = None
+
+        if talk is not None:
+            self._talk = talk
 
     @property
     def call_id(self):

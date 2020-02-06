@@ -11,9 +11,12 @@ class SendDigits(object):
         'pause_ms': 'pause_ms'
     }
 
-    def __init__(self, digits):
+    def __init__(self, digits, pause_ms=None):
         self._digits = digits
         self._pause_ms = None
+
+        if pause_ms is not None:
+            self._pause_ms = pause_ms
 
     @property
     def digits(self):

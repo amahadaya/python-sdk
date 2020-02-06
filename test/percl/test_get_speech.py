@@ -43,11 +43,11 @@ class TestGetSpeech(unittest.TestCase):
         self.assertTrue(hasattr(self.get_speech, 'no_input_timeout_ms'))
         self.assertTrue(hasattr(self.get_speech, 'recognition_timeout_ms'))
         self.assertTrue(hasattr(self.get_speech, 'confidence_threshold'))
-        self.assertTrue(hasattr(self.get_speech, 'n_best_list_length'))
         self.assertTrue(hasattr(self.get_speech, 'sensitivity_level'))
         self.assertTrue(hasattr(self.get_speech, 'speech_complete_timeout_ms'))
         self.assertTrue(hasattr(self.get_speech, 'speech_incomplete_timeout_ms'))
         self.assertTrue(hasattr(self.get_speech, 'prompts'))
+        self.assertTrue(hasattr(self.get_speech, 'enforcePCI'))
 
     def testAddGrammarType(self):
         """AddGrammarType to conference"""

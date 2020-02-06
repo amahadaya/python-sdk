@@ -1,3 +1,6 @@
+# API tests
+from test.test_default_api import TestDefaultApi
+# Model tests
 from test.models.test_account_request import TestAccountRequest
 from test.models.test_account_result_all_of import TestAccountResultAllOf
 from test.models.test_account_result import TestAccountResult
@@ -22,7 +25,6 @@ from test.models.test_conference_participant_result_all_of import TestConference
 from test.models.test_conference_participant_result import TestConferenceParticipantResult
 from test.models.test_conference_result import TestConferenceResult
 from test.models.test_create_conference_request import TestCreateConferenceRequest
-from test.models.test_default_api import TestDefaultApi
 from test.models.test_dequeue_member_request import TestDequeueMemberRequest
 from test.models.test_filter_logs_request import TestFilterLogsRequest
 from test.models.test_incoming_number_list_all_of import TestIncomingNumberListAllOf

@@ -10,11 +10,11 @@ class GetSpeech(object):
         'no_input_timeout_ms': 'int',
         'recognition_timeout_ms': 'int',
         'confidence_threshold': 'float',
-        'n_best_list_length': 'int',
         'sensitivity_level': 'float',
         'speech_complete_timeout_ms': 'int',
         'speech_incomplete_timeout_ms': 'int',
-        'prompts': 'string'
+        'prompts': 'array',
+        'enforcePCI': 'bool'
     }
 
     attribute_map = {
@@ -26,27 +26,49 @@ class GetSpeech(object):
         'no_input_timeout_ms': 'no_input_timeout_ms',
         'recognition_timeout_ms': 'recognition_timeout_ms',
         'confidence_threshold': 'confidence_threshold',
-        'n_best_list_length': 'n_best_list_length',
         'sensitivity_level': 'sensitivity_level',
         'speech_complete_timeout_ms': 'speech_complete_timeout_ms',
         'speech_incomplete_timeout_ms': 'speech_incomplete_timeout_ms',
-        'prompts': 'prompts'
+        'prompts': 'prompts',
+        'enforcePCI': 'enforcePCI'
     }
 
-    def __init__(self, action_url, grammar_file):
+    def __init__(self, action_url, grammar_file, grammar_type=None, grammar_rule=None, play_beep=None, no_input_timeout_ms=None, recognition_timeout_ms=None, confidence_threshold=None, sensitivity_level=None, speech_complete_timeout_ms=None, speech_incomplete_timeout_ms=None, prompts=None, enforcePCI=None):
         self._action_url = action_url
         self._grammar_file = grammar_file
         self._grammar_type = None
         self._grammar_rule = None
         self._play_beep = None
+        self._prompts = None
         self._no_input_timeout_ms = None
         self._recognition_timeout_ms = None
         self._confidence_threshold = None
-        self._n_best_list_length = None
         self._sensitivity_level = None
         self._speech_complete_timeout_ms = None
         self._speech_incomplete_timeout_ms = None
-        self._prompts = None
+        self._enforcePCI = None
+
+        if grammar_type is not None:
+            self._grammar_type = grammar_type
+        if grammar_rule is not None:
+            self._grammar_rule = grammar_rule
+        if play_beep is not None:
+            self._play_beep = play_beep
+        if no_input_timeout_ms is not None:
+            self._no_input_timeout_ms = no_input_timeout_ms
+        if recognition_timeout_ms is not None:
+            self._recognition_timeout_ms = recognition_timeout_ms
+        if confidence_threshold is not None:
+            self._confidence_threshold = confidence_threshold
+        if sensitivity_level is not None:
+            self._sensitivity_level = sensitivity_level
+        if speech_complete_timeout_ms is not None:
+            self._speech_complete_timeout_ms = speech_complete_timeout_ms
+        if speech_incomplete_timeout_ms is not None:
+            self._speech_incomplete_timeout_ms = speech_incomplete_timeout_ms
+        if prompts is not None:
+            self._prompts = [prompts]
+
 
     @property
     def action_url(self):
@@ -81,10 +103,6 @@ class GetSpeech(object):
         return self._confidence_threshold
 
     @property
-    def n_best_list_length(self):
-        return self._n_best_list_length
-
-    @property
     def sensitivity_level(self):
         return self._sensitivity_level
 
@@ -99,6 +117,10 @@ class GetSpeech(object):
     @property
     def prompts(self):
         return self._prompts
+
+    @property
+    def enforcePCI(self):
+        return self._enforcePCI
 
     @action_url.setter
     def action_url(self, action_url):
@@ -135,10 +157,6 @@ class GetSpeech(object):
     def confidence_threshold(self, confidence_threshold):
         self._confidence_threshold = confidence_threshold
 
-    @n_best_list_length.setter
-    def n_best_list_length(self, n_best_list_length):
-        self._n_best_list_length = n_best_list_length
-
     @sensitivity_level.setter
     def sensitivity_level(self, sensitivity_level):
         self._sensitivity_level = sensitivity_level
@@ -153,7 +171,11 @@ class GetSpeech(object):
 
     @prompts.setter
     def prompts(self, prompts):
-        self._prompts = prompts
+        self._prompts = [prompts]
+
+    @enforcePCI.setter
+    def enforcePCI(self, enforcePCI):
+        self._enforcePCI = enforcePCI
         
     def to_dict(self):
         as_dict = {
@@ -166,11 +188,11 @@ class GetSpeech(object):
                 'noInputTimeoutMs': self._no_input_timeout_ms,
                 'recognitionTimeoutMs': self._recognition_timeout_ms,
                 'confidenceThreshold': self._confidence_threshold,
-                'nBestListLength': self._n_best_list_length,
                 'sensitivityLevel': self._sensitivity_level,
                 'speechCompleteTimeoutMs': self._speech_complete_timeout_ms,
                 'speechIncompleteTimeoutMs': self._speech_incomplete_timeout_ms,
-                'prompts': [self._prompts]
+                'prompts': self._prompts,
+                'enforcePCI': self._enforcePCI
             }
         }
         return as_dict

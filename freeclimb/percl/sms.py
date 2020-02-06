@@ -15,11 +15,14 @@ class Sms(object):
         'notification_url': 'notification_url'
     }
 
-    def __init__(self, to, from_number, text):
+    def __init__(self, to, from_number, text, notification_url=None):
         self._to = to
         self._from_number = from_number
         self._text = text
         self._notification_url = None
+
+        if notification_url is not None:
+            self._notification_url = notification_url
 
     @property
     def to(self):
