@@ -73,6 +73,7 @@ from test.percl.test_play_early_media import TestPlayEarlyMedia
 from test.percl.test_play import TestPlay
 from test.percl.test_record_utterance import TestRecordUtterance
 from test.percl.test_redirect import TestRedirect
+from test.percl.test_reject import TestReject
 from test.percl.test_remove_from_conference import TestRemoveFromConference
 from test.percl.test_say import TestSay
 from test.percl.test_send_digits import TestSendDigits

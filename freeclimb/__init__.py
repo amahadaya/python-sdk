@@ -102,6 +102,7 @@ from freeclimb.percl.play_early_media import PlayEarlyMedia
 from freeclimb.percl.play import Play
 from freeclimb.percl.record_utterance import RecordUtterance
 from freeclimb.percl.redirect import Redirect
+from freeclimb.percl.reject import Reject
 from freeclimb.percl.remove_from_conference import RemoveFromConference
 from freeclimb.percl.say import Say
 from freeclimb.percl.send_digits import SendDigits
