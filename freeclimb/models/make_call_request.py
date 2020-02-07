@@ -56,7 +56,7 @@ class MakeCallRequest(object):
         'parent_call_id': 'parentCallId'
     }
 
-    def __init__(self, _from=None, to=None, application_id=None, send_digits=None, if_machine=None, if_machine_url=None, timeout=None, request_id=None, parent_call_id='null', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, _from=None, to=None, application_id=None, send_digits=None, if_machine=None, if_machine_url=None, timeout=None, request_id=None, parent_call_id=None, local_vars_configuration=None):  # noqa: E501
         """MakeCallRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

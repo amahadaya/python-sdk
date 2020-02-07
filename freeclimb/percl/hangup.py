@@ -40,7 +40,7 @@ class Hangup(object):
         """Returns the dictionary representation of hangup"""
         as_dict = {
             self.__class__.__name__ : {
-                "call_id": self._call_id,
+                "callId": self._call_id,
                 "reason": self._reason
             }
         }
