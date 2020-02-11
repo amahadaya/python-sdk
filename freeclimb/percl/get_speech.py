@@ -68,6 +68,8 @@ class GetSpeech(object):
             self._speech_incomplete_timeout_ms = speech_incomplete_timeout_ms
         if prompts is not None:
             self._prompts = [prompts]
+        if enforcePCI is not None:
+            self._enforcePCI = enforcePCI
 
 
     @property
