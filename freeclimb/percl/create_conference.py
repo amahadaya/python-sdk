@@ -1,106 +1,39 @@
-import json
+class CreateConferencePlayBeep:
+    always = 'always'
+    never = 'never'
+    entryOnly = 'entryOnly'
+    exitOnly = 'exitOnly'
 
-class CreateConference(object):
-    openapi_types = {
-        'alias': 'str',
-        'play_beep': 'str',
-        'action_url': 'str',
-        'status_callback_url': 'str',
-        'wait_url': 'str',
-        'record': 'bool'
-    }
 
-    attribute_map = {
-        'alias': 'alias',
-        'play_beep': 'play_beep',
-        'action_url': 'action_url',
-        'status_callback_url': 'status_callback_url',
-        'wait_url': 'wait_url',
-        'record': 'record'
-    }
+class CreateConference(dict):
 
-    def __init__(self, action_url, alias=None, play_beep=None, wait_url=None, record=None, status_callback_url=None):
-        self._action_url = action_url
-        self._alias = None
-        self._play_beep = None
-        self._wait_url = None
-        self._record = None
-        self._status_callback_url = None
+    __cmd = 'CreateConference'
 
-        if alias is not None:
-            self._alias = alias
-        if play_beep is not None:
-            self._play_beep = play_beep
-        if wait_url is not None:
-            self._wait_url = wait_url
-        if record is not None:
-            self._record = record
-        if status_callback_url is not None:
-            self._status_callback_url = status_callback_url
+    def __init__(self, action_url):
+        super().__init__()
+        self.__setitem__(CreateConference.__cmd, {})
+        self.action_url(action_url)
 
-    @property
-    def alias(self):
-        return self._alias
-
-    @property
-    def play_beep(self):
-        return self._play_beep
-
-    @property
-    def action_url(self):
-        return self._action_url
-
-    @property
-    def wait_url(self):
-        return self._wait_url
-
-    @property
-    def record(self):
-        return self._record
- 
-    @property
-    def status_callback_url(self):
-        return self._status_callback_url
-
-    @alias.setter
-    def alias(self, alias):
-        self._alias = alias
-
-    @play_beep.setter
-    def play_beep(self, play_beep):
-        allowed_values = ['always', 'never', 'entryOnly', 'exitOnly']
-        if play_beep not in allowed_values:
-            raise ValueError("Within conferences, play_beep must be a PlayBeep PerCL object set to one of the following values: 'always', 'never', 'entryOnly', OR 'exitOnly'. Default value is 'always'")
-        self._play_beep = play_beep
-
-    @action_url.setter
     def action_url(self, action_url):
-        self._action_url = action_url
+        self.__getitem__(CreateConference.__cmd)['actionUrl'] = action_url
+        return self
 
-    @wait_url.setter
-    def wait_url(self, wait_url):
-        self._wait_url = wait_url
+    def alias(self, alias):
+        self.__getitem__(CreateConference.__cmd)['alias'] = alias
+        return self
 
-    @record.setter
+    def play_beep(self, play_beep):
+        self.__getitem__(CreateConference.__cmd)['playBeep'] = play_beep
+        return self
+
     def record(self, record):
-        self._record = record
+        self.__getitem__(CreateConference.__cmd)['record'] = record
+        return self
 
-    @status_callback_url.setter
+    def wait_url(self, wait_url):
+        self.__getitem__(CreateConference.__cmd)['waitUrl'] = wait_url
+        return self
+
     def status_callback_url(self, status_callback_url):
-        self._status_callback_url = status_callback_url
-
-    def to_dict(self):
-        as_dict = {
-            self.__class__.__name__ : {
-                'alias': self._alias,
-                'playBeep': self._play_beep,
-                'actionUrl': self._action_url,
-                'waitUrl': self._wait_url,
-                'record': self._record,
-                'statusCallbackUrl': self._status_callback_url
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(CreateConference.__cmd)['statusCallbackUrl'] = status_callback_url
+        return self

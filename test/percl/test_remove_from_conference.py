@@ -34,13 +34,7 @@ class TestRemoveFromConference(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.RemoveFromConference()  # noqa: E501
         self.assertTrue(isinstance(self.remove_from_conference, RemoveFromConference))
-        self.assertEqual(self.call_id, self.remove_from_conference.call_id)
-
-    def testToDict(self):
-        """Test RemoveFromConference to dictionary"""
-        self.assertTrue(isinstance(self.remove_from_conference.to_dict(), dict))
-        self.assertEqual(list(self.remove_from_conference.to_dict().keys())[0], self.remove_from_conference.__class__.__name__)
-
+        self.assertEqual(self.call_id, self.remove_from_conference.get('RemoveFromConference').get('callId'))
 
 if __name__ == '__main__':
     unittest.main()

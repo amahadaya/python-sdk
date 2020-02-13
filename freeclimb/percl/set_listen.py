@@ -1,48 +1,16 @@
-import json
+class SetListen(dict):
 
-class SetListen(object):
-    openapi_types = {
-        'call_id': 'str',
-        'listen': 'bool'
-    }
+    __cmd = 'SetListen'
 
-    attribute_map = {
-        'call_id': 'call_id',
-        'listen': 'listen'
-    }
+    def __init__(self, call_id):
+        super().__init__()
+        self.__setitem__(SetListen.__cmd, {})
+        self.call_id(call_id)
 
-    def __init__(self, call_id, listen=None):
-        self._call_id = call_id
-        self._listen = None
-
-        if listen is not None:
-            self._listen = listen
-
-    @property
-    def call_id(self):
-        return self._call_id
-    
-    @property
-    def listen(self):
-        return self._listen
-
-    @call_id.setter
     def call_id(self, call_id):
-        self._call_id = call_id
+        self.__getitem__(SetListen.__cmd)['callId'] = call_id
+        return self
 
-    @listen.setter
     def listen(self, listen):
-        self._listen = listen
- 
-    def to_dict(self):
-        """Returns the dictionary representation of set_listen"""
-        as_dict = {
-            self.__class__.__name__ : {
-                "callId": self._call_id,
-                "listen": self._listen
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(SetListen.__cmd)['listen'] = listen
+        return self

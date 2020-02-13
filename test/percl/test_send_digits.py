@@ -34,14 +34,8 @@ class TestSendDigits(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.SendDigits()  # noqa: E501
         self.assertTrue(isinstance(self.send_digits, SendDigits))
-        self.assertEqual(self.digits, self.send_digits.digits)
+        self.assertEqual(self.digits, self.send_digits.get('SendDigits').get('digits'))
         self.assertTrue(hasattr(self.send_digits, 'pause_ms'))
-
-    def testToDict(self):
-        """Test SendDigits to dictionary"""
-        self.assertTrue(isinstance(self.send_digits.to_dict(), dict))
-        self.assertEqual(list(self.send_digits.to_dict().keys())[0], self.send_digits.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

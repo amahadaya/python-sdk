@@ -1,72 +1,26 @@
-import json
+class Sms(dict):
 
-class Sms(object):
-    openapi_types = {
-        'to': 'str',
-        'from_number': 'str',
-        'text': 'str',
-        'notification_url': 'str'
-    }
+    __cmd = 'Sms'
 
-    attribute_map = {
-        'to': 'to',
-        'from_number': 'from_number',
-        'text': 'text',
-        'notification_url': 'notification_url'
-    }
+    def __init__(self, to_number, from_number, text):
+        super().__init__()
+        self.__setitem__(Sms.__cmd, {})
+        self.to_number(to_number)
+        self.from_number(from_number)
+        self.text(text)
 
-    def __init__(self, to, from_number, text, notification_url=None):
-        self._to = to
-        self._from_number = from_number
-        self._text = text
-        self._notification_url = None
+    def to_number(self, to_number):
+        self.__getitem__(Sms.__cmd)['to'] = to_number
+        return self
 
-        if notification_url is not None:
-            self._notification_url = notification_url
-
-    @property
-    def to(self):
-        return self._to
-    
-    @property
-    def from_number(self):
-        return self._from_number
-
-    @property
-    def notification_url(self):
-        return self._notification_url
-    
-    @property
-    def text(self):
-        return self._text
-
-    @to.setter
-    def to(self, to):
-        self._to = to
-
-    @from_number.setter
     def from_number(self, from_number):
-        self._from_number = from_number
-    
-    @notification_url.setter
-    def notification_url(self, notification_url):
-        self._notification_url = notification_url
-    
-    @text.setter
-    def text(self, text):
-        self._text = text
- 
-    def to_dict(self):
-        """Returns the dictionary representation of sms"""
-        as_dict = {
-            self.__class__.__name__ : {
-                "from": self._from_number,
-                "to": self._to,
-                "text": self._text,
-                "notificationUrl": self._notification_url 
-            }
-        }
-        return as_dict
+        self.__getitem__(Sms.__cmd)['from'] = from_number
+        return self
 
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+    def text(self, text):
+        self.__getitem__(Sms.__cmd)['text'] = text
+        return self
+
+    def notification_url(self, notificationUrl):
+        self.__getitem__(Sms.__cmd)['notificationUrl'] = notificationUrl
+        return self

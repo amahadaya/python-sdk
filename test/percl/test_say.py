@@ -34,7 +34,7 @@ class TestSay(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.Say()  # noqa: E501
         self.assertTrue(isinstance(self.say, Say))
-        self.assertEqual(self.text, self.say.text)
+        self.assertEqual(self.text, self.say.get('Say').get('text'))
         self.assertTrue(hasattr(self.say, 'language'))
         self.assertTrue(hasattr(self.say, 'conference_id'))
         self.assertTrue(hasattr(self.say, 'loop'))
@@ -45,12 +45,6 @@ class TestSay(unittest.TestCase):
         language_code = 'ru-RU'
         self.say.language = language_code
         self.assertEqual(self.say.language, language_code)
-
-    def testToDict(self):
-        """Test Say to dictionary"""
-        self.assertTrue(isinstance(self.say.to_dict(), dict))
-        self.assertEqual(list(self.say.to_dict().keys())[0], self.say.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

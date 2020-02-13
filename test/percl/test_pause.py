@@ -34,13 +34,7 @@ class TestPause(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.Pause()  # noqa: E501
         self.assertTrue(isinstance(self.pause, Pause))
-        self.assertEqual(self.length, self.pause.length)
-
-    def testToDict(self):
-        """Test Pause to dictionary"""
-        self.assertTrue(isinstance(self.pause.to_dict(), dict))
-        self.assertEqual(list(self.pause.to_dict().keys())[0], self.pause.__class__.__name__)
-
+        self.assertEqual(self.length, self.pause.get('Pause').get('length'))
 
 if __name__ == '__main__':
     unittest.main()

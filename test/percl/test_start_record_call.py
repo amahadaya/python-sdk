@@ -34,11 +34,5 @@ class TestStartRecordCall(unittest.TestCase):
         # percl = freeclimb.percl.start_record_call()  # noqa: E501
         self.assertTrue(isinstance(self.start_record_call, StartRecordCall))
 
-    def testToDict(self):
-        """Test StartRecordCall to dictionary"""
-        self.assertTrue(isinstance(self.start_record_call.to_dict(), dict))
-        self.assertEqual(list(self.start_record_call.to_dict().keys())[0], self.start_record_call.__class__.__name__)
-
-
 if __name__ == '__main__':
     unittest.main()

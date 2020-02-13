@@ -1,62 +1,20 @@
-import json
+class Play(dict):
 
-class Play(object):
-    openapi_types = {
-        'file': 'str',
-        'loop': 'int',
-        'conference_id': 'str'
-    }
+    __cmd = 'Play'
 
-    attribute_map = {
-        'file': 'file',
-        'loop': 'loop',
-        'conference_id': 'conference_id'
-    }
+    def __init__(self, file):
+        super().__init__()
+        self.__setitem__(Play.__cmd, {})
+        self.file(file)
 
-    def __init__(self, file, loop=None, conference_id=None):
-        self._file = file
-        self._loop = None
-        self._conference_id = None
-
-        if loop is not None:
-            self._loop = loop
-        if conference_id is not None:
-            self._conference_id = conference_id
-
-    @property
-    def file(self):
-        return self._file
-    
-    @property
-    def loop(self):
-        return self._loop
-
-    @property
-    def conference_id(self):
-        return self._conference_id
-
-    @file.setter
     def file(self, file):
-        self._file = file
+        self.__getitem__(Play.__cmd)['file'] = file
+        return self
 
-    @loop.setter
     def loop(self, loop):
-        self._loop = loop
+        self.__getitem__(Play.__cmd)['loop'] = loop
+        return self
 
-    @conference_id.setter
     def conference_id(self, conference_id):
-        self._conference_id = conference_id
- 
-    def to_dict(self):
-        """Returns the dictionary representation of play"""
-        as_dict = {
-            self.__class__.__name__ : {
-                "file": self._file,
-                "loop": self._loop,
-                "conferenceId": self._conference_id
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(Play.__cmd)['conferenceId'] = conference_id
+        return self

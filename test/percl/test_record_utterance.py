@@ -34,7 +34,7 @@ class TestRecordUtterance(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.RecordUtterance()  # noqa: E501
         self.assertTrue(isinstance(self.record_utterance, RecordUtterance))
-        self.assertEqual(self.action_url, self.record_utterance.action_url)
+        self.assertEqual(self.action_url, self.record_utterance.get('RecordUtterance').get('actionUrl'))
         self.assertTrue(hasattr(self.record_utterance, 'silence_timeout_ms'))
         self.assertTrue(hasattr(self.record_utterance, 'finish_on_key'))
         self.assertTrue(hasattr(self.record_utterance, 'max_length_sec'))
@@ -46,17 +46,6 @@ class TestRecordUtterance(unittest.TestCase):
         finish_on_key_symbol = '*'
         self.record_utterance.finish_on_key = finish_on_key_symbol
         self.assertEqual(self.record_utterance.finish_on_key, finish_on_key_symbol)
-
-    def testAddFinishOnKeyFail(self):
-        """Fail to Add FinishOnKey to record_utterance"""
-        with self.assertRaises(ValueError):
-            self.record_utterance.finish_on_key = 'NotValidValue'
-
-    def testToDict(self):
-        """Test RecordUtterance to dictionary"""
-        self.assertTrue(isinstance(self.record_utterance.to_dict(), dict))
-        self.assertEqual(list(self.record_utterance.to_dict().keys())[0], self.record_utterance.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

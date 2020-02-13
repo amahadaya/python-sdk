@@ -1,48 +1,16 @@
-import json
+class SendDigits(dict):
 
-class SendDigits(object):
-    openapi_types = {
-        'digits': 'str',
-        'pause_ms': 'int'
-    }
+    __cmd = 'SendDigits'
 
-    attribute_map = {
-        'digits': 'digits',
-        'pause_ms': 'pause_ms'
-    }
+    def __init__(self, digits):
+        super().__init__()
+        self.__setitem__(SendDigits.__cmd, {})
+        self.digits(digits)
 
-    def __init__(self, digits, pause_ms=None):
-        self._digits = digits
-        self._pause_ms = None
-
-        if pause_ms is not None:
-            self._pause_ms = pause_ms
-
-    @property
-    def digits(self):
-        return self._digits
-    
-    @property
-    def pause_ms(self):
-        return self._pause_ms
-
-    @digits.setter
     def digits(self, digits):
-        self._digits = digits
+        self.__getitem__(SendDigits.__cmd)['digits'] = digits
+        return self
 
-    @pause_ms.setter
     def pause_ms(self, pause_ms):
-        self._pause_ms = pause_ms
- 
-    def to_dict(self):
-        """Returns the dictionary representation of send_digits"""
-        as_dict = {
-            self.__class__.__name__ : {
-                "digits": self._digits,
-                "pauseMs": self._pause_ms
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(SendDigits.__cmd)['pauseMs'] = pause_ms
+        return self

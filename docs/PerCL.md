@@ -67,7 +67,7 @@ Name | Type | Description | Required
 ------------ | ------------- | ------------- | -------------
 conference_id | string | ID of the Conference to which to add the Participant (Call leg). Conference must exist or an error will result. | Required
 call_id | string | ID of the Call that will be added to the specified Conference. The Call must be in progress or an error will result. | Required
-startConfOnEnter | boolean | Flag that indicates whether a Conference starts upon entry of this particular Participant. | Optional
+start_conf_on_enter | boolean | Flag that indicates whether a Conference starts upon entry of this particular Participant. | Optional
 talk | boolean | If true, the Participant joins the Conference with talk privileges. | Optional
 listen | boolean | If true, the Participant joins the Conference with listen privileges. This may be modified later via the REST API or SetListen PerCL command. | Optional
 allow_call_control | boolean | If true, Call control will be enabled for this Participant's Call leg. | Optional
@@ -240,8 +240,8 @@ action_url | absolute URL | URL to which FreeClimb sends an HTTP POST request (a
 call_connect_url | absolute URL | URL to which FreeClimb makes an HTTP POST request informing the result of the OutDial. | Required
 calling_number | E.164 phone number | The caller ID to show to the called party when FreeClimb calls. | Required
 destination | E.164 phone number | E.164 representation of the phone number to Call. | Required
-ifMachine | `redirect` or `hangup` | Specifies how FreeClimb should handle this OutDial if an answering machine answers the Call. | Optional
-ifMachineUrl | absolute URL | When the ifMachine flag is set to redirect, this attribute specifies a URL to which FreeClimb makes a POST request when an answering machine or a fax machine is detected. | Optional
+if_machine | `redirect` or `hangup` | Specifies how FreeClimb should handle this OutDial if an answering machine answers the Call. | Optional
+if_machine_url | absolute URL | When the ifMachine flag is set to redirect, this attribute specifies a URL to which FreeClimb makes a POST request when an answering machine or a fax machine is detected. | Optional
 send_digits | digits 0-9, # or * | DTMF tones to play to the outdialed Call. This is typically used to dial a number and then dial an extension. | Optional
 status_callback_url | absolute URL | When the outdialed Call leg terminates, FreeClimb sends a callStatus Webhook to the statusCallbackUrl. | Optional
 timeout | integer > 0 | Maximum time in seconds the OutDial command waits for the called party to answer the Call. | Optional
@@ -447,7 +447,7 @@ return freeclimb.PerCLCommand.to_json(set_listen.to_dict())
 Name | Type | Description | Required
 ------------ | ------------- | ------------- | -------------
 call_id | string | ID of the call leg that is to be assigned the listen privilege. The Call must be in a Conference or an error will be triggered. | Required
-set_listen | boolean | Specifying false will silence the Conference for this Participant. Default `True` | Optional
+listen | boolean | Specifying false will silence the Conference for this Participant. Default `True` | Optional
 
 ## SetTalk
 
@@ -467,7 +467,7 @@ return freeclimb.PerCLCommand.to_json(set_talk.to_dict())
 Name | Type | Description | Required
 ------------ | ------------- | ------------- | -------------
 call_id | string | ID of the call leg that is to be assigned the talk privilege. The Call must be in a Conference or an error will be triggered. | Required
-set_talk | boolean | Specifying `False` mutes this Participant. | Optional
+talk | boolean | Specifying `False` mutes this Participant. | Optional
 
 ## Sms
 
@@ -486,7 +486,7 @@ return freeclimb.PerCLCommand.to_json(sms.to_dict())
 
 Name | Type | Description | Required
 ------------ | ------------- | ------------- | -------------
-to | string | E.164 representation of the phone number to which the message will be sent. Must be within FreeClimb's service area | Required
+to_number | string | E.164 representation of the phone number to which the message will be sent. Must be within FreeClimb's service area | Required
 from_number | string | E.164 representation of the phone number to use as the sender. This must be an incoming phone number you have purchased from FreeClimb. | Required
 text | string | Text contained in the message (maximum 160 characters). | Required
 notification_url | absolute URL | When the message changes status, this URL will be invoked using HTTP POST with the messageStatus parameters. | Optional

@@ -1,71 +1,26 @@
-import json
+class Enqueue(dict):
 
-class Enqueue(object):
-    openapi_types = {
-        'queue_id': 'str',
-        'action_url': 'str',
-        'wait_url': 'str',
-        'notification_url': 'str'
-    }
+    __cmd = 'Enqueue'
 
-    attribute_map = {
-        'queue_id': 'queue_id',
-        'action_url': 'action_url',
-        'wait_url': 'wait_url',
-        'notification_url': 'notification_url'
-    }
+    def __init__(self, queue_id, action_url, wait_url):
+        super().__init__()
+        self.__setitem__(Enqueue.__cmd, {})
+        self.queue_id(queue_id)
+        self.action_url(action_url)
+        self.wait_url(wait_url)
 
-    def __init__(self, queue_id, action_url, wait_url, notification_url=None):
-        self._queue_id = queue_id
-        self._action_url = action_url
-        self._wait_url = wait_url
-        self._notification_url = None
-
-        if notification_url is not None:
-            self._notification_url = notification_url
-
-    @property
-    def queue_id(self):
-        return self._queue_id
-
-    @property
-    def action_url(self):
-        return self._action_url
-
-    @property
-    def wait_url(self):
-        return self._wait_url
-
-    @property
-    def notification_url(self):
-        return self._notification_url
-
-    @queue_id.setter
     def queue_id(self, queue_id):
-        self._queue_id = queue_id
+        self.__getitem__(Enqueue.__cmd)['queueId'] = queue_id
+        return self
 
-    @action_url.setter
     def action_url(self, action_url):
-        self._action_url = action_url
+        self.__getitem__(Enqueue.__cmd)['actionUrl'] = action_url
+        return self
 
-    @wait_url.setter
     def wait_url(self, wait_url):
-        self._wait_url = wait_url
+        self.__getitem__(Enqueue.__cmd)['waitUrl'] = wait_url
+        return self
 
-    @notification_url.setter
     def notification_url(self, notification_url):
-        self._notification_url = notification_url
-
-    def to_dict(self):
-        as_dict = {
-            self.__class__.__name__ : {
-                'queueId': self._queue_id,
-                'actionUrl': self._action_url,
-                'waitUrl': self._wait_url,
-                'notificationUrl': self._notification_url
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(Enqueue.__cmd)['notificationUrl'] = notification_url
+        return self

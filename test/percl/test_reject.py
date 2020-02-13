@@ -35,11 +35,5 @@ class TestReject(unittest.TestCase):
         self.assertTrue(isinstance(self.reject, Reject))
         self.assertTrue(hasattr(self.reject, 'reason'))
 
-    def testToDict(self):
-        """Test Reject to dictionary"""
-        self.assertTrue(isinstance(self.reject.to_dict(), dict))
-        self.assertEqual(list(self.reject.to_dict().keys())[0], self.reject.__class__.__name__)
-
-
 if __name__ == '__main__':
     unittest.main()

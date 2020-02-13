@@ -36,16 +36,10 @@ class TestEnqueue(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.enqueue()  # noqa: E501
         self.assertTrue(isinstance(self.enqueue, Enqueue))
-        self.assertEqual(self.queue_id, self.enqueue.queue_id)
-        self.assertEqual(self.action_url, self.enqueue.action_url)
-        self.assertEqual(self.wait_url, self.enqueue.wait_url)
+        self.assertEqual(self.queue_id, self.enqueue.get('Enqueue').get('queueId'))
+        self.assertEqual(self.action_url, self.enqueue.get('Enqueue').get('actionUrl'))
+        self.assertEqual(self.wait_url, self.enqueue.get('Enqueue').get('waitUrl'))
         self.assertTrue(hasattr(self.enqueue, 'notification_url'))
-
-    def testToDict(self):
-        """Test Enqueue to dictionary"""
-        self.assertTrue(isinstance(self.enqueue.to_dict(), dict))
-        self.assertEqual(list(self.enqueue.to_dict().keys())[0], self.enqueue.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

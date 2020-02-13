@@ -34,15 +34,9 @@ class TestPlay(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.Play()  # noqa: E501
         self.assertTrue(isinstance(self.play, Play))
-        self.assertEqual(self.file, self.play.file)
+        self.assertEqual(self.file, self.play.get('Play').get('file'))
         self.assertTrue(hasattr(self.play, 'loop'))
         self.assertTrue(hasattr(self.play, 'conference_id'))
-
-    def testToDict(self):
-        """Test Play to dictionary"""
-        self.assertTrue(isinstance(self.play.to_dict(), dict))
-        self.assertEqual(list(self.play.to_dict().keys())[0], self.play.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

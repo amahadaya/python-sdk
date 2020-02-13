@@ -34,13 +34,8 @@ class TestSetListen(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.SetListen()  # noqa: E501
         self.assertTrue(isinstance(self.set_listen, SetListen))
-        self.assertEqual(self.call_id, self.set_listen.call_id)
+        self.assertEqual(self.call_id, self.set_listen.get('SetListen').get('callId'))
         self.assertTrue(hasattr(self.set_listen, 'listen'))
-
-    def testToDict(self):
-        """Test SetListen to dictionary"""
-        self.assertTrue(isinstance(self.set_listen.to_dict(), dict))
-        self.assertEqual(list(self.set_listen.to_dict().keys())[0], self.set_listen.__class__.__name__)
 
 
 if __name__ == '__main__':

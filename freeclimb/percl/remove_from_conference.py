@@ -1,33 +1,12 @@
-import json
+class RemoveFromConference(dict):
 
-class RemoveFromConference(object):
-    openapi_types = {
-        'call_id': 'str'
-    }
-
-    attribute_map = {
-        'call_id': 'call_id'
-    }
+    __cmd = 'RemoveFromConference'
 
     def __init__(self, call_id):
-        self._call_id = call_id
+        super().__init__()
+        self.__setitem__(RemoveFromConference.__cmd, {})
+        self.call_id(call_id)
 
-    @property
-    def call_id(self):
-        return self._call_id
-
-    @call_id.setter
     def call_id(self, call_id):
-        self._call_id = call_id
- 
-    def to_dict(self):
-        """Returns the dictionary representation of remove_from_conference"""
-        as_dict = {
-            self.__class__.__name__ : {
-                "callId": self._call_id
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(RemoveFromConference.__cmd)['callId'] = call_id
+        return self

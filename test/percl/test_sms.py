@@ -26,7 +26,7 @@ class TestSms(unittest.TestCase):
     text='Test message'
 
     def setUp(self):
-        self.sms = Sms(to=self.to, from_number=self.from_number, text=self.text)
+        self.sms = Sms(to_number=self.to, from_number=self.from_number, text=self.text)
 
     def tearDown(self):
         pass
@@ -36,16 +36,10 @@ class TestSms(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.Sms()  # noqa: E501
         self.assertTrue(isinstance(self.sms, Sms))
-        self.assertEqual(self.to, self.sms.to)
-        self.assertEqual(self.from_number, self.sms.from_number)
-        self.assertEqual(self.text, self.sms.text)
+        self.assertEqual(self.to, self.sms.get('Sms').get('to'))
+        self.assertEqual(self.from_number, self.sms.get('Sms').get('from'))
+        self.assertEqual(self.text, self.sms.get('Sms').get('text'))
         self.assertTrue(hasattr(self.sms, 'notification_url'))
-
-    def testToDict(self):
-        """Test Sms to dictionary"""
-        self.assertTrue(isinstance(self.sms.to_dict(), dict))
-        self.assertEqual(list(self.sms.to_dict().keys())[0], self.sms.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

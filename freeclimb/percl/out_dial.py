@@ -1,142 +1,47 @@
-import json
+class OutDial(dict):
 
-class OutDial(object):
-    openapi_types = {
-        'destination': 'str',
-        'calling_number': 'str',
-        'action_url': 'str',
-        'call_connect_url': 'str',
-        'send_digits': 'str',
-        'timeout': 'int',
-        'if_machine': 'str',
-        'if_machine_url': 'str',
-        'status_callback_url': 'str'
-    }
+    __cmd = 'OutDial'
 
-    attribute_map = {
-        'destination': 'destination',
-        'calling_number': 'calling_number',
-        'action_url': 'action_url',
-        'call_connect_url': 'call_connect_url',
-        'send_digits': 'send_digits',
-        'timeout': 'timeout',
-        'if_machine': 'if_machine',
-        'if_machine_url': 'if_machine_url',
-        'status_callback_url': 'status_callback_url'
-    }
+    def __init__(self, destination, calling_number, action_url, call_connect_url):
+        super().__init__()
+        self.__setitem__(OutDial.__cmd, {})
+        self.destination(destination)
+        self.calling_number(calling_number)
+        self.action_url(action_url)
+        self.call_connect_url(call_connect_url)
 
-    def __init__(self, destination, calling_number, action_url, call_connect_url, send_digits=None, timeout=None, if_machine=None, if_machine_url=None, status_callback_url=None):
-        self._destination = destination
-        self._calling_number = calling_number
-        self._action_url = action_url
-        self._call_connect_url = call_connect_url
-        self._send_digits = None
-        self._timeout = None
-        self._if_machine = None
-        self._if_machine_url = None
-        self._status_callback_url = None
-
-        if send_digits is not None:
-            self._send_digits = send_digits
-        if timeout is not None:
-            self._timeout = timeout
-        if if_machine is not None:
-            self._if_machine = if_machine
-        if if_machine_url is not None:
-            self._if_machine_url = if_machine_url
-        if status_callback_url is not None:
-            self._status_callback_url = status_callback_url
-
-    @property
-    def destination(self):
-        return self._destination
-
-    @property
-    def calling_number(self):
-        return self._calling_number
-
-    @property
-    def action_url(self):
-        return self._action_url
-
-    @property
-    def call_connect_url(self):
-        return self._call_connect_url
-
-    @property
-    def send_digits(self):
-        return self._send_digits
-    
-    @property
-    def timeout(self):
-        return self._timeout
-
-    @property
-    def if_machine(self):
-        return self._if_machine
- 
-    @property
-    def if_machine_url(self):
-        return self._if_machine_url
-
-    @property
-    def status_callback_url(self):
-        return self._status_callback_url
-
-    @destination.setter
-    def destination(self, destination):
-        self._destination = destination
-
-    @calling_number.setter
-    def calling_number(self, calling_number):
-        self._calling_number = calling_number
-
-    @action_url.setter
     def action_url(self, action_url):
-        self._action_url = action_url
+        self.__getitem__(OutDial.__cmd)['actionUrl'] = action_url
+        return self
 
-    @call_connect_url.setter
     def call_connect_url(self, call_connect_url):
-        self._call_connect_url = call_connect_url
+        self.__getitem__(OutDial.__cmd)['callConnectUrl'] = call_connect_url
+        return self
 
-    @send_digits.setter
-    def send_digits(self, send_digits):
-        self._send_digits = send_digits
+    def calling_number(self, calling_number):
+        self.__getitem__(OutDial.__cmd)['callingNumber'] = calling_number
+        return self
 
-    @timeout.setter
-    def timeout(self, timeout):
-        self._timeout = timeout
+    def destination(self, destination):
+        self.__getitem__(OutDial.__cmd)['destination'] = destination
+        return self
 
-    @if_machine.setter
     def if_machine(self, if_machine):
-        allowed_values = ['redirect', 'hangup']
-        if if_machine not in allowed_values:
-            raise ValueError("if_machine must be set to one of the following values: 'redirect' or 'hangup'. Default value is null.")
-        self._if_machine = if_machine
+        self.__getitem__(OutDial.__cmd)['ifMachine'] = if_machine
+        return self
 
-    @if_machine_url.setter
     def if_machine_url(self, if_machine_url):
-        self._if_machine_url = if_machine_url
+        self.__getitem__(OutDial.__cmd)['ifMachineUrl'] = if_machine_url
+        return self
 
-    @status_callback_url.setter
+    def send_digits(self, send_digits):
+        self.__getitem__(OutDial.__cmd)['sendDigits'] = send_digits
+        return self
+
     def status_callback_url(self, status_callback_url):
-        self._status_callback_url = status_callback_url
+        self.__getitem__(OutDial.__cmd)['statusCallbackUrl'] = status_callback_url
+        return self
 
-    def to_dict(self):
-        as_dict = {
-            self.__class__.__name__ : {
-                'destination': self._destination,
-                'callingNumber': self._calling_number,
-                'actionUrl': self._action_url,
-                'callConnectUrl': self._call_connect_url,
-                'sendDigits': self._send_digits,
-                'timeout': self._timeout,
-                'ifMachine': self._if_machine,
-                'ifMachineUrl': self._if_machine_url,
-                'statusCallbackUrl': self._status_callback_url
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+    def timeout(self, timeout):
+        self.__getitem__(OutDial.__cmd)['timeout'] = timeout
+        return self

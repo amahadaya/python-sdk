@@ -34,13 +34,7 @@ class TestPlayEarlyMedia(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.PlayEarlyMedia()  # noqa: E501
         self.assertTrue(isinstance(self.play_early_media, PlayEarlyMedia))
-        self.assertEqual(self.file, self.play_early_media.file)
-
-    def testToDict(self):
-        """Test PlayEarlyMedia to dictionary"""
-        self.assertTrue(isinstance(self.play_early_media.to_dict(), dict))
-        self.assertEqual(list(self.play_early_media.to_dict().keys())[0], self.play_early_media.__class__.__name__)
-
+        self.assertEqual(self.file, self.play_early_media.get('PlayEarlyMedia').get('file'))
 
 if __name__ == '__main__':
     unittest.main()

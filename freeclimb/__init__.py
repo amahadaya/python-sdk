@@ -88,6 +88,7 @@ from freeclimb.models.update_call_request import UpdateCallRequest
 from freeclimb.models.update_conference_participant_request import UpdateConferenceParticipantRequest
 from freeclimb.models.update_conference_request import UpdateConferenceRequest
 # import PerCL
+from freeclimb.percl.percl_script import PerCLScript
 from freeclimb.percl.add_to_conference import AddToConference
 from freeclimb.percl.create_conference import CreateConference
 from freeclimb.percl.dequeue import Dequeue
@@ -97,7 +98,6 @@ from freeclimb.percl.get_speech import GetSpeech
 from freeclimb.percl.hangup import Hangup
 from freeclimb.percl.out_dial import OutDial
 from freeclimb.percl.pause import Pause
-import freeclimb.percl.percl_command as PerCLCommand
 from freeclimb.percl.play_early_media import PlayEarlyMedia
 from freeclimb.percl.play import Play
 from freeclimb.percl.record_utterance import RecordUtterance

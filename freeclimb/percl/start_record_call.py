@@ -1,15 +1,7 @@
-class StartRecordCall(object):
-    openapi_types = {
-    }
+class StartRecordCall(dict):
 
-    attribute_map = {
-    }
+    __cmd = 'StartRecordCall'
 
     def __init__(self):
-        None
-        
-    def to_dict(self):
-        as_dict = {
-            self.__class__.__name__ : {}
-        }
-        return as_dict
+        super().__init__()
+        self.__setitem__(StartRecordCall.__cmd, {})

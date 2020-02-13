@@ -34,13 +34,7 @@ class TestRedirect(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.Redirect()  # noqa: E501
         self.assertTrue(isinstance(self.redirect, Redirect))
-        self.assertEqual(self.action_url, self.redirect.action_url)
-
-    def testToDict(self):
-        """Test Redirect to dictionary"""
-        self.assertTrue(isinstance(self.redirect.to_dict(), dict))
-        self.assertEqual(list(self.redirect.to_dict().keys())[0], self.redirect.__class__.__name__)
-
+        self.assertEqual(self.action_url, self.redirect.get('Redirect').get('actionUrl'))
 
 if __name__ == '__main__':
     unittest.main()

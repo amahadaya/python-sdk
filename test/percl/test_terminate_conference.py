@@ -34,13 +34,7 @@ class TestTerminateConference(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.TerminateConference()  # noqa: E501
         self.assertTrue(isinstance(self.terminate_conference, TerminateConference))
-        self.assertEqual(self.conference_id, self.terminate_conference.conference_id)
-
-    def testToDict(self):
-        """Test TerminateConference to dictionary"""
-        self.assertTrue(isinstance(self.terminate_conference.to_dict(), dict))
-        self.assertEqual(list(self.terminate_conference.to_dict().keys())[0], self.terminate_conference.__class__.__name__)
-
+        self.assertEqual(self.conference_id, self.terminate_conference.get('TerminateConference').get('conferenceId'))
 
 if __name__ == '__main__':
     unittest.main()

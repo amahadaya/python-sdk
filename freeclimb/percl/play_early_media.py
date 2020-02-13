@@ -1,33 +1,12 @@
-import json
-
-class PlayEarlyMedia(object):
-    openapi_types = {
-        'file': 'str'
-    }
-
-    attribute_map = {
-        'file': 'file'
-    }
-
+class PlayEarlyMedia(dict):
+    
+    __cmd = 'PlayEarlyMedia'
+    
     def __init__(self, file):
-        self._file = file
+        super().__init__()
+        self.__setitem__(PlayEarlyMedia.__cmd, {})
+        self.file(file)
 
-    @property
-    def file(self):
-        return self._file
-
-    @file.setter
     def file(self, file):
-        self._file = file
-
-    def to_dict(self):
-        """Returns the dictionary representation of play"""
-        as_dict = {
-            self.__class__.__name__ : {
-                "file": self._file
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(PlayEarlyMedia.__cmd)['file'] = file
+        return self

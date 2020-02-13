@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 
+from freeclimb.percl.percl_script import PerCLScript
 from freeclimb.percl.add_to_conference import AddToConference
 from freeclimb.percl.create_conference import CreateConference
 from freeclimb.percl.dequeue import Dequeue

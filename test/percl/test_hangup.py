@@ -36,11 +36,6 @@ class TestHangup(unittest.TestCase):
         self.assertTrue(hasattr(self.hangup, 'call_id'))
         self.assertTrue(hasattr(self.hangup, 'reason'))
 
-    def testToDict(self):
-        """Test Hangup to dictionary"""
-        self.assertTrue(isinstance(self.hangup.to_dict(), dict))
-        self.assertEqual(list(self.hangup.to_dict().keys())[0], self.hangup.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

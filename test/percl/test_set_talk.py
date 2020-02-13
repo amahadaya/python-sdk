@@ -24,7 +24,7 @@ class TestSetTalk(unittest.TestCase):
     call_id='CA-fake-call-id'
 
     def setUp(self):
-        self.set_talk = SetTalk(call_id=self.call_id)
+        self.set_talk = SetTalk(call_id=self.call_id).talk(False)
 
     def tearDown(self):
         pass
@@ -34,14 +34,8 @@ class TestSetTalk(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.SetTalk()  # noqa: E501
         self.assertTrue(isinstance(self.set_talk, SetTalk))
-        self.assertEqual(self.call_id, self.set_talk.call_id)
-        self.assertTrue(hasattr(self.set_talk, 'talk'))
-
-    def testToDict(self):
-        """Test SetTalk to dictionary"""
-        self.assertTrue(isinstance(self.set_talk.to_dict(), dict))
-        self.assertEqual(list(self.set_talk.to_dict().keys())[0], self.set_talk.__class__.__name__)
-
+        self.assertEqual(self.call_id, self.set_talk.get('SetTalk').get('callId'))
+        self.assertEqual(False, self.set_talk.get('SetTalk').get('talk'))
 
 if __name__ == '__main__':
     unittest.main()

@@ -34,11 +34,5 @@ class TestDequeue(unittest.TestCase):
         # percl = freeclimb.percl.dequeue()  # noqa: E501
         self.assertTrue(isinstance(self.dequeue, Dequeue))
 
-    def testToDict(self):
-        """Test Dequeue to dictionary"""
-        self.assertTrue(isinstance(self.dequeue.to_dict(), dict))
-        self.assertEqual(list(self.dequeue.to_dict().keys())[0], self.dequeue.__class__.__name__)
-
-
 if __name__ == '__main__':
     unittest.main()

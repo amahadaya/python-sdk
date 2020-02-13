@@ -37,10 +37,10 @@ class TestOutDial(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.OutDial()  # noqa: E501
         self.assertTrue(isinstance(self.out_dial, OutDial))
-        self.assertEqual(self.destination, self.out_dial.destination)
-        self.assertEqual(self.calling_number, self.out_dial.calling_number)
-        self.assertEqual(self.action_url, self.out_dial.action_url)
-        self.assertEqual(self.call_connect_url, self.out_dial.call_connect_url)
+        self.assertEqual(self.destination, self.out_dial.get('OutDial').get('destination'))
+        self.assertEqual(self.calling_number, self.out_dial.get('OutDial').get('callingNumber'))
+        self.assertEqual(self.action_url, self.out_dial.get('OutDial').get('actionUrl'))
+        self.assertEqual(self.call_connect_url, self.out_dial.get('OutDial').get('callConnectUrl'))
         self.assertTrue(hasattr(self.out_dial, 'send_digits'))
         self.assertTrue(hasattr(self.out_dial, 'timeout'))
         self.assertTrue(hasattr(self.out_dial, 'if_machine'))
@@ -52,12 +52,6 @@ class TestOutDial(unittest.TestCase):
         out_dial_if_machine = 'redirect'
         self.out_dial.out_dial_if_machine = out_dial_if_machine
         self.assertEqual(self.out_dial.out_dial_if_machine, out_dial_if_machine)
-
-    def testToDict(self):
-        """Test OutDial to dictionary"""
-        self.assertTrue(isinstance(self.out_dial.to_dict(), dict))
-        self.assertEqual(list(self.out_dial.to_dict().keys())[0], self.out_dial.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

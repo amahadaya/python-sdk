@@ -25,7 +25,7 @@ class TestGetSpeech(unittest.TestCase):
     grammar_file='DIG5'
 
     def setUp(self):
-        self.get_speech = GetSpeech(action_url=self.action_url, grammar_file=self.grammar_file)
+        self.get_speech = GetSpeech(action_url=self.action_url).grammar_file(self.grammar_file)
 
     def tearDown(self):
         pass
@@ -35,8 +35,8 @@ class TestGetSpeech(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.GetSpeech()  # noqa: E501
         self.assertTrue(isinstance(self.get_speech, GetSpeech))
-        self.assertEqual(self.action_url, self.get_speech.action_url)
-        self.assertEqual(self.grammar_file, self.get_speech.grammar_file)
+        self.assertEqual(self.action_url, self.get_speech.get('GetSpeech').get('actionUrl'))
+        self.assertEqual(self.grammar_file, self.get_speech.get('GetSpeech').get('grammarFile'))
         self.assertTrue(hasattr(self.get_speech, 'grammar_type'))
         self.assertTrue(hasattr(self.get_speech, 'grammar_rule'))
         self.assertTrue(hasattr(self.get_speech, 'play_beep'))
@@ -54,12 +54,6 @@ class TestGetSpeech(unittest.TestCase):
         grammar_type = 'BUILTIN'
         self.get_speech.grammar_type = grammar_type
         self.assertEqual(self.get_speech.grammar_type, grammar_type)
-
-    def testToDict(self):
-        """Test GetSpeech to dictionary"""
-        self.assertTrue(isinstance(self.get_speech.to_dict(), dict))
-        self.assertEqual(list(self.get_speech.to_dict().keys())[0], self.get_speech.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

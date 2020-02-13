@@ -34,7 +34,7 @@ class TestGetDigits(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.GetDigits()  # noqa: E501
         self.assertTrue(isinstance(self.get_digits, GetDigits))
-        self.assertEqual(self.action_url, self.get_digits.action_url)
+        self.assertEqual(self.action_url, self.get_digits.get('GetDigits').get('actionUrl'))
         self.assertTrue(hasattr(self.get_digits, 'initial_timeout_ms'))
         self.assertTrue(hasattr(self.get_digits, 'finish_on_key'))
         self.assertTrue(hasattr(self.get_digits, 'digit_timeout_ms'))
@@ -49,17 +49,6 @@ class TestGetDigits(unittest.TestCase):
         finish_on_key_symbol = '*'
         self.get_digits.finish_on_key = finish_on_key_symbol
         self.assertEqual(self.get_digits.finish_on_key, finish_on_key_symbol)
-
-    def testAddFinishOnKeyFail(self):
-        """Fail to Add FinishOnKey to conference"""
-        with self.assertRaises(ValueError):
-            self.get_digits.finish_on_key = 'NotValidValue'
-
-    def testToDict(self):
-        """Test GetDigits to dictionary"""
-        self.assertTrue(isinstance(self.get_digits.to_dict(), dict))
-        self.assertEqual(list(self.get_digits.to_dict().keys())[0], self.get_digits.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

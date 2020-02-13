@@ -34,7 +34,7 @@ class TestCreateConference(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.CreateConference()  # noqa: E501
         self.assertTrue(isinstance(self.create_conference, CreateConference))
-        self.assertEqual(self.action_url, self.create_conference.action_url)
+        self.assertEqual(self.action_url, self.create_conference.get('CreateConference').get('actionUrl'))
         self.assertTrue(hasattr(self.create_conference, 'alias'))
         self.assertTrue(hasattr(self.create_conference, 'play_beep'))
         self.assertTrue(hasattr(self.create_conference, 'status_callback_url'))
@@ -46,12 +46,6 @@ class TestCreateConference(unittest.TestCase):
         play_beep_status = 'exitOnly'
         self.create_conference.play_beep = play_beep_status
         self.assertEqual(self.create_conference.play_beep, play_beep_status)
-
-    def testToDict(self):
-        """Test CreateConference to dictionary"""
-        self.assertTrue(isinstance(self.create_conference.to_dict(), dict))
-        self.assertEqual(list(self.create_conference.to_dict().keys())[0], self.create_conference.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()

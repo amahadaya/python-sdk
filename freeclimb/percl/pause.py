@@ -1,33 +1,12 @@
-import json
+class Pause(dict):
 
-class Pause(object):
-    openapi_types = {
-        'length': 'int'
-    }
-
-    attribute_map = {
-        'length': 'length'
-    }
+    __cmd = 'Pause'
 
     def __init__(self, length):
-        self._length = length
+        super().__init__()
+        self.__setitem__(Pause.__cmd, {})
+        self.length(length)
 
-    @property
-    def length(self):
-        return self._length
-
-    @length.setter
     def length(self, length):
-        self._length = length
- 
-    def to_dict(self):
-        """Returns the dictionary representation of pause """
-        as_dict = {
-            self.__class__.__name__ : {
-                "length": self._length
-            }
-        }
-        return as_dict
-
-    def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        self.__getitem__(Pause.__cmd)['length'] = length
+        return self

@@ -1,15 +1,7 @@
-class Dequeue(object):
-    openapi_types = {
-    }
+class Dequeue(dict):
 
-    attribute_map = {
-    }
-    
+    __cmd = 'Dequeue'
+
     def __init__(self):
-        None
-
-    def to_dict(self):
-        as_dict = {
-            self.__class__.__name__ : {}
-        }
-        return as_dict
+        super().__init__()
+        self.__setitem__(Dequeue.__cmd, {})

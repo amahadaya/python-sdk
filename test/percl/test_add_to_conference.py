@@ -35,8 +35,8 @@ class TestAddToConference(unittest.TestCase):
         # construct object with mandatory attributes with example values
         # percl = freeclimb.percl.AddToConference()  # noqa: E501
         self.assertTrue(isinstance(self.add_to_conference, AddToConference))
-        self.assertEqual(self.conference_id, self.add_to_conference.conference_id)
-        self.assertEqual(self.call_id, self.add_to_conference.call_id)
+        self.assertEqual(self.conference_id, self.add_to_conference.get('AddToConference').get('conferenceId'))
+        self.assertEqual(self.call_id, self.add_to_conference.get('AddToConference').get('callId'))
         self.assertTrue(hasattr(self.add_to_conference, 'start_conf_on_enter'))
         self.assertTrue(hasattr(self.add_to_conference, 'talk'))
         self.assertTrue(hasattr(self.add_to_conference, 'listen'))
@@ -45,12 +45,6 @@ class TestAddToConference(unittest.TestCase):
         self.assertTrue(hasattr(self.add_to_conference, 'allow_call_control'))
         self.assertTrue(hasattr(self.add_to_conference, 'call_control_sequence'))
         self.assertTrue(hasattr(self.add_to_conference, 'call_control_url'))
-
-    def testToDict(self):
-        """Test AddToConference to dictionary"""
-        self.assertTrue(isinstance(self.add_to_conference.to_dict(), dict))
-        self.assertEqual(list(self.add_to_conference.to_dict().keys())[0], self.add_to_conference.__class__.__name__)
-
 
 if __name__ == '__main__':
     unittest.main()
