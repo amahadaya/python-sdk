@@ -36,16 +36,15 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def buy_a_phone_number(self, account_id, **kwargs):  # noqa: E501
+    def buy_a_phone_number(self, **kwargs):  # noqa: E501
         """Buy a Phone Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.buy_a_phone_number(account_id, async_req=True)
+        >>> thread = api.buy_a_phone_number(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -59,18 +58,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.buy_a_phone_number_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.buy_a_phone_number_with_http_info(**kwargs)  # noqa: E501
 
-    def buy_a_phone_number_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def buy_a_phone_number_with_http_info(self, **kwargs):  # noqa: E501
         """Buy a Phone Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.buy_a_phone_number_with_http_info(account_id, async_req=True)
+        >>> thread = api.buy_a_phone_number_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -88,7 +86,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'buy_incoming_number_request']  # noqa: E501
+        all_params = ['buy_incoming_number_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -102,16 +100,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `buy_a_phone_number`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -150,16 +143,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_a_conference(self, account_id, **kwargs):  # noqa: E501
+    def create_a_conference(self, **kwargs):  # noqa: E501
         """Create a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_a_conference(account_id, async_req=True)
+        >>> thread = api.create_a_conference(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Conference. (required)
         :param CreateConferenceRequest create_conference_request: Conference to create
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -173,18 +165,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_a_conference_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.create_a_conference_with_http_info(**kwargs)  # noqa: E501
 
-    def create_a_conference_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def create_a_conference_with_http_info(self, **kwargs):  # noqa: E501
         """Create a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_a_conference_with_http_info(account_id, async_req=True)
+        >>> thread = api.create_a_conference_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Conference. (required)
         :param CreateConferenceRequest create_conference_request: Conference to create
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -202,7 +193,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'create_conference_request']  # noqa: E501
+        all_params = ['create_conference_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -216,16 +207,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `create_a_conference`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -264,16 +250,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_a_queue(self, account_id, **kwargs):  # noqa: E501
+    def create_a_queue(self, **kwargs):  # noqa: E501
         """Create a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_a_queue(account_id, async_req=True)
+        >>> thread = api.create_a_queue(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue. (required)
         :param QueueRequest queue_request: Queue details used to create a queue
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -287,18 +272,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_a_queue_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.create_a_queue_with_http_info(**kwargs)  # noqa: E501
 
-    def create_a_queue_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def create_a_queue_with_http_info(self, **kwargs):  # noqa: E501
         """Create a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_a_queue_with_http_info(account_id, async_req=True)
+        >>> thread = api.create_a_queue_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue. (required)
         :param QueueRequest queue_request: Queue details used to create a queue
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -316,7 +300,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_request']  # noqa: E501
+        all_params = ['queue_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -330,16 +314,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `create_a_queue`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -378,16 +357,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_an_application(self, account_id, **kwargs):  # noqa: E501
+    def create_an_application(self, **kwargs):  # noqa: E501
         """Create an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_an_application(account_id, async_req=True)
+        >>> thread = api.create_an_application(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param ApplicationRequest application_request: Application Details
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -401,18 +379,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_an_application_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.create_an_application_with_http_info(**kwargs)  # noqa: E501
 
-    def create_an_application_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def create_an_application_with_http_info(self, **kwargs):  # noqa: E501
         """Create an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_an_application_with_http_info(account_id, async_req=True)
+        >>> thread = api.create_an_application_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param ApplicationRequest application_request: Application Details
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -430,7 +407,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'application_request']  # noqa: E501
+        all_params = ['application_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -444,16 +421,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `create_an_application`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -492,16 +464,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_a_recording(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def delete_a_recording(self, recording_id, **kwargs):  # noqa: E501
         """Delete a Recording  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_a_recording(account_id, recording_id, async_req=True)
+        >>> thread = api.delete_a_recording(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -515,18 +486,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_a_recording_with_http_info(account_id, recording_id, **kwargs)  # noqa: E501
+        return self.delete_a_recording_with_http_info(recording_id, **kwargs)  # noqa: E501
 
-    def delete_a_recording_with_http_info(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def delete_a_recording_with_http_info(self, recording_id, **kwargs):  # noqa: E501
         """Delete a Recording  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_a_recording_with_http_info(account_id, recording_id, async_req=True)
+        >>> thread = api.delete_a_recording_with_http_info(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -544,7 +514,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'recording_id']  # noqa: E501
+        all_params = ['recording_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -558,10 +528,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `delete_a_recording`")  # noqa: E501
         # verify the required parameter 'recording_id' is set
         if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['recording_id'] is None):  # noqa: E501
@@ -570,8 +536,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
 
@@ -602,16 +567,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_an_application(self, account_id, application_id, **kwargs):  # noqa: E501
+    def delete_an_application(self, application_id, **kwargs):  # noqa: E501
         """Delete an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_an_application(account_id, application_id, async_req=True)
+        >>> thread = api.delete_an_application(application_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str application_id: String that uniquely identifies this application resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -625,18 +589,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_an_application_with_http_info(account_id, application_id, **kwargs)  # noqa: E501
+        return self.delete_an_application_with_http_info(application_id, **kwargs)  # noqa: E501
 
-    def delete_an_application_with_http_info(self, account_id, application_id, **kwargs):  # noqa: E501
+    def delete_an_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """Delete an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_an_application_with_http_info(account_id, application_id, async_req=True)
+        >>> thread = api.delete_an_application_with_http_info(application_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str application_id: String that uniquely identifies this application resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -654,7 +617,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'application_id']  # noqa: E501
+        all_params = ['application_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -668,10 +631,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `delete_an_application`")  # noqa: E501
         # verify the required parameter 'application_id' is set
         if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['application_id'] is None):  # noqa: E501
@@ -680,8 +639,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'application_id' in local_var_params:
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
 
@@ -712,16 +670,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_an_incoming_number(self, account_id, phone_number_id, **kwargs):  # noqa: E501
+    def delete_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
         """Delete an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_an_incoming_number(account_id, phone_number_id, async_req=True)
+        >>> thread = api.delete_an_incoming_number(phone_number_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -735,18 +692,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_an_incoming_number_with_http_info(account_id, phone_number_id, **kwargs)  # noqa: E501
+        return self.delete_an_incoming_number_with_http_info(phone_number_id, **kwargs)  # noqa: E501
 
-    def delete_an_incoming_number_with_http_info(self, account_id, phone_number_id, **kwargs):  # noqa: E501
+    def delete_an_incoming_number_with_http_info(self, phone_number_id, **kwargs):  # noqa: E501
         """Delete an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_an_incoming_number_with_http_info(account_id, phone_number_id, async_req=True)
+        >>> thread = api.delete_an_incoming_number_with_http_info(phone_number_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -764,7 +720,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'phone_number_id']  # noqa: E501
+        all_params = ['phone_number_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -778,10 +734,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `delete_an_incoming_number`")  # noqa: E501
         # verify the required parameter 'phone_number_id' is set
         if self.api_client.client_side_validation and ('phone_number_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['phone_number_id'] is None):  # noqa: E501
@@ -790,8 +742,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'phone_number_id' in local_var_params:
             path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
 
@@ -822,16 +773,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def dequeue_a_member(self, account_id, queue_id, call_id, **kwargs):  # noqa: E501
+    def dequeue_a_member(self, queue_id, call_id, **kwargs):  # noqa: E501
         """Dequeue a Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.dequeue_a_member(account_id, queue_id, call_id, async_req=True)
+        >>> thread = api.dequeue_a_member(queue_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created the Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param str call_id: ID if the Call that the Member belongs to (required)
         :param DequeueMemberRequest dequeue_member_request: Dequeue member request details
@@ -847,18 +797,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.dequeue_a_member_with_http_info(account_id, queue_id, call_id, **kwargs)  # noqa: E501
+        return self.dequeue_a_member_with_http_info(queue_id, call_id, **kwargs)  # noqa: E501
 
-    def dequeue_a_member_with_http_info(self, account_id, queue_id, call_id, **kwargs):  # noqa: E501
+    def dequeue_a_member_with_http_info(self, queue_id, call_id, **kwargs):  # noqa: E501
         """Dequeue a Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.dequeue_a_member_with_http_info(account_id, queue_id, call_id, async_req=True)
+        >>> thread = api.dequeue_a_member_with_http_info(queue_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created the Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param str call_id: ID if the Call that the Member belongs to (required)
         :param DequeueMemberRequest dequeue_member_request: Dequeue member request details
@@ -878,7 +827,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id', 'call_id', 'dequeue_member_request']  # noqa: E501
+        all_params = ['queue_id', 'call_id', 'dequeue_member_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -892,10 +841,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `dequeue_a_member`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -908,8 +853,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -952,16 +896,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def dequeue_head_member(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def dequeue_head_member(self, queue_id, **kwargs):  # noqa: E501
         """Dequeue Head Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.dequeue_head_member(account_id, queue_id, async_req=True)
+        >>> thread = api.dequeue_head_member(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this queue. (required)
         :param str queue_id: String that uniquely identifies this queue resource. (required)
         :param DequeueMemberRequest dequeue_member_request: Dequeue head member request details
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -976,18 +919,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.dequeue_head_member_with_http_info(account_id, queue_id, **kwargs)  # noqa: E501
+        return self.dequeue_head_member_with_http_info(queue_id, **kwargs)  # noqa: E501
 
-    def dequeue_head_member_with_http_info(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def dequeue_head_member_with_http_info(self, queue_id, **kwargs):  # noqa: E501
         """Dequeue Head Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.dequeue_head_member_with_http_info(account_id, queue_id, async_req=True)
+        >>> thread = api.dequeue_head_member_with_http_info(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this queue. (required)
         :param str queue_id: String that uniquely identifies this queue resource. (required)
         :param DequeueMemberRequest dequeue_member_request: Dequeue head member request details
         :param _return_http_data_only: response data without head status code
@@ -1006,7 +948,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id', 'dequeue_member_request']  # noqa: E501
+        all_params = ['queue_id', 'dequeue_member_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1020,10 +962,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `dequeue_head_member`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -1032,8 +970,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
 
@@ -1074,16 +1011,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def download_a_recording_file(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def download_a_recording_file(self, recording_id, **kwargs):  # noqa: E501
         """Download a Recording File  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.download_a_recording_file(account_id, recording_id, async_req=True)
+        >>> thread = api.download_a_recording_file(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1097,18 +1033,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.download_a_recording_file_with_http_info(account_id, recording_id, **kwargs)  # noqa: E501
+        return self.download_a_recording_file_with_http_info(recording_id, **kwargs)  # noqa: E501
 
-    def download_a_recording_file_with_http_info(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def download_a_recording_file_with_http_info(self, recording_id, **kwargs):  # noqa: E501
         """Download a Recording File  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.download_a_recording_file_with_http_info(account_id, recording_id, async_req=True)
+        >>> thread = api.download_a_recording_file_with_http_info(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1126,7 +1061,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'recording_id']  # noqa: E501
+        all_params = ['recording_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1140,10 +1075,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `download_a_recording_file`")  # noqa: E501
         # verify the required parameter 'recording_id' is set
         if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['recording_id'] is None):  # noqa: E501
@@ -1152,8 +1083,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
 
@@ -1188,16 +1118,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def filter_logs(self, account_id, **kwargs):  # noqa: E501
+    def filter_logs(self, **kwargs):  # noqa: E501
         """Filter Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_logs(account_id, async_req=True)
+        >>> thread = api.filter_logs(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that this log was generated under. (required)
         :param FilterLogsRequest filter_logs_request: Filter logs request paramters
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1211,18 +1140,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.filter_logs_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.filter_logs_with_http_info(**kwargs)  # noqa: E501
 
-    def filter_logs_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def filter_logs_with_http_info(self, **kwargs):  # noqa: E501
         """Filter Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_logs_with_http_info(account_id, async_req=True)
+        >>> thread = api.filter_logs_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that this log was generated under. (required)
         :param FilterLogsRequest filter_logs_request: Filter logs request paramters
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1240,7 +1168,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'filter_logs_request']  # noqa: E501
+        all_params = ['filter_logs_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1254,16 +1182,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `filter_logs`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -1302,16 +1225,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_a_call(self, account_id, call_id, **kwargs):  # noqa: E501
+    def get_a_call(self, call_id, **kwargs):  # noqa: E501
         """Get a Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_call(account_id, call_id, async_req=True)
+        >>> thread = api.get_a_call(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1325,18 +1247,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_a_call_with_http_info(account_id, call_id, **kwargs)  # noqa: E501
+        return self.get_a_call_with_http_info(call_id, **kwargs)  # noqa: E501
 
-    def get_a_call_with_http_info(self, account_id, call_id, **kwargs):  # noqa: E501
+    def get_a_call_with_http_info(self, call_id, **kwargs):  # noqa: E501
         """Get a Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_call_with_http_info(account_id, call_id, async_req=True)
+        >>> thread = api.get_a_call_with_http_info(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1354,7 +1275,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'call_id']  # noqa: E501
+        all_params = ['call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1368,10 +1289,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_a_call`")  # noqa: E501
         # verify the required parameter 'call_id' is set
         if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['call_id'] is None):  # noqa: E501
@@ -1380,8 +1297,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
 
@@ -1416,16 +1332,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_a_conference(self, account_id, conference_id, **kwargs):  # noqa: E501
+    def get_a_conference(self, conference_id, **kwargs):  # noqa: E501
         """Get a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_conference(account_id, conference_id, async_req=True)
+        >>> thread = api.get_a_conference(conference_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this conference. (required)
         :param str conference_id: A string that uniquely identifies this conference resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1439,18 +1354,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_a_conference_with_http_info(account_id, conference_id, **kwargs)  # noqa: E501
+        return self.get_a_conference_with_http_info(conference_id, **kwargs)  # noqa: E501
 
-    def get_a_conference_with_http_info(self, account_id, conference_id, **kwargs):  # noqa: E501
+    def get_a_conference_with_http_info(self, conference_id, **kwargs):  # noqa: E501
         """Get a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_conference_with_http_info(account_id, conference_id, async_req=True)
+        >>> thread = api.get_a_conference_with_http_info(conference_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this conference. (required)
         :param str conference_id: A string that uniquely identifies this conference resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1468,7 +1382,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'conference_id']  # noqa: E501
+        all_params = ['conference_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1482,10 +1396,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_a_conference`")  # noqa: E501
         # verify the required parameter 'conference_id' is set
         if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['conference_id'] is None):  # noqa: E501
@@ -1494,8 +1404,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
 
@@ -1530,16 +1439,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_a_member(self, account_id, queue_id, call_id, **kwargs):  # noqa: E501
+    def get_a_member(self, queue_id, call_id, **kwargs):  # noqa: E501
         """Get a Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_member(account_id, queue_id, call_id, async_req=True)
+        >>> thread = api.get_a_member(queue_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param str call_id: ID of the Call that the Member belongs to (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1554,18 +1462,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_a_member_with_http_info(account_id, queue_id, call_id, **kwargs)  # noqa: E501
+        return self.get_a_member_with_http_info(queue_id, call_id, **kwargs)  # noqa: E501
 
-    def get_a_member_with_http_info(self, account_id, queue_id, call_id, **kwargs):  # noqa: E501
+    def get_a_member_with_http_info(self, queue_id, call_id, **kwargs):  # noqa: E501
         """Get a Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_member_with_http_info(account_id, queue_id, call_id, async_req=True)
+        >>> thread = api.get_a_member_with_http_info(queue_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param str call_id: ID of the Call that the Member belongs to (required)
         :param _return_http_data_only: response data without head status code
@@ -1584,7 +1491,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id', 'call_id']  # noqa: E501
+        all_params = ['queue_id', 'call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1598,10 +1505,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_a_member`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -1614,8 +1517,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -1652,16 +1554,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_a_participant(self, account_id, conference_id, call_id, **kwargs):  # noqa: E501
+    def get_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Get a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_participant(account_id, conference_id, call_id, async_req=True)
+        >>> thread = api.get_a_participant(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param str call_id: ID of the Call associated with this participant. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1676,18 +1577,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_a_participant_with_http_info(account_id, conference_id, call_id, **kwargs)  # noqa: E501
+        return self.get_a_participant_with_http_info(conference_id, call_id, **kwargs)  # noqa: E501
 
-    def get_a_participant_with_http_info(self, account_id, conference_id, call_id, **kwargs):  # noqa: E501
+    def get_a_participant_with_http_info(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Get a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_participant_with_http_info(account_id, conference_id, call_id, async_req=True)
+        >>> thread = api.get_a_participant_with_http_info(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param str call_id: ID of the Call associated with this participant. (required)
         :param _return_http_data_only: response data without head status code
@@ -1706,7 +1606,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'conference_id', 'call_id']  # noqa: E501
+        all_params = ['conference_id', 'call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1720,10 +1620,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_a_participant`")  # noqa: E501
         # verify the required parameter 'conference_id' is set
         if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['conference_id'] is None):  # noqa: E501
@@ -1736,8 +1632,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -1774,16 +1669,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_a_queue(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def get_a_queue(self, queue_id, **kwargs):  # noqa: E501
         """Get a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_queue(account_id, queue_id, async_req=True)
+        >>> thread = api.get_a_queue(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this queue. (required)
         :param str queue_id: A string that uniquely identifies this queue resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1797,18 +1691,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_a_queue_with_http_info(account_id, queue_id, **kwargs)  # noqa: E501
+        return self.get_a_queue_with_http_info(queue_id, **kwargs)  # noqa: E501
 
-    def get_a_queue_with_http_info(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def get_a_queue_with_http_info(self, queue_id, **kwargs):  # noqa: E501
         """Get a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_queue_with_http_info(account_id, queue_id, async_req=True)
+        >>> thread = api.get_a_queue_with_http_info(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this queue. (required)
         :param str queue_id: A string that uniquely identifies this queue resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1826,7 +1719,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id']  # noqa: E501
+        all_params = ['queue_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1840,10 +1733,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_a_queue`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -1852,8 +1741,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
 
@@ -1888,16 +1776,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_a_recording(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def get_a_recording(self, recording_id, **kwargs):  # noqa: E501
         """Get a Recording  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_recording(account_id, recording_id, async_req=True)
+        >>> thread = api.get_a_recording(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1911,18 +1798,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_a_recording_with_http_info(account_id, recording_id, **kwargs)  # noqa: E501
+        return self.get_a_recording_with_http_info(recording_id, **kwargs)  # noqa: E501
 
-    def get_a_recording_with_http_info(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def get_a_recording_with_http_info(self, recording_id, **kwargs):  # noqa: E501
         """Get a Recording  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_recording_with_http_info(account_id, recording_id, async_req=True)
+        >>> thread = api.get_a_recording_with_http_info(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -1940,7 +1826,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'recording_id']  # noqa: E501
+        all_params = ['recording_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1954,10 +1840,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_a_recording`")  # noqa: E501
         # verify the required parameter 'recording_id' is set
         if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['recording_id'] is None):  # noqa: E501
@@ -1966,8 +1848,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
 
@@ -2002,16 +1883,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_an_account(self, account_id, **kwargs):  # noqa: E501
+    def get_an_account(self, **kwargs):  # noqa: E501
         """Get an Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_account(account_id, async_req=True)
+        >>> thread = api.get_an_account(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: String that uniquely identifies this account resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2024,18 +1904,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_an_account_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.get_an_account_with_http_info(**kwargs)  # noqa: E501
 
-    def get_an_account_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def get_an_account_with_http_info(self, **kwargs):  # noqa: E501
         """Get an Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_account_with_http_info(account_id, async_req=True)
+        >>> thread = api.get_an_account_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: String that uniquely identifies this account resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2052,7 +1931,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id']  # noqa: E501
+        all_params = []  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2066,16 +1945,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_an_account`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -2108,16 +1982,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_an_application(self, account_id, application_id, **kwargs):  # noqa: E501
+    def get_an_application(self, application_id, **kwargs):  # noqa: E501
         """Get an Application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_application(account_id, application_id, async_req=True)
+        >>> thread = api.get_an_application(application_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str application_id: A string that uniquely identifies this application resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2131,18 +2004,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_an_application_with_http_info(account_id, application_id, **kwargs)  # noqa: E501
+        return self.get_an_application_with_http_info(application_id, **kwargs)  # noqa: E501
 
-    def get_an_application_with_http_info(self, account_id, application_id, **kwargs):  # noqa: E501
+    def get_an_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """Get an Application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_application_with_http_info(account_id, application_id, async_req=True)
+        >>> thread = api.get_an_application_with_http_info(application_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str application_id: A string that uniquely identifies this application resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2160,7 +2032,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'application_id']  # noqa: E501
+        all_params = ['application_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2174,10 +2046,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_an_application`")  # noqa: E501
         # verify the required parameter 'application_id' is set
         if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['application_id'] is None):  # noqa: E501
@@ -2186,8 +2054,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'application_id' in local_var_params:
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
 
@@ -2222,16 +2089,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_an_incoming_number(self, account_id, phone_number_id, **kwargs):  # noqa: E501
+    def get_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
         """Get an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_incoming_number(account_id, phone_number_id, async_req=True)
+        >>> thread = api.get_an_incoming_number(phone_number_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2245,18 +2111,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_an_incoming_number_with_http_info(account_id, phone_number_id, **kwargs)  # noqa: E501
+        return self.get_an_incoming_number_with_http_info(phone_number_id, **kwargs)  # noqa: E501
 
-    def get_an_incoming_number_with_http_info(self, account_id, phone_number_id, **kwargs):  # noqa: E501
+    def get_an_incoming_number_with_http_info(self, phone_number_id, **kwargs):  # noqa: E501
         """Get an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_incoming_number_with_http_info(account_id, phone_number_id, async_req=True)
+        >>> thread = api.get_an_incoming_number_with_http_info(phone_number_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2274,7 +2139,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'phone_number_id']  # noqa: E501
+        all_params = ['phone_number_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2288,10 +2153,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_an_incoming_number`")  # noqa: E501
         # verify the required parameter 'phone_number_id' is set
         if self.api_client.client_side_validation and ('phone_number_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['phone_number_id'] is None):  # noqa: E501
@@ -2300,8 +2161,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'phone_number_id' in local_var_params:
             path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
 
@@ -2336,16 +2196,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_an_sms_message(self, account_id, message_id, **kwargs):  # noqa: E501
+    def get_an_sms_message(self, message_id, **kwargs):  # noqa: E501
         """Get an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_sms_message(account_id, message_id, async_req=True)
+        >>> thread = api.get_an_sms_message(message_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: String that uniquely identifies this account resource. (required)
         :param str message_id: String that uniquely identifies this Message resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2359,18 +2218,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_an_sms_message_with_http_info(account_id, message_id, **kwargs)  # noqa: E501
+        return self.get_an_sms_message_with_http_info(message_id, **kwargs)  # noqa: E501
 
-    def get_an_sms_message_with_http_info(self, account_id, message_id, **kwargs):  # noqa: E501
+    def get_an_sms_message_with_http_info(self, message_id, **kwargs):  # noqa: E501
         """Get an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_sms_message_with_http_info(account_id, message_id, async_req=True)
+        >>> thread = api.get_an_sms_message_with_http_info(message_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: String that uniquely identifies this account resource. (required)
         :param str message_id: String that uniquely identifies this Message resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2388,7 +2246,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'message_id']  # noqa: E501
+        all_params = ['message_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2402,10 +2260,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_an_sms_message`")  # noqa: E501
         # verify the required parameter 'message_id' is set
         if self.api_client.client_side_validation and ('message_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['message_id'] is None):  # noqa: E501
@@ -2414,8 +2268,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'message_id' in local_var_params:
             path_params['messageId'] = local_var_params['message_id']  # noqa: E501
 
@@ -2450,16 +2303,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_head_member(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def get_head_member(self, queue_id, **kwargs):  # noqa: E501
         """Get Head Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_head_member(account_id, queue_id, async_req=True)
+        >>> thread = api.get_head_member(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2473,18 +2325,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_head_member_with_http_info(account_id, queue_id, **kwargs)  # noqa: E501
+        return self.get_head_member_with_http_info(queue_id, **kwargs)  # noqa: E501
 
-    def get_head_member_with_http_info(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def get_head_member_with_http_info(self, queue_id, **kwargs):  # noqa: E501
         """Get Head Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_head_member_with_http_info(account_id, queue_id, async_req=True)
+        >>> thread = api.get_head_member_with_http_info(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2502,7 +2353,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id']  # noqa: E501
+        all_params = ['queue_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2516,10 +2367,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `get_head_member`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -2528,8 +2375,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
 
@@ -2564,16 +2410,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_active_queues(self, account_id, **kwargs):  # noqa: E501
+    def list_active_queues(self, **kwargs):  # noqa: E501
         """List Active Queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_active_queues(account_id, async_req=True)
+        >>> thread = api.list_active_queues(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue. (required)
         :param str alias: Return only the Queue resources with aliases that exactly match this name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2587,18 +2432,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_active_queues_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_active_queues_with_http_info(**kwargs)  # noqa: E501
 
-    def list_active_queues_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_active_queues_with_http_info(self, **kwargs):  # noqa: E501
         """List Active Queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_active_queues_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_active_queues_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue. (required)
         :param str alias: Return only the Queue resources with aliases that exactly match this name.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2616,7 +2460,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'alias']  # noqa: E501
+        all_params = ['alias']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2630,16 +2474,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_active_queues`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
@@ -2674,16 +2513,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_all_account_logs(self, account_id, **kwargs):  # noqa: E501
+    def list_all_account_logs(self, **kwargs):  # noqa: E501
         """List All Account Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_all_account_logs(account_id, async_req=True)
+        >>> thread = api.list_all_account_logs(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that these Logs were generated under. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2696,18 +2534,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_all_account_logs_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_all_account_logs_with_http_info(**kwargs)  # noqa: E501
 
-    def list_all_account_logs_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_all_account_logs_with_http_info(self, **kwargs):  # noqa: E501
         """List All Account Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_all_account_logs_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_all_account_logs_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that these Logs were generated under. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2724,7 +2561,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id']  # noqa: E501
+        all_params = []  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2738,16 +2575,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_all_account_logs`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -2780,16 +2612,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_an_application(self, account_id, **kwargs):  # noqa: E501
+    def list_an_application(self, **kwargs):  # noqa: E501
         """List applications  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_an_application(account_id, async_req=True)
+        >>> thread = api.list_an_application(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str alias: Return only applications with aliases that exactly match this value.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2803,18 +2634,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_an_application_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_an_application_with_http_info(**kwargs)  # noqa: E501
 
-    def list_an_application_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_an_application_with_http_info(self, **kwargs):  # noqa: E501
         """List applications  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_an_application_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_an_application_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str alias: Return only applications with aliases that exactly match this value.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2832,7 +2662,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'alias']  # noqa: E501
+        all_params = ['alias']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2846,16 +2676,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_an_application`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
@@ -2996,16 +2821,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_call_logs(self, account_id, call_id, **kwargs):  # noqa: E501
+    def list_call_logs(self, call_id, **kwargs):  # noqa: E501
         """List Call Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_call_logs(account_id, call_id, async_req=True)
+        >>> thread = api.list_call_logs(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3019,18 +2843,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_call_logs_with_http_info(account_id, call_id, **kwargs)  # noqa: E501
+        return self.list_call_logs_with_http_info(call_id, **kwargs)  # noqa: E501
 
-    def list_call_logs_with_http_info(self, account_id, call_id, **kwargs):  # noqa: E501
+    def list_call_logs_with_http_info(self, call_id, **kwargs):  # noqa: E501
         """List Call Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_call_logs_with_http_info(account_id, call_id, async_req=True)
+        >>> thread = api.list_call_logs_with_http_info(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3048,7 +2871,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'call_id']  # noqa: E501
+        all_params = ['call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3062,10 +2885,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_call_logs`")  # noqa: E501
         # verify the required parameter 'call_id' is set
         if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['call_id'] is None):  # noqa: E501
@@ -3074,8 +2893,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
 
@@ -3110,16 +2928,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_call_recordings(self, account_id, call_id, **kwargs):  # noqa: E501
+    def list_call_recordings(self, call_id, **kwargs):  # noqa: E501
         """List Call Recordings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_call_recordings(account_id, call_id, async_req=True)
+        >>> thread = api.list_call_recordings(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param str date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3134,18 +2951,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_call_recordings_with_http_info(account_id, call_id, **kwargs)  # noqa: E501
+        return self.list_call_recordings_with_http_info(call_id, **kwargs)  # noqa: E501
 
-    def list_call_recordings_with_http_info(self, account_id, call_id, **kwargs):  # noqa: E501
+    def list_call_recordings_with_http_info(self, call_id, **kwargs):  # noqa: E501
         """List Call Recordings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_call_recordings_with_http_info(account_id, call_id, async_req=True)
+        >>> thread = api.list_call_recordings_with_http_info(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param str date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
         :param _return_http_data_only: response data without head status code
@@ -3164,7 +2980,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'call_id', 'date_created']  # noqa: E501
+        all_params = ['call_id', 'date_created']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3178,10 +2994,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_call_recordings`")  # noqa: E501
         # verify the required parameter 'call_id' is set
         if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['call_id'] is None):  # noqa: E501
@@ -3190,8 +3002,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
 
@@ -3228,16 +3039,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_calls(self, account_id, **kwargs):  # noqa: E501
+    def list_calls(self, **kwargs):  # noqa: E501
         """List Calls  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_calls(account_id, async_req=True)
+        >>> thread = api.list_calls(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str to: Only show Calls to this phone number.
         :param str _from: Only show Calls from this phone number.
         :param str status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
@@ -3256,18 +3066,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_calls_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_calls_with_http_info(**kwargs)  # noqa: E501
 
-    def list_calls_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_calls_with_http_info(self, **kwargs):  # noqa: E501
         """List Calls  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_calls_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_calls_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str to: Only show Calls to this phone number.
         :param str _from: Only show Calls from this phone number.
         :param str status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
@@ -3290,7 +3099,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'to', '_from', 'status', 'start_time', 'end_time', 'parent_call_id']  # noqa: E501
+        all_params = ['to', '_from', 'status', 'start_time', 'end_time', 'parent_call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3304,16 +3113,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_calls`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
@@ -3358,16 +3162,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_conferences(self, account_id, **kwargs):  # noqa: E501
+    def list_conferences(self, **kwargs):  # noqa: E501
         """List Conferences  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_conferences(account_id, async_req=True)
+        >>> thread = api.list_conferences(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this conference. (required)
         :param str status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
         :param str alias: List Conferences whose alias exactly matches this string.
         :param str date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
@@ -3384,18 +3187,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_conferences_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_conferences_with_http_info(**kwargs)  # noqa: E501
 
-    def list_conferences_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_conferences_with_http_info(self, **kwargs):  # noqa: E501
         """List Conferences  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_conferences_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_conferences_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this conference. (required)
         :param str status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
         :param str alias: List Conferences whose alias exactly matches this string.
         :param str date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
@@ -3416,7 +3218,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'status', 'alias', 'date_created', 'date_updated']  # noqa: E501
+        all_params = ['status', 'alias', 'date_created', 'date_updated']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3430,16 +3232,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_conferences`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
@@ -3480,16 +3277,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_incoming_numbers(self, account_id, **kwargs):  # noqa: E501
+    def list_incoming_numbers(self, **kwargs):  # noqa: E501
         """List Incoming Numbers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_incoming_numbers(account_id, async_req=True)
+        >>> thread = api.list_incoming_numbers(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
         :param str alias: Only show incoming phone numbers with aliases that exactly match this value.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3504,18 +3300,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_incoming_numbers_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_incoming_numbers_with_http_info(**kwargs)  # noqa: E501
 
-    def list_incoming_numbers_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_incoming_numbers_with_http_info(self, **kwargs):  # noqa: E501
         """List Incoming Numbers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_incoming_numbers_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_incoming_numbers_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
         :param str alias: Only show incoming phone numbers with aliases that exactly match this value.
         :param _return_http_data_only: response data without head status code
@@ -3534,7 +3329,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'phone_number', 'alias']  # noqa: E501
+        all_params = ['phone_number', 'alias']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3548,16 +3343,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_incoming_numbers`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'phone_number' in local_var_params and local_var_params['phone_number'] is not None:  # noqa: E501
@@ -3594,16 +3384,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_members(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def list_members(self, queue_id, **kwargs):  # noqa: E501
         """List Members  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_members(account_id, queue_id, async_req=True)
+        >>> thread = api.list_members(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3617,18 +3406,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_members_with_http_info(account_id, queue_id, **kwargs)  # noqa: E501
+        return self.list_members_with_http_info(queue_id, **kwargs)  # noqa: E501
 
-    def list_members_with_http_info(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def list_members_with_http_info(self, queue_id, **kwargs):  # noqa: E501
         """List Members  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_members_with_http_info(account_id, queue_id, async_req=True)
+        >>> thread = api.list_members_with_http_info(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this Queue (required)
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3646,7 +3434,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id']  # noqa: E501
+        all_params = ['queue_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3660,10 +3448,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_members`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -3672,8 +3456,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
 
@@ -3708,16 +3491,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_participants(self, account_id, conference_id, **kwargs):  # noqa: E501
+    def list_participants(self, conference_id, **kwargs):  # noqa: E501
         """List Participants  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_participants(account_id, conference_id, async_req=True)
+        >>> thread = api.list_participants(conference_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param bool talk: Only show Participants with the talk privilege.
         :param bool listen: Only show Participants with the listen privilege.
@@ -3733,18 +3515,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_participants_with_http_info(account_id, conference_id, **kwargs)  # noqa: E501
+        return self.list_participants_with_http_info(conference_id, **kwargs)  # noqa: E501
 
-    def list_participants_with_http_info(self, account_id, conference_id, **kwargs):  # noqa: E501
+    def list_participants_with_http_info(self, conference_id, **kwargs):  # noqa: E501
         """List Participants  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_participants_with_http_info(account_id, conference_id, async_req=True)
+        >>> thread = api.list_participants_with_http_info(conference_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param bool talk: Only show Participants with the talk privilege.
         :param bool listen: Only show Participants with the listen privilege.
@@ -3764,7 +3545,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'conference_id', 'talk', 'listen']  # noqa: E501
+        all_params = ['conference_id', 'talk', 'listen']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3778,10 +3559,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_participants`")  # noqa: E501
         # verify the required parameter 'conference_id' is set
         if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['conference_id'] is None):  # noqa: E501
@@ -3790,8 +3567,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
 
@@ -3830,16 +3606,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_recordings(self, account_id, **kwargs):  # noqa: E501
+    def list_recordings(self, **kwargs):  # noqa: E501
         """List Recordings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_recordings(account_id, async_req=True)
+        >>> thread = api.list_recordings(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str call_id: Show only Recordings made during the Call with this ID.
         :param str conference_id: Show only Recordings made during the conference with this ID.
         :param str date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
@@ -3855,18 +3630,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_recordings_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.list_recordings_with_http_info(**kwargs)  # noqa: E501
 
-    def list_recordings_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def list_recordings_with_http_info(self, **kwargs):  # noqa: E501
         """List Recordings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_recordings_with_http_info(account_id, async_req=True)
+        >>> thread = api.list_recordings_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str call_id: Show only Recordings made during the Call with this ID.
         :param str conference_id: Show only Recordings made during the conference with this ID.
         :param str date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
@@ -3886,7 +3660,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'call_id', 'conference_id', 'date_created']  # noqa: E501
+        all_params = ['call_id', 'conference_id', 'date_created']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3900,16 +3674,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `list_recordings`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'call_id' in local_var_params and local_var_params['call_id'] is not None:  # noqa: E501
@@ -3948,16 +3717,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_sms_messages(self, account_id2, **kwargs):  # noqa: E501
+    def list_sms_messages(self, **kwargs):  # noqa: E501
         """List SMS Messages  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_sms_messages(account_id2, async_req=True)
+        >>> thread = api.list_sms_messages(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id2: ID of the account that sent this message. (required)
         :param str to: Only show Messages to this phone number.
         :param str _from: Only show Messages from this phone number.
         :param str begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
@@ -3976,18 +3744,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_sms_messages_with_http_info(account_id2, **kwargs)  # noqa: E501
+        return self.list_sms_messages_with_http_info(**kwargs)  # noqa: E501
 
-    def list_sms_messages_with_http_info(self, account_id2, **kwargs):  # noqa: E501
+    def list_sms_messages_with_http_info(self, **kwargs):  # noqa: E501
         """List SMS Messages  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_sms_messages_with_http_info(account_id2, async_req=True)
+        >>> thread = api.list_sms_messages_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id2: ID of the account that sent this message. (required)
         :param str to: Only show Messages to this phone number.
         :param str _from: Only show Messages from this phone number.
         :param str begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
@@ -4010,7 +3777,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id2', 'to', '_from', 'begin_time', 'end_time', 'direction', 'account_id']  # noqa: E501
+        all_params = ['to', '_from', 'begin_time', 'end_time', 'direction', 'account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4024,16 +3791,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id2' is set
-        if self.api_client.client_side_validation and ('account_id2' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id2'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id2` when calling `list_sms_messages`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id2' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id2']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
         if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
@@ -4078,16 +3840,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def make_a_call(self, account_id, **kwargs):  # noqa: E501
+    def make_a_call(self, **kwargs):  # noqa: E501
         """Make a Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.make_a_call(account_id, async_req=True)
+        >>> thread = api.make_a_call(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param MakeCallRequest make_call_request: Call details for making a call
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -4101,18 +3862,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.make_a_call_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.make_a_call_with_http_info(**kwargs)  # noqa: E501
 
-    def make_a_call_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def make_a_call_with_http_info(self, **kwargs):  # noqa: E501
         """Make a Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.make_a_call_with_http_info(account_id, async_req=True)
+        >>> thread = api.make_a_call_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param MakeCallRequest make_call_request: Call details for making a call
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -4130,7 +3890,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'make_call_request']  # noqa: E501
+        all_params = ['make_call_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4144,16 +3904,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `make_a_call`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -4192,16 +3947,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def remove_a_participant(self, account_id, conference_id, call_id, **kwargs):  # noqa: E501
+    def remove_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Remove a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_a_participant(account_id, conference_id, call_id, async_req=True)
+        >>> thread = api.remove_a_participant(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param str call_id: ID of the Call associated with this participant. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4216,18 +3970,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.remove_a_participant_with_http_info(account_id, conference_id, call_id, **kwargs)  # noqa: E501
+        return self.remove_a_participant_with_http_info(conference_id, call_id, **kwargs)  # noqa: E501
 
-    def remove_a_participant_with_http_info(self, account_id, conference_id, call_id, **kwargs):  # noqa: E501
+    def remove_a_participant_with_http_info(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Remove a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_a_participant_with_http_info(account_id, conference_id, call_id, async_req=True)
+        >>> thread = api.remove_a_participant_with_http_info(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param str call_id: ID of the Call associated with this participant. (required)
         :param _return_http_data_only: response data without head status code
@@ -4246,7 +3999,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'conference_id', 'call_id']  # noqa: E501
+        all_params = ['conference_id', 'call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4260,10 +4013,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `remove_a_participant`")  # noqa: E501
         # verify the required parameter 'conference_id' is set
         if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['conference_id'] is None):  # noqa: E501
@@ -4276,8 +4025,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -4310,16 +4058,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def send_an_sms_message(self, account_id, **kwargs):  # noqa: E501
+    def send_an_sms_message(self, **kwargs):  # noqa: E501
         """Send an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_an_sms_message(account_id, async_req=True)
+        >>> thread = api.send_an_sms_message(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that sent this message. (required)
         :param MessageRequest message_request: Details to create a message
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -4333,18 +4080,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.send_an_sms_message_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.send_an_sms_message_with_http_info(**kwargs)  # noqa: E501
 
-    def send_an_sms_message_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def send_an_sms_message_with_http_info(self, **kwargs):  # noqa: E501
         """Send an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_an_sms_message_with_http_info(account_id, async_req=True)
+        >>> thread = api.send_an_sms_message_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that sent this message. (required)
         :param MessageRequest message_request: Details to create a message
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -4362,7 +4108,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'message_request']  # noqa: E501
+        all_params = ['message_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4376,16 +4122,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `send_an_sms_message`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -4424,16 +4165,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def stream_a_recording_file(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def stream_a_recording_file(self, recording_id, **kwargs):  # noqa: E501
         """Stream a Recording File  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.stream_a_recording_file(account_id, recording_id, async_req=True)
+        >>> thread = api.stream_a_recording_file(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -4447,18 +4187,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.stream_a_recording_file_with_http_info(account_id, recording_id, **kwargs)  # noqa: E501
+        return self.stream_a_recording_file_with_http_info(recording_id, **kwargs)  # noqa: E501
 
-    def stream_a_recording_file_with_http_info(self, account_id, recording_id, **kwargs):  # noqa: E501
+    def stream_a_recording_file_with_http_info(self, recording_id, **kwargs):  # noqa: E501
         """Stream a Recording File  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.stream_a_recording_file_with_http_info(account_id, recording_id, async_req=True)
+        >>> thread = api.stream_a_recording_file_with_http_info(recording_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this recording. (required)
         :param str recording_id: String that uniquely identifies this recording resource. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -4476,7 +4215,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'recording_id']  # noqa: E501
+        all_params = ['recording_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4490,10 +4229,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `stream_a_recording_file`")  # noqa: E501
         # verify the required parameter 'recording_id' is set
         if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['recording_id'] is None):  # noqa: E501
@@ -4502,8 +4237,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'recording_id' in local_var_params:
             path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
 
@@ -4538,16 +4272,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_a_conference(self, account_id, conference_id, **kwargs):  # noqa: E501
+    def update_a_conference(self, conference_id, **kwargs):  # noqa: E501
         """Update a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_conference(account_id, conference_id, async_req=True)
+        >>> thread = api.update_a_conference(conference_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this conference. (required)
         :param str conference_id: String that uniquely identifies this conference resource. (required)
         :param UpdateConferenceRequest update_conference_request: Conference Details to update
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4562,18 +4295,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_a_conference_with_http_info(account_id, conference_id, **kwargs)  # noqa: E501
+        return self.update_a_conference_with_http_info(conference_id, **kwargs)  # noqa: E501
 
-    def update_a_conference_with_http_info(self, account_id, conference_id, **kwargs):  # noqa: E501
+    def update_a_conference_with_http_info(self, conference_id, **kwargs):  # noqa: E501
         """Update a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_conference_with_http_info(account_id, conference_id, async_req=True)
+        >>> thread = api.update_a_conference_with_http_info(conference_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this conference. (required)
         :param str conference_id: String that uniquely identifies this conference resource. (required)
         :param UpdateConferenceRequest update_conference_request: Conference Details to update
         :param _return_http_data_only: response data without head status code
@@ -4592,7 +4324,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'conference_id', 'update_conference_request']  # noqa: E501
+        all_params = ['conference_id', 'update_conference_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4606,10 +4338,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_a_conference`")  # noqa: E501
         # verify the required parameter 'conference_id' is set
         if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['conference_id'] is None):  # noqa: E501
@@ -4618,8 +4346,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
 
@@ -4660,16 +4387,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_a_live_call(self, account_id, call_id, **kwargs):  # noqa: E501
+    def update_a_live_call(self, call_id, **kwargs):  # noqa: E501
         """Update a Live Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_live_call(account_id, call_id, async_req=True)
+        >>> thread = api.update_a_live_call(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param UpdateCallRequest update_call_request: Call details to update
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4684,18 +4410,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_a_live_call_with_http_info(account_id, call_id, **kwargs)  # noqa: E501
+        return self.update_a_live_call_with_http_info(call_id, **kwargs)  # noqa: E501
 
-    def update_a_live_call_with_http_info(self, account_id, call_id, **kwargs):  # noqa: E501
+    def update_a_live_call_with_http_info(self, call_id, **kwargs):  # noqa: E501
         """Update a Live Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_live_call_with_http_info(account_id, call_id, async_req=True)
+        >>> thread = api.update_a_live_call_with_http_info(call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this call. (required)
         :param str call_id: String that uniquely identifies this call resource. (required)
         :param UpdateCallRequest update_call_request: Call details to update
         :param _return_http_data_only: response data without head status code
@@ -4714,7 +4439,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'call_id', 'update_call_request']  # noqa: E501
+        all_params = ['call_id', 'update_call_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4728,10 +4453,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_a_live_call`")  # noqa: E501
         # verify the required parameter 'call_id' is set
         if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['call_id'] is None):  # noqa: E501
@@ -4740,8 +4461,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'call_id' in local_var_params:
             path_params['callId'] = local_var_params['call_id']  # noqa: E501
 
@@ -4778,16 +4498,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_a_participant(self, account_id, conference_id, call_id, **kwargs):  # noqa: E501
+    def update_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Update a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_participant(account_id, conference_id, call_id, async_req=True)
+        >>> thread = api.update_a_participant(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param str call_id: ID of the Call associated with this participant. (required)
         :param UpdateConferenceParticipantRequest update_conference_participant_request: Conference participant details to update
@@ -4803,18 +4522,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_a_participant_with_http_info(account_id, conference_id, call_id, **kwargs)  # noqa: E501
+        return self.update_a_participant_with_http_info(conference_id, call_id, **kwargs)  # noqa: E501
 
-    def update_a_participant_with_http_info(self, account_id, conference_id, call_id, **kwargs):  # noqa: E501
+    def update_a_participant_with_http_info(self, conference_id, call_id, **kwargs):  # noqa: E501
         """Update a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_participant_with_http_info(account_id, conference_id, call_id, async_req=True)
+        >>> thread = api.update_a_participant_with_http_info(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this participant. (required)
         :param str conference_id: ID of the conference this participant is in. (required)
         :param str call_id: ID of the Call associated with this participant. (required)
         :param UpdateConferenceParticipantRequest update_conference_participant_request: Conference participant details to update
@@ -4834,7 +4552,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'conference_id', 'call_id', 'update_conference_participant_request']  # noqa: E501
+        all_params = ['conference_id', 'call_id', 'update_conference_participant_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4848,10 +4566,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_a_participant`")  # noqa: E501
         # verify the required parameter 'conference_id' is set
         if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['conference_id'] is None):  # noqa: E501
@@ -4864,8 +4578,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'conference_id' in local_var_params:
             path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
         if 'call_id' in local_var_params:
@@ -4908,16 +4621,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_a_queue(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def update_a_queue(self, queue_id, **kwargs):  # noqa: E501
         """Update a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_queue(account_id, queue_id, async_req=True)
+        >>> thread = api.update_a_queue(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this queue. (required)
         :param str queue_id: A string that uniquely identifies this Queue resource. (required)
         :param QueueRequest queue_request: Queue Details to update
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4932,18 +4644,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_a_queue_with_http_info(account_id, queue_id, **kwargs)  # noqa: E501
+        return self.update_a_queue_with_http_info(queue_id, **kwargs)  # noqa: E501
 
-    def update_a_queue_with_http_info(self, account_id, queue_id, **kwargs):  # noqa: E501
+    def update_a_queue_with_http_info(self, queue_id, **kwargs):  # noqa: E501
         """Update a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_queue_with_http_info(account_id, queue_id, async_req=True)
+        >>> thread = api.update_a_queue_with_http_info(queue_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this queue. (required)
         :param str queue_id: A string that uniquely identifies this Queue resource. (required)
         :param QueueRequest queue_request: Queue Details to update
         :param _return_http_data_only: response data without head status code
@@ -4962,7 +4673,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'queue_id', 'queue_request']  # noqa: E501
+        all_params = ['queue_id', 'queue_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4976,10 +4687,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_a_queue`")  # noqa: E501
         # verify the required parameter 'queue_id' is set
         if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['queue_id'] is None):  # noqa: E501
@@ -4988,8 +4695,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'queue_id' in local_var_params:
             path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
 
@@ -5030,16 +4736,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_an_account(self, account_id, **kwargs):  # noqa: E501
+    def update_an_account(self, **kwargs):  # noqa: E501
         """Manage an account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_account(account_id, async_req=True)
+        >>> thread = api.update_an_account(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: String that uniquely identifies this account resource. (required)
         :param AccountRequest account_request: Account details to update
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -5053,18 +4758,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_an_account_with_http_info(account_id, **kwargs)  # noqa: E501
+        return self.update_an_account_with_http_info(**kwargs)  # noqa: E501
 
-    def update_an_account_with_http_info(self, account_id, **kwargs):  # noqa: E501
+    def update_an_account_with_http_info(self, **kwargs):  # noqa: E501
         """Manage an account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_account_with_http_info(account_id, async_req=True)
+        >>> thread = api.update_an_account_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: String that uniquely identifies this account resource. (required)
         :param AccountRequest account_request: Account details to update
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -5082,7 +4786,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'account_request']  # noqa: E501
+        all_params = ['account_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5096,16 +4800,11 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_an_account`")  # noqa: E501
-
+        
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
 
         query_params = []
 
@@ -5140,16 +4839,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_an_application(self, account_id, application_id, **kwargs):  # noqa: E501
+    def update_an_application(self, application_id, **kwargs):  # noqa: E501
         """Update an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_application(account_id, application_id, async_req=True)
+        >>> thread = api.update_an_application(application_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str application_id: A string that uniquely identifies this application resource. (required)
         :param ApplicationRequest application_request: Application details to update.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5164,18 +4862,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_an_application_with_http_info(account_id, application_id, **kwargs)  # noqa: E501
+        return self.update_an_application_with_http_info(application_id, **kwargs)  # noqa: E501
 
-    def update_an_application_with_http_info(self, account_id, application_id, **kwargs):  # noqa: E501
+    def update_an_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """Update an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_application_with_http_info(account_id, application_id, async_req=True)
+        >>> thread = api.update_an_application_with_http_info(application_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that created this application. (required)
         :param str application_id: A string that uniquely identifies this application resource. (required)
         :param ApplicationRequest application_request: Application details to update.
         :param _return_http_data_only: response data without head status code
@@ -5194,7 +4891,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'application_id', 'application_request']  # noqa: E501
+        all_params = ['application_id', 'application_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5208,10 +4905,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_an_application`")  # noqa: E501
         # verify the required parameter 'application_id' is set
         if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['application_id'] is None):  # noqa: E501
@@ -5220,8 +4913,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'application_id' in local_var_params:
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
 
@@ -5262,16 +4954,15 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_an_incoming_number(self, account_id, phone_number_id, **kwargs):  # noqa: E501
+    def update_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
         """Update an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_incoming_number(account_id, phone_number_id, async_req=True)
+        >>> thread = api.update_an_incoming_number(phone_number_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
         :param IncomingNumberRequest incoming_number_request: Incoming Number details to update
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5286,18 +4977,17 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_an_incoming_number_with_http_info(account_id, phone_number_id, **kwargs)  # noqa: E501
+        return self.update_an_incoming_number_with_http_info(phone_number_id, **kwargs)  # noqa: E501
 
-    def update_an_incoming_number_with_http_info(self, account_id, phone_number_id, **kwargs):  # noqa: E501
+    def update_an_incoming_number_with_http_info(self, phone_number_id, **kwargs):  # noqa: E501
         """Update an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_incoming_number_with_http_info(account_id, phone_number_id, async_req=True)
+        >>> thread = api.update_an_incoming_number_with_http_info(phone_number_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str account_id: ID of the account that owns this phone number. (required)
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
         :param IncomingNumberRequest incoming_number_request: Incoming Number details to update
         :param _return_http_data_only: response data without head status code
@@ -5316,7 +5006,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['account_id', 'phone_number_id', 'incoming_number_request']  # noqa: E501
+        all_params = ['phone_number_id', 'incoming_number_request']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5330,10 +5020,6 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if self.api_client.client_side_validation and ('account_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['account_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `account_id` when calling `update_an_incoming_number`")  # noqa: E501
         # verify the required parameter 'phone_number_id' is set
         if self.api_client.client_side_validation and ('phone_number_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['phone_number_id'] is None):  # noqa: E501
@@ -5342,8 +5028,7 @@ class DefaultApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
+        path_params['accountId'] = self.api_client.configuration.username  # noqa: E501
         if 'phone_number_id' in local_var_params:
             path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
 

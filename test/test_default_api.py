@@ -38,7 +38,7 @@ class TestDefaultApi(unittest.TestCase):
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
 
             buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest('+12345678900')
-            self.test_buy_a_phone_number_response = self.api.buy_a_phone_number('ACCOUNT_ID', buy_incoming_number_request=buy_incoming_number_request)
+            self.test_buy_a_phone_number_response = self.api.buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
 
             mock_method.assert_called_once()
             # TODO: Fails because actual result has newlines in dictionary and the following removes the newlines
@@ -69,7 +69,7 @@ class TestDefaultApi(unittest.TestCase):
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
             create_conference_request = freeclimb.CreateConferenceRequest('http://localhost:80')
-            self.test_create_a_conference_response = self.api.create_a_conference('ACCOUNT_ID', create_conference_request=create_conference_request)
+            self.test_create_a_conference_response = self.api.create_a_conference(create_conference_request=create_conference_request)
 
             mock_method.assert_called_once()
 
@@ -79,7 +79,7 @@ class TestDefaultApi(unittest.TestCase):
         Create a Queue  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_create_a_queue_response = self.api.create_a_queue('ACCOUNT_ID', queue_request=freeclimb.QueueRequest())
+            self.test_create_a_queue_response = self.api.create_a_queue(queue_request=freeclimb.QueueRequest())
 
             mock_method.assert_called_once()
 
@@ -89,7 +89,7 @@ class TestDefaultApi(unittest.TestCase):
         Create an application  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_create_an_application = self.api.create_an_application('ACCOUNT_ID', application_request=freeclimb.ApplicationRequest())
+            self.test_create_an_application = self.api.create_an_application(application_request=freeclimb.ApplicationRequest())
 
             mock_method.assert_called_once()
 
@@ -99,7 +99,7 @@ class TestDefaultApi(unittest.TestCase):
         Delete a Recording  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_delete_a_recording = self.api.delete_a_recording('ACCOUNT_ID', recording_id='fake_recording_id')
+            self.test_delete_a_recording = self.api.delete_a_recording(recording_id='fake_recording_id')
 
             mock_method.assert_called_once()
 
@@ -109,7 +109,7 @@ class TestDefaultApi(unittest.TestCase):
         Delete an application  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_delete_an_application = self.api.delete_an_application('ACCOUNT_ID', application_id='fake_application_id')
+            self.test_delete_an_application = self.api.delete_an_application(application_id='fake_application_id')
 
             mock_method.assert_called_once()
 
@@ -119,7 +119,7 @@ class TestDefaultApi(unittest.TestCase):
         Delete an Incoming Number  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_delete_an_incoming_number = self.api.delete_an_incoming_number('ACCOUNT_ID', phone_number_id='fake_incoming_number_id')
+            self.test_delete_an_incoming_number = self.api.delete_an_incoming_number(phone_number_id='fake_incoming_number_id')
 
             mock_method.assert_called_once()
 
@@ -129,7 +129,7 @@ class TestDefaultApi(unittest.TestCase):
         Dequeue a Member  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_dequeue_a_member = self.api.dequeue_a_member('ACCOUNT_ID', queue_id='fake_queue_id', call_id='fake_call_id')
+            self.test_dequeue_a_member = self.api.dequeue_a_member(queue_id='fake_queue_id', call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -139,7 +139,7 @@ class TestDefaultApi(unittest.TestCase):
         Dequeue Head Member  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_dequeue_head_member = self.api.dequeue_head_member('ACCOUNT_ID', queue_id='fake_queue_id')
+            self.test_dequeue_head_member = self.api.dequeue_head_member(queue_id='fake_queue_id')
 
             mock_method.assert_called_once()
 
@@ -149,7 +149,7 @@ class TestDefaultApi(unittest.TestCase):
         Download a Recording File  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_download_a_recording_file = self.api.download_a_recording_file('ACCOUNT_ID', recording_id='fake_recording_id')
+            self.test_download_a_recording_file = self.api.download_a_recording_file(recording_id='fake_recording_id')
 
             mock_method.assert_called_once()
 
@@ -159,7 +159,7 @@ class TestDefaultApi(unittest.TestCase):
         Filter Logs  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_filter_logs = self.api.filter_logs('ACCOUNT_ID', filter_logs_request=freeclimb.FilterLogsRequest(pql='fake_pql'))
+            self.test_filter_logs = self.api.filter_logs(filter_logs_request=freeclimb.FilterLogsRequest(pql='fake_pql'))
 
             mock_method.assert_called_once()
 
@@ -169,7 +169,7 @@ class TestDefaultApi(unittest.TestCase):
         Get a Call  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_a_call = self.api.get_a_call('ACCOUNT_ID', call_id='fake_call_id')
+            self.test_get_a_call = self.api.get_a_call(call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -179,7 +179,7 @@ class TestDefaultApi(unittest.TestCase):
         Get a Conference  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_a_conference = self.api.get_a_conference('ACCOUNT_ID', conference_id='fake_conference_id')
+            self.test_get_a_conference = self.api.get_a_conference(conference_id='fake_conference_id')
 
             mock_method.assert_called_once()
 
@@ -189,7 +189,7 @@ class TestDefaultApi(unittest.TestCase):
         Get a Member  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_a_member = self.api.get_a_member('ACCOUNT_ID', queue_id='fake_queue_id', call_id='fake_call_id')
+            self.test_get_a_member = self.api.get_a_member(queue_id='fake_queue_id', call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -199,7 +199,7 @@ class TestDefaultApi(unittest.TestCase):
         Get a Participant  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_a_participant = self.api.get_a_participant('ACCOUNT_ID', conference_id='fake_conference_id', call_id='fake_call_id')
+            self.test_get_a_participant = self.api.get_a_participant(conference_id='fake_conference_id', call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -209,7 +209,7 @@ class TestDefaultApi(unittest.TestCase):
         Get a Queue  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_a_queue = self.api.get_a_queue('ACCOUNT_ID', queue_id='fake_queue_id')
+            self.test_get_a_queue = self.api.get_a_queue(queue_id='fake_queue_id')
 
             mock_method.assert_called_once()
 
@@ -219,7 +219,7 @@ class TestDefaultApi(unittest.TestCase):
         Get a Recording  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_a_recording = self.api.get_a_recording('ACCOUNT_ID', recording_id='fake_recording_id')
+            self.test_get_a_recording = self.api.get_a_recording(recording_id='fake_recording_id')
 
             mock_method.assert_called_once()
 
@@ -229,7 +229,7 @@ class TestDefaultApi(unittest.TestCase):
         Get an Account  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_an_account = self.api.get_an_account('ACCOUNT_ID')
+            self.test_get_an_account = self.api.get_an_account()
 
             mock_method.assert_called_once()
 
@@ -239,7 +239,7 @@ class TestDefaultApi(unittest.TestCase):
         Get an Application  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_an_application = self.api.get_an_application('ACCOUNT_ID', application_id='fake_application_id')
+            self.test_get_an_application = self.api.get_an_application(application_id='fake_application_id')
 
             mock_method.assert_called_once()
 
@@ -249,7 +249,7 @@ class TestDefaultApi(unittest.TestCase):
         Get an Incoming Number  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_an_incoming_number = self.api.get_an_incoming_number('ACCOUNT_ID', phone_number_id='fake_phone_number_id')
+            self.test_get_an_incoming_number = self.api.get_an_incoming_number(phone_number_id='fake_phone_number_id')
 
             mock_method.assert_called_once()
 
@@ -259,7 +259,7 @@ class TestDefaultApi(unittest.TestCase):
         Get an SMS Message  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_an_sms_message = self.api.get_an_sms_message('ACCOUNT_ID', message_id='fake_message_id')
+            self.test_get_an_sms_message = self.api.get_an_sms_message(message_id='fake_message_id')
 
             mock_method.assert_called_once()
 
@@ -269,7 +269,7 @@ class TestDefaultApi(unittest.TestCase):
         Get Head Member  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_get_head_member = self.api.get_head_member('ACCOUNT_ID', queue_id='fake_queue_id')
+            self.test_get_head_member = self.api.get_head_member(queue_id='fake_queue_id')
 
             mock_method.assert_called_once()
 
@@ -279,7 +279,7 @@ class TestDefaultApi(unittest.TestCase):
         List Active Queues  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_active_queues = self.api.list_active_queues('ACCOUNT_ID')
+            self.test_list_active_queues = self.api.list_active_queues()
 
             mock_method.assert_called_once()
 
@@ -289,7 +289,7 @@ class TestDefaultApi(unittest.TestCase):
         List All Account Logs  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_all_account_logs = self.api.list_all_account_logs('ACCOUNT_ID')
+            self.test_list_all_account_logs = self.api.list_all_account_logs()
 
             mock_method.assert_called_once()
 
@@ -299,7 +299,7 @@ class TestDefaultApi(unittest.TestCase):
         List applications  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_an_application = self.api.list_an_application('ACCOUNT_ID')
+            self.test_list_an_application = self.api.list_an_application()
 
             mock_method.assert_called_once()
 
@@ -319,7 +319,7 @@ class TestDefaultApi(unittest.TestCase):
         List Call Logs  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_call_logs = self.api.list_call_logs('ACCOUNT_ID', call_id='fake_call_id')
+            self.test_list_call_logs = self.api.list_call_logs(call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -329,7 +329,7 @@ class TestDefaultApi(unittest.TestCase):
         List Call Recordings  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_call_recordings = self.api.list_call_recordings('ACCOUNT_ID', call_id='fake_call_id')
+            self.test_list_call_recordings = self.api.list_call_recordings(call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -339,7 +339,7 @@ class TestDefaultApi(unittest.TestCase):
         List Calls  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_calls = self.api.list_calls('ACCOUNT_ID')
+            self.test_list_calls = self.api.list_calls()
 
             mock_method.assert_called_once()
 
@@ -349,7 +349,7 @@ class TestDefaultApi(unittest.TestCase):
         List Conferences  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_conferences = self.api.list_conferences('ACCOUNT_ID')
+            self.test_list_conferences = self.api.list_conferences()
 
             mock_method.assert_called_once()
 
@@ -359,7 +359,7 @@ class TestDefaultApi(unittest.TestCase):
         List Incoming Numbers  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_incoming_numbers = self.api.list_incoming_numbers('ACCOUNT_ID')
+            self.test_list_incoming_numbers = self.api.list_incoming_numbers()
 
             mock_method.assert_called_once()
 
@@ -369,7 +369,7 @@ class TestDefaultApi(unittest.TestCase):
         List Members  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_members = self.api.list_members('ACCOUNT_ID', queue_id='fake_queue_id')
+            self.test_list_members = self.api.list_members(queue_id='fake_queue_id')
 
             mock_method.assert_called_once()
 
@@ -379,7 +379,7 @@ class TestDefaultApi(unittest.TestCase):
         List Participants  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_participants = self.api.list_participants('ACCOUNT_ID', conference_id='fake_conference_id')
+            self.test_list_participants = self.api.list_participants(conference_id='fake_conference_id')
 
             mock_method.assert_called_once()
 
@@ -389,7 +389,7 @@ class TestDefaultApi(unittest.TestCase):
         List Recordings  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_recordings = self.api.list_recordings('ACCOUNT_ID')
+            self.test_list_recordings = self.api.list_recordings()
 
             mock_method.assert_called_once()
 
@@ -399,7 +399,7 @@ class TestDefaultApi(unittest.TestCase):
         List SMS Messages  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_list_sms_messages = self.api.list_sms_messages('ACCOUNT_ID')
+            self.test_list_sms_messages = self.api.list_sms_messages()
 
             mock_method.assert_called_once()
 
@@ -409,7 +409,7 @@ class TestDefaultApi(unittest.TestCase):
         Make a Call  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_make_a_call = self.api.make_a_call('ACCOUNT_ID')
+            self.test_make_a_call = self.api.make_a_call()
 
             mock_method.assert_called_once()
 
@@ -419,7 +419,7 @@ class TestDefaultApi(unittest.TestCase):
         Remove a Participant  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_remove_a_participant = self.api.remove_a_participant('ACCOUNT_ID', conference_id='fake_conference_id', call_id='fake_call_id')
+            self.test_remove_a_participant = self.api.remove_a_participant(conference_id='fake_conference_id', call_id='fake_call_id')
 
             mock_method.assert_called_once()
 
@@ -430,7 +430,7 @@ class TestDefaultApi(unittest.TestCase):
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
             message_request = freeclimb.MessageRequest(_from='fake_sender_phone_number', to='fake_recipient_phone_number',text='Test message')
-            self.test_send_an_sms_message = self.api.send_an_sms_message('ACCOUNT_ID', message_request=message_request)
+            self.test_send_an_sms_message = self.api.send_an_sms_message(message_request=message_request)
 
             mock_method.assert_called_once()
 
@@ -440,7 +440,7 @@ class TestDefaultApi(unittest.TestCase):
         Stream a Recording File  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_stream_a_recording_file = self.api.stream_a_recording_file('ACCOUNT_ID', recording_id='fake_recording_id')
+            self.test_stream_a_recording_file = self.api.stream_a_recording_file(recording_id='fake_recording_id')
 
             mock_method.assert_called_once()
 
@@ -450,7 +450,7 @@ class TestDefaultApi(unittest.TestCase):
         Update a Conference  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_a_conference = self.api.update_a_conference('ACCOUNT_ID', conference_id='fake_conference_id', update_conference_request=freeclimb.UpdateConferenceRequest())
+            self.test_update_a_conference = self.api.update_a_conference(conference_id='fake_conference_id', update_conference_request=freeclimb.UpdateConferenceRequest())
 
             mock_method.assert_called_once()
 
@@ -460,7 +460,7 @@ class TestDefaultApi(unittest.TestCase):
         Update a Live Call  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_a_live_call = self.api.update_a_live_call('ACCOUNT_ID', call_id='fake_call_id', update_call_request=freeclimb.UpdateCallRequest(status='completed'))
+            self.test_update_a_live_call = self.api.update_a_live_call(call_id='fake_call_id', update_call_request=freeclimb.UpdateCallRequest(status='completed'))
 
             mock_method.assert_called_once()
 
@@ -470,7 +470,7 @@ class TestDefaultApi(unittest.TestCase):
         Update a Participant  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_a_participant = self.api.update_a_participant('ACCOUNT_ID', call_id='fake_call_id', conference_id='fake_conference_id', update_conference_participant_request=freeclimb.UpdateConferenceParticipantRequest())
+            self.test_update_a_participant = self.api.update_a_participant(call_id='fake_call_id', conference_id='fake_conference_id', update_conference_participant_request=freeclimb.UpdateConferenceParticipantRequest())
 
             mock_method.assert_called_once()
 
@@ -480,7 +480,7 @@ class TestDefaultApi(unittest.TestCase):
         Update a Queue  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_a_queue = self.api.update_a_queue('ACCOUNT_ID', queue_id='fake_queue_id', queue_request=freeclimb.QueueRequest())
+            self.test_update_a_queue = self.api.update_a_queue(queue_id='fake_queue_id', queue_request=freeclimb.QueueRequest())
 
             mock_method.assert_called_once()
 
@@ -490,7 +490,7 @@ class TestDefaultApi(unittest.TestCase):
         Manage an account  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_an_account = self.api.update_an_account('ACCOUNT_ID', account_request=freeclimb.AccountRequest())
+            self.test_update_an_account = self.api.update_an_account(account_request=freeclimb.AccountRequest())
 
             mock_method.assert_called_once()
 
@@ -500,7 +500,7 @@ class TestDefaultApi(unittest.TestCase):
         Update an application  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_an_application = self.api.update_an_application('ACCOUNT_ID', application_id='fake_application_id',application_request=freeclimb.ApplicationRequest())
+            self.test_update_an_application = self.api.update_an_application(application_id='fake_application_id',application_request=freeclimb.ApplicationRequest())
 
             mock_method.assert_called_once()
 
@@ -510,7 +510,7 @@ class TestDefaultApi(unittest.TestCase):
         Update an Incoming Number  # noqa: E501
         """
         with mock.patch.object(freeclimb.ApiClient, 'call_api', return_value=None) as mock_method:
-            self.test_update_an_incoming_number = self.api.update_an_incoming_number('ACCOUNT_ID', phone_number_id='fake_phone_number_id',incoming_number_request=freeclimb.IncomingNumberRequest())
+            self.test_update_an_incoming_number = self.api.update_an_incoming_number(phone_number_id='fake_phone_number_id',incoming_number_request=freeclimb.IncomingNumberRequest())
 
             mock_method.assert_called_once()
 
