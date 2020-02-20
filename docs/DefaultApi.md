@@ -53,7 +53,7 @@ Method | HTTP request | Description
 
 
 # **buy_a_phone_number**
-> IncomingNumberResult buy_a_phone_number(account_id, buy_incoming_number_request=buy_incoming_number_request)
+> IncomingNumberResult buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
 
 Buy a Phone Number
 
@@ -75,12 +75,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details (optional)
 
 try:
     # Buy a Phone Number
-    api_response = api_instance.buy_a_phone_number(account_id, buy_incoming_number_request=buy_incoming_number_request)
+    api_response = api_instance.buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->buy_a_phone_number: %s\n" % e)
@@ -90,7 +89,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that owns this phone number. | 
  **buy_incoming_number_request** | [**BuyIncomingNumberRequest**](BuyIncomingNumberRequest.md)| Incoming Number transaction details | [optional] 
 
 ### Return type
@@ -114,7 +112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_a_conference**
-> ConferenceResult create_a_conference(account_id, create_conference_request=create_conference_request)
+> ConferenceResult create_a_conference(create_conference_request=create_conference_request)
 
 Create a Conference
 
@@ -136,12 +134,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this Conference.
 create_conference_request = freeclimb.CreateConferenceRequest() # CreateConferenceRequest | Conference to create (optional)
 
 try:
     # Create a Conference
-    api_response = api_instance.create_a_conference(account_id, create_conference_request=create_conference_request)
+    api_response = api_instance.create_a_conference(create_conference_request=create_conference_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_a_conference: %s\n" % e)
@@ -151,8 +148,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this Conference. | 
- **create_conference_request** | [**CreateConferenceRequest**](CreateConferenceRequest.md)| Conference to create | [optional] 
+ **create_conference_request** | [**CreateConferenceRequest**](CreateConferenceRequest.md)| Conference to create | [optional]
 
 ### Return type
 
@@ -175,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_a_queue**
-> QueueResult create_a_queue(account_id, queue_request=queue_request)
+> QueueResult create_a_queue(queue_request=queue_request)
 
 Create a Queue
 
@@ -197,12 +193,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this Queue.
 queue_request = freeclimb.QueueRequest() # QueueRequest | Queue details used to create a queue (optional)
 
 try:
     # Create a Queue
-    api_response = api_instance.create_a_queue(account_id, queue_request=queue_request)
+    api_response = api_instance.create_a_queue(queue_request=queue_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_a_queue: %s\n" % e)
@@ -212,7 +207,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this Queue. | 
  **queue_request** | [**QueueRequest**](QueueRequest.md)| Queue details used to create a queue | [optional] 
 
 ### Return type
@@ -236,7 +230,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_an_application**
-> ApplicationResult create_an_application(account_id, application_request=application_request)
+> ApplicationResult create_an_application(application_request=application_request)
 
 Create an application
 
@@ -258,12 +252,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this application.
 application_request = freeclimb.ApplicationRequest() # ApplicationRequest | Application Details (optional)
 
 try:
     # Create an application
-    api_response = api_instance.create_an_application(account_id, application_request=application_request)
+    api_response = api_instance.create_an_application(application_request=application_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_an_application: %s\n" % e)
@@ -273,7 +266,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this application. | 
  **application_request** | [**ApplicationRequest**](ApplicationRequest.md)| Application Details | [optional] 
 
 ### Return type
@@ -297,7 +289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_a_recording**
-> delete_a_recording(account_id, recording_id)
+> delete_a_recording(recording_id)
 
 Delete a Recording
 
@@ -319,12 +311,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
 try:
     # Delete a Recording
-    api_instance.delete_a_recording(account_id, recording_id)
+    api_instance.delete_a_recording(recording_id)
 except ApiException as e:
     print("Exception when calling DefaultApi->delete_a_recording: %s\n" % e)
 ```
@@ -333,7 +324,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this recording. | 
  **recording_id** | **str**| String that uniquely identifies this recording resource. | 
 
 ### Return type
@@ -357,7 +347,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_an_application**
-> delete_an_application(account_id, application_id)
+> delete_an_application(application_id)
 
 Delete an application
 
@@ -379,12 +369,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this application.
 application_id = 'application_id_example' # str | String that uniquely identifies this application resource.
 
 try:
     # Delete an application
-    api_instance.delete_an_application(account_id, application_id)
+    api_instance.delete_an_application(application_id)
 except ApiException as e:
     print("Exception when calling DefaultApi->delete_an_application: %s\n" % e)
 ```
@@ -393,7 +382,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this application. | 
  **application_id** | **str**| String that uniquely identifies this application resource. | 
 
 ### Return type
@@ -417,7 +405,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_an_incoming_number**
-> delete_an_incoming_number(account_id, phone_number_id)
+> delete_an_incoming_number(phone_number_id)
 
 Delete an Incoming Number
 
@@ -439,12 +427,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 
 try:
     # Delete an Incoming Number
-    api_instance.delete_an_incoming_number(account_id, phone_number_id)
+    api_instance.delete_an_incoming_number(phone_number_id)
 except ApiException as e:
     print("Exception when calling DefaultApi->delete_an_incoming_number: %s\n" % e)
 ```
@@ -453,7 +440,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that owns this phone number. | 
  **phone_number_id** | **str**| String that uniquely identifies this phone number resource. | 
 
 ### Return type
@@ -477,7 +463,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dequeue_a_member**
-> QueueMember dequeue_a_member(account_id, queue_id, call_id, dequeue_member_request=dequeue_member_request)
+> QueueMember dequeue_a_member(queue_id, call_id, dequeue_member_request=dequeue_member_request)
 
 Dequeue a Member
 
@@ -499,14 +485,13 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created the Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 call_id = 'call_id_example' # str | ID if the Call that the Member belongs to
 dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest | Dequeue member request details (optional)
 
 try:
     # Dequeue a Member
-    api_response = api_instance.dequeue_a_member(account_id, queue_id, call_id, dequeue_member_request=dequeue_member_request)
+    api_response = api_instance.dequeue_a_member(queue_id, call_id, dequeue_member_request=dequeue_member_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->dequeue_a_member: %s\n" % e)
@@ -516,7 +501,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created the Queue | 
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. | 
  **call_id** | **str**| ID if the Call that the Member belongs to | 
  **dequeue_member_request** | [**DequeueMemberRequest**](DequeueMemberRequest.md)| Dequeue member request details | [optional] 
@@ -542,7 +526,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dequeue_head_member**
-> QueueMember dequeue_head_member(account_id, queue_id, dequeue_member_request=dequeue_member_request)
+> QueueMember dequeue_head_member(queue_id, dequeue_member_request=dequeue_member_request)
 
 Dequeue Head Member
 
@@ -564,13 +548,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this queue.
 queue_id = 'queue_id_example' # str | String that uniquely identifies this queue resource.
 dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest | Dequeue head member request details (optional)
 
 try:
     # Dequeue Head Member
-    api_response = api_instance.dequeue_head_member(account_id, queue_id, dequeue_member_request=dequeue_member_request)
+    api_response = api_instance.dequeue_head_member(queue_id, dequeue_member_request=dequeue_member_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->dequeue_head_member: %s\n" % e)
@@ -580,7 +563,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this queue. | 
  **queue_id** | **str**| String that uniquely identifies this queue resource. | 
  **dequeue_member_request** | [**DequeueMemberRequest**](DequeueMemberRequest.md)| Dequeue head member request details | [optional] 
 
@@ -605,7 +587,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_a_recording_file**
-> file download_a_recording_file(account_id, recording_id)
+> file download_a_recording_file(recording_id)
 
 Download a Recording File
 
@@ -627,12 +609,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
 try:
     # Download a Recording File
-    api_response = api_instance.download_a_recording_file(account_id, recording_id)
+    api_response = api_instance.download_a_recording_file(recording_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->download_a_recording_file: %s\n" % e)
@@ -642,7 +623,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this recording. | 
  **recording_id** | **str**| String that uniquely identifies this recording resource. | 
 
 ### Return type
@@ -666,7 +646,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **filter_logs**
-> LogList filter_logs(account_id, filter_logs_request=filter_logs_request)
+> LogList filter_logs(filter_logs_request=filter_logs_request)
 
 Filter Logs
 
@@ -688,12 +668,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that this log was generated under.
 filter_logs_request = freeclimb.FilterLogsRequest() # FilterLogsRequest | Filter logs request paramters (optional)
 
 try:
     # Filter Logs
-    api_response = api_instance.filter_logs(account_id, filter_logs_request=filter_logs_request)
+    api_response = api_instance.filter_logs(filter_logs_request=filter_logs_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->filter_logs: %s\n" % e)
@@ -703,7 +682,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that this log was generated under. | 
  **filter_logs_request** | [**FilterLogsRequest**](FilterLogsRequest.md)| Filter logs request paramters | [optional] 
 
 ### Return type
@@ -727,7 +705,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_call**
-> CallResult get_a_call(account_id, call_id)
+> CallResult get_a_call(call_id)
 
 Get a Call
 
@@ -749,12 +727,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 
 try:
     # Get a Call
-    api_response = api_instance.get_a_call(account_id, call_id)
+    api_response = api_instance.get_a_call(call_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_a_call: %s\n" % e)
@@ -764,8 +741,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this call. | 
- **call_id** | **str**| String that uniquely identifies this call resource. | 
+ **call_id** | **str**| String that uniquely identifies this call resource. |
 
 ### Return type
 
@@ -788,7 +764,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_conference**
-> ConferenceResult get_a_conference(account_id, conference_id)
+> ConferenceResult get_a_conference(conference_id)
 
 Get a Conference
 
@@ -810,12 +786,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this conference.
 conference_id = 'conference_id_example' # str | A string that uniquely identifies this conference resource.
 
 try:
     # Get a Conference
-    api_response = api_instance.get_a_conference(account_id, conference_id)
+    api_response = api_instance.get_a_conference(conference_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_a_conference: %s\n" % e)
@@ -825,8 +800,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this conference. | 
- **conference_id** | **str**| A string that uniquely identifies this conference resource. | 
+ **conference_id** | **str**| A string that uniquely identifies this conference resource. |
 
 ### Return type
 
@@ -849,7 +823,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_member**
-> QueueMember get_a_member(account_id, queue_id, call_id)
+> QueueMember get_a_member(queue_id, call_id)
 
 Get a Member
 
@@ -871,13 +845,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 call_id = 'call_id_example' # str | ID of the Call that the Member belongs to
 
 try:
     # Get a Member
-    api_response = api_instance.get_a_member(account_id, queue_id, call_id)
+    api_response = api_instance.get_a_member(queue_id, call_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_a_member: %s\n" % e)
@@ -887,9 +860,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this Queue | 
- **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. | 
- **call_id** | **str**| ID of the Call that the Member belongs to | 
+ **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. |
+ **call_id** | **str**| ID of the Call that the Member belongs to |
 
 ### Return type
 
@@ -912,7 +884,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_participant**
-> ConferenceParticipantResult get_a_participant(account_id, conference_id, call_id)
+> ConferenceParticipantResult get_a_participant(conference_id, call_id)
 
 Get a Participant
 
@@ -934,13 +906,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 call_id = 'call_id_example' # str | ID of the Call associated with this participant.
 
 try:
     # Get a Participant
-    api_response = api_instance.get_a_participant(account_id, conference_id, call_id)
+    api_response = api_instance.get_a_participant(conference_id, call_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_a_participant: %s\n" % e)
@@ -950,9 +921,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this participant. | 
- **conference_id** | **str**| ID of the conference this participant is in. | 
- **call_id** | **str**| ID of the Call associated with this participant. | 
+ **conference_id** | **str**| ID of the conference this participant is in. |
+ **call_id** | **str**| ID of the Call associated with this participant. |
 
 ### Return type
 
@@ -975,7 +945,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_queue**
-> QueueResult get_a_queue(account_id, queue_id)
+> QueueResult get_a_queue(queue_id)
 
 Get a Queue
 
@@ -997,12 +967,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this queue.
 queue_id = 'queue_id_example' # str | A string that uniquely identifies this queue resource.
 
 try:
     # Get a Queue
-    api_response = api_instance.get_a_queue(account_id, queue_id)
+    api_response = api_instance.get_a_queue(queue_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_a_queue: %s\n" % e)
@@ -1012,8 +981,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this queue. | 
- **queue_id** | **str**| A string that uniquely identifies this queue resource. | 
+ **queue_id** | **str**| A string that uniquely identifies this queue resource. |
 
 ### Return type
 
@@ -1036,7 +1004,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_a_recording**
-> RecordingResult get_a_recording(account_id, recording_id)
+> RecordingResult get_a_recording(recording_id)
 
 Get a Recording
 
@@ -1058,12 +1026,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
 try:
     # Get a Recording
-    api_response = api_instance.get_a_recording(account_id, recording_id)
+    api_response = api_instance.get_a_recording(recording_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_a_recording: %s\n" % e)
@@ -1073,7 +1040,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this recording. | 
  **recording_id** | **str**| String that uniquely identifies this recording resource. | 
 
 ### Return type
@@ -1097,7 +1063,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_an_account**
-> AccountResult get_an_account(account_id)
+> AccountResult get_an_account()
 
 Get an Account
 
@@ -1119,11 +1085,10 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
 
 try:
     # Get an Account
-    api_response = api_instance.get_an_account(account_id)
+    api_response = api_instance.get_an_account()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
@@ -1133,7 +1098,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| String that uniquely identifies this account resource. | 
+GetAnAccount has no parameters
 
 ### Return type
 
@@ -1156,7 +1121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_an_application**
-> ApplicationResult get_an_application(account_id, application_id)
+> ApplicationResult get_an_application(application_id)
 
 Get an Application
 
@@ -1178,12 +1143,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this application.
 application_id = 'application_id_example' # str | A string that uniquely identifies this application resource.
 
 try:
     # Get an Application
-    api_response = api_instance.get_an_application(account_id, application_id)
+    api_response = api_instance.get_an_application(application_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_an_application: %s\n" % e)
@@ -1193,8 +1157,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this application. | 
- **application_id** | **str**| A string that uniquely identifies this application resource. | 
+ **application_id** | **str**| A string that uniquely identifies this application resource. |
 
 ### Return type
 
@@ -1217,7 +1180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_an_incoming_number**
-> IncomingNumberResult get_an_incoming_number(account_id, phone_number_id)
+> IncomingNumberResult get_an_incoming_number(phone_number_id)
 
 Get an Incoming Number
 
@@ -1239,12 +1202,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 
 try:
     # Get an Incoming Number
-    api_response = api_instance.get_an_incoming_number(account_id, phone_number_id)
+    api_response = api_instance.get_an_incoming_number(phone_number_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_an_incoming_number: %s\n" % e)
@@ -1254,8 +1216,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that owns this phone number. | 
- **phone_number_id** | **str**| String that uniquely identifies this phone number resource. | 
+ **phone_number_id** | **str**| String that uniquely identifies this phone number resource. |
 
 ### Return type
 
@@ -1278,7 +1239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_an_sms_message**
-> MessageResult get_an_sms_message(account_id, message_id)
+> MessageResult get_an_sms_message(message_id)
 
 Get an SMS Message
 
@@ -1300,12 +1261,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
 message_id = 'message_id_example' # str | String that uniquely identifies this Message resource.
 
 try:
     # Get an SMS Message
-    api_response = api_instance.get_an_sms_message(account_id, message_id)
+    api_response = api_instance.get_an_sms_message(message_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_an_sms_message: %s\n" % e)
@@ -1315,8 +1275,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| String that uniquely identifies this account resource. | 
- **message_id** | **str**| String that uniquely identifies this Message resource. | 
+ **message_id** | **str**| String that uniquely identifies this Message resource. |
 
 ### Return type
 
@@ -1339,7 +1298,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_head_member**
-> QueueMember get_head_member(account_id, queue_id)
+> QueueMember get_head_member(queue_id)
 
 Get Head Member
 
@@ -1361,12 +1320,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 
 try:
     # Get Head Member
-    api_response = api_instance.get_head_member(account_id, queue_id)
+    api_response = api_instance.get_head_member(queue_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_head_member: %s\n" % e)
@@ -1376,7 +1334,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this Queue | 
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. | 
 
 ### Return type
@@ -1400,7 +1357,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_active_queues**
-> QueueList list_active_queues(account_id, alias=alias)
+> QueueList list_active_queues(alias=alias)
 
 List Active Queues
 
@@ -1422,12 +1379,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this Queue.
 alias = 'alias_example' # str | Return only the Queue resources with aliases that exactly match this name. (optional)
 
 try:
     # List Active Queues
-    api_response = api_instance.list_active_queues(account_id, alias=alias)
+    api_response = api_instance.list_active_queues(alias=alias)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_active_queues: %s\n" % e)
@@ -1437,8 +1393,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this Queue. | 
- **alias** | **str**| Return only the Queue resources with aliases that exactly match this name. | [optional] 
+ **alias** | **str**| Return only the Queue resources with aliases that exactly match this name. | [optional]
 
 ### Return type
 
@@ -1461,7 +1416,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_all_account_logs**
-> LogList list_all_account_logs(account_id)
+> LogList list_all_account_logs()
 
 List All Account Logs
 
@@ -1483,11 +1438,10 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that these Logs were generated under.
 
 try:
     # List All Account Logs
-    api_response = api_instance.list_all_account_logs(account_id)
+    api_response = api_instance.list_all_account_logs()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_all_account_logs: %s\n" % e)
@@ -1497,7 +1451,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that these Logs were generated under. | 
+ListAllAccountLogs has no parameters
 
 ### Return type
 
@@ -1520,7 +1474,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_an_application**
-> ApplicationList list_an_application(account_id, alias=alias)
+> ApplicationList list_an_application(alias=alias)
 
 List applications
 
@@ -1542,12 +1496,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this application.
 alias = 'alias_example' # str | Return only applications with aliases that exactly match this value. (optional)
 
 try:
     # List applications
-    api_response = api_instance.list_an_application(account_id, alias=alias)
+    api_response = api_instance.list_an_application(alias=alias)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_an_application: %s\n" % e)
@@ -1557,8 +1510,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this application. | 
- **alias** | **str**| Return only applications with aliases that exactly match this value. | [optional] 
+ **alias** | **str**| Return only applications with aliases that exactly match this value. | [optional]
 
 ### Return type
 
@@ -1642,7 +1594,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_call_logs**
-> LogList list_call_logs(account_id, call_id)
+> LogList list_call_logs(call_id)
 
 List Call Logs
 
@@ -1664,12 +1616,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 
 try:
     # List Call Logs
-    api_response = api_instance.list_call_logs(account_id, call_id)
+    api_response = api_instance.list_call_logs(call_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_call_logs: %s\n" % e)
@@ -1679,8 +1630,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this call. | 
- **call_id** | **str**| String that uniquely identifies this call resource. | 
+ **call_id** | **str**| String that uniquely identifies this call resource. |
 
 ### Return type
 
@@ -1703,7 +1653,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_call_recordings**
-> RecordingList list_call_recordings(account_id, call_id, date_created=date_created)
+> RecordingList list_call_recordings(call_id, date_created=date_created)
 
 List Call Recordings
 
@@ -1725,13 +1675,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 date_created = 'date_created_example' # str | Only show recordings created on the specified date, in the form *YYYY-MM-DD*. (optional)
 
 try:
     # List Call Recordings
-    api_response = api_instance.list_call_recordings(account_id, call_id, date_created=date_created)
+    api_response = api_instance.list_call_recordings(call_id, date_created=date_created)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_call_recordings: %s\n" % e)
@@ -1741,8 +1690,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this call. | 
- **call_id** | **str**| String that uniquely identifies this call resource. | 
+ **call_id** | **str**| String that uniquely identifies this call resource. |
  **date_created** | **str**| Only show recordings created on the specified date, in the form *YYYY-MM-DD*. | [optional] 
 
 ### Return type
@@ -1766,7 +1714,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calls**
-> CallList list_calls(account_id, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+> CallList list_calls(to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
 
 List Calls
 
@@ -1788,7 +1736,6 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this call.
 to = 'to_example' # str | Only show Calls to this phone number. (optional)
 _from = '_from_example' # str | Only show Calls from this phone number. (optional)
 status = 'status_example' # str | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
@@ -1798,7 +1745,7 @@ parent_call_id = 'parent_call_id_example' # str | Only show Calls spawned by the
 
 try:
     # List Calls
-    api_response = api_instance.list_calls(account_id, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+    api_response = api_instance.list_calls(to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -1808,7 +1755,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this call. | 
  **to** | **str**| Only show Calls to this phone number. | [optional] 
  **_from** | **str**| Only show Calls from this phone number. | [optional] 
  **status** | **str**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional] 
@@ -1837,7 +1783,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_conferences**
-> ConferenceList list_conferences(account_id, status=status, alias=alias, date_created=date_created, date_updated=date_updated)
+> ConferenceList list_conferences(status=status, alias=alias, date_created=date_created, date_updated=date_updated)
 
 List Conferences
 
@@ -1859,7 +1805,6 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this conference.
 status = 'status_example' # str | Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`. (optional)
 alias = 'alias_example' # str | List Conferences whose alias exactly matches this string. (optional)
 date_created = 'date_created_example' # str | Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*. (optional)
@@ -1867,7 +1812,7 @@ date_updated = 'date_updated_example' # str | Only show Conferences that were la
 
 try:
     # List Conferences
-    api_response = api_instance.list_conferences(account_id, status=status, alias=alias, date_created=date_created, date_updated=date_updated)
+    api_response = api_instance.list_conferences(status=status, alias=alias, date_created=date_created, date_updated=date_updated)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_conferences: %s\n" % e)
@@ -1877,7 +1822,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this conference. | 
  **status** | **str**| Only show conferences that currently have the specified status. Valid values: &#x60;empty&#x60;, &#x60;populated&#x60;, &#x60;inProgress&#x60;, or &#x60;terminated&#x60;. | [optional] 
  **alias** | **str**| List Conferences whose alias exactly matches this string. | [optional] 
  **date_created** | **str**| Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*. | [optional] 
@@ -1904,7 +1848,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_incoming_numbers**
-> IncomingNumberList list_incoming_numbers(account_id, phone_number=phone_number, alias=alias)
+> IncomingNumberList list_incoming_numbers(phone_number=phone_number, alias=alias)
 
 List Incoming Numbers
 
@@ -1926,13 +1870,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number = 'phone_number_example' # str | Only show incoming phone number resources that match this PCRE-compatible regular expression. (optional)
 alias = 'alias_example' # str | Only show incoming phone numbers with aliases that exactly match this value. (optional)
 
 try:
     # List Incoming Numbers
-    api_response = api_instance.list_incoming_numbers(account_id, phone_number=phone_number, alias=alias)
+    api_response = api_instance.list_incoming_numbers(phone_number=phone_number, alias=alias)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_incoming_numbers: %s\n" % e)
@@ -1942,9 +1885,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that owns this phone number. | 
- **phone_number** | **str**| Only show incoming phone number resources that match this PCRE-compatible regular expression. | [optional] 
- **alias** | **str**| Only show incoming phone numbers with aliases that exactly match this value. | [optional] 
+ **phone_number** | **str**| Only show incoming phone number resources that match this PCRE-compatible regular expression. | [optional]
+ **alias** | **str**| Only show incoming phone numbers with aliases that exactly match this value. | [optional]
 
 ### Return type
 
@@ -1967,7 +1909,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_members**
-> QueueMemberList list_members(account_id, queue_id)
+> QueueMemberList list_members(queue_id)
 
 List Members
 
@@ -1989,12 +1931,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this Queue
 queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 
 try:
     # List Members
-    api_response = api_instance.list_members(account_id, queue_id)
+    api_response = api_instance.list_members(queue_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_members: %s\n" % e)
@@ -2004,8 +1945,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this Queue | 
- **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. | 
+ **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. |
 
 ### Return type
 
@@ -2028,7 +1968,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_participants**
-> ConferenceParticipantList list_participants(account_id, conference_id, talk=talk, listen=listen)
+> ConferenceParticipantList list_participants(conference_id, talk=talk, listen=listen)
 
 List Participants
 
@@ -2050,14 +1990,13 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 talk = True # bool | Only show Participants with the talk privilege. (optional)
 listen = True # bool | Only show Participants with the listen privilege. (optional)
 
 try:
     # List Participants
-    api_response = api_instance.list_participants(account_id, conference_id, talk=talk, listen=listen)
+    api_response = api_instance.list_participants(conference_id, talk=talk, listen=listen)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_participants: %s\n" % e)
@@ -2067,10 +2006,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this participant. | 
- **conference_id** | **str**| ID of the conference this participant is in. | 
- **talk** | **bool**| Only show Participants with the talk privilege. | [optional] 
- **listen** | **bool**| Only show Participants with the listen privilege. | [optional] 
+ **conference_id** | **str**| ID of the conference this participant is in. |
+ **talk** | **bool**| Only show Participants with the talk privilege. | [optional]
+ **listen** | **bool**| Only show Participants with the listen privilege. | [optional]
 
 ### Return type
 
@@ -2093,7 +2031,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_recordings**
-> RecordingList list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created)
+> RecordingList list_recordings(call_id=call_id, conference_id=conference_id, date_created=date_created)
 
 List Recordings
 
@@ -2115,14 +2053,13 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this recording.
 call_id = 'call_id_example' # str | Show only Recordings made during the Call with this ID. (optional)
 conference_id = 'conference_id_example' # str | Show only Recordings made during the conference with this ID. (optional)
 date_created = 'date_created_example' # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
 
 try:
     # List Recordings
-    api_response = api_instance.list_recordings(account_id, call_id=call_id, conference_id=conference_id, date_created=date_created)
+    api_response = api_instance.list_recordings(call_id=call_id, conference_id=conference_id, date_created=date_created)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_recordings: %s\n" % e)
@@ -2132,10 +2069,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this recording. | 
- **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional] 
- **conference_id** | **str**| Show only Recordings made during the conference with this ID. | [optional] 
- **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional] 
+ **call_id** | **str**| Show only Recordings made during the Call with this ID. | [optional]
+ **conference_id** | **str**| Show only Recordings made during the conference with this ID. | [optional]
+ **date_created** | **str**| Only show Recordings created on this date, formatted as *YYYY-MM-DD*. | [optional]
 
 ### Return type
 
@@ -2158,7 +2094,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_sms_messages**
-> MessagesList list_sms_messages(account_id2, to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction, account_id=account_id)
+> MessagesList list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
 
 List SMS Messages
 
@@ -2180,17 +2116,14 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id2 = 'account_id_example' # str | ID of the account that sent this message.
 to = 'to_example' # str | Only show Messages to this phone number. (optional)
 _from = '_from_example' # str | Only show Messages from this phone number. (optional)
 begin_time = 'begin_time_example' # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
 end_time = 'end_time_example' # str | Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. (optional)
 direction = 'direction_example' # str | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
-account_id = 'account_id_example' # str | String that uniquely identifies this account resource. (optional)
-
 try:
     # List SMS Messages
-    api_response = api_instance.list_sms_messages(account_id2, to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction, account_id=account_id)
+    api_response = api_instance.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_sms_messages: %s\n" % e)
@@ -2200,13 +2133,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id2** | **str**| ID of the account that sent this message. | 
- **to** | **str**| Only show Messages to this phone number. | [optional] 
- **_from** | **str**| Only show Messages from this phone number. | [optional] 
- **begin_time** | **str**| Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. | [optional] 
- **end_time** | **str**| Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. | [optional] 
- **direction** | **str**| Either &#x60;inbound&#x60; or &#x60;outbound&#x60;. Only show Messages that were either *sent from* or *received by* FreeClimb. | [optional] 
- **account_id** | **str**| String that uniquely identifies this account resource. | [optional] 
+ **to** | **str**| Only show Messages to this phone number. | [optional]
+ **_from** | **str**| Only show Messages from this phone number. | [optional]
+ **begin_time** | **str**| Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. | [optional]
+ **end_time** | **str**| Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. | [optional]
+ **direction** | **str**| Either &#x60;inbound&#x60; or &#x60;outbound&#x60;. Only show Messages that were either *sent from* or *received by* FreeClimb. | [optional]
 
 ### Return type
 
@@ -2229,7 +2160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **make_a_call**
-> CallResult make_a_call(account_id, make_call_request=make_call_request)
+> CallResult make_a_call(make_call_request=make_call_request)
 
 Make a Call
 
@@ -2251,12 +2182,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this call.
 make_call_request = freeclimb.MakeCallRequest() # MakeCallRequest | Call details for making a call (optional)
 
 try:
     # Make a Call
-    api_response = api_instance.make_a_call(account_id, make_call_request=make_call_request)
+    api_response = api_instance.make_a_call(make_call_request=make_call_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->make_a_call: %s\n" % e)
@@ -2266,7 +2196,6 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this call. | 
  **make_call_request** | [**MakeCallRequest**](MakeCallRequest.md)| Call details for making a call | [optional] 
 
 ### Return type
@@ -2290,7 +2219,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_a_participant**
-> remove_a_participant(account_id, conference_id, call_id)
+> remove_a_participant(conference_id, call_id)
 
 Remove a Participant
 
@@ -2312,13 +2241,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 call_id = 'call_id_example' # str | ID of the Call associated with this participant.
 
 try:
     # Remove a Participant
-    api_instance.remove_a_participant(account_id, conference_id, call_id)
+    api_instance.remove_a_participant(conference_id, call_id)
 except ApiException as e:
     print("Exception when calling DefaultApi->remove_a_participant: %s\n" % e)
 ```
@@ -2327,9 +2255,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this participant. | 
- **conference_id** | **str**| ID of the conference this participant is in. | 
- **call_id** | **str**| ID of the Call associated with this participant. | 
+ **conference_id** | **str**| ID of the conference this participant is in. |
+ **call_id** | **str**| ID of the Call associated with this participant. |
 
 ### Return type
 
@@ -2352,7 +2279,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_an_sms_message**
-> MessageResult send_an_sms_message(account_id, message_request=message_request)
+> MessageResult send_an_sms_message(message_request=message_request)
 
 Send an SMS Message
 
@@ -2374,12 +2301,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that sent this message.
 message_request = freeclimb.MessageRequest() # MessageRequest | Details to create a message (optional)
 
 try:
     # Send an SMS Message
-    api_response = api_instance.send_an_sms_message(account_id, message_request=message_request)
+    api_response = api_instance.send_an_sms_message(message_request=message_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->send_an_sms_message: %s\n" % e)
@@ -2389,8 +2315,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that sent this message. | 
- **message_request** | [**MessageRequest**](MessageRequest.md)| Details to create a message | [optional] 
+ **message_request** | [**MessageRequest**](MessageRequest.md)| Details to create a message | [optional]
 
 ### Return type
 
@@ -2413,7 +2338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stream_a_recording_file**
-> file stream_a_recording_file(account_id, recording_id)
+> file stream_a_recording_file(recording_id)
 
 Stream a Recording File
 
@@ -2435,12 +2360,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this recording.
 recording_id = 'recording_id_example' # str | String that uniquely identifies this recording resource.
 
 try:
     # Stream a Recording File
-    api_response = api_instance.stream_a_recording_file(account_id, recording_id)
+    api_response = api_instance.stream_a_recording_file(recording_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->stream_a_recording_file: %s\n" % e)
@@ -2450,8 +2374,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this recording. | 
- **recording_id** | **str**| String that uniquely identifies this recording resource. | 
+ **recording_id** | **str**| String that uniquely identifies this recording resource. |
 
 ### Return type
 
@@ -2474,7 +2397,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_conference**
-> ConferenceResult update_a_conference(account_id, conference_id, update_conference_request=update_conference_request)
+> ConferenceResult update_a_conference(conference_id, update_conference_request=update_conference_request)
 
 Update a Conference
 
@@ -2496,13 +2419,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this conference.
 conference_id = 'conference_id_example' # str | String that uniquely identifies this conference resource.
 update_conference_request = freeclimb.UpdateConferenceRequest() # UpdateConferenceRequest | Conference Details to update (optional)
 
 try:
     # Update a Conference
-    api_response = api_instance.update_a_conference(account_id, conference_id, update_conference_request=update_conference_request)
+    api_response = api_instance.update_a_conference(conference_id, update_conference_request=update_conference_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_a_conference: %s\n" % e)
@@ -2512,9 +2434,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this conference. | 
- **conference_id** | **str**| String that uniquely identifies this conference resource. | 
- **update_conference_request** | [**UpdateConferenceRequest**](UpdateConferenceRequest.md)| Conference Details to update | [optional] 
+ **conference_id** | **str**| String that uniquely identifies this conference resource. |
+ **update_conference_request** | [**UpdateConferenceRequest**](UpdateConferenceRequest.md)| Conference Details to update | [optional]
 
 ### Return type
 
@@ -2537,7 +2458,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_live_call**
-> update_a_live_call(account_id, call_id, update_call_request=update_call_request)
+> update_a_live_call(call_id, update_call_request=update_call_request)
 
 Update a Live Call
 
@@ -2559,13 +2480,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this call.
 call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
 update_call_request = freeclimb.UpdateCallRequest() # UpdateCallRequest | Call details to update (optional)
 
 try:
     # Update a Live Call
-    api_instance.update_a_live_call(account_id, call_id, update_call_request=update_call_request)
+    api_instance.update_a_live_call(call_id, update_call_request=update_call_request)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_a_live_call: %s\n" % e)
 ```
@@ -2574,9 +2494,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this call. | 
- **call_id** | **str**| String that uniquely identifies this call resource. | 
- **update_call_request** | [**UpdateCallRequest**](UpdateCallRequest.md)| Call details to update | [optional] 
+ **call_id** | **str**| String that uniquely identifies this call resource. |
+ **update_call_request** | [**UpdateCallRequest**](UpdateCallRequest.md)| Call details to update | [optional]
 
 ### Return type
 
@@ -2599,7 +2518,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_participant**
-> ConferenceParticipantResult update_a_participant(account_id, conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
+> ConferenceParticipantResult update_a_participant(conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
 
 Update a Participant
 
@@ -2621,14 +2540,13 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this participant.
 conference_id = 'conference_id_example' # str | ID of the conference this participant is in.
 call_id = 'call_id_example' # str | ID of the Call associated with this participant.
 update_conference_participant_request = freeclimb.UpdateConferenceParticipantRequest() # UpdateConferenceParticipantRequest | Conference participant details to update (optional)
 
 try:
     # Update a Participant
-    api_response = api_instance.update_a_participant(account_id, conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
+    api_response = api_instance.update_a_participant(conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_a_participant: %s\n" % e)
@@ -2638,10 +2556,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this participant. | 
- **conference_id** | **str**| ID of the conference this participant is in. | 
- **call_id** | **str**| ID of the Call associated with this participant. | 
- **update_conference_participant_request** | [**UpdateConferenceParticipantRequest**](UpdateConferenceParticipantRequest.md)| Conference participant details to update | [optional] 
+ **conference_id** | **str**| ID of the conference this participant is in. |
+ **call_id** | **str**| ID of the Call associated with this participant. |
+ **update_conference_participant_request** | [**UpdateConferenceParticipantRequest**](UpdateConferenceParticipantRequest.md)| Conference participant details to update | [optional]
 
 ### Return type
 
@@ -2664,7 +2581,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_queue**
-> QueueResult update_a_queue(account_id, queue_id, queue_request=queue_request)
+> QueueResult update_a_queue(queue_id, queue_request=queue_request)
 
 Update a Queue
 
@@ -2686,13 +2603,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this queue.
 queue_id = 'queue_id_example' # str | A string that uniquely identifies this Queue resource.
 queue_request = freeclimb.QueueRequest() # QueueRequest | Queue Details to update (optional)
 
 try:
     # Update a Queue
-    api_response = api_instance.update_a_queue(account_id, queue_id, queue_request=queue_request)
+    api_response = api_instance.update_a_queue(queue_id, queue_request=queue_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_a_queue: %s\n" % e)
@@ -2702,9 +2618,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this queue. | 
- **queue_id** | **str**| A string that uniquely identifies this Queue resource. | 
- **queue_request** | [**QueueRequest**](QueueRequest.md)| Queue Details to update | [optional] 
+ **queue_id** | **str**| A string that uniquely identifies this Queue resource. |
+ **queue_request** | [**QueueRequest**](QueueRequest.md)| Queue Details to update | [optional]
 
 ### Return type
 
@@ -2727,7 +2642,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_an_account**
-> update_an_account(account_id, account_request=account_request)
+> update_an_account(account_request=account_request)
 
 Manage an account
 
@@ -2749,12 +2664,11 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
 account_request = freeclimb.AccountRequest() # AccountRequest | Account details to update (optional)
 
 try:
     # Manage an account
-    api_instance.update_an_account(account_id, account_request=account_request)
+    api_instance.update_an_account(account_request=account_request)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_an_account: %s\n" % e)
 ```
@@ -2763,8 +2677,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| String that uniquely identifies this account resource. | 
- **account_request** | [**AccountRequest**](AccountRequest.md)| Account details to update | [optional] 
+ **account_request** | [**AccountRequest**](AccountRequest.md)| Account details to update | [optional]
 
 ### Return type
 
@@ -2787,7 +2700,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_an_application**
-> ApplicationResult update_an_application(account_id, application_id, application_request=application_request)
+> ApplicationResult update_an_application(application_id, application_request=application_request)
 
 Update an application
 
@@ -2809,13 +2722,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that created this application.
 application_id = 'application_id_example' # str | A string that uniquely identifies this application resource.
 application_request = freeclimb.ApplicationRequest() # ApplicationRequest | Application details to update. (optional)
 
 try:
     # Update an application
-    api_response = api_instance.update_an_application(account_id, application_id, application_request=application_request)
+    api_response = api_instance.update_an_application(application_id, application_request=application_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_an_application: %s\n" % e)
@@ -2825,9 +2737,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that created this application. | 
- **application_id** | **str**| A string that uniquely identifies this application resource. | 
- **application_request** | [**ApplicationRequest**](ApplicationRequest.md)| Application details to update. | [optional] 
+ **application_id** | **str**| A string that uniquely identifies this application resource. |
+ **application_request** | [**ApplicationRequest**](ApplicationRequest.md)| Application details to update. | [optional]
 
 ### Return type
 
@@ -2850,7 +2761,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_an_incoming_number**
-> IncomingNumberResult update_an_incoming_number(account_id, phone_number_id, incoming_number_request=incoming_number_request)
+> IncomingNumberResult update_an_incoming_number(phone_number_id, incoming_number_request=incoming_number_request)
 
 Update an Incoming Number
 
@@ -2872,13 +2783,12 @@ configuration.password = 'YOUR_PASSWORD'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
 incoming_number_request = freeclimb.IncomingNumberRequest() # IncomingNumberRequest | Incoming Number details to update (optional)
 
 try:
     # Update an Incoming Number
-    api_response = api_instance.update_an_incoming_number(account_id, phone_number_id, incoming_number_request=incoming_number_request)
+    api_response = api_instance.update_an_incoming_number(phone_number_id, incoming_number_request=incoming_number_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_an_incoming_number: %s\n" % e)
@@ -2888,9 +2798,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| ID of the account that owns this phone number. | 
- **phone_number_id** | **str**| String that uniquely identifies this phone number resource. | 
- **incoming_number_request** | [**IncomingNumberRequest**](IncomingNumberRequest.md)| Incoming Number details to update | [optional] 
+ **phone_number_id** | **str**| String that uniquely identifies this phone number resource. |
+ **incoming_number_request** | [**IncomingNumberRequest**](IncomingNumberRequest.md)| Incoming Number details to update | [optional]
 
 ### Return type
 
