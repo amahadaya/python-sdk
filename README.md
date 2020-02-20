@@ -56,12 +56,11 @@ configuration.password = 'AUTH_TOKEN'
 configuration.host = "https://www.freeclimb.com/apiserver"
 # Create an instance of the API class
 api_instance = freeclimb.DefaultApi(freeclimb.ApiClient(configuration))
-account_id = 'account_id_example' # str | ID of the account that owns this phone number.
 buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details (optional)
 
 try:
     # Buy a Phone Number
-    api_response = api_instance.buy_a_phone_number(account_id, buy_incoming_number_request=buy_incoming_number_request)
+    api_response = api_instance.buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->buy_a_phone_number: %s\n" % e)
