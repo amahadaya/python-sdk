@@ -32,8 +32,7 @@ class TestConferenceResultAllOf(unittest.TestCase):
         """Test ConferenceResultAllOf"""
         # construct object with mandatory attributes with example values
         # model = freeclimb.models.conference_result_all_of.ConferenceResultAllOf()  # noqa: E501
-        print(self.conference_result_all_of)
-        self.assertTrue(isinstance(self.conference_result_all_of, freeclimb.application_result_all_of())
+        self.assertTrue(isinstance(self.conference_result_all_of, ConferenceResultAllOf))
 
 
 if __name__ == '__main__':
