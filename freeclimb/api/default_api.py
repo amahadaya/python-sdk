@@ -31,11 +31,13 @@ class DefaultApi(object):
     Do not edit the class manually.
     """
 
-    def __init__(self, api_client=None):
+    def __init__(self, api_client=None, account_id=None):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.accountId = self.api_client.configuration.username
+        if account_id is None:
+            account_id = self.api_client.configuration.username
+        self.accountId = account_id
 
 
     def buy_a_phone_number(self, **kwargs):  # noqa: E501
