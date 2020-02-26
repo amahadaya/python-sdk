@@ -45,7 +45,10 @@ coverage.xml
 *,cover
 .hypothesis/
 venv/
+.venv/
 .python-version
+.pytest_cache
+.gitlab-ci.yml
 
 # Translations
 *.mo
@@ -62,6 +65,3 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
-
-.DS_Store
-freeclimb/.DS_Store
