@@ -1,6 +1,7 @@
 # LogResult
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **timestamp** | **int** | Time that the log was generated. The time is represented as microseconds since the Unix Epoch. | [optional] 

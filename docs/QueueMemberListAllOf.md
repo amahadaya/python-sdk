@@ -1,6 +1,7 @@
 # QueueMemberListAllOf
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **queue_members** | [**list[QueueMember]**](QueueMember.md) |  | [optional] 

@@ -78,6 +78,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 ## Tests
 
 Run tests with command:
+
 ```python -m unittest test```
 
 ## Documentation for API Endpoints

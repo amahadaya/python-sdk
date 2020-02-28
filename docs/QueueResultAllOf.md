@@ -1,6 +1,7 @@
 # QueueResultAllOf
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **str** | ID of the account that created this Queue. | [optional] 
