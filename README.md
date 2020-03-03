@@ -26,7 +26,7 @@ Then import the package:
 import freeclimb
 ```
 
-## Testing FreeClimb Installation
+## Testing Your Installation
 
 Test the SDK is working by retrieving your account information.
 
