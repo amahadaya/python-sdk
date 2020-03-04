@@ -1,6 +1,7 @@
 # ConferenceParticipantList
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total** | **int** | Total amount of requested resource. | [optional] 

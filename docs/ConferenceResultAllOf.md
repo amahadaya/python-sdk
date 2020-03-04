@@ -1,6 +1,7 @@
 # ConferenceResultAllOf
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conference_id** | **str** | A string that uniquely identifies this Conference resource. | [optional] 

@@ -1,6 +1,7 @@
 # QueueRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **str** | Description for this Queue. Max length is 64 characters. | [optional] 

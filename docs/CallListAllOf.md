@@ -1,6 +1,7 @@
 # CallListAllOf
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **calls** | [**list[CallResult]**](CallResult.md) |  | [optional] 

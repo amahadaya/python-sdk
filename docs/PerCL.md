@@ -1,6 +1,6 @@
 # Documentation for PerCL
 
-The Performance Command Language (PerCL) defines a set of instructions, written in JSON format, that express telephony actions to be performed in response to an event on the FreeClimb platform. FreeClimb communicates with the application server when events associated with the application occur, so the webserver can instruct FreeClimb how to handle such events using PerCL scripts.
+The Performance Command Language (PerCL) defines a set of instructions, written in JSON format, that express telephony actions to be performed in response to an event on the FreeClimb platform. FreeClimb communicates with the application server when events associated with the application occur, so the webserver can instruct FreeClimb how to handle such events using PerCL scripts. For further details on PerCL, visit the [PerCL Documentation](https://docs.freeclimb.com/reference/percl-overview).
 
 ## PerCL example generation
 
@@ -117,8 +117,6 @@ return freeclimb.PerCLCommand.to_json(dequeue.to_dict())
 
 ### Attributes:
 
-Name | Type | Description | Required
------------- | ------------- | ------------- | -------------
 Dequeue does not support any attributes
 
 ## Enqueue
@@ -506,8 +504,6 @@ return freeclimb.PerCLCommand.to_json(start_record_call.to_dict())
 
 ### Attributes:
 
-Name | Type | Description | Required
------------- | ------------- | ------------- | -------------
 StartRecordCall does not support any attributes
 
 ## TerminateConference

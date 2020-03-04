@@ -1,6 +1,7 @@
 # CreateConferenceRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **str** | A description for this Conference. Maximum 64 characters. | [optional] 

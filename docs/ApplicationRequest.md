@@ -1,6 +1,7 @@
 # ApplicationRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **str** | A human readable description of the application, with maximum length 64 characters. | [optional] 
