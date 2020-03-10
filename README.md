@@ -87,42 +87,6 @@ Then import the package:
 import freeclimb
 ```
 
-## Testing Your Installation
-
-Please follow the [installation procedure](#installation--usage) and then run the following:
-
-```python
-from __future__ import print_function
-import time
-import freeclimb
-from freeclimb.rest import ApiException
-from pprint import pprint
-
-configuration = freeclimb.Configuration()
-# Configure HTTP basic authorization: fc
-configuration.username = 'ACCOUNT_ID'
-configuration.password = 'AUTH_TOKEN'
-
-# Defining host is optional and default to https://www.freeclimb.com/apiserver
-configuration.host = "https://www.freeclimb.com/apiserver"
-
-# Defining host is optional and default to https://www.freeclimb.com/apiserver
-configuration.host = "https://www.freeclimb.com/apiserver"
-# Enter a context with an instance of the API client
-with freeclimb.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = freeclimb.DefaultApi(api_client)
-    account_id = 'account_id_example' # str | String that uniquely identifies this account resource.
-
-    try:
-        # Get an Account
-        api_response = api_instance.get_an_account(account_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
-    
-```
-
 ## Tests
 
 Run tests with command:
