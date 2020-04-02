@@ -1,7 +1,6 @@
 # RecordingListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recordings** | [**list[RecordingResult]**](RecordingResult.md) |  | [optional] 

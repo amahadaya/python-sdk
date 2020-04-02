@@ -1,7 +1,6 @@
 # IncomingNumberRequest
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **application_id** | **str** | ID of the Application that should handle calls to this number. | [optional] 

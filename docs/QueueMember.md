@@ -1,7 +1,6 @@
 # QueueMember
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uri** | **str** | URI for this Queue Member resource, relative to the API base URL. | [optional] 

@@ -4,6 +4,7 @@ All URIs are relative to *https://www.freeclimb.com/apiserver*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_an_account**](DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 [**buy_a_phone_number**](DefaultApi.md#buy_a_phone_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers | Buy a Phone Number
 [**create_a_conference**](DefaultApi.md#create_a_conference) | **POST** /Accounts/{accountId}/Conferences | Create a Conference
 [**create_a_queue**](DefaultApi.md#create_a_queue) | **POST** /Accounts/{accountId}/Queues | Create a Queue
@@ -21,7 +22,6 @@ Method | HTTP request | Description
 [**get_a_participant**](DefaultApi.md#get_a_participant) | **GET** /Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId} | Get a Participant
 [**get_a_queue**](DefaultApi.md#get_a_queue) | **GET** /Accounts/{accountId}/Queues/{queueId} | Get a Queue
 [**get_a_recording**](DefaultApi.md#get_a_recording) | **GET** /Accounts/{accountId}/Recordings/{recordingId} | Get a Recording
-[**get_an_account**](DefaultApi.md#get_an_account) | **GET** /Accounts/{accountId} | Get an Account
 [**get_an_application**](DefaultApi.md#get_an_application) | **GET** /Accounts/{accountId}/Applications/{applicationId} | Get an Application
 [**get_an_incoming_number**](DefaultApi.md#get_an_incoming_number) | **GET** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Get an Incoming Number
 [**get_an_sms_message**](DefaultApi.md#get_an_sms_message) | **GET** /Accounts/{accountId}/Messages/{messageId} | Get an SMS Message
@@ -52,6 +52,64 @@ Method | HTTP request | Description
 [**update_an_incoming_number**](DefaultApi.md#update_an_incoming_number) | **POST** /Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId} | Update an Incoming Number
 
 
+# **get_an_account**
+> AccountResult get_an_account()
+
+Get an Account
+
+### Example
+
+* Basic Authentication (fc):
+```python
+from __future__ import print_function
+import time
+import freeclimb
+from freeclimb.rest import ApiException
+from pprint import pprint
+configuration = freeclimb.Configuration()
+# Configure HTTP basic authorization: fc
+configuration.username = 'ACCOUNT_ID'
+configuration.password = 'AUTH_TOKEN'
+
+# Defining host is optional and default to https://www.freeclimb.com/apiserver
+configuration.host = "https://www.freeclimb.com/apiserver"
+
+# Enter a context with an instance of the API client
+with freeclimb.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = freeclimb.DefaultApi(api_client)
+    
+    try:
+        # Get an Account
+        api_response = api_instance.get_an_account()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AccountResult**](AccountResult.md)
+
+### Authorization
+
+[fc](../README.md#fc)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Account Details |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **buy_a_phone_number**
 > IncomingNumberResult buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
 
@@ -60,7 +118,6 @@ Buy a Phone Number
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -109,7 +166,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Incoming Number transaction |  -  |
@@ -124,7 +180,6 @@ Create a Conference
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -173,7 +228,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details of created conference |  -  |
@@ -188,7 +242,6 @@ Create a Queue
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -237,7 +290,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfuly created queue |  -  |
@@ -252,7 +304,6 @@ Create an application
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -301,7 +352,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Application successfuly created |  -  |
@@ -316,7 +366,6 @@ Delete a Recording
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -364,7 +413,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Recording Deleted |  -  |
@@ -379,7 +427,6 @@ Delete an application
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -427,7 +474,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful application deletion |  -  |
@@ -442,7 +488,6 @@ Delete an Incoming Number
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -490,7 +535,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful Incoming Number deletion. |  -  |
@@ -505,7 +549,6 @@ Dequeue a Member
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -558,7 +601,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted dequeue request |  -  |
@@ -573,7 +615,6 @@ Dequeue Head Member
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -624,7 +665,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted dequeue request |  -  |
@@ -639,7 +679,6 @@ Download a Recording File
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -688,7 +727,6 @@ Name | Type | Description  | Notes
  - **Accept**: audio/x-wav
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Download a Recording file represented with audio/x-wav mime-type |  -  |
@@ -703,7 +741,6 @@ Filter Logs
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -752,7 +789,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved log list |  -  |
@@ -767,7 +803,6 @@ Get a Call
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -816,7 +851,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Call Resource |  -  |
@@ -831,7 +865,6 @@ Get a Conference
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -880,7 +913,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved conference |  -  |
@@ -895,7 +927,6 @@ Get a Member
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -946,7 +977,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved a queue member |  -  |
@@ -961,7 +991,6 @@ Get a Participant
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1012,7 +1041,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved conference participant |  -  |
@@ -1027,7 +1055,6 @@ Get a Queue
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1076,7 +1103,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved queue |  -  |
@@ -1091,7 +1117,6 @@ Get a Recording
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1140,70 +1165,9 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_an_account**
-> AccountResult get_an_account()
-
-Get an Account
-
-### Example
-
-* Basic Authentication (fc):
-
-```python
-from __future__ import print_function
-import time
-import freeclimb
-from freeclimb.rest import ApiException
-from pprint import pprint
-configuration = freeclimb.Configuration()
-# Configure HTTP basic authorization: fc
-configuration.username = 'ACCOUNT_ID'
-configuration.password = 'AUTH_TOKEN'
-
-# Defining host is optional and default to https://www.freeclimb.com/apiserver
-configuration.host = "https://www.freeclimb.com/apiserver"
-
-# Enter a context with an instance of the API client
-with freeclimb.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = freeclimb.DefaultApi(api_client)
-    
-    try:
-        # Get an Account
-        api_response = api_instance.get_an_account()
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling DefaultApi->get_an_account: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AccountResult**](AccountResult.md)
-
-### Authorization
-
-[fc](../README.md#fc)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Account Details |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1215,7 +1179,6 @@ Get an Application
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1264,7 +1227,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Application Details |  -  |
@@ -1279,7 +1241,6 @@ Get an Incoming Number
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1328,7 +1289,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Incoming Phone Number result. |  -  |
@@ -1343,7 +1303,6 @@ Get an SMS Message
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1392,7 +1351,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The specific SMS message that’s been processed by FreeClimb |  -  |
@@ -1407,7 +1365,6 @@ Get Head Member
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1456,7 +1413,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved queue member |  -  |
@@ -1471,7 +1427,6 @@ List Active Queues
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1520,7 +1475,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfuly retrieved queue list |  -  |
@@ -1535,7 +1489,6 @@ List All Account Logs
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1580,7 +1533,6 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved log list |  -  |
@@ -1595,7 +1547,6 @@ List applications
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1644,7 +1595,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of Applications |  -  |
@@ -1659,7 +1609,6 @@ List available numbers
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1710,7 +1659,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Available Numbers List |  -  |
@@ -1725,7 +1673,6 @@ List Call Logs
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1774,7 +1721,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Logs for this call |  -  |
@@ -1789,7 +1735,6 @@ List Call Recordings
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1840,7 +1785,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of recordings for a call |  -  |
@@ -1855,7 +1799,6 @@ List Calls
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1914,7 +1857,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful retrieved call list |  -  |
@@ -1929,7 +1871,6 @@ List Conferences
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -1984,7 +1925,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of Conferences |  -  |
@@ -1999,7 +1939,6 @@ List Incoming Numbers
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2050,7 +1989,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of Incoming Phone Numbers |  -  |
@@ -2065,7 +2003,6 @@ List Members
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2114,7 +2051,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved queue member list |  -  |
@@ -2129,7 +2065,6 @@ List Participants
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2182,7 +2117,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved conference participant list |  -  |
@@ -2197,7 +2131,6 @@ List Recordings
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2250,7 +2183,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of Recordings |  -  |
@@ -2265,7 +2197,6 @@ List SMS Messages
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2324,7 +2255,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of messages |  -  |
@@ -2339,7 +2269,6 @@ Make a Call
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2388,7 +2317,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Call that was created |  -  |
@@ -2403,7 +2331,6 @@ Remove a Participant
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2453,7 +2380,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successfully deleted conference participant |  -  |
@@ -2468,7 +2394,6 @@ Send an SMS Message
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2517,7 +2442,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | The message has been accepted. |  -  |
@@ -2532,7 +2456,6 @@ Stream a Recording File
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2581,7 +2504,6 @@ Name | Type | Description  | Notes
  - **Accept**: audio/x-wav
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Streaming a Recording represented with audio/x-wav mime-type |  -  |
@@ -2596,7 +2518,6 @@ Update a Conference
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2647,7 +2568,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Conference Details to Update |  -  |
@@ -2662,7 +2582,6 @@ Update a Live Call
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2712,7 +2631,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Successfully queued call |  -  |
@@ -2727,7 +2645,6 @@ Update a Participant
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2780,7 +2697,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved conference participant |  -  |
@@ -2795,7 +2711,6 @@ Update a Queue
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2846,7 +2761,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully updated queue |  -  |
@@ -2861,7 +2775,6 @@ Manage an account
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2909,7 +2822,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful Account update |  -  |
@@ -2924,7 +2836,6 @@ Update an application
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -2975,7 +2886,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Update Application |  -  |
@@ -2990,7 +2900,6 @@ Update an Incoming Number
 ### Example
 
 * Basic Authentication (fc):
-
 ```python
 from __future__ import print_function
 import time
@@ -3041,7 +2950,6 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Updated Incoming Phone Number |  -  |

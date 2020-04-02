@@ -1,7 +1,6 @@
 # LogListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **logs** | [**list[LogResult]**](LogResult.md) |  | [optional] 

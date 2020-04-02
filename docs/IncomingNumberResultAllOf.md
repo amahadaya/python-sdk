@@ -1,7 +1,6 @@
 # IncomingNumberResultAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **phone_number_id** | **str** | String that uniquely identifies this phone number resource. | [optional] 

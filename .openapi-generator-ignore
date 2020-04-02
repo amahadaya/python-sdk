@@ -21,3 +21,16 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# we aren't using this so don't generate it
+git_push.sh
+
+# added custom files. Don't overwrite
+.gitignore
+
+# This isn't set up. Don't generate it
+.gitlab-ci.yml 
+.travis.yml
+
+# added stuff here so don't overwrite
+test-requirements.txt

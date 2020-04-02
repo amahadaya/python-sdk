@@ -1,7 +1,6 @@
 # CallResultAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **call_id** | **str** | String that uniquely identifies this Call resource. | [optional] 

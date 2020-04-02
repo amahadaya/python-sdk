@@ -1,7 +1,6 @@
 # RecordingResultAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recording_id** | **str** | String that uniquely identifies this recording resource. | [optional] 
