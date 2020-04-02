@@ -1,7 +1,6 @@
 # QueueListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **queues** | [**list[QueueResult]**](QueueResult.md) |  | [optional] 

@@ -1,7 +1,6 @@
 # IncomingNumberListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **incoming_phone_numbers** | [**list[IncomingNumberResult]**](IncomingNumberResult.md) |  | [optional] 

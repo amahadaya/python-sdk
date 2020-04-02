@@ -1,7 +1,6 @@
 # UpdateConferenceRequest
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **str** | Description for this conference. Maximum 64 characters. | [optional] 

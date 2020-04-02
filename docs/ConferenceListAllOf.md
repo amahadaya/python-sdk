@@ -1,7 +1,6 @@
 # ConferenceListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conferences** | [**list[ConferenceResult]**](ConferenceResult.md) |  | [optional] 

@@ -1,7 +1,6 @@
 # AvailableNumberListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **available_phone_numbers** | [**list[AvailableNumber]**](AvailableNumber.md) |  | [optional] 

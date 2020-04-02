@@ -1,7 +1,6 @@
 # AccountResultAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **str** | String that uniquely identifies this account resource. | [optional] 

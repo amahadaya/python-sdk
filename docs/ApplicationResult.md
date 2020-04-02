@@ -1,7 +1,6 @@
 # ApplicationResult
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uri** | **str** | The URI for this resource, relative to /apiserver. | [optional] 

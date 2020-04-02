@@ -1,7 +1,6 @@
 # ApplicationListAllOf
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **applications** | [**list[ApplicationResult]**](ApplicationResult.md) |  | [optional] 
