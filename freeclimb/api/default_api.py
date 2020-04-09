@@ -904,7 +904,6 @@ class DefaultApi(object):
         :param async_req bool: execute request asynchronously
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param str call_id: ID if the Call that the Member belongs to (required)
-        :param DequeueMemberRequest dequeue_member_request: Dequeue member request details
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -930,7 +929,6 @@ class DefaultApi(object):
         :param async_req bool: execute request asynchronously
         :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
         :param str call_id: ID if the Call that the Member belongs to (required)
-        :param DequeueMemberRequest dequeue_member_request: Dequeue member request details
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -947,7 +945,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['queue_id', 'call_id', 'dequeue_member_request']  # noqa: E501
+        all_params = ['queue_id', 'call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -989,14 +987,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'dequeue_member_request' in local_var_params:
-            body_params = local_var_params['dequeue_member_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
@@ -1028,7 +1020,6 @@ class DefaultApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str queue_id: String that uniquely identifies this queue resource. (required)
-        :param DequeueMemberRequest dequeue_member_request: Dequeue head member request details
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1053,7 +1044,6 @@ class DefaultApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str queue_id: String that uniquely identifies this queue resource. (required)
-        :param DequeueMemberRequest dequeue_member_request: Dequeue head member request details
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1070,7 +1060,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['queue_id', 'dequeue_member_request']  # noqa: E501
+        all_params = ['queue_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1106,14 +1096,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'dequeue_member_request' in local_var_params:
-            body_params = local_var_params['dequeue_member_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting

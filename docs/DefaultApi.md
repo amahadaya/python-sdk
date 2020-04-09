@@ -150,7 +150,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **buy_incoming_number_request** | [**BuyIncomingNumberRequest**](BuyIncomingNumberRequest.md)| Incoming Number transaction details | 
+ **buy_incoming_number_request** | [**BuyIncomingNumberRequest**](BuyIncomingNumberRequest.md)| Incoming Number transaction details | [optional] 
 
 ### Return type
 
@@ -542,7 +542,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dequeue_a_member**
-> QueueMember dequeue_a_member(queue_id, call_id, dequeue_member_request=dequeue_member_request)
+> QueueMember dequeue_a_member(queue_id, call_id)
 
 Dequeue a Member
 
@@ -569,11 +569,10 @@ with freeclimb.ApiClient(configuration) as api_client:
     api_instance = freeclimb.DefaultApi(api_client)
     queue_id = 'queue_id_example' # str | String that uniquely identifies the Queue that the Member belongs to.
 call_id = 'call_id_example' # str | ID if the Call that the Member belongs to
-dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest | Dequeue member request details (optional)
 
     try:
         # Dequeue a Member
-        api_response = api_instance.dequeue_a_member(queue_id, call_id, dequeue_member_request=dequeue_member_request)
+        api_response = api_instance.dequeue_a_member(queue_id, call_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->dequeue_a_member: %s\n" % e)
@@ -585,7 +584,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **queue_id** | **str**| String that uniquely identifies the Queue that the Member belongs to. | 
  **call_id** | **str**| ID if the Call that the Member belongs to | 
- **dequeue_member_request** | [**DequeueMemberRequest**](DequeueMemberRequest.md)| Dequeue member request details | [optional] 
 
 ### Return type
 
@@ -597,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -608,7 +606,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dequeue_head_member**
-> QueueMember dequeue_head_member(queue_id, dequeue_member_request=dequeue_member_request)
+> QueueMember dequeue_head_member(queue_id)
 
 Dequeue Head Member
 
@@ -634,11 +632,10 @@ with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
     queue_id = 'queue_id_example' # str | String that uniquely identifies this queue resource.
-dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest | Dequeue head member request details (optional)
 
     try:
         # Dequeue Head Member
-        api_response = api_instance.dequeue_head_member(queue_id, dequeue_member_request=dequeue_member_request)
+        api_response = api_instance.dequeue_head_member(queue_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->dequeue_head_member: %s\n" % e)
@@ -649,7 +646,6 @@ dequeue_member_request = freeclimb.DequeueMemberRequest() # DequeueMemberRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **queue_id** | **str**| String that uniquely identifies this queue resource. | 
- **dequeue_member_request** | [**DequeueMemberRequest**](DequeueMemberRequest.md)| Dequeue head member request details | [optional] 
 
 ### Return type
 
@@ -661,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

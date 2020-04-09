@@ -36,18 +36,16 @@ class BuyIncomingNumberRequest(object):
     openapi_types = {
         'phone_number': 'str',
         'alias': 'str',
-        'application_id': 'str',
-        'request_id': 'str'
+        'application_id': 'str'
     }
 
     attribute_map = {
         'phone_number': 'phoneNumber',
         'alias': 'alias',
-        'application_id': 'applicationId',
-        'request_id': 'requestId'
+        'application_id': 'applicationId'
     }
 
-    def __init__(self, phone_number=None, alias=None, application_id=None, request_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, phone_number=None, alias=None, application_id=None, local_vars_configuration=None):  # noqa: E501
         """BuyIncomingNumberRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,7 +54,6 @@ class BuyIncomingNumberRequest(object):
         self._phone_number = None
         self._alias = None
         self._application_id = None
-        self._request_id = None
         self.discriminator = None
 
         self.phone_number = phone_number
@@ -64,8 +61,6 @@ class BuyIncomingNumberRequest(object):
             self.alias = alias
         if application_id is not None:
             self.application_id = application_id
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def phone_number(self):
@@ -137,29 +132,6 @@ class BuyIncomingNumberRequest(object):
         """
 
         self._application_id = application_id
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this BuyIncomingNumberRequest.  # noqa: E501
-
-        RequestId for this request starting with prefix `RQ` followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response, (e.g., `X-Pulse-Request-Id: <requestId>`).  # noqa: E501
-
-        :return: The request_id of this BuyIncomingNumberRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this BuyIncomingNumberRequest.
-
-        RequestId for this request starting with prefix `RQ` followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response, (e.g., `X-Pulse-Request-Id: <requestId>`).  # noqa: E501
-
-        :param request_id: The request_id of this BuyIncomingNumberRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
