@@ -38,7 +38,6 @@ class MessageRequestAllOf(object):
         'to': 'str',
         'text': 'str',
         'notification_url': 'str',
-        'request_id': 'str',
         'account_id': 'str'
     }
 
@@ -47,11 +46,10 @@ class MessageRequestAllOf(object):
         'to': 'to',
         'text': 'text',
         'notification_url': 'notificationUrl',
-        'request_id': 'requestId',
         'account_id': 'accountId'
     }
 
-    def __init__(self, _from=None, to=None, text=None, notification_url=None, request_id=None, account_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, _from=None, to=None, text=None, notification_url=None, account_id=None, local_vars_configuration=None):  # noqa: E501
         """MessageRequestAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,7 +59,6 @@ class MessageRequestAllOf(object):
         self._to = None
         self._text = None
         self._notification_url = None
-        self._request_id = None
         self._account_id = None
         self.discriminator = None
 
@@ -70,8 +67,6 @@ class MessageRequestAllOf(object):
         self.text = text
         if notification_url is not None:
             self.notification_url = notification_url
-        if request_id is not None:
-            self.request_id = request_id
         if account_id is not None:
             self.account_id = account_id
 
@@ -172,29 +167,6 @@ class MessageRequestAllOf(object):
         """
 
         self._notification_url = notification_url
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this MessageRequestAllOf.  # noqa: E501
-
-        RequestId for this request, starting with prefix *RQ* followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g., X-Pulse-Request-Id: <requestId>).  # noqa: E501
-
-        :return: The request_id of this MessageRequestAllOf.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this MessageRequestAllOf.
-
-        RequestId for this request, starting with prefix *RQ* followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g., X-Pulse-Request-Id: <requestId>).  # noqa: E501
-
-        :param request_id: The request_id of this MessageRequestAllOf.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     @property
     def account_id(self):

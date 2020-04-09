@@ -41,7 +41,6 @@ class MakeCallRequest(object):
         'if_machine': 'str',
         'if_machine_url': 'str',
         'timeout': 'int',
-        'request_id': 'str',
         'parent_call_id': 'str'
     }
 
@@ -53,11 +52,10 @@ class MakeCallRequest(object):
         'if_machine': 'ifMachine',
         'if_machine_url': 'ifMachineUrl',
         'timeout': 'timeout',
-        'request_id': 'requestId',
         'parent_call_id': 'parentCallId'
     }
 
-    def __init__(self, _from=None, to=None, application_id=None, send_digits=None, if_machine=None, if_machine_url=None, timeout=None, request_id=None, parent_call_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, _from=None, to=None, application_id=None, send_digits=None, if_machine=None, if_machine_url=None, timeout=None, parent_call_id=None, local_vars_configuration=None):  # noqa: E501
         """MakeCallRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,7 +68,6 @@ class MakeCallRequest(object):
         self._if_machine = None
         self._if_machine_url = None
         self._timeout = None
-        self._request_id = None
         self._parent_call_id = None
         self.discriminator = None
 
@@ -85,8 +82,6 @@ class MakeCallRequest(object):
             self.if_machine_url = if_machine_url
         if timeout is not None:
             self.timeout = timeout
-        if request_id is not None:
-            self.request_id = request_id
         if parent_call_id is not None:
             self.parent_call_id = parent_call_id
 
@@ -256,29 +251,6 @@ class MakeCallRequest(object):
         """
 
         self._timeout = timeout
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this MakeCallRequest.  # noqa: E501
-
-        The requestId for this request starting with prefix \"RQ\" followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g. `X-Pulse-Request-Id: <requestId>`).  # noqa: E501
-
-        :return: The request_id of this MakeCallRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this MakeCallRequest.
-
-        The requestId for this request starting with prefix \"RQ\" followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g. `X-Pulse-Request-Id: <requestId>`).  # noqa: E501
-
-        :param request_id: The request_id of this MakeCallRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     @property
     def parent_call_id(self):

@@ -45,7 +45,6 @@ from freeclimb.models.create_conference import CreateConference
 from freeclimb.models.create_conference_all_of import CreateConferenceAllOf
 from freeclimb.models.create_conference_request import CreateConferenceRequest
 from freeclimb.models.dequeue import Dequeue
-from freeclimb.models.dequeue_member_request import DequeueMemberRequest
 from freeclimb.models.enqueue import Enqueue
 from freeclimb.models.enqueue_all_of import EnqueueAllOf
 from freeclimb.models.filter_logs_request import FilterLogsRequest

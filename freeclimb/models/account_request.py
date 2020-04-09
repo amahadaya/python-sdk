@@ -35,17 +35,15 @@ class AccountRequest(object):
     """
     openapi_types = {
         'alias': 'str',
-        'label': 'str',
-        'request_id': 'str'
+        'label': 'str'
     }
 
     attribute_map = {
         'alias': 'alias',
-        'label': 'label',
-        'request_id': 'requestId'
+        'label': 'label'
     }
 
-    def __init__(self, alias=None, label=None, request_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, alias=None, label=None, local_vars_configuration=None):  # noqa: E501
         """AccountRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,15 +51,12 @@ class AccountRequest(object):
 
         self._alias = None
         self._label = None
-        self._request_id = None
         self.discriminator = None
 
         if alias is not None:
             self.alias = alias
         if label is not None:
             self.label = label
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def alias(self):
@@ -108,29 +103,6 @@ class AccountRequest(object):
         """
 
         self._label = label
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this AccountRequest.  # noqa: E501
-
-        RequestId for this request starting with prefix *RQ* followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response, e.g. X-Pulse-Request-Id: <requestId>  # noqa: E501
-
-        :return: The request_id of this AccountRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this AccountRequest.
-
-        RequestId for this request starting with prefix *RQ* followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response, e.g. X-Pulse-Request-Id: <requestId>  # noqa: E501
-
-        :param request_id: The request_id of this AccountRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

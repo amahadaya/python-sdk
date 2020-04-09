@@ -34,28 +34,23 @@ class UpdateCallRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'status': 'str',
-        'request_id': 'str'
+        'status': 'str'
     }
 
     attribute_map = {
-        'status': 'status',
-        'request_id': 'requestId'
+        'status': 'status'
     }
 
-    def __init__(self, status=None, request_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, local_vars_configuration=None):  # noqa: E501
         """UpdateCallRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._status = None
-        self._request_id = None
         self.discriminator = None
 
         self.status = status
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def status(self):
@@ -87,29 +82,6 @@ class UpdateCallRequest(object):
             )
 
         self._status = status
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this UpdateCallRequest.  # noqa: E501
-
-        RequestId for this request starting with prefix `RQ` followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g. `X-Pulse-Request-Id: <requestId>`).  # noqa: E501
-
-        :return: The request_id of this UpdateCallRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this UpdateCallRequest.
-
-        RequestId for this request starting with prefix `RQ` followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g. `X-Pulse-Request-Id: <requestId>`).  # noqa: E501
-
-        :param request_id: The request_id of this UpdateCallRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

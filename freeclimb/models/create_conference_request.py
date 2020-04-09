@@ -38,8 +38,7 @@ class CreateConferenceRequest(object):
         'play_beep': 'str',
         'record': 'bool',
         'wait_url': 'str',
-        'status_callback_url': 'str',
-        'request_id': 'str'
+        'status_callback_url': 'str'
     }
 
     attribute_map = {
@@ -47,11 +46,10 @@ class CreateConferenceRequest(object):
         'play_beep': 'playBeep',
         'record': 'record',
         'wait_url': 'waitUrl',
-        'status_callback_url': 'statusCallbackUrl',
-        'request_id': 'requestId'
+        'status_callback_url': 'statusCallbackUrl'
     }
 
-    def __init__(self, alias=None, play_beep='always', record=None, wait_url=None, status_callback_url=None, request_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, alias=None, play_beep='always', record=None, wait_url=None, status_callback_url=None, local_vars_configuration=None):  # noqa: E501
         """CreateConferenceRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,7 +60,6 @@ class CreateConferenceRequest(object):
         self._record = None
         self._wait_url = None
         self._status_callback_url = None
-        self._request_id = None
         self.discriminator = None
 
         if alias is not None:
@@ -75,8 +72,6 @@ class CreateConferenceRequest(object):
             self.wait_url = wait_url
         if status_callback_url is not None:
             self.status_callback_url = status_callback_url
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def alias(self):
@@ -198,29 +193,6 @@ class CreateConferenceRequest(object):
         """
 
         self._status_callback_url = status_callback_url
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this CreateConferenceRequest.  # noqa: E501
-
-        The requestId for this request starting with prefix \"RQ\" followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g., X-Pulse-Request-Id: <requestId>).  # noqa: E501
-
-        :return: The request_id of this CreateConferenceRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this CreateConferenceRequest.
-
-        The requestId for this request starting with prefix \"RQ\" followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request will include this requestId. If it is not provided, FreeClimb will generate a requestId and return it as a header in the response (e.g., X-Pulse-Request-Id: <requestId>).  # noqa: E501
-
-        :param request_id: The request_id of this CreateConferenceRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

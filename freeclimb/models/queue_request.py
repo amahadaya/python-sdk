@@ -35,17 +35,15 @@ class QueueRequest(object):
     """
     openapi_types = {
         'alias': 'str',
-        'max_size': 'int',
-        'request_id': 'str'
+        'max_size': 'int'
     }
 
     attribute_map = {
         'alias': 'alias',
-        'max_size': 'maxSize',
-        'request_id': 'requestId'
+        'max_size': 'maxSize'
     }
 
-    def __init__(self, alias=None, max_size=None, request_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, alias=None, max_size=None, local_vars_configuration=None):  # noqa: E501
         """QueueRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,15 +51,12 @@ class QueueRequest(object):
 
         self._alias = None
         self._max_size = None
-        self._request_id = None
         self.discriminator = None
 
         if alias is not None:
             self.alias = alias
         if max_size is not None:
             self.max_size = max_size
-        if request_id is not None:
-            self.request_id = request_id
 
     @property
     def alias(self):
@@ -108,29 +103,6 @@ class QueueRequest(object):
         """
 
         self._max_size = max_size
-
-    @property
-    def request_id(self):
-        """Gets the request_id of this QueueRequest.  # noqa: E501
-
-        RequestId for this request, starting with prefix *RQ* followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request include this requestId. If this parameter is not provided, FreeClimb generates a requestId and returns it as a header in the response (e.g., X-Pulse-Request-Id: <requestId>).  # noqa: E501
-
-        :return: The request_id of this QueueRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._request_id
-
-    @request_id.setter
-    def request_id(self, request_id):
-        """Sets the request_id of this QueueRequest.
-
-        RequestId for this request, starting with prefix *RQ* followed by 40 hexadecimal characters. FreeClimb logs generated while processing this request include this requestId. If this parameter is not provided, FreeClimb generates a requestId and returns it as a header in the response (e.g., X-Pulse-Request-Id: <requestId>).  # noqa: E501
-
-        :param request_id: The request_id of this QueueRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._request_id = request_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
