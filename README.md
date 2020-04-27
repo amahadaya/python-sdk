@@ -72,8 +72,6 @@ configuration.password = 'AUTH_TOKEN'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
-# Defining host is optional and default to https://www.freeclimb.com/apiserver
-configuration.host = "https://www.freeclimb.com/apiserver"
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
