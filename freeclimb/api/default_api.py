@@ -142,16 +142,16 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def buy_a_phone_number(self, **kwargs):  # noqa: E501
+    def buy_a_phone_number(self, buy_incoming_number_request, **kwargs):  # noqa: E501
         """Buy a Phone Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.buy_a_phone_number(async_req=True)
+        >>> thread = api.buy_a_phone_number(buy_incoming_number_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details
+        :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -164,18 +164,18 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.buy_a_phone_number_with_http_info(**kwargs)  # noqa: E501
+        return self.buy_a_phone_number_with_http_info(buy_incoming_number_request, **kwargs)  # noqa: E501
 
-    def buy_a_phone_number_with_http_info(self, **kwargs):  # noqa: E501
+    def buy_a_phone_number_with_http_info(self, buy_incoming_number_request, **kwargs):  # noqa: E501
         """Buy a Phone Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.buy_a_phone_number_with_http_info(async_req=True)
+        >>> thread = api.buy_a_phone_number_with_http_info(buy_incoming_number_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details
+        :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -206,6 +206,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'buy_incoming_number_request' is set
+        if self.api_client.client_side_validation and ('buy_incoming_number_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['buy_incoming_number_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `buy_incoming_number_request` when calling `buy_a_phone_number`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1228,16 +1232,16 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def filter_logs(self, **kwargs):  # noqa: E501
+    def filter_logs(self, filter_logs_request, **kwargs):  # noqa: E501
         """Filter Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_logs(async_req=True)
+        >>> thread = api.filter_logs(filter_logs_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FilterLogsRequest filter_logs_request: Filter logs request paramters
+        :param FilterLogsRequest filter_logs_request: Filter logs request paramters (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1250,18 +1254,18 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.filter_logs_with_http_info(**kwargs)  # noqa: E501
+        return self.filter_logs_with_http_info(filter_logs_request, **kwargs)  # noqa: E501
 
-    def filter_logs_with_http_info(self, **kwargs):  # noqa: E501
+    def filter_logs_with_http_info(self, filter_logs_request, **kwargs):  # noqa: E501
         """Filter Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_logs_with_http_info(async_req=True)
+        >>> thread = api.filter_logs_with_http_info(filter_logs_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param FilterLogsRequest filter_logs_request: Filter logs request paramters
+        :param FilterLogsRequest filter_logs_request: Filter logs request paramters (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1292,6 +1296,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'filter_logs_request' is set
+        if self.api_client.client_side_validation and ('filter_logs_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['filter_logs_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `filter_logs_request` when calling `filter_logs`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4120,16 +4128,16 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def send_an_sms_message(self, **kwargs):  # noqa: E501
+    def send_an_sms_message(self, message_request, **kwargs):  # noqa: E501
         """Send an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_an_sms_message(async_req=True)
+        >>> thread = api.send_an_sms_message(message_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param MessageRequest message_request: Details to create a message
+        :param MessageRequest message_request: Details to create a message (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4142,18 +4150,18 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.send_an_sms_message_with_http_info(**kwargs)  # noqa: E501
+        return self.send_an_sms_message_with_http_info(message_request, **kwargs)  # noqa: E501
 
-    def send_an_sms_message_with_http_info(self, **kwargs):  # noqa: E501
+    def send_an_sms_message_with_http_info(self, message_request, **kwargs):  # noqa: E501
         """Send an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_an_sms_message_with_http_info(async_req=True)
+        >>> thread = api.send_an_sms_message_with_http_info(message_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param MessageRequest message_request: Details to create a message
+        :param MessageRequest message_request: Details to create a message (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4184,6 +4192,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'message_request' is set
+        if self.api_client.client_side_validation and ('message_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['message_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `message_request` when calling `send_an_sms_message`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4455,17 +4467,17 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_a_live_call(self, call_id, **kwargs):  # noqa: E501
+    def update_a_live_call(self, call_id, update_call_request, **kwargs):  # noqa: E501
         """Update a Live Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_live_call(call_id, async_req=True)
+        >>> thread = api.update_a_live_call(call_id, update_call_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str call_id: String that uniquely identifies this call resource. (required)
-        :param UpdateCallRequest update_call_request: Call details to update
+        :param UpdateCallRequest update_call_request: Call details to update (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4478,19 +4490,19 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_a_live_call_with_http_info(call_id, **kwargs)  # noqa: E501
+        return self.update_a_live_call_with_http_info(call_id, update_call_request, **kwargs)  # noqa: E501
 
-    def update_a_live_call_with_http_info(self, call_id, **kwargs):  # noqa: E501
+    def update_a_live_call_with_http_info(self, call_id, update_call_request, **kwargs):  # noqa: E501
         """Update a Live Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_live_call_with_http_info(call_id, async_req=True)
+        >>> thread = api.update_a_live_call_with_http_info(call_id, update_call_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str call_id: String that uniquely identifies this call resource. (required)
-        :param UpdateCallRequest update_call_request: Call details to update
+        :param UpdateCallRequest update_call_request: Call details to update (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4525,6 +4537,10 @@ class DefaultApi(object):
         if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['call_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `call_id` when calling `update_a_live_call`")  # noqa: E501
+        # verify the required parameter 'update_call_request' is set
+        if self.api_client.client_side_validation and ('update_call_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['update_call_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `update_call_request` when calling `update_a_live_call`")  # noqa: E501
 
         collection_formats = {}
 

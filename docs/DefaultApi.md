@@ -111,7 +111,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **buy_a_phone_number**
-> IncomingNumberResult buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
+> IncomingNumberResult buy_a_phone_number(buy_incoming_number_request)
 
 Buy a Phone Number
 
@@ -136,11 +136,11 @@ configuration.host = "https://www.freeclimb.com/apiserver"
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details (optional)
+    buy_incoming_number_request = freeclimb.BuyIncomingNumberRequest() # BuyIncomingNumberRequest | Incoming Number transaction details
 
     try:
         # Buy a Phone Number
-        api_response = api_instance.buy_a_phone_number(buy_incoming_number_request=buy_incoming_number_request)
+        api_response = api_instance.buy_a_phone_number(buy_incoming_number_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->buy_a_phone_number: %s\n" % e)
@@ -150,7 +150,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **buy_incoming_number_request** | [**BuyIncomingNumberRequest**](BuyIncomingNumberRequest.md)| Incoming Number transaction details | [optional] 
+ **buy_incoming_number_request** | [**BuyIncomingNumberRequest**](BuyIncomingNumberRequest.md)| Incoming Number transaction details | 
 
 ### Return type
 
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **filter_logs**
-> LogList filter_logs(filter_logs_request=filter_logs_request)
+> LogList filter_logs(filter_logs_request)
 
 Filter Logs
 
@@ -755,11 +755,11 @@ configuration.host = "https://www.freeclimb.com/apiserver"
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    filter_logs_request = freeclimb.FilterLogsRequest() # FilterLogsRequest | Filter logs request paramters (optional)
+    filter_logs_request = freeclimb.FilterLogsRequest() # FilterLogsRequest | Filter logs request paramters
 
     try:
         # Filter Logs
-        api_response = api_instance.filter_logs(filter_logs_request=filter_logs_request)
+        api_response = api_instance.filter_logs(filter_logs_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->filter_logs: %s\n" % e)
@@ -769,7 +769,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter_logs_request** | [**FilterLogsRequest**](FilterLogsRequest.md)| Filter logs request paramters | [optional] 
+ **filter_logs_request** | [**FilterLogsRequest**](FilterLogsRequest.md)| Filter logs request paramters | 
 
 ### Return type
 
@@ -2383,7 +2383,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_an_sms_message**
-> MessageResult send_an_sms_message(message_request=message_request)
+> MessageResult send_an_sms_message(message_request)
 
 Send an SMS Message
 
@@ -2408,11 +2408,11 @@ configuration.host = "https://www.freeclimb.com/apiserver"
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    message_request = freeclimb.MessageRequest() # MessageRequest | Details to create a message (optional)
+    message_request = freeclimb.MessageRequest() # MessageRequest | Details to create a message
 
     try:
         # Send an SMS Message
-        api_response = api_instance.send_an_sms_message(message_request=message_request)
+        api_response = api_instance.send_an_sms_message(message_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->send_an_sms_message: %s\n" % e)
@@ -2422,7 +2422,7 @@ with freeclimb.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **message_request** | [**MessageRequest**](MessageRequest.md)| Details to create a message | [optional] 
+ **message_request** | [**MessageRequest**](MessageRequest.md)| Details to create a message | 
 
 ### Return type
 
@@ -2571,7 +2571,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_a_live_call**
-> update_a_live_call(call_id, update_call_request=update_call_request)
+> update_a_live_call(call_id, update_call_request)
 
 Update a Live Call
 
@@ -2597,11 +2597,11 @@ with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
     call_id = 'call_id_example' # str | String that uniquely identifies this call resource.
-update_call_request = freeclimb.UpdateCallRequest() # UpdateCallRequest | Call details to update (optional)
+update_call_request = freeclimb.UpdateCallRequest() # UpdateCallRequest | Call details to update
 
     try:
         # Update a Live Call
-        api_instance.update_a_live_call(call_id, update_call_request=update_call_request)
+        api_instance.update_a_live_call(call_id, update_call_request)
     except ApiException as e:
         print("Exception when calling DefaultApi->update_a_live_call: %s\n" % e)
 ```
@@ -2611,7 +2611,7 @@ update_call_request = freeclimb.UpdateCallRequest() # UpdateCallRequest | Call d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **call_id** | **str**| String that uniquely identifies this call resource. | 
- **update_call_request** | [**UpdateCallRequest**](UpdateCallRequest.md)| Call details to update | [optional] 
+ **update_call_request** | [**UpdateCallRequest**](UpdateCallRequest.md)| Call details to update | 
 
 ### Return type
 
