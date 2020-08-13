@@ -41,7 +41,8 @@ class MakeCallRequest(object):
         'if_machine': 'str',
         'if_machine_url': 'str',
         'timeout': 'int',
-        'parent_call_id': 'str'
+        'parent_call_id': 'str',
+        'privacy_mode': 'bool'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class MakeCallRequest(object):
         'if_machine': 'ifMachine',
         'if_machine_url': 'ifMachineUrl',
         'timeout': 'timeout',
-        'parent_call_id': 'parentCallId'
+        'parent_call_id': 'parentCallId',
+        'privacy_mode': 'privacyMode'
     }
 
-    def __init__(self, _from=None, to=None, application_id=None, send_digits=None, if_machine=None, if_machine_url=None, timeout=None, parent_call_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, _from=None, to=None, application_id=None, send_digits=None, if_machine=None, if_machine_url=None, timeout=None, parent_call_id=None, privacy_mode=None, local_vars_configuration=None):  # noqa: E501
         """MakeCallRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class MakeCallRequest(object):
         self._if_machine_url = None
         self._timeout = None
         self._parent_call_id = None
+        self._privacy_mode = None
         self.discriminator = None
 
         self._from = _from
@@ -84,6 +87,8 @@ class MakeCallRequest(object):
             self.timeout = timeout
         if parent_call_id is not None:
             self.parent_call_id = parent_call_id
+        if privacy_mode is not None:
+            self.privacy_mode = privacy_mode
 
     @property
     def _from(self):
@@ -274,6 +279,29 @@ class MakeCallRequest(object):
         """
 
         self._parent_call_id = parent_call_id
+
+    @property
+    def privacy_mode(self):
+        """Gets the privacy_mode of this MakeCallRequest.  # noqa: E501
+
+        Activate privacy mode in order to obscure log data that can potentially expose private information.  # noqa: E501
+
+        :return: The privacy_mode of this MakeCallRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._privacy_mode
+
+    @privacy_mode.setter
+    def privacy_mode(self, privacy_mode):
+        """Sets the privacy_mode of this MakeCallRequest.
+
+        Activate privacy mode in order to obscure log data that can potentially expose private information.  # noqa: E501
+
+        :param privacy_mode: The privacy_mode of this MakeCallRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._privacy_mode = privacy_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""
