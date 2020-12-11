@@ -138,7 +138,7 @@ class MessageResultAllOf(object):
     def status(self):
         """Gets the status of this MessageResultAllOf.  # noqa: E501
 
-        Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received  # noqa: E501
+        Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received, undelivered, expired, deleted, and unknown  # noqa: E501
 
         :return: The status of this MessageResultAllOf.  # noqa: E501
         :rtype: str
@@ -149,12 +149,12 @@ class MessageResultAllOf(object):
     def status(self, status):
         """Sets the status of this MessageResultAllOf.
 
-        Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received  # noqa: E501
+        Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received, undelivered, expired, deleted, and unknown  # noqa: E501
 
         :param status: The status of this MessageResultAllOf.  # noqa: E501
         :type: str
         """
-        allowed_values = ["new", "queued", "rejected", "sending", "sent", "failed", "received", "undelivered"]  # noqa: E501
+        allowed_values = ["new", "queued", "rejected", "sending", "sent", "failed", "received", "undelivered", "expired", "deleted", "unknown"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
