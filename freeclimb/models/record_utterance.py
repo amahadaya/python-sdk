@@ -39,7 +39,8 @@ class RecordUtterance(object):
         'finish_on_key': 'str',
         'max_length_sec': 'int',
         'play_beep': 'bool',
-        'auto_start': 'bool'
+        'auto_start': 'bool',
+        'privacy_mode': 'bool'
     }
 
     attribute_map = {
@@ -48,10 +49,11 @@ class RecordUtterance(object):
         'finish_on_key': 'finishOnKey',
         'max_length_sec': 'maxLengthSec',
         'play_beep': 'playBeep',
-        'auto_start': 'autoStart'
+        'auto_start': 'autoStart',
+        'privacy_mode': 'privacyMode'
     }
 
-    def __init__(self, action_url=None, silence_timeout_ms=None, finish_on_key=None, max_length_sec=None, play_beep=None, auto_start=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, action_url=None, silence_timeout_ms=None, finish_on_key=None, max_length_sec=None, play_beep=None, auto_start=None, privacy_mode=None, local_vars_configuration=None):  # noqa: E501
         """RecordUtterance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class RecordUtterance(object):
         self._max_length_sec = None
         self._play_beep = None
         self._auto_start = None
+        self._privacy_mode = None
         self.discriminator = None
 
         self.action_url = action_url
@@ -76,6 +79,8 @@ class RecordUtterance(object):
             self.play_beep = play_beep
         if auto_start is not None:
             self.auto_start = auto_start
+        if privacy_mode is not None:
+            self.privacy_mode = privacy_mode
 
     @property
     def action_url(self):
@@ -216,6 +221,29 @@ class RecordUtterance(object):
         """
 
         self._auto_start = auto_start
+
+    @property
+    def privacy_mode(self):
+        """Gets the privacy_mode of this RecordUtterance.  # noqa: E501
+
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
+
+        :return: The privacy_mode of this RecordUtterance.  # noqa: E501
+        :rtype: bool
+        """
+        return self._privacy_mode
+
+    @privacy_mode.setter
+    def privacy_mode(self, privacy_mode):
+        """Sets the privacy_mode of this RecordUtterance.
+
+        Parameter `privacyMode` will not log the `text` as required by PCI compliance.  # noqa: E501
+
+        :param privacy_mode: The privacy_mode of this RecordUtterance.  # noqa: E501
+        :type: bool
+        """
+
+        self._privacy_mode = privacy_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""
