@@ -50,14 +50,13 @@ class RedirectAllOf(object):
         self._action_url = None
         self.discriminator = None
 
-        if action_url is not None:
-            self.action_url = action_url
+        self.action_url = action_url
 
     @property
     def action_url(self):
         """Gets the action_url of this RedirectAllOf.  # noqa: E501
 
-        Reason for the rejection. This can be any string value. In general, applications should use a set of enumerated values that are predefined to cover all exit points of the call flows for the given application.  # noqa: E501
+        URL to request a new PerCL script to continue with the current Call's processing. When `Redirect` invokes the `actionUrl`, an `inbound` Webhook is sent. This request therefore looks identical to the initial request (made to the `voiceUrl` of the number that was called) for an inbound Call.  # noqa: E501
 
         :return: The action_url of this RedirectAllOf.  # noqa: E501
         :rtype: str
@@ -68,11 +67,13 @@ class RedirectAllOf(object):
     def action_url(self, action_url):
         """Sets the action_url of this RedirectAllOf.
 
-        Reason for the rejection. This can be any string value. In general, applications should use a set of enumerated values that are predefined to cover all exit points of the call flows for the given application.  # noqa: E501
+        URL to request a new PerCL script to continue with the current Call's processing. When `Redirect` invokes the `actionUrl`, an `inbound` Webhook is sent. This request therefore looks identical to the initial request (made to the `voiceUrl` of the number that was called) for an inbound Call.  # noqa: E501
 
         :param action_url: The action_url of this RedirectAllOf.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and action_url is None:  # noqa: E501
+            raise ValueError("Invalid value for `action_url`, must not be `None`")  # noqa: E501
 
         self._action_url = action_url
 
