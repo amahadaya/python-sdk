@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **revision** | **int** | Revision count for the resource. This count is set to 1 on creation and is incremented every time it is updated. | [optional] 
 **account_id** | **str** | String that uniquely identifies this account resource. | [optional] 
 **message_id** | **str** | String that uniquely identifies this message resource | [optional] 
-**status** | **str** | Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received | [optional] 
+**status** | **str** | Indicates the state of the message through the message lifecycle including: new, queued, rejected, sending, sent, failed, received, undelivered, expired, deleted, and unknown | [optional] 
 **_from** | **str** | Phone number in E.164 format that sent the message. | [optional] 
 **to** | **str** | Phone number in E.164 format that received the message. | [optional] 
 **text** | **str** | Message contents | [optional] 
