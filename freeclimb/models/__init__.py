@@ -52,6 +52,8 @@ from freeclimb.models.get_digits import GetDigits
 from freeclimb.models.get_digits_all_of import GetDigitsAllOf
 from freeclimb.models.get_speech import GetSpeech
 from freeclimb.models.get_speech_all_of import GetSpeechAllOf
+from freeclimb.models.hangup import Hangup
+from freeclimb.models.hangup_all_of import HangupAllOf
 from freeclimb.models.incoming_number_list import IncomingNumberList
 from freeclimb.models.incoming_number_list_all_of import IncomingNumberListAllOf
 from freeclimb.models.incoming_number_request import IncomingNumberRequest
@@ -95,6 +97,8 @@ from freeclimb.models.recording_result import RecordingResult
 from freeclimb.models.recording_result_all_of import RecordingResultAllOf
 from freeclimb.models.redirect import Redirect
 from freeclimb.models.redirect_all_of import RedirectAllOf
+from freeclimb.models.reject import Reject
+from freeclimb.models.reject_all_of import RejectAllOf
 from freeclimb.models.remove_from_conference import RemoveFromConference
 from freeclimb.models.remove_from_conference_all_of import RemoveFromConferenceAllOf
 from freeclimb.models.say import Say

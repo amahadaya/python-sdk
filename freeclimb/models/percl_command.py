@@ -42,6 +42,7 @@ class PerclCommand(object):
     }
 
     discriminator_value_class_map = {
+        'Reject': 'Reject',
         'RemoveFromConference': 'RemoveFromConference',
         'TerminateConference': 'TerminateConference',
         'SendDigits': 'SendDigits',
@@ -58,6 +59,7 @@ class PerclCommand(object):
         'StartRecordCall': 'StartRecordCall',
         'SetListen': 'SetListen',
         'PlayEarlyMedia': 'PlayEarlyMedia',
+        'Hangup': 'Hangup',
         'Say': 'Say',
         'Enqueue': 'Enqueue',
         'Dequeue': 'Dequeue',
