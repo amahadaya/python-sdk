@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "2.2.0"
+__version__ = "3.0.0"
 
 # import apis into sdk package
 from freeclimb.api.default_api import DefaultApi
@@ -28,6 +28,7 @@ from freeclimb.exceptions import ApiTypeError
 from freeclimb.exceptions import ApiValueError
 from freeclimb.exceptions import ApiKeyError
 from freeclimb.exceptions import ApiException
+from freeclimb.utils import Utils
 # import models into sdk package
 from freeclimb.models.account_request import AccountRequest
 from freeclimb.models.account_result import AccountResult
