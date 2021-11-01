@@ -222,7 +222,7 @@ class AccountResult(object):
     def api_key(self):
         """Gets the api_key of this AccountResult.  # noqa: E501
 
-        The API key assigned to this account. This token must be kept a secret by the customer.  # noqa: E501
+        The API key assigned to this account. This key must be kept a secret by the customer.  # noqa: E501
 
         :return: The api_key of this AccountResult.  # noqa: E501
         :rtype: str
@@ -233,7 +233,7 @@ class AccountResult(object):
     def api_key(self, api_key):
         """Sets the api_key of this AccountResult.
 
-        The API key assigned to this account. This token must be kept a secret by the customer.  # noqa: E501
+        The API key assigned to this account. This key must be kept a secret by the customer.  # noqa: E501
 
         :param api_key: The api_key of this AccountResult.  # noqa: E501
         :type: str

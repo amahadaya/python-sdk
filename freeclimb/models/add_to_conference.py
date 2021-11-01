@@ -84,7 +84,8 @@ class AddToConference(object):
         if call_control_url is not None:
             self.call_control_url = call_control_url
         self.conference_id = conference_id
-        self.call_id = call_id
+        if call_id is not None:
+            self.call_id = call_id
         if leave_conference_url is not None:
             self.leave_conference_url = leave_conference_url
         if listen is not None:
@@ -210,8 +211,6 @@ class AddToConference(object):
         :param call_id: The call_id of this AddToConference.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and call_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `call_id`, must not be `None`")  # noqa: E501
 
         self._call_id = call_id
 
