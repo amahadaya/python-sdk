@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.0.0"
+__version__ = "3.0.1"
 
 # import apis into sdk package
 from freeclimb.api.default_api import DefaultApi
