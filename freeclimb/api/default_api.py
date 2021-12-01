@@ -3100,7 +3100,7 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param bool active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.. [optional] if omitted the server will use the default value of False
+        :param bool active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :param str to: Only show Calls to this phone number.
         :param str _from: Only show Calls from this phone number.
         :param str status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
@@ -3130,7 +3130,7 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param bool active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.. [optional] if omitted the server will use the default value of False
+        :param bool active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
         :param str to: Only show Calls to this phone number.
         :param str _from: Only show Calls from this phone number.
         :param str status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
@@ -3153,7 +3153,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['active','to', '_from', 'status', 'start_time', 'end_time', 'parent_call_id']  # noqa: E501
+        all_params = ['active', 'to', '_from', 'status', 'start_time', 'end_time', 'parent_call_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
