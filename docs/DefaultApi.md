@@ -1813,6 +1813,7 @@ configuration.host = "https://www.freeclimb.com/apiserver"
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
+    active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
     to = 'to_example' # str | Only show Calls to this phone number. (optional)
 _from = '_from_example' # str | Only show Calls from this phone number. (optional)
 status = 'status_example' # str | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
@@ -1822,7 +1823,7 @@ parent_call_id = 'parent_call_id_example' # str | Only show Calls spawned by the
 
     try:
         # List Calls
-        api_response = api_instance.list_calls(to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+        api_response = api_instance.list_calls(to=to, _from=_from, status=status, active=active, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -1832,6 +1833,7 @@ parent_call_id = 'parent_call_id_example' # str | Only show Calls spawned by the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] if omitted the server will use the default value of False
  **to** | **str**| Only show Calls to this phone number. | [optional] 
  **_from** | **str**| Only show Calls from this phone number. | [optional] 
  **status** | **str**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional] 
