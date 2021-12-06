@@ -74,6 +74,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -131,6 +135,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -194,6 +202,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -255,6 +267,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -318,6 +334,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -380,6 +400,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -440,6 +464,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -502,6 +530,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -562,6 +594,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -627,6 +663,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -688,6 +728,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -751,6 +795,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -812,6 +860,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -875,6 +927,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -936,6 +992,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -1001,6 +1061,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1065,6 +1129,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1126,6 +1194,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -1189,6 +1261,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1230,7 +1306,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_an_incoming_number**
-> IncomingNumberResult get_an_incoming_number(phone_number_id)
+> IncomingNumberResult get_an_incoming_number(phone_number_id, region=region, country=country, voice_enabled=voice_enabled, sms_enabled=sms_enabled, application_id=application_id, has_application=has_application)
 
 Get an Incoming Number
 
@@ -1251,15 +1327,25 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
     phone_number_id = 'phone_number_id_example' # str | String that uniquely identifies this phone number resource.
+region = 'region_example' # str | State or province of this phone number. (optional)
+country = 'country_example' # str | Country of this phone number. (optional)
+voice_enabled = True # bool | Indicates whether the phone number can handle Calls. Typically set to true for all numbers. (optional) (default to True)
+sms_enabled = True # bool | Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. (optional) (default to True)
+application_id = 'application_id_example' # str | ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId. (optional)
+has_application = False # bool | Indication of whether the phone number has an application linked to it. (optional) (default to False)
 
     try:
         # Get an Incoming Number
-        api_response = api_instance.get_an_incoming_number(phone_number_id)
+        api_response = api_instance.get_an_incoming_number(phone_number_id, region=region, country=country, voice_enabled=voice_enabled, sms_enabled=sms_enabled, application_id=application_id, has_application=has_application)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->get_an_incoming_number: %s\n" % e)
@@ -1270,6 +1356,12 @@ with freeclimb.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone_number_id** | **str**| String that uniquely identifies this phone number resource. | 
+ **region** | **str**| State or province of this phone number. | [optional] 
+ **country** | **str**| Country of this phone number. | [optional] 
+ **voice_enabled** | **bool**| Indicates whether the phone number can handle Calls. Typically set to true for all numbers. | [optional] [default to True]
+ **sms_enabled** | **bool**| Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. | [optional] [default to True]
+ **application_id** | **str**| ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId. | [optional] 
+ **has_application** | **bool**| Indication of whether the phone number has an application linked to it. | [optional] [default to False]
 
 ### Return type
 
@@ -1312,6 +1404,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -1375,6 +1471,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1436,6 +1536,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -1499,6 +1603,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1557,6 +1665,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1598,7 +1710,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_available_numbers**
-> AvailableNumberList list_available_numbers(alias=alias, phone_number=phone_number)
+> AvailableNumberList list_available_numbers(phone_number=phone_number, region=region, country=country, voice_enabled=voice_enabled, sms_enabled=sms_enabled)
 
 List available numbers
 
@@ -1619,16 +1731,23 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    alias = 'alias_example' # str | Filter on numbers based on the formatted string of the phone number. (optional)
-phone_number = 'phone_number_example' # str | PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format. (optional)
+    phone_number = 'phone_number_example' # str | PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format. (optional)
+region = 'region_example' # str | State or province of this phone number. (optional)
+country = 'country_example' # str | Country of this phone number. (optional)
+voice_enabled = True # bool | Indicates whether the phone number can handle Calls. Typically set to true for all numbers. (optional) (default to True)
+sms_enabled = True # bool | Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. (optional) (default to True)
 
     try:
         # List available numbers
-        api_response = api_instance.list_available_numbers(alias=alias, phone_number=phone_number)
+        api_response = api_instance.list_available_numbers(phone_number=phone_number, region=region, country=country, voice_enabled=voice_enabled, sms_enabled=sms_enabled)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->list_available_numbers: %s\n" % e)
@@ -1638,8 +1757,11 @@ phone_number = 'phone_number_example' # str | PCRE-compatible regular expression
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **alias** | **str**| Filter on numbers based on the formatted string of the phone number. | [optional] 
  **phone_number** | **str**| PCRE-compatible regular expression to filter against &#x60;phoneNumber&#x60; field, which is in E.164 format. | [optional] 
+ **region** | **str**| State or province of this phone number. | [optional] 
+ **country** | **str**| Country of this phone number. | [optional] 
+ **voice_enabled** | **bool**| Indicates whether the phone number can handle Calls. Typically set to true for all numbers. | [optional] [default to True]
+ **sms_enabled** | **bool**| Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. | [optional] [default to True]
 
 ### Return type
 
@@ -1682,6 +1804,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -1745,6 +1871,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1788,7 +1918,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_calls**
-> CallList list_calls(to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+> CallList list_calls(active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
 
 List Calls
 
@@ -1809,12 +1939,16 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = freeclimb.DefaultApi(api_client)
-    active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
-    to = 'to_example' # str | Only show Calls to this phone number. (optional)
+    active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) (default to False)
+to = 'to_example' # str | Only show Calls to this phone number. (optional)
 _from = '_from_example' # str | Only show Calls from this phone number. (optional)
 status = 'status_example' # str | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
 start_time = 'start_time_example' # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
@@ -1823,7 +1957,7 @@ parent_call_id = 'parent_call_id_example' # str | Only show Calls spawned by the
 
     try:
         # List Calls
-        api_response = api_instance.list_calls(to=to, _from=_from, status=status, active=active, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+        api_response = api_instance.list_calls(active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->list_calls: %s\n" % e)
@@ -1833,7 +1967,7 @@ parent_call_id = 'parent_call_id_example' # str | Only show Calls spawned by the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] if omitted the server will use the default value of False
+ **active** | **bool**| If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. | [optional] [default to False]
  **to** | **str**| Only show Calls to this phone number. | [optional] 
  **_from** | **str**| Only show Calls from this phone number. | [optional] 
  **status** | **str**| Only show Calls currently in this status. May be &#x60;queued&#x60;, &#x60;ringing&#x60;, &#x60;inProgress&#x60;, &#x60;canceled&#x60;, &#x60;completed&#x60;, &#x60;failed&#x60;, &#x60;busy&#x60;, or &#x60;noAnswer&#x60;. | [optional] 
@@ -1882,6 +2016,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -1951,6 +2089,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2015,6 +2157,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2076,6 +2222,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -2143,6 +2293,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2208,6 +2362,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -2281,6 +2439,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2342,6 +2504,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -2406,6 +2572,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2468,6 +2638,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2529,6 +2703,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -2594,6 +2772,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2656,6 +2838,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -2723,6 +2909,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2787,6 +2977,10 @@ configuration.password = 'API_KEY'
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
 
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2847,6 +3041,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:
@@ -2911,6 +3109,10 @@ configuration.password = 'API_KEY'
 
 # Defining host is optional and default to https://www.freeclimb.com/apiserver
 configuration.host = "https://www.freeclimb.com/apiserver"
+
+## Getting Help
+
+If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
 
 # Enter a context with an instance of the API client
 with freeclimb.ApiClient(configuration) as api_client:

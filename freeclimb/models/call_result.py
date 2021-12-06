@@ -44,7 +44,6 @@ class CallResult(object):
         '_from': 'str',
         'to': 'str',
         'phone_number_id': 'str',
-        'active': 'bool',
         'status': 'str',
         'start_time': 'str',
         'connect_time': 'str',
@@ -67,7 +66,6 @@ class CallResult(object):
         '_from': 'from',
         'to': 'to',
         'phone_number_id': 'phoneNumberId',
-        'active': 'active',
         'status': 'status',
         'start_time': 'startTime',
         'connect_time': 'connectTime',
@@ -79,7 +77,7 @@ class CallResult(object):
         'subresource_uris': 'subresourceUris'
     }
 
-    def __init__(self, uri=None, date_created=None, date_updated=None, revision=None, call_id=None, parent_call_id=None, account_id=None, _from=None, to=None, phone_number_id=None, active=False, status=None, start_time=None, connect_time=None, end_time=None, duration=None, connect_duration=None, direction=None, answered_by=None, subresource_uris=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, uri=None, date_created=None, date_updated=None, revision=None, call_id=None, parent_call_id=None, account_id=None, _from=None, to=None, phone_number_id=None, status=None, start_time=None, connect_time=None, end_time=None, duration=None, connect_duration=None, direction=None, answered_by=None, subresource_uris=None, local_vars_configuration=None):  # noqa: E501
         """CallResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,7 +93,6 @@ class CallResult(object):
         self.__from = None
         self._to = None
         self._phone_number_id = None
-        self._active = None
         self._status = None
         self._start_time = None
         self._connect_time = None
@@ -127,8 +124,6 @@ class CallResult(object):
             self.to = to
         if phone_number_id is not None:
             self.phone_number_id = phone_number_id
-        if active is not None:
-            self.active = active
         if status is not None:
             self.status = status
         if start_time is not None:
@@ -377,29 +372,6 @@ class CallResult(object):
         """
 
         self._phone_number_id = phone_number_id
-
-    @property
-    def active(self):
-        """Gets the active of this CallResult.  # noqa: E501
-
-        Whether the call is currently active or has concluded.  # noqa: E501
-
-        :return: The active of this CallResult.  # noqa: E501
-        :rtype: bool
-        """
-        return self._active
-
-    @active.setter
-    def active(self, active):
-        """Sets the active of this CallResult.
-
-        Whether the call is currently active or has concluded.  # noqa: E501
-
-        :param active: The active of this CallResult.  # noqa: E501
-        :type: bool
-        """
-
-        self._active = active
 
     @property
     def status(self):
