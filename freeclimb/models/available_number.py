@@ -37,7 +37,6 @@ class AvailableNumber(object):
         'phone_number': 'str',
         'voice_enabled': 'bool',
         'sms_enabled': 'bool',
-        'alias': 'str',
         'region': 'str',
         'country': 'str'
     }
@@ -46,12 +45,11 @@ class AvailableNumber(object):
         'phone_number': 'phoneNumber',
         'voice_enabled': 'voiceEnabled',
         'sms_enabled': 'smsEnabled',
-        'alias': 'alias',
         'region': 'region',
         'country': 'country'
     }
 
-    def __init__(self, phone_number=None, voice_enabled=None, sms_enabled=None, alias=None, region=None, country=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, phone_number=None, voice_enabled=None, sms_enabled=None, region=None, country=None, local_vars_configuration=None):  # noqa: E501
         """AvailableNumber - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,7 +58,6 @@ class AvailableNumber(object):
         self._phone_number = None
         self._voice_enabled = None
         self._sms_enabled = None
-        self._alias = None
         self._region = None
         self._country = None
         self.discriminator = None
@@ -71,8 +68,6 @@ class AvailableNumber(object):
             self.voice_enabled = voice_enabled
         if sms_enabled is not None:
             self.sms_enabled = sms_enabled
-        if alias is not None:
-            self.alias = alias
         if region is not None:
             self.region = region
         if country is not None:
@@ -146,29 +141,6 @@ class AvailableNumber(object):
         """
 
         self._sms_enabled = sms_enabled
-
-    @property
-    def alias(self):
-        """Gets the alias of this AvailableNumber.  # noqa: E501
-
-        A nicely-formatted version of the phone number.  # noqa: E501
-
-        :return: The alias of this AvailableNumber.  # noqa: E501
-        :rtype: str
-        """
-        return self._alias
-
-    @alias.setter
-    def alias(self, alias):
-        """Sets the alias of this AvailableNumber.
-
-        A nicely-formatted version of the phone number.  # noqa: E501
-
-        :param alias: The alias of this AvailableNumber.  # noqa: E501
-        :type: str
-        """
-
-        self._alias = alias
 
     @property
     def region(self):

@@ -2134,6 +2134,12 @@ class DefaultApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
+        :param str region: State or province of this phone number.
+        :param str country: Country of this phone number.
+        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
+        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
+        :param str application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
+        :param bool has_application: Indication of whether the phone number has an application linked to it.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2158,6 +2164,12 @@ class DefaultApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
+        :param str region: State or province of this phone number.
+        :param str country: Country of this phone number.
+        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
+        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
+        :param str application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
+        :param bool has_application: Indication of whether the phone number has an application linked to it.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2174,7 +2186,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['phone_number_id']  # noqa: E501
+        all_params = ['phone_number_id', 'region', 'country', 'voice_enabled', 'sms_enabled', 'application_id', 'has_application']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2203,6 +2215,18 @@ class DefaultApi(object):
         path_params['accountId'] = self.accountId
 
         query_params = []
+        if 'region' in local_var_params and local_var_params['region'] is not None:  # noqa: E501
+            query_params.append(('region', local_var_params['region']))  # noqa: E501
+        if 'country' in local_var_params and local_var_params['country'] is not None:  # noqa: E501
+            query_params.append(('country', local_var_params['country']))  # noqa: E501
+        if 'voice_enabled' in local_var_params and local_var_params['voice_enabled'] is not None:  # noqa: E501
+            query_params.append(('voiceEnabled', local_var_params['voice_enabled']))  # noqa: E501
+        if 'sms_enabled' in local_var_params and local_var_params['sms_enabled'] is not None:  # noqa: E501
+            query_params.append(('smsEnabled', local_var_params['sms_enabled']))  # noqa: E501
+        if 'application_id' in local_var_params and local_var_params['application_id'] is not None:  # noqa: E501
+            query_params.append(('applicationId', local_var_params['application_id']))  # noqa: E501
+        if 'has_application' in local_var_params and local_var_params['has_application'] is not None:  # noqa: E501
+            query_params.append(('hasApplication', local_var_params['has_application']))  # noqa: E501
 
         header_params = {}
 
@@ -2771,8 +2795,11 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str alias: Filter on numbers based on the formatted string of the phone number.
         :param str phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
+        :param str region: State or province of this phone number.
+        :param str country: Country of this phone number.
+        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
+        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2796,8 +2823,11 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str alias: Filter on numbers based on the formatted string of the phone number.
         :param str phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
+        :param str region: State or province of this phone number.
+        :param str country: Country of this phone number.
+        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
+        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2814,7 +2844,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['alias', 'phone_number']  # noqa: E501
+        all_params = ['phone_number', 'region', 'country', 'voice_enabled', 'sms_enabled']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2835,10 +2865,16 @@ class DefaultApi(object):
         path_params['accountId'] = self.accountId
 
         query_params = []
-        if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
-            query_params.append(('alias', local_var_params['alias']))  # noqa: E501
         if 'phone_number' in local_var_params and local_var_params['phone_number'] is not None:  # noqa: E501
             query_params.append(('phoneNumber', local_var_params['phone_number']))  # noqa: E501
+        if 'region' in local_var_params and local_var_params['region'] is not None:  # noqa: E501
+            query_params.append(('region', local_var_params['region']))  # noqa: E501
+        if 'country' in local_var_params and local_var_params['country'] is not None:  # noqa: E501
+            query_params.append(('country', local_var_params['country']))  # noqa: E501
+        if 'voice_enabled' in local_var_params and local_var_params['voice_enabled'] is not None:  # noqa: E501
+            query_params.append(('voiceEnabled', local_var_params['voice_enabled']))  # noqa: E501
+        if 'sms_enabled' in local_var_params and local_var_params['sms_enabled'] is not None:  # noqa: E501
+            query_params.append(('smsEnabled', local_var_params['sms_enabled']))  # noqa: E501
 
         header_params = {}
 

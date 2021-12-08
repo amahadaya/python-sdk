@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **phone_number** | **str** | The phone number, in E.164 format (+ country code and phone number: +18003608245). | [optional] 
 **voice_enabled** | **bool** | Typically set to true for all numbers. | [optional] 
 **sms_enabled** | **bool** | Indicates whether the phone number can send and receive SMS messages. | [optional] 
-**alias** | **str** | A nicely-formatted version of the phone number. | [optional] 
 **region** | **str** | The state or province of this phone number. | [optional] 
 **country** | **str** | The country of this phone number. | [optional] 
 
