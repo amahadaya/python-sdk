@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.say_all_of import SayAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.say_all_of import SayAllOf  # noqa: E501
 
 class TestSayAllOf(unittest.TestCase):
     """SayAllOf unit test stubs"""
@@ -29,29 +25,11 @@ class TestSayAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test SayAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.say_all_of.SayAllOf()  # noqa: E501
-        if include_optional :
-            return SayAllOf(
-                text = '0', 
-                language = '0', 
-                loop = 56, 
-                conference_id = '0', 
-                privacy_mode = True
-            )
-        else :
-            return SayAllOf(
-                text = '0',
-        )
-
     def testSayAllOf(self):
         """Test SayAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = SayAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

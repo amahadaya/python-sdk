@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -13,8 +11,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "freeclimb"
-VERSION = "3.0.2"
+NAME = "FreeClimb"
+VERSION = "4.0.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -22,7 +20,10 @@ VERSION = "3.0.2"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = [
+  "urllib3 >= 1.25.3",
+  "python-dateutil",
+]
 
 setup(
     name=NAME,
@@ -32,6 +33,7 @@ setup(
     author_email="support@freeclimb.com",
     url="https://freeclimb.com",
     keywords=["OpenAPI", "OpenAPI-Generator", "FreeClimb API"],
+    python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

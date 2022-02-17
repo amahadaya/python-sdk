@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,18 +9,52 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from freeclimb.api_client import ApiClient
-from freeclimb.exceptions import (
-    ApiTypeError,
-    ApiValueError
+from freeclimb.api_client import ApiClient, Endpoint as _Endpoint
+from freeclimb.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from freeclimb.model.account_request import AccountRequest
+from freeclimb.model.account_result import AccountResult
+from freeclimb.model.application_list import ApplicationList
+from freeclimb.model.application_request import ApplicationRequest
+from freeclimb.model.application_result import ApplicationResult
+from freeclimb.model.available_number_list import AvailableNumberList
+from freeclimb.model.buy_incoming_number_request import BuyIncomingNumberRequest
+from freeclimb.model.call_list import CallList
+from freeclimb.model.call_result import CallResult
+from freeclimb.model.conference_list import ConferenceList
+from freeclimb.model.conference_participant_list import ConferenceParticipantList
+from freeclimb.model.conference_participant_result import ConferenceParticipantResult
+from freeclimb.model.conference_result import ConferenceResult
+from freeclimb.model.create_conference_request import CreateConferenceRequest
+from freeclimb.model.filter_logs_request import FilterLogsRequest
+from freeclimb.model.incoming_number_list import IncomingNumberList
+from freeclimb.model.incoming_number_request import IncomingNumberRequest
+from freeclimb.model.incoming_number_result import IncomingNumberResult
+from freeclimb.model.log_list import LogList
+from freeclimb.model.make_call_request import MakeCallRequest
+from freeclimb.model.message_request import MessageRequest
+from freeclimb.model.message_result import MessageResult
+from freeclimb.model.messages_list import MessagesList
+from freeclimb.model.queue_list import QueueList
+from freeclimb.model.queue_member import QueueMember
+from freeclimb.model.queue_member_list import QueueMemberList
+from freeclimb.model.queue_request import QueueRequest
+from freeclimb.model.queue_result import QueueResult
+from freeclimb.model.recording_list import RecordingList
+from freeclimb.model.recording_result import RecordingResult
+from freeclimb.model.update_call_request import UpdateCallRequest
+from freeclimb.model.update_conference_participant_request import UpdateConferenceParticipantRequest
+from freeclimb.model.update_conference_request import UpdateConferenceRequest
 
 
 class DefaultApi(object):
@@ -38,5169 +70,6838 @@ class DefaultApi(object):
         self.api_client = api_client
         if account_id is None:
             account_id = self.api_client.configuration.username
-        self.accountId = account_id
+        self.account_id = account_id
+        self.buy_a_phone_number_endpoint = _Endpoint(
+            settings={
+                'response_type': (IncomingNumberResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/IncomingPhoneNumbers',
+                'operation_id': 'buy_a_phone_number',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'buy_incoming_number_request',
+                ],
+                'required': [
+                    'account_id',
+                    'buy_incoming_number_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'buy_incoming_number_request':
+                        (BuyIncomingNumberRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'buy_incoming_number_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_a_conference_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences',
+                'operation_id': 'create_a_conference',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'create_conference_request',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'create_conference_request':
+                        (CreateConferenceRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'create_conference_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_a_queue_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues',
+                'operation_id': 'create_a_queue',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_request',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_request':
+                        (QueueRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_an_application_endpoint = _Endpoint(
+            settings={
+                'response_type': (ApplicationResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Applications',
+                'operation_id': 'create_an_application',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'application_request',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'application_request':
+                        (ApplicationRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'application_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.delete_a_recording_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Recordings/{recordingId}',
+                'operation_id': 'delete_a_recording',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'required': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'recording_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'recording_id': 'recordingId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'recording_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_an_application_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Applications/{applicationId}',
+                'operation_id': 'delete_an_application',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'application_id',
+                ],
+                'required': [
+                    'account_id',
+                    'application_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'application_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'application_id': 'applicationId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'application_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_an_incoming_number_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId}',
+                'operation_id': 'delete_an_incoming_number',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'phone_number_id',
+                ],
+                'required': [
+                    'account_id',
+                    'phone_number_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'phone_number_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'phone_number_id': 'phoneNumberId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'phone_number_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.dequeue_a_member_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueMember,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}/Members/{callId}',
+                'operation_id': 'dequeue_a_member',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                    'call_id',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                    'call_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.dequeue_head_member_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueMember,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}/Members/Front',
+                'operation_id': 'dequeue_head_member',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.download_a_recording_file_endpoint = _Endpoint(
+            settings={
+                'response_type': (file_type,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Recordings/{recordingId}/Download',
+                'operation_id': 'download_a_recording_file',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'required': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'recording_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'recording_id': 'recordingId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'recording_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'audio/x-wav'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.filter_logs_endpoint = _Endpoint(
+            settings={
+                'response_type': (LogList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Logs',
+                'operation_id': 'filter_logs',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'filter_logs_request',
+                ],
+                'required': [
+                    'account_id',
+                    'filter_logs_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'filter_logs_request':
+                        (FilterLogsRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'filter_logs_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.get_a_call_endpoint = _Endpoint(
+            settings={
+                'response_type': (CallResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls/{callId}',
+                'operation_id': 'get_a_call',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'call_id',
+                ],
+                'required': [
+                    'account_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'call_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_a_conference_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}',
+                'operation_id': 'get_a_conference',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'conference_id',
+                ],
+                'required': [
+                    'account_id',
+                    'conference_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'conference_id': 'conferenceId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'conference_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_a_member_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueMember,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}/Members/{callId}',
+                'operation_id': 'get_a_member',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                    'call_id',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                    'call_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_a_participant_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceParticipantResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}',
+                'operation_id': 'get_a_participant',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'conference_id',
+                    'call_id',
+                ],
+                'required': [
+                    'account_id',
+                    'conference_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'conference_id': 'conferenceId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'conference_id': 'path',
+                    'call_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_a_queue_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}',
+                'operation_id': 'get_a_queue',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_a_recording_endpoint = _Endpoint(
+            settings={
+                'response_type': (RecordingResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Recordings/{recordingId}',
+                'operation_id': 'get_a_recording',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'required': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'recording_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'recording_id': 'recordingId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'recording_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_an_account_endpoint = _Endpoint(
+            settings={
+                'response_type': (AccountResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}',
+                'operation_id': 'get_an_account',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_an_application_endpoint = _Endpoint(
+            settings={
+                'response_type': (ApplicationResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Applications/{applicationId}',
+                'operation_id': 'get_an_application',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'application_id',
+                ],
+                'required': [
+                    'account_id',
+                    'application_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'application_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'application_id': 'applicationId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'application_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_an_incoming_number_endpoint = _Endpoint(
+            settings={
+                'response_type': (IncomingNumberResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId}',
+                'operation_id': 'get_an_incoming_number',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'phone_number_id',
+                ],
+                'required': [
+                    'account_id',
+                    'phone_number_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'phone_number_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'phone_number_id': 'phoneNumberId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'phone_number_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_an_sms_message_endpoint = _Endpoint(
+            settings={
+                'response_type': (MessageResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Messages/{messageId}',
+                'operation_id': 'get_an_sms_message',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'message_id',
+                ],
+                'required': [
+                    'account_id',
+                    'message_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'message_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'message_id': 'messageId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'message_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_head_member_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueMember,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}/Members/Front',
+                'operation_id': 'get_head_member',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_active_queues_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues',
+                'operation_id': 'list_active_queues',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'alias',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'alias':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'alias': 'alias',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'alias': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_all_account_logs_endpoint = _Endpoint(
+            settings={
+                'response_type': (LogList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Logs',
+                'operation_id': 'list_all_account_logs',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_applications_endpoint = _Endpoint(
+            settings={
+                'response_type': (ApplicationList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Applications',
+                'operation_id': 'list_applications',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'alias',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'alias':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'alias': 'alias',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'alias': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_available_numbers_endpoint = _Endpoint(
+            settings={
+                'response_type': (AvailableNumberList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/AvailablePhoneNumbers',
+                'operation_id': 'list_available_numbers',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'phone_number',
+                    'region',
+                    'country',
+                    'voice_enabled',
+                    'sms_enabled',
+                    'capabilities_voice',
+                    'capabilities_sms',
+                    'capabilities_toll_free',
+                    'capabilities_ten_dlc',
+                    'capabilities_short_code',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'phone_number':
+                        (str,),
+                    'region':
+                        (str,),
+                    'country':
+                        (str,),
+                    'voice_enabled':
+                        (bool,),
+                    'sms_enabled':
+                        (bool,),
+                    'capabilities_voice':
+                        (bool,),
+                    'capabilities_sms':
+                        (bool,),
+                    'capabilities_toll_free':
+                        (bool,),
+                    'capabilities_ten_dlc':
+                        (bool,),
+                    'capabilities_short_code':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'phone_number': 'phoneNumber',
+                    'region': 'region',
+                    'country': 'country',
+                    'voice_enabled': 'voiceEnabled',
+                    'sms_enabled': 'smsEnabled',
+                    'capabilities_voice': 'capabilities.voice',
+                    'capabilities_sms': 'capabilities.sms',
+                    'capabilities_toll_free': 'capabilities.tollFree',
+                    'capabilities_ten_dlc': 'capabilities.tenDLC',
+                    'capabilities_short_code': 'capabilities.shortCode',
+                },
+                'location_map': {
+                    'phone_number': 'query',
+                    'region': 'query',
+                    'country': 'query',
+                    'voice_enabled': 'query',
+                    'sms_enabled': 'query',
+                    'capabilities_voice': 'query',
+                    'capabilities_sms': 'query',
+                    'capabilities_toll_free': 'query',
+                    'capabilities_ten_dlc': 'query',
+                    'capabilities_short_code': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_call_logs_endpoint = _Endpoint(
+            settings={
+                'response_type': (LogList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls/{callId}/Logs',
+                'operation_id': 'list_call_logs',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'call_id',
+                ],
+                'required': [
+                    'account_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'call_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_call_recordings_endpoint = _Endpoint(
+            settings={
+                'response_type': (RecordingList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls/{callId}/Recordings',
+                'operation_id': 'list_call_recordings',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'call_id',
+                    'date_created',
+                ],
+                'required': [
+                    'account_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                    'date_created':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'call_id': 'callId',
+                    'date_created': 'dateCreated',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'call_id': 'path',
+                    'date_created': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_calls_endpoint = _Endpoint(
+            settings={
+                'response_type': (CallList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls',
+                'operation_id': 'list_calls',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'active',
+                    'to',
+                    '_from',
+                    'status',
+                    'start_time',
+                    'end_time',
+                    'parent_call_id',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'active':
+                        (bool,),
+                    'to':
+                        (str,),
+                    '_from':
+                        (str,),
+                    'status':
+                        (str,),
+                    'start_time':
+                        (str,),
+                    'end_time':
+                        (str,),
+                    'parent_call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'active': 'active',
+                    'to': 'to',
+                    '_from': 'from',
+                    'status': 'status',
+                    'start_time': 'startTime',
+                    'end_time': 'endTime',
+                    'parent_call_id': 'parentCallId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'active': 'query',
+                    'to': 'query',
+                    '_from': 'query',
+                    'status': 'query',
+                    'start_time': 'query',
+                    'end_time': 'query',
+                    'parent_call_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_conferences_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences',
+                'operation_id': 'list_conferences',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'status',
+                    'alias',
+                    'date_created',
+                    'date_updated',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'status':
+                        (str,),
+                    'alias':
+                        (str,),
+                    'date_created':
+                        (str,),
+                    'date_updated':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'status': 'status',
+                    'alias': 'alias',
+                    'date_created': 'dateCreated',
+                    'date_updated': 'dateUpdated',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'status': 'query',
+                    'alias': 'query',
+                    'date_created': 'query',
+                    'date_updated': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_incoming_numbers_endpoint = _Endpoint(
+            settings={
+                'response_type': (IncomingNumberList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/IncomingPhoneNumbers',
+                'operation_id': 'list_incoming_numbers',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'phone_number',
+                    'alias',
+                    'region',
+                    'country',
+                    'application_id',
+                    'has_application',
+                    'voice_enabled',
+                    'sms_enabled',
+                    'capabilities_voice',
+                    'capabilities_sms',
+                    'capabilities_toll_free',
+                    'capabilities_ten_dlc',
+                    'capabilities_short_code',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'phone_number':
+                        (str,),
+                    'alias':
+                        (str,),
+                    'region':
+                        (str,),
+                    'country':
+                        (str,),
+                    'application_id':
+                        (str,),
+                    'has_application':
+                        (bool,),
+                    'voice_enabled':
+                        (bool,),
+                    'sms_enabled':
+                        (bool,),
+                    'capabilities_voice':
+                        (bool,),
+                    'capabilities_sms':
+                        (bool,),
+                    'capabilities_toll_free':
+                        (bool,),
+                    'capabilities_ten_dlc':
+                        (bool,),
+                    'capabilities_short_code':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'phone_number': 'phoneNumber',
+                    'alias': 'alias',
+                    'region': 'region',
+                    'country': 'country',
+                    'application_id': 'applicationId',
+                    'has_application': 'hasApplication',
+                    'voice_enabled': 'voiceEnabled',
+                    'sms_enabled': 'smsEnabled',
+                    'capabilities_voice': 'capabilities.voice',
+                    'capabilities_sms': 'capabilities.sms',
+                    'capabilities_toll_free': 'capabilities.tollFree',
+                    'capabilities_ten_dlc': 'capabilities.tenDLC',
+                    'capabilities_short_code': 'capabilities.shortCode',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'phone_number': 'query',
+                    'alias': 'query',
+                    'region': 'query',
+                    'country': 'query',
+                    'application_id': 'query',
+                    'has_application': 'query',
+                    'voice_enabled': 'query',
+                    'sms_enabled': 'query',
+                    'capabilities_voice': 'query',
+                    'capabilities_sms': 'query',
+                    'capabilities_toll_free': 'query',
+                    'capabilities_ten_dlc': 'query',
+                    'capabilities_short_code': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_members_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueMemberList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}/Members',
+                'operation_id': 'list_members',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_participants_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceParticipantList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}/Participants',
+                'operation_id': 'list_participants',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'conference_id',
+                    'talk',
+                    'listen',
+                ],
+                'required': [
+                    'account_id',
+                    'conference_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'talk':
+                        (bool,),
+                    'listen':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'conference_id': 'conferenceId',
+                    'talk': 'talk',
+                    'listen': 'listen',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'conference_id': 'path',
+                    'talk': 'query',
+                    'listen': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_recordings_endpoint = _Endpoint(
+            settings={
+                'response_type': (RecordingList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Recordings',
+                'operation_id': 'list_recordings',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'call_id',
+                    'conference_id',
+                    'date_created',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'date_created':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'call_id': 'callId',
+                    'conference_id': 'conferenceId',
+                    'date_created': 'dateCreated',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'call_id': 'query',
+                    'conference_id': 'query',
+                    'date_created': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_sms_messages_endpoint = _Endpoint(
+            settings={
+                'response_type': (MessagesList,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Messages',
+                'operation_id': 'list_sms_messages',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'to',
+                    '_from',
+                    'begin_time',
+                    'end_time',
+                    'direction',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'direction',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('direction',): {
 
+                        "INBOUND": "inbound",
+                        "OUTBOUND": "outbound"
+                    },
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'to':
+                        (str,),
+                    '_from':
+                        (str,),
+                    'begin_time':
+                        (str,),
+                    'end_time':
+                        (str,),
+                    'direction':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'to': 'to',
+                    '_from': 'from',
+                    'begin_time': 'beginTime',
+                    'end_time': 'endTime',
+                    'direction': 'direction',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'to': 'query',
+                    '_from': 'query',
+                    'begin_time': 'query',
+                    'end_time': 'query',
+                    'direction': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.make_a_call_endpoint = _Endpoint(
+            settings={
+                'response_type': (CallResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls',
+                'operation_id': 'make_a_call',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'make_call_request',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'make_call_request':
+                        (MakeCallRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'make_call_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.remove_a_participant_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}',
+                'operation_id': 'remove_a_participant',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'conference_id',
+                    'call_id',
+                ],
+                'required': [
+                    'account_id',
+                    'conference_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'conference_id': 'conferenceId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'conference_id': 'path',
+                    'call_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.send_an_sms_message_endpoint = _Endpoint(
+            settings={
+                'response_type': (MessageResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Messages',
+                'operation_id': 'send_an_sms_message',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'message_request',
+                ],
+                'required': [
+                    'account_id',
+                    'message_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'message_request':
+                        (MessageRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'message_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.stream_a_recording_file_endpoint = _Endpoint(
+            settings={
+                'response_type': (file_type,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Recordings/{recordingId}/Stream',
+                'operation_id': 'stream_a_recording_file',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'required': [
+                    'account_id',
+                    'recording_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'recording_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'recording_id': 'recordingId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'recording_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'audio/x-wav'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.update_a_conference_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}',
+                'operation_id': 'update_a_conference',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'conference_id',
+                    'update_conference_request',
+                ],
+                'required': [
+                    'account_id',
+                    'conference_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'update_conference_request':
+                        (UpdateConferenceRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'conference_id': 'conferenceId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'conference_id': 'path',
+                    'update_conference_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_a_live_call_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Calls/{callId}',
+                'operation_id': 'update_a_live_call',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'call_id',
+                    'update_call_request',
+                ],
+                'required': [
+                    'account_id',
+                    'call_id',
+                    'update_call_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                    'update_call_request':
+                        (UpdateCallRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'call_id': 'path',
+                    'update_call_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_a_participant_endpoint = _Endpoint(
+            settings={
+                'response_type': (ConferenceParticipantResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}',
+                'operation_id': 'update_a_participant',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'conference_id',
+                    'call_id',
+                    'update_conference_participant_request',
+                ],
+                'required': [
+                    'account_id',
+                    'conference_id',
+                    'call_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'conference_id':
+                        (str,),
+                    'call_id':
+                        (str,),
+                    'update_conference_participant_request':
+                        (UpdateConferenceParticipantRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'conference_id': 'conferenceId',
+                    'call_id': 'callId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'conference_id': 'path',
+                    'call_id': 'path',
+                    'update_conference_participant_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_a_queue_endpoint = _Endpoint(
+            settings={
+                'response_type': (QueueResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Queues/{queueId}',
+                'operation_id': 'update_a_queue',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'queue_id',
+                    'queue_request',
+                ],
+                'required': [
+                    'account_id',
+                    'queue_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'queue_id':
+                        (str,),
+                    'queue_request':
+                        (QueueRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'queue_id': 'queueId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'queue_id': 'path',
+                    'queue_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_an_account_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}',
+                'operation_id': 'update_an_account',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'account_request',
+                ],
+                'required': [
+                    'account_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'account_request':
+                        (AccountRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'account_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_an_application_endpoint = _Endpoint(
+            settings={
+                'response_type': (ApplicationResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/Applications/{applicationId}',
+                'operation_id': 'update_an_application',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'application_id',
+                    'application_request',
+                ],
+                'required': [
+                    'account_id',
+                    'application_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'application_id':
+                        (str,),
+                    'application_request':
+                        (ApplicationRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'application_id': 'applicationId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'application_id': 'path',
+                    'application_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.update_an_incoming_number_endpoint = _Endpoint(
+            settings={
+                'response_type': (IncomingNumberResult,),
+                'auth': [
+                    'fc'
+                ],
+                'endpoint_path': '/Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId}',
+                'operation_id': 'update_an_incoming_number',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'phone_number_id',
+                    'incoming_number_request',
+                ],
+                'required': [
+                    'account_id',
+                    'phone_number_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'phone_number_id':
+                        (str,),
+                    'incoming_number_request':
+                        (IncomingNumberRequest,),
+                },
+                'attribute_map': {
+                    'account_id': 'accountId',
+                    'phone_number_id': 'phoneNumberId',
+                },
+                'location_map': {
+                    'account_id': 'path',
+                    'phone_number_id': 'path',
+                    'incoming_number_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
-    def get_an_account(self, **kwargs):  # noqa: E501
-        """Get an Account  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_account(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: AccountResult
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_an_account_with_http_info(**kwargs)  # noqa: E501
-
-    def get_an_account_with_http_info(self, **kwargs):  # noqa: E501
-        """Get an Account  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_account_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(AccountResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_an_account" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AccountResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def buy_a_phone_number(self, buy_incoming_number_request, **kwargs):  # noqa: E501
+    def buy_a_phone_number(
+        self,
+        buy_incoming_number_request, 
+        **kwargs
+        ):
         """Buy a Phone Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.buy_a_phone_number(buy_incoming_number_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: IncomingNumberResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            buy_incoming_number_request (BuyIncomingNumberRequest): Incoming Number transaction details
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            IncomingNumberResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.buy_a_phone_number_with_http_info(buy_incoming_number_request, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def buy_a_phone_number_with_http_info(self, buy_incoming_number_request, **kwargs):  # noqa: E501
-        """Buy a Phone Number  # noqa: E501
+        kwargs['buy_incoming_number_request'] = \
+            buy_incoming_number_request
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.buy_a_phone_number_with_http_info(buy_incoming_number_request, async_req=True)
-        >>> result = thread.get()
+        return self.buy_a_phone_number_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param BuyIncomingNumberRequest buy_incoming_number_request: Incoming Number transaction details (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(IncomingNumberResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['buy_incoming_number_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method buy_a_phone_number" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'buy_incoming_number_request' is set
-        if self.api_client.client_side_validation and ('buy_incoming_number_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['buy_incoming_number_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `buy_incoming_number_request` when calling `buy_a_phone_number`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'buy_incoming_number_request' in local_var_params:
-            body_params = local_var_params['buy_incoming_number_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/IncomingPhoneNumbers', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='IncomingNumberResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_a_conference(self, **kwargs):  # noqa: E501
+    def create_a_conference(
+        self,
+         
+        **kwargs
+        ):
         """Create a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_a_conference(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param CreateConferenceRequest create_conference_request: Conference to create
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            create_conference_request (CreateConferenceRequest): Conference to create. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.create_a_conference_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def create_a_conference_with_http_info(self, **kwargs):  # noqa: E501
-        """Create a Conference  # noqa: E501
+        return self.create_a_conference_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_a_conference_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param CreateConferenceRequest create_conference_request: Conference to create
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['create_conference_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_a_conference" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'create_conference_request' in local_var_params:
-            body_params = local_var_params['create_conference_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_a_queue(self, **kwargs):  # noqa: E501
+    def create_a_queue(
+        self,
+         
+        **kwargs
+        ):
         """Create a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_a_queue(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param QueueRequest queue_request: Queue details used to create a queue
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            queue_request (QueueRequest): Queue details used to create a queue. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.create_a_queue_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def create_a_queue_with_http_info(self, **kwargs):  # noqa: E501
-        """Create a Queue  # noqa: E501
+        return self.create_a_queue_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_a_queue_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param QueueRequest queue_request: Queue details used to create a queue
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['queue_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_a_queue" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'queue_request' in local_var_params:
-            body_params = local_var_params['queue_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_an_application(self, **kwargs):  # noqa: E501
+    def create_an_application(
+        self,
+         
+        **kwargs
+        ):
         """Create an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.create_an_application(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param ApplicationRequest application_request: Application Details
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApplicationResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            application_request (ApplicationRequest): Application Details. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ApplicationResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.create_an_application_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def create_an_application_with_http_info(self, **kwargs):  # noqa: E501
-        """Create an application  # noqa: E501
+        return self.create_an_application_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_an_application_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param ApplicationRequest application_request: Application Details
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApplicationResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['application_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_an_application" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'application_request' in local_var_params:
-            body_params = local_var_params['application_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Applications', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApplicationResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_a_recording(self, recording_id, **kwargs):  # noqa: E501
+    def delete_a_recording(
+        self,
+        recording_id, 
+        **kwargs
+        ):
         """Delete a Recording  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_a_recording(recording_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            recording_id (str): String that uniquely identifies this recording resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.delete_a_recording_with_http_info(recording_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def delete_a_recording_with_http_info(self, recording_id, **kwargs):  # noqa: E501
-        """Delete a Recording  # noqa: E501
+        kwargs['recording_id'] = \
+            recording_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_a_recording_with_http_info(recording_id, async_req=True)
-        >>> result = thread.get()
+        return self.delete_a_recording_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['recording_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_a_recording" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'recording_id' is set
-        if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['recording_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `recording_id` when calling `delete_a_recording`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'recording_id' in local_var_params:
-            path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Recordings/{recordingId}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_an_application(self, application_id, **kwargs):  # noqa: E501
+    def delete_an_application(
+        self,
+        application_id, 
+        **kwargs
+        ):
         """Delete an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_an_application(application_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str application_id: String that uniquely identifies this application resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            application_id (str): String that uniquely identifies this application resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.delete_an_application_with_http_info(application_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def delete_an_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
-        """Delete an application  # noqa: E501
+        kwargs['application_id'] = \
+            application_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_an_application_with_http_info(application_id, async_req=True)
-        >>> result = thread.get()
+        return self.delete_an_application_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str application_id: String that uniquely identifies this application resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['application_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_an_application" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `delete_an_application`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Applications/{applicationId}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
+    def delete_an_incoming_number(
+        self,
+        phone_number_id, 
+        **kwargs
+        ):
         """Delete an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.delete_an_incoming_number(phone_number_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            phone_number_id (str): String that uniquely identifies this phone number resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.delete_an_incoming_number_with_http_info(phone_number_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def delete_an_incoming_number_with_http_info(self, phone_number_id, **kwargs):  # noqa: E501
-        """Delete an Incoming Number  # noqa: E501
+        kwargs['phone_number_id'] = \
+            phone_number_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_an_incoming_number_with_http_info(phone_number_id, async_req=True)
-        >>> result = thread.get()
+        return self.delete_an_incoming_number_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['phone_number_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_an_incoming_number" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'phone_number_id' is set
-        if self.api_client.client_side_validation and ('phone_number_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['phone_number_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `phone_number_id` when calling `delete_an_incoming_number`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'phone_number_id' in local_var_params:
-            path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def dequeue_a_member(self, queue_id, call_id, **kwargs):  # noqa: E501
+    def dequeue_a_member(
+        self,
+        queue_id,call_id, 
+        **kwargs
+        ):
         """Dequeue a Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.dequeue_a_member(queue_id, call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param str call_id: ID if the Call that the Member belongs to (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueMember
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+        Args:
+
+
+            queue_id (str): String that uniquely identifies the Queue that the Member belongs to.
+
+            call_id (str): ID if the Call that the Member belongs to
+
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueMember
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.dequeue_a_member_with_http_info(queue_id, call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def dequeue_a_member_with_http_info(self, queue_id, call_id, **kwargs):  # noqa: E501
-        """Dequeue a Member  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.dequeue_a_member_with_http_info(queue_id, call_id, async_req=True)
-        >>> result = thread.get()
+        kwargs['call_id'] = \
+            call_id
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param str call_id: ID if the Call that the Member belongs to (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueMember, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+        return self.dequeue_a_member_endpoint.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = ['queue_id', 'call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method dequeue_a_member" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `dequeue_a_member`")  # noqa: E501
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `dequeue_a_member`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}/Members/{callId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueMember',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def dequeue_head_member(self, queue_id, **kwargs):  # noqa: E501
+    def dequeue_head_member(
+        self,
+        queue_id, 
+        **kwargs
+        ):
         """Dequeue Head Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.dequeue_head_member(queue_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies this queue resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueMember
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            queue_id (str): String that uniquely identifies this queue resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueMember
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.dequeue_head_member_with_http_info(queue_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def dequeue_head_member_with_http_info(self, queue_id, **kwargs):  # noqa: E501
-        """Dequeue Head Member  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.dequeue_head_member_with_http_info(queue_id, async_req=True)
-        >>> result = thread.get()
+        return self.dequeue_head_member_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies this queue resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueMember, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['queue_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method dequeue_head_member" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `dequeue_head_member`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}/Members/Front', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueMember',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def download_a_recording_file(self, recording_id, **kwargs):  # noqa: E501
+    def download_a_recording_file(
+        self,
+        recording_id, 
+        **kwargs
+        ):
         """Download a Recording File  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.download_a_recording_file(recording_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: file
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            recording_id (str): String that uniquely identifies this recording resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            file_type
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.download_a_recording_file_with_http_info(recording_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def download_a_recording_file_with_http_info(self, recording_id, **kwargs):  # noqa: E501
-        """Download a Recording File  # noqa: E501
+        kwargs['recording_id'] = \
+            recording_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.download_a_recording_file_with_http_info(recording_id, async_req=True)
-        >>> result = thread.get()
+        return self.download_a_recording_file_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(file, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['recording_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method download_a_recording_file" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'recording_id' is set
-        if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['recording_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `recording_id` when calling `download_a_recording_file`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'recording_id' in local_var_params:
-            path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['audio/x-wav'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Recordings/{recordingId}/Download', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='file',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def filter_logs(self, filter_logs_request, **kwargs):  # noqa: E501
+    def filter_logs(
+        self,
+        filter_logs_request, 
+        **kwargs
+        ):
         """Filter Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.filter_logs(filter_logs_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param FilterLogsRequest filter_logs_request: Filter logs request paramters (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: LogList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            filter_logs_request (FilterLogsRequest): Filter logs request paramters
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            LogList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.filter_logs_with_http_info(filter_logs_request, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def filter_logs_with_http_info(self, filter_logs_request, **kwargs):  # noqa: E501
-        """Filter Logs  # noqa: E501
+        kwargs['filter_logs_request'] = \
+            filter_logs_request
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_logs_with_http_info(filter_logs_request, async_req=True)
-        >>> result = thread.get()
+        return self.filter_logs_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param FilterLogsRequest filter_logs_request: Filter logs request paramters (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(LogList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['filter_logs_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method filter_logs" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'filter_logs_request' is set
-        if self.api_client.client_side_validation and ('filter_logs_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['filter_logs_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `filter_logs_request` when calling `filter_logs`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'filter_logs_request' in local_var_params:
-            body_params = local_var_params['filter_logs_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Logs', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='LogList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_a_call(self, call_id, **kwargs):  # noqa: E501
+    def get_a_call(
+        self,
+        call_id, 
+        **kwargs
+        ):
         """Get a Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a_call(call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: CallResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            call_id (str): String that uniquely identifies this call resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CallResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_a_call_with_http_info(call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_a_call_with_http_info(self, call_id, **kwargs):  # noqa: E501
-        """Get a Call  # noqa: E501
+        kwargs['call_id'] = \
+            call_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_call_with_http_info(call_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_a_call_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(CallResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_a_call" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `get_a_call`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Calls/{callId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CallResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_a_conference(self, conference_id, **kwargs):  # noqa: E501
+    def get_a_conference(
+        self,
+        conference_id, 
+        **kwargs
+        ):
         """Get a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a_conference(conference_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: A string that uniquely identifies this conference resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            conference_id (str): A string that uniquely identifies this conference resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_a_conference_with_http_info(conference_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_a_conference_with_http_info(self, conference_id, **kwargs):  # noqa: E501
-        """Get a Conference  # noqa: E501
+        kwargs['conference_id'] = \
+            conference_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_conference_with_http_info(conference_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_a_conference_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: A string that uniquely identifies this conference resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['conference_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_a_conference" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'conference_id' is set
-        if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['conference_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `conference_id` when calling `get_a_conference`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'conference_id' in local_var_params:
-            path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences/{conferenceId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_a_member(self, queue_id, call_id, **kwargs):  # noqa: E501
+    def get_a_member(
+        self,
+        queue_id,call_id, 
+        **kwargs
+        ):
         """Get a Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a_member(queue_id, call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param str call_id: ID of the Call that the Member belongs to (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueMember
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+        Args:
+
+
+            queue_id (str): String that uniquely identifies the Queue that the Member belongs to.
+
+            call_id (str): ID of the Call that the Member belongs to
+
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueMember
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_a_member_with_http_info(queue_id, call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_a_member_with_http_info(self, queue_id, call_id, **kwargs):  # noqa: E501
-        """Get a Member  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_member_with_http_info(queue_id, call_id, async_req=True)
-        >>> result = thread.get()
+        kwargs['call_id'] = \
+            call_id
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param str call_id: ID of the Call that the Member belongs to (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueMember, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+        return self.get_a_member_endpoint.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = ['queue_id', 'call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_a_member" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `get_a_member`")  # noqa: E501
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `get_a_member`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}/Members/{callId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueMember',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
+    def get_a_participant(
+        self,
+        conference_id,call_id, 
+        **kwargs
+        ):
         """Get a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a_participant(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param str call_id: ID of the Call associated with this participant. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceParticipantResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+        Args:
+
+
+            conference_id (str): ID of the conference this participant is in.
+
+            call_id (str): ID of the Call associated with this participant.
+
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceParticipantResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_a_participant_with_http_info(conference_id, call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_a_participant_with_http_info(self, conference_id, call_id, **kwargs):  # noqa: E501
-        """Get a Participant  # noqa: E501
+        kwargs['conference_id'] = \
+            conference_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_participant_with_http_info(conference_id, call_id, async_req=True)
-        >>> result = thread.get()
+        kwargs['call_id'] = \
+            call_id
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param str call_id: ID of the Call associated with this participant. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceParticipantResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+        return self.get_a_participant_endpoint.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = ['conference_id', 'call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_a_participant" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'conference_id' is set
-        if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['conference_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `conference_id` when calling `get_a_participant`")  # noqa: E501
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `get_a_participant`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'conference_id' in local_var_params:
-            path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceParticipantResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_a_queue(self, queue_id, **kwargs):  # noqa: E501
+    def get_a_queue(
+        self,
+        queue_id, 
+        **kwargs
+        ):
         """Get a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a_queue(queue_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: A string that uniquely identifies this queue resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            queue_id (str): A string that uniquely identifies this queue resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_a_queue_with_http_info(queue_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_a_queue_with_http_info(self, queue_id, **kwargs):  # noqa: E501
-        """Get a Queue  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_queue_with_http_info(queue_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_a_queue_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: A string that uniquely identifies this queue resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['queue_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_a_queue" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `get_a_queue`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_a_recording(self, recording_id, **kwargs):  # noqa: E501
+    def get_a_recording(
+        self,
+        recording_id, 
+        **kwargs
+        ):
         """Get a Recording  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_a_recording(recording_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: RecordingResult
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_a_recording_with_http_info(recording_id, **kwargs)  # noqa: E501
 
-    def get_a_recording_with_http_info(self, recording_id, **kwargs):  # noqa: E501
-        """Get a Recording  # noqa: E501
+        Args:
+
+
+            recording_id (str): String that uniquely identifies this recording resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            RecordingResult
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
+
+        kwargs['recording_id'] = \
+            recording_id
+
+        return self.get_a_recording_endpoint.call_with_http_info(**kwargs)
+
+    def get_an_account(
+        self,
+         
+        **kwargs
+        ):
+        """Get an Account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_a_recording_with_http_info(recording_id, async_req=True)
+
+        >>> thread = api.get_an_account(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(RecordingResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AccountResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-        local_var_params = locals()
+        return self.get_an_account_endpoint.call_with_http_info(**kwargs)
 
-        all_params = ['recording_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_a_recording" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'recording_id' is set
-        if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['recording_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `recording_id` when calling `get_a_recording`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'recording_id' in local_var_params:
-            path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Recordings/{recordingId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RecordingResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_an_application(self, application_id, **kwargs):  # noqa: E501
+    def get_an_application(
+        self,
+        application_id, 
+        **kwargs
+        ):
         """Get an Application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_an_application(application_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str application_id: A string that uniquely identifies this application resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApplicationResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            application_id (str): A string that uniquely identifies this application resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ApplicationResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_an_application_with_http_info(application_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_an_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
-        """Get an Application  # noqa: E501
+        kwargs['application_id'] = \
+            application_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_application_with_http_info(application_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_an_application_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str application_id: A string that uniquely identifies this application resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApplicationResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['application_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_an_application" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `get_an_application`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Applications/{applicationId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApplicationResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
+    def get_an_incoming_number(
+        self,
+        phone_number_id, 
+        **kwargs
+        ):
         """Get an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_an_incoming_number(phone_number_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
-        :param str region: State or province of this phone number.
-        :param str country: Country of this phone number.
-        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :param str application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
-        :param bool has_application: Indication of whether the phone number has an application linked to it.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: IncomingNumberResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            phone_number_id (str): String that uniquely identifies this phone number resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            IncomingNumberResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_an_incoming_number_with_http_info(phone_number_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_an_incoming_number_with_http_info(self, phone_number_id, **kwargs):  # noqa: E501
-        """Get an Incoming Number  # noqa: E501
+        kwargs['phone_number_id'] = \
+            phone_number_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_incoming_number_with_http_info(phone_number_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_an_incoming_number_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
-        :param str region: State or province of this phone number.
-        :param str country: Country of this phone number.
-        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :param str application_id: ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.
-        :param bool has_application: Indication of whether the phone number has an application linked to it.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(IncomingNumberResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['phone_number_id', 'region', 'country', 'voice_enabled', 'sms_enabled', 'application_id', 'has_application']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_an_incoming_number" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'phone_number_id' is set
-        if self.api_client.client_side_validation and ('phone_number_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['phone_number_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `phone_number_id` when calling `get_an_incoming_number`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'phone_number_id' in local_var_params:
-            path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'region' in local_var_params and local_var_params['region'] is not None:  # noqa: E501
-            query_params.append(('region', local_var_params['region']))  # noqa: E501
-        if 'country' in local_var_params and local_var_params['country'] is not None:  # noqa: E501
-            query_params.append(('country', local_var_params['country']))  # noqa: E501
-        if 'voice_enabled' in local_var_params and local_var_params['voice_enabled'] is not None:  # noqa: E501
-            query_params.append(('voiceEnabled', local_var_params['voice_enabled']))  # noqa: E501
-        if 'sms_enabled' in local_var_params and local_var_params['sms_enabled'] is not None:  # noqa: E501
-            query_params.append(('smsEnabled', local_var_params['sms_enabled']))  # noqa: E501
-        if 'application_id' in local_var_params and local_var_params['application_id'] is not None:  # noqa: E501
-            query_params.append(('applicationId', local_var_params['application_id']))  # noqa: E501
-        if 'has_application' in local_var_params and local_var_params['has_application'] is not None:  # noqa: E501
-            query_params.append(('hasApplication', local_var_params['has_application']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='IncomingNumberResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_an_sms_message(self, message_id, **kwargs):  # noqa: E501
+    def get_an_sms_message(
+        self,
+        message_id, 
+        **kwargs
+        ):
         """Get an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_an_sms_message(message_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str message_id: String that uniquely identifies this Message resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: MessageResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            message_id (str): String that uniquely identifies this Message resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MessageResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_an_sms_message_with_http_info(message_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_an_sms_message_with_http_info(self, message_id, **kwargs):  # noqa: E501
-        """Get an SMS Message  # noqa: E501
+        kwargs['message_id'] = \
+            message_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_an_sms_message_with_http_info(message_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_an_sms_message_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str message_id: String that uniquely identifies this Message resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(MessageResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['message_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_an_sms_message" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'message_id' is set
-        if self.api_client.client_side_validation and ('message_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['message_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `message_id` when calling `get_an_sms_message`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'message_id' in local_var_params:
-            path_params['messageId'] = local_var_params['message_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Messages/{messageId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='MessageResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_head_member(self, queue_id, **kwargs):  # noqa: E501
+    def get_head_member(
+        self,
+        queue_id, 
+        **kwargs
+        ):
         """Get Head Member  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.get_head_member(queue_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueMember
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            queue_id (str): String that uniquely identifies the Queue that the Member belongs to.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueMember
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.get_head_member_with_http_info(queue_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def get_head_member_with_http_info(self, queue_id, **kwargs):  # noqa: E501
-        """Get Head Member  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_head_member_with_http_info(queue_id, async_req=True)
-        >>> result = thread.get()
+        return self.get_head_member_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueMember, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['queue_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_head_member" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `get_head_member`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}/Members/Front', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueMember',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_active_queues(self, **kwargs):  # noqa: E501
+    def list_active_queues(
+        self,
+         
+        **kwargs
+        ):
         """List Active Queues  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_active_queues(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str alias: Return only the Queue resources with aliases that exactly match this name.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            alias (str): Return only the Queue resources with aliases that exactly match this name.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_active_queues_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_active_queues_with_http_info(self, **kwargs):  # noqa: E501
-        """List Active Queues  # noqa: E501
+        return self.list_active_queues_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_active_queues_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str alias: Return only the Queue resources with aliases that exactly match this name.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['alias']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_active_queues" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
-            query_params.append(('alias', local_var_params['alias']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_all_account_logs(self, **kwargs):  # noqa: E501
+    def list_all_account_logs(
+        self,
+         
+        **kwargs
+        ):
         """List All Account Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_all_account_logs(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: LogList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            LogList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_all_account_logs_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_all_account_logs_with_http_info(self, **kwargs):  # noqa: E501
-        """List All Account Logs  # noqa: E501
+        return self.list_all_account_logs_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_all_account_logs_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(LogList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_all_account_logs" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Logs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='LogList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_an_application(self, **kwargs):  # noqa: E501
+    def list_applications(
+        self,
+         
+        **kwargs
+        ):
         """List applications  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_an_application(async_req=True)
+
+        >>> thread = api.list_applications(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str alias: Return only applications with aliases that exactly match this value.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApplicationList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            alias (str): Return only applications with aliases that exactly match this value.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ApplicationList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_an_application_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_an_application_with_http_info(self, **kwargs):  # noqa: E501
-        """List applications  # noqa: E501
+        return self.list_applications_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_an_application_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str alias: Return only applications with aliases that exactly match this value.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApplicationList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['alias']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_an_application" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
-            query_params.append(('alias', local_var_params['alias']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Applications', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApplicationList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_available_numbers(self, **kwargs):  # noqa: E501
+    def list_available_numbers(
+        self,
+         
+        **kwargs
+        ):
         """List available numbers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_available_numbers(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
-        :param str region: State or province of this phone number.
-        :param str country: Country of this phone number.
-        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: AvailableNumberList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            phone_number (str): PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.. [optional]
+            region (str): State or province of this phone number.. [optional]
+            country (str): Country of this phone number.. [optional]
+            voice_enabled (bool): Indicates whether the phone number can handle Calls. Typically set to true for all numbers.. [optional] if omitted the server will use the default value of True
+            sms_enabled (bool): Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.. [optional] if omitted the server will use the default value of True
+            capabilities_voice (bool): [optional]
+            capabilities_sms (bool): [optional]
+            capabilities_toll_free (bool): [optional]
+            capabilities_ten_dlc (bool): [optional]
+            capabilities_short_code (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            AvailableNumberList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_available_numbers_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
 
-    def list_available_numbers_with_http_info(self, **kwargs):  # noqa: E501
-        """List available numbers  # noqa: E501
+        return self.list_available_numbers_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_available_numbers_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str phone_number: PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format.
-        :param str region: State or province of this phone number.
-        :param str country: Country of this phone number.
-        :param bool voice_enabled: Indicates whether the phone number can handle Calls. Typically set to true for all numbers.
-        :param bool sms_enabled: Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(AvailableNumberList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['phone_number', 'region', 'country', 'voice_enabled', 'sms_enabled']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_available_numbers" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'phone_number' in local_var_params and local_var_params['phone_number'] is not None:  # noqa: E501
-            query_params.append(('phoneNumber', local_var_params['phone_number']))  # noqa: E501
-        if 'region' in local_var_params and local_var_params['region'] is not None:  # noqa: E501
-            query_params.append(('region', local_var_params['region']))  # noqa: E501
-        if 'country' in local_var_params and local_var_params['country'] is not None:  # noqa: E501
-            query_params.append(('country', local_var_params['country']))  # noqa: E501
-        if 'voice_enabled' in local_var_params and local_var_params['voice_enabled'] is not None:  # noqa: E501
-            query_params.append(('voiceEnabled', local_var_params['voice_enabled']))  # noqa: E501
-        if 'sms_enabled' in local_var_params and local_var_params['sms_enabled'] is not None:  # noqa: E501
-            query_params.append(('smsEnabled', local_var_params['sms_enabled']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/AvailablePhoneNumbers', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AvailableNumberList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_call_logs(self, call_id, **kwargs):  # noqa: E501
+    def list_call_logs(
+        self,
+        call_id, 
+        **kwargs
+        ):
         """List Call Logs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_call_logs(call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: LogList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            call_id (str): String that uniquely identifies this call resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            LogList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_call_logs_with_http_info(call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_call_logs_with_http_info(self, call_id, **kwargs):  # noqa: E501
-        """List Call Logs  # noqa: E501
+        kwargs['call_id'] = \
+            call_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_call_logs_with_http_info(call_id, async_req=True)
-        >>> result = thread.get()
+        return self.list_call_logs_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(LogList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_call_logs" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `list_call_logs`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Calls/{callId}/Logs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='LogList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_call_recordings(self, call_id, **kwargs):  # noqa: E501
+    def list_call_recordings(
+        self,
+        call_id, 
+        **kwargs
+        ):
         """List Call Recordings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_call_recordings(call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param str date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: RecordingList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            call_id (str): String that uniquely identifies this call resource.
+
+
+
+
+        Keyword Args:
+            date_created (str): Only show recordings created on the specified date, in the form *YYYY-MM-DD*.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            RecordingList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_call_recordings_with_http_info(call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_call_recordings_with_http_info(self, call_id, **kwargs):  # noqa: E501
-        """List Call Recordings  # noqa: E501
+        kwargs['call_id'] = \
+            call_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_call_recordings_with_http_info(call_id, async_req=True)
-        >>> result = thread.get()
+        return self.list_call_recordings_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param str date_created: Only show recordings created on the specified date, in the form *YYYY-MM-DD*.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(RecordingList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['call_id', 'date_created']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_call_recordings" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `list_call_recordings`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'date_created' in local_var_params and local_var_params['date_created'] is not None:  # noqa: E501
-            query_params.append(('dateCreated', local_var_params['date_created']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Calls/{callId}/Recordings', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RecordingList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_calls(self, **kwargs):  # noqa: E501
+    def list_calls(
+        self,
+         
+        **kwargs
+        ):
         """List Calls  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_calls(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param bool active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
-        :param str to: Only show Calls to this phone number.
-        :param str _from: Only show Calls from this phone number.
-        :param str status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
-        :param str start_time: Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.
-        :param str end_time: Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.
-        :param str parent_call_id: Only show Calls spawned by the call with this ID.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: CallList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            active (bool): If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.. [optional] if omitted the server will use the default value of False
+            to (str): Only show Calls to this phone number.. [optional]
+            _from (str): Only show Calls from this phone number.. [optional]
+            status (str): Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.. [optional]
+            start_time (str): Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.. [optional]
+            end_time (str): Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.. [optional]
+            parent_call_id (str): Only show Calls spawned by the call with this ID.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CallList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_calls_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_calls_with_http_info(self, **kwargs):  # noqa: E501
-        """List Calls  # noqa: E501
+        return self.list_calls_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_calls_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param bool active: If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query.
-        :param str to: Only show Calls to this phone number.
-        :param str _from: Only show Calls from this phone number.
-        :param str status: Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`.
-        :param str start_time: Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss.
-        :param str end_time: Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss.
-        :param str parent_call_id: Only show Calls spawned by the call with this ID.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(CallList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['active', 'to', '_from', 'status', 'start_time', 'end_time', 'parent_call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_calls" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'active' in local_var_params and local_var_params['active'] is not None:  # noqa: E501
-            query_params.append(('active', local_var_params['active']))  # noqa: E501
-        if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
-            query_params.append(('to', local_var_params['to']))  # noqa: E501
-        if '_from' in local_var_params and local_var_params['_from'] is not None:  # noqa: E501
-            query_params.append(('from', local_var_params['_from']))  # noqa: E501
-        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
-            query_params.append(('status', local_var_params['status']))  # noqa: E501
-        if 'start_time' in local_var_params and local_var_params['start_time'] is not None:  # noqa: E501
-            query_params.append(('startTime', local_var_params['start_time']))  # noqa: E501
-        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
-            query_params.append(('endTime', local_var_params['end_time']))  # noqa: E501
-        if 'parent_call_id' in local_var_params and local_var_params['parent_call_id'] is not None:  # noqa: E501
-            query_params.append(('parentCallId', local_var_params['parent_call_id']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Calls', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CallList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_conferences(self, **kwargs):  # noqa: E501
+    def list_conferences(
+        self,
+         
+        **kwargs
+        ):
         """List Conferences  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_conferences(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
-        :param str alias: List Conferences whose alias exactly matches this string.
-        :param str date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
-        :param str date_updated: Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            status (str): Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.. [optional]
+            alias (str): List Conferences whose alias exactly matches this string.. [optional]
+            date_created (str): Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.. [optional]
+            date_updated (str): Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_conferences_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_conferences_with_http_info(self, **kwargs):  # noqa: E501
-        """List Conferences  # noqa: E501
+        return self.list_conferences_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_conferences_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str status: Only show conferences that currently have the specified status. Valid values: `empty`, `populated`, `inProgress`, or `terminated`.
-        :param str alias: List Conferences whose alias exactly matches this string.
-        :param str date_created: Only show Conferences that were created on the specified date, in the form *YYYY-MM-DD*.
-        :param str date_updated: Only show Conferences that were last updated on the specified date, in the form *YYYY-MM-DD*.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['status', 'alias', 'date_created', 'date_updated']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_conferences" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
-            query_params.append(('status', local_var_params['status']))  # noqa: E501
-        if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
-            query_params.append(('alias', local_var_params['alias']))  # noqa: E501
-        if 'date_created' in local_var_params and local_var_params['date_created'] is not None:  # noqa: E501
-            query_params.append(('dateCreated', local_var_params['date_created']))  # noqa: E501
-        if 'date_updated' in local_var_params and local_var_params['date_updated'] is not None:  # noqa: E501
-            query_params.append(('dateUpdated', local_var_params['date_updated']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_incoming_numbers(self, **kwargs):  # noqa: E501
+    def list_incoming_numbers(
+        self,
+         
+        **kwargs
+        ):
         """List Incoming Numbers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_incoming_numbers(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
-        :param str alias: Only show incoming phone numbers with aliases that exactly match this value.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: IncomingNumberList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            phone_number (str): Only show incoming phone number resources that match this PCRE-compatible regular expression.. [optional]
+            alias (str): Only show incoming phone numbers with aliases that exactly match this value.. [optional]
+            region (str): State or province of this phone number.. [optional]
+            country (str): Country of this phone number.. [optional]
+            application_id (str): ID of the Application that FreeClimb should contact if a Call or SMS arrives for this phone number or a Call from this number is placed. An incoming phone number is not useful until associated with an applicationId.. [optional]
+            has_application (bool): Indication of whether the phone number has an application linked to it.. [optional] if omitted the server will use the default value of False
+            voice_enabled (bool): Indicates whether the phone number can handle Calls. Typically set to true for all numbers.. [optional] if omitted the server will use the default value of True
+            sms_enabled (bool): Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers.. [optional] if omitted the server will use the default value of True
+            capabilities_voice (bool): [optional]
+            capabilities_sms (bool): [optional]
+            capabilities_toll_free (bool): [optional]
+            capabilities_ten_dlc (bool): [optional]
+            capabilities_short_code (bool): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            IncomingNumberList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_incoming_numbers_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_incoming_numbers_with_http_info(self, **kwargs):  # noqa: E501
-        """List Incoming Numbers  # noqa: E501
+        return self.list_incoming_numbers_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_incoming_numbers_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str phone_number: Only show incoming phone number resources that match this PCRE-compatible regular expression.
-        :param str alias: Only show incoming phone numbers with aliases that exactly match this value.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(IncomingNumberList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['phone_number', 'alias']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_incoming_numbers" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'phone_number' in local_var_params and local_var_params['phone_number'] is not None:  # noqa: E501
-            query_params.append(('phoneNumber', local_var_params['phone_number']))  # noqa: E501
-        if 'alias' in local_var_params and local_var_params['alias'] is not None:  # noqa: E501
-            query_params.append(('alias', local_var_params['alias']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/IncomingPhoneNumbers', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='IncomingNumberList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_members(self, queue_id, **kwargs):  # noqa: E501
+    def list_members(
+        self,
+        queue_id, 
+        **kwargs
+        ):
         """List Members  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_members(queue_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueMemberList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            queue_id (str): String that uniquely identifies the Queue that the Member belongs to.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueMemberList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_members_with_http_info(queue_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_members_with_http_info(self, queue_id, **kwargs):  # noqa: E501
-        """List Members  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_members_with_http_info(queue_id, async_req=True)
-        >>> result = thread.get()
+        return self.list_members_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: String that uniquely identifies the Queue that the Member belongs to. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueMemberList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['queue_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_members" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `list_members`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}/Members', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueMemberList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_participants(self, conference_id, **kwargs):  # noqa: E501
+    def list_participants(
+        self,
+        conference_id, 
+        **kwargs
+        ):
         """List Participants  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_participants(conference_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param bool talk: Only show Participants with the talk privilege.
-        :param bool listen: Only show Participants with the listen privilege.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceParticipantList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            conference_id (str): ID of the conference this participant is in.
+
+
+
+
+        Keyword Args:
+            talk (bool): Only show Participants with the talk privilege.. [optional]
+            listen (bool): Only show Participants with the listen privilege.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceParticipantList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_participants_with_http_info(conference_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_participants_with_http_info(self, conference_id, **kwargs):  # noqa: E501
-        """List Participants  # noqa: E501
+        kwargs['conference_id'] = \
+            conference_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_participants_with_http_info(conference_id, async_req=True)
-        >>> result = thread.get()
+        return self.list_participants_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param bool talk: Only show Participants with the talk privilege.
-        :param bool listen: Only show Participants with the listen privilege.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceParticipantList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['conference_id', 'talk', 'listen']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_participants" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'conference_id' is set
-        if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['conference_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `conference_id` when calling `list_participants`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'conference_id' in local_var_params:
-            path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'talk' in local_var_params and local_var_params['talk'] is not None:  # noqa: E501
-            query_params.append(('talk', local_var_params['talk']))  # noqa: E501
-        if 'listen' in local_var_params and local_var_params['listen'] is not None:  # noqa: E501
-            query_params.append(('listen', local_var_params['listen']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences/{conferenceId}/Participants', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceParticipantList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_recordings(self, **kwargs):  # noqa: E501
+    def list_recordings(
+        self,
+         
+        **kwargs
+        ):
         """List Recordings  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_recordings(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: Show only Recordings made during the Call with this ID.
-        :param str conference_id: Show only Recordings made during the conference with this ID.
-        :param str date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: RecordingList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            call_id (str): Show only Recordings made during the Call with this ID.. [optional]
+            conference_id (str): Show only Recordings made during the conference with this ID.. [optional]
+            date_created (str): Only show Recordings created on this date, formatted as *YYYY-MM-DD*.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            RecordingList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_recordings_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_recordings_with_http_info(self, **kwargs):  # noqa: E501
-        """List Recordings  # noqa: E501
+        return self.list_recordings_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_recordings_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str call_id: Show only Recordings made during the Call with this ID.
-        :param str conference_id: Show only Recordings made during the conference with this ID.
-        :param str date_created: Only show Recordings created on this date, formatted as *YYYY-MM-DD*.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(RecordingList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['call_id', 'conference_id', 'date_created']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_recordings" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'call_id' in local_var_params and local_var_params['call_id'] is not None:  # noqa: E501
-            query_params.append(('callId', local_var_params['call_id']))  # noqa: E501
-        if 'conference_id' in local_var_params and local_var_params['conference_id'] is not None:  # noqa: E501
-            query_params.append(('conferenceId', local_var_params['conference_id']))  # noqa: E501
-        if 'date_created' in local_var_params and local_var_params['date_created'] is not None:  # noqa: E501
-            query_params.append(('dateCreated', local_var_params['date_created']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Recordings', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RecordingList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_sms_messages(self, **kwargs):  # noqa: E501
+    def list_sms_messages(
+        self,
+         
+        **kwargs
+        ):
         """List SMS Messages  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.list_sms_messages(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str to: Only show Messages to this phone number.
-        :param str _from: Only show Messages from this phone number.
-        :param str begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
-        :param str end_time: Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..
-        :param str direction: Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.
-        :param str account_id: String that uniquely identifies this account resource.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: MessagesList
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            to (str): Only show Messages to this phone number.. [optional]
+            _from (str): Only show Messages from this phone number.. [optional]
+            begin_time (str): Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.. [optional]
+            end_time (str): Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*... [optional]
+            direction (str): Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MessagesList
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.list_sms_messages_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def list_sms_messages_with_http_info(self, **kwargs):  # noqa: E501
-        """List SMS Messages  # noqa: E501
+        return self.list_sms_messages_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_sms_messages_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str to: Only show Messages to this phone number.
-        :param str _from: Only show Messages from this phone number.
-        :param str begin_time: Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*.
-        :param str end_time: Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*..
-        :param str direction: Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb.
-        :param str account_id: String that uniquely identifies this account resource.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(MessagesList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['to', '_from', 'begin_time', 'end_time', 'direction', 'account_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_sms_messages" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-        if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
-            query_params.append(('to', local_var_params['to']))  # noqa: E501
-        if '_from' in local_var_params and local_var_params['_from'] is not None:  # noqa: E501
-            query_params.append(('from', local_var_params['_from']))  # noqa: E501
-        if 'begin_time' in local_var_params and local_var_params['begin_time'] is not None:  # noqa: E501
-            query_params.append(('beginTime', local_var_params['begin_time']))  # noqa: E501
-        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
-            query_params.append(('endTime', local_var_params['end_time']))  # noqa: E501
-        if 'direction' in local_var_params and local_var_params['direction'] is not None:  # noqa: E501
-            query_params.append(('direction', local_var_params['direction']))  # noqa: E501
-        if 'account_id' in local_var_params and local_var_params['account_id'] is not None:  # noqa: E501
-            query_params.append(('accountID', local_var_params['account_id']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Messages', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='MessagesList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def make_a_call(self, **kwargs):  # noqa: E501
+    def make_a_call(
+        self,
+         
+        **kwargs
+        ):
         """Make a Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.make_a_call(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param MakeCallRequest make_call_request: Call details for making a call
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: CallResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            make_call_request (MakeCallRequest): Call details for making a call. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CallResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.make_a_call_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def make_a_call_with_http_info(self, **kwargs):  # noqa: E501
-        """Make a Call  # noqa: E501
+        return self.make_a_call_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.make_a_call_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param MakeCallRequest make_call_request: Call details for making a call
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(CallResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['make_call_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method make_a_call" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'make_call_request' in local_var_params:
-            body_params = local_var_params['make_call_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Calls', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CallResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def remove_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
+    def remove_a_participant(
+        self,
+        conference_id,call_id, 
+        **kwargs
+        ):
         """Remove a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.remove_a_participant(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param str call_id: ID of the Call associated with this participant. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+        Args:
+
+
+            conference_id (str): ID of the conference this participant is in.
+
+            call_id (str): ID of the Call associated with this participant.
+
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.remove_a_participant_with_http_info(conference_id, call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def remove_a_participant_with_http_info(self, conference_id, call_id, **kwargs):  # noqa: E501
-        """Remove a Participant  # noqa: E501
+        kwargs['conference_id'] = \
+            conference_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_a_participant_with_http_info(conference_id, call_id, async_req=True)
-        >>> result = thread.get()
+        kwargs['call_id'] = \
+            call_id
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param str call_id: ID of the Call associated with this participant. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+        return self.remove_a_participant_endpoint.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = ['conference_id', 'call_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method remove_a_participant" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'conference_id' is set
-        if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['conference_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `conference_id` when calling `remove_a_participant`")  # noqa: E501
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `remove_a_participant`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'conference_id' in local_var_params:
-            path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def send_an_sms_message(self, message_request, **kwargs):  # noqa: E501
+    def send_an_sms_message(
+        self,
+        message_request, 
+        **kwargs
+        ):
         """Send an SMS Message  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.send_an_sms_message(message_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param MessageRequest message_request: Details to create a message (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: MessageResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            message_request (MessageRequest): Details to create a message
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            MessageResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.send_an_sms_message_with_http_info(message_request, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def send_an_sms_message_with_http_info(self, message_request, **kwargs):  # noqa: E501
-        """Send an SMS Message  # noqa: E501
+        kwargs['message_request'] = \
+            message_request
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.send_an_sms_message_with_http_info(message_request, async_req=True)
-        >>> result = thread.get()
+        return self.send_an_sms_message_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param MessageRequest message_request: Details to create a message (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(MessageResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['message_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method send_an_sms_message" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'message_request' is set
-        if self.api_client.client_side_validation and ('message_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['message_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `message_request` when calling `send_an_sms_message`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'message_request' in local_var_params:
-            body_params = local_var_params['message_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Messages', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='MessageResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def stream_a_recording_file(self, recording_id, **kwargs):  # noqa: E501
+    def stream_a_recording_file(
+        self,
+        recording_id, 
+        **kwargs
+        ):
         """Stream a Recording File  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.stream_a_recording_file(recording_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: file
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            recording_id (str): String that uniquely identifies this recording resource.
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            file_type
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.stream_a_recording_file_with_http_info(recording_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def stream_a_recording_file_with_http_info(self, recording_id, **kwargs):  # noqa: E501
-        """Stream a Recording File  # noqa: E501
+        kwargs['recording_id'] = \
+            recording_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.stream_a_recording_file_with_http_info(recording_id, async_req=True)
-        >>> result = thread.get()
+        return self.stream_a_recording_file_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str recording_id: String that uniquely identifies this recording resource. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(file, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['recording_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method stream_a_recording_file" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'recording_id' is set
-        if self.api_client.client_side_validation and ('recording_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['recording_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `recording_id` when calling `stream_a_recording_file`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'recording_id' in local_var_params:
-            path_params['recordingId'] = local_var_params['recording_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['audio/x-wav'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Recordings/{recordingId}/Stream', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='file',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_a_conference(self, conference_id, **kwargs):  # noqa: E501
+    def update_a_conference(
+        self,
+        conference_id, 
+        **kwargs
+        ):
         """Update a Conference  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_a_conference(conference_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: String that uniquely identifies this conference resource. (required)
-        :param UpdateConferenceRequest update_conference_request: Conference Details to update
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            conference_id (str): String that uniquely identifies this conference resource.
+
+
+
+
+        Keyword Args:
+            update_conference_request (UpdateConferenceRequest): Conference Details to update. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_a_conference_with_http_info(conference_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_a_conference_with_http_info(self, conference_id, **kwargs):  # noqa: E501
-        """Update a Conference  # noqa: E501
+        kwargs['conference_id'] = \
+            conference_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_conference_with_http_info(conference_id, async_req=True)
-        >>> result = thread.get()
+        return self.update_a_conference_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: String that uniquely identifies this conference resource. (required)
-        :param UpdateConferenceRequest update_conference_request: Conference Details to update
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['conference_id', 'update_conference_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_a_conference" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'conference_id' is set
-        if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['conference_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `conference_id` when calling `update_a_conference`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'conference_id' in local_var_params:
-            path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'update_conference_request' in local_var_params:
-            body_params = local_var_params['update_conference_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences/{conferenceId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_a_live_call(self, call_id, update_call_request, **kwargs):  # noqa: E501
+    def update_a_live_call(
+        self,
+        call_id,update_call_request, 
+        **kwargs
+        ):
         """Update a Live Call  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_a_live_call(call_id, update_call_request, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param UpdateCallRequest update_call_request: Call details to update (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+        Args:
+
+
+            call_id (str): String that uniquely identifies this call resource.
+
+            update_call_request (UpdateCallRequest): Call details to update
+
+
+
+
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_a_live_call_with_http_info(call_id, update_call_request, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_a_live_call_with_http_info(self, call_id, update_call_request, **kwargs):  # noqa: E501
-        """Update a Live Call  # noqa: E501
+        kwargs['call_id'] = \
+            call_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_live_call_with_http_info(call_id, update_call_request, async_req=True)
-        >>> result = thread.get()
+        kwargs['update_call_request'] = \
+            update_call_request
 
-        :param async_req bool: execute request asynchronously
-        :param str call_id: String that uniquely identifies this call resource. (required)
-        :param UpdateCallRequest update_call_request: Call details to update (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+        return self.update_a_live_call_endpoint.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = ['call_id', 'update_call_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_a_live_call" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `update_a_live_call`")  # noqa: E501
-        # verify the required parameter 'update_call_request' is set
-        if self.api_client.client_side_validation and ('update_call_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['update_call_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `update_call_request` when calling `update_a_live_call`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'update_call_request' in local_var_params:
-            body_params = local_var_params['update_call_request']
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Calls/{callId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_a_participant(self, conference_id, call_id, **kwargs):  # noqa: E501
+    def update_a_participant(
+        self,
+        conference_id,call_id, 
+        **kwargs
+        ):
         """Update a Participant  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_a_participant(conference_id, call_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param str call_id: ID of the Call associated with this participant. (required)
-        :param UpdateConferenceParticipantRequest update_conference_participant_request: Conference participant details to update
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ConferenceParticipantResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+        Args:
+
+
+            conference_id (str): ID of the conference this participant is in.
+
+            call_id (str): ID of the Call associated with this participant.
+
+
+
+
+
+        Keyword Args:
+            update_conference_participant_request (UpdateConferenceParticipantRequest): Conference participant details to update. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ConferenceParticipantResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_a_participant_with_http_info(conference_id, call_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_a_participant_with_http_info(self, conference_id, call_id, **kwargs):  # noqa: E501
-        """Update a Participant  # noqa: E501
+        kwargs['conference_id'] = \
+            conference_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_participant_with_http_info(conference_id, call_id, async_req=True)
-        >>> result = thread.get()
+        kwargs['call_id'] = \
+            call_id
 
-        :param async_req bool: execute request asynchronously
-        :param str conference_id: ID of the conference this participant is in. (required)
-        :param str call_id: ID of the Call associated with this participant. (required)
-        :param UpdateConferenceParticipantRequest update_conference_participant_request: Conference participant details to update
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ConferenceParticipantResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+        return self.update_a_participant_endpoint.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = ['conference_id', 'call_id', 'update_conference_participant_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_a_participant" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'conference_id' is set
-        if self.api_client.client_side_validation and ('conference_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['conference_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `conference_id` when calling `update_a_participant`")  # noqa: E501
-        # verify the required parameter 'call_id' is set
-        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['call_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `call_id` when calling `update_a_participant`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'conference_id' in local_var_params:
-            path_params['conferenceId'] = local_var_params['conference_id']  # noqa: E501
-        if 'call_id' in local_var_params:
-            path_params['callId'] = local_var_params['call_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'update_conference_participant_request' in local_var_params:
-            body_params = local_var_params['update_conference_participant_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Conferences/{conferenceId}/Participants/{callId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ConferenceParticipantResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_a_queue(self, queue_id, **kwargs):  # noqa: E501
+    def update_a_queue(
+        self,
+        queue_id, 
+        **kwargs
+        ):
         """Update a Queue  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_a_queue(queue_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: A string that uniquely identifies this Queue resource. (required)
-        :param QueueRequest queue_request: Queue Details to update
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: QueueResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            queue_id (str): A string that uniquely identifies this Queue resource.
+
+
+
+
+        Keyword Args:
+            queue_request (QueueRequest): Queue Details to update. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            QueueResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_a_queue_with_http_info(queue_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_a_queue_with_http_info(self, queue_id, **kwargs):  # noqa: E501
-        """Update a Queue  # noqa: E501
+        kwargs['queue_id'] = \
+            queue_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_a_queue_with_http_info(queue_id, async_req=True)
-        >>> result = thread.get()
+        return self.update_a_queue_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str queue_id: A string that uniquely identifies this Queue resource. (required)
-        :param QueueRequest queue_request: Queue Details to update
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(QueueResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['queue_id', 'queue_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_a_queue" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'queue_id' is set
-        if self.api_client.client_side_validation and ('queue_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['queue_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `queue_id` when calling `update_a_queue`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'queue_id' in local_var_params:
-            path_params['queueId'] = local_var_params['queue_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'queue_request' in local_var_params:
-            body_params = local_var_params['queue_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Queues/{queueId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='QueueResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_an_account(self, **kwargs):  # noqa: E501
+    def update_an_account(
+        self,
+         
+        **kwargs
+        ):
         """Manage an account  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_an_account(async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param AccountRequest account_request: Account details to update
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+
+
+
+        Keyword Args:
+            account_request (AccountRequest): Account details to update. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_an_account_with_http_info(**kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_an_account_with_http_info(self, **kwargs):  # noqa: E501
-        """Manage an account  # noqa: E501
+        return self.update_an_account_endpoint.call_with_http_info(**kwargs)
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_account_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param AccountRequest account_request: Account details to update
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['account_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_an_account" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'account_request' in local_var_params:
-            body_params = local_var_params['account_request']
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_an_application(self, application_id, **kwargs):  # noqa: E501
+    def update_an_application(
+        self,
+        application_id, 
+        **kwargs
+        ):
         """Update an application  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_an_application(application_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str application_id: A string that uniquely identifies this application resource. (required)
-        :param ApplicationRequest application_request: Application details to update.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: ApplicationResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            application_id (str): A string that uniquely identifies this application resource.
+
+
+
+
+        Keyword Args:
+            application_request (ApplicationRequest): Application details to update.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ApplicationResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_an_application_with_http_info(application_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_an_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
-        """Update an application  # noqa: E501
+        kwargs['application_id'] = \
+            application_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_application_with_http_info(application_id, async_req=True)
-        >>> result = thread.get()
+        return self.update_an_application_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str application_id: A string that uniquely identifies this application resource. (required)
-        :param ApplicationRequest application_request: Application details to update.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(ApplicationResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['application_id', 'application_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_an_application" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `update_an_application`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'application_request' in local_var_params:
-            body_params = local_var_params['application_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/Applications/{applicationId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ApplicationResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_an_incoming_number(self, phone_number_id, **kwargs):  # noqa: E501
+    def update_an_incoming_number(
+        self,
+        phone_number_id, 
+        **kwargs
+        ):
         """Update an Incoming Number  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+
         >>> thread = api.update_an_incoming_number(phone_number_id, async_req=True)
         >>> result = thread.get()
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
-        :param IncomingNumberRequest incoming_number_request: Incoming Number details to update
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: IncomingNumberResult
-                 If the method is called asynchronously,
-                 returns the request thread.
+
+        Args:
+
+
+            phone_number_id (str): String that uniquely identifies this phone number resource.
+
+
+
+
+        Keyword Args:
+            incoming_number_request (IncomingNumberRequest): Incoming Number details to update. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            IncomingNumberResult
+                If the method is called asynchronously, returns the request
+                thread.
         """
-        kwargs['_return_http_data_only'] = True
-        return self.update_an_incoming_number_with_http_info(phone_number_id, **kwargs)  # noqa: E501
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            self.account_id
 
-    def update_an_incoming_number_with_http_info(self, phone_number_id, **kwargs):  # noqa: E501
-        """Update an Incoming Number  # noqa: E501
+        kwargs['phone_number_id'] = \
+            phone_number_id
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_an_incoming_number_with_http_info(phone_number_id, async_req=True)
-        >>> result = thread.get()
+        return self.update_an_incoming_number_endpoint.call_with_http_info(**kwargs)
 
-        :param async_req bool: execute request asynchronously
-        :param str phone_number_id: String that uniquely identifies this phone number resource. (required)
-        :param IncomingNumberRequest incoming_number_request: Incoming Number details to update
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(IncomingNumberResult, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['phone_number_id', 'incoming_number_request']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_an_incoming_number" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'phone_number_id' is set
-        if self.api_client.client_side_validation and ('phone_number_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['phone_number_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `phone_number_id` when calling `update_an_incoming_number`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in local_var_params:
-            path_params['accountId'] = local_var_params['account_id']  # noqa: E501
-        if 'phone_number_id' in local_var_params:
-            path_params['phoneNumberId'] = local_var_params['phone_number_id']  # noqa: E501
-        path_params['accountId'] = self.accountId
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'incoming_number_request' in local_var_params:
-            body_params = local_var_params['incoming_number_request']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['fc']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/Accounts/{accountId}/IncomingPhoneNumbers/{phoneNumberId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='IncomingNumberResult',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

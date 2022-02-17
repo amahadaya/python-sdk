@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.account_result_all_of import AccountResultAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.account_result_all_of import AccountResultAllOf  # noqa: E501
 
 class TestAccountResultAllOf(unittest.TestCase):
     """AccountResultAllOf unit test stubs"""
@@ -29,30 +25,11 @@ class TestAccountResultAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test AccountResultAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.account_result_all_of.AccountResultAllOf()  # noqa: E501
-        if include_optional :
-            return AccountResultAllOf(
-                account_id = '0', 
-                api_key = '0', 
-                alias = '0', 
-                label = '0', 
-                type = '0', 
-                status = 'active', 
-                subresource_uris = None
-            )
-        else :
-            return AccountResultAllOf(
-        )
-
     def testAccountResultAllOf(self):
         """Test AccountResultAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = AccountResultAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

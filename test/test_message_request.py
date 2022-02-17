@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.message_request import MessageRequest  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.message_request_all_of import MessageRequestAllOf
+from freeclimb.model.mutable_resource_model import MutableResourceModel
+globals()['MessageRequestAllOf'] = MessageRequestAllOf
+globals()['MutableResourceModel'] = MutableResourceModel
+
+from freeclimb.model.message_request import MessageRequest  # noqa: E501
 
 class TestMessageRequest(unittest.TestCase):
     """MessageRequest unit test stubs"""
@@ -29,35 +29,11 @@ class TestMessageRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test MessageRequest
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.message_request.MessageRequest()  # noqa: E501
-        if include_optional :
-            return MessageRequest(
-                uri = '0', 
-                date_created = '0', 
-                date_updated = '0', 
-                revision = 56, 
-                _from = '0', 
-                to = '0', 
-                text = '0', 
-                notification_url = '0', 
-                account_id = '0'
-            )
-        else :
-            return MessageRequest(
-                _from = '0',
-                to = '0',
-                text = '0',
-        )
-
     def testMessageRequest(self):
         """Test MessageRequest"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = MessageRequest()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

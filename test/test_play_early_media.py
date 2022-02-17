@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.play_early_media import PlayEarlyMedia  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.play_early_media_all_of import PlayEarlyMediaAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['PlayEarlyMediaAllOf'] = PlayEarlyMediaAllOf
+
+from freeclimb.model.play_early_media import PlayEarlyMedia  # noqa: E501
 
 class TestPlayEarlyMedia(unittest.TestCase):
     """PlayEarlyMedia unit test stubs"""
@@ -29,25 +29,11 @@ class TestPlayEarlyMedia(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PlayEarlyMedia
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.play_early_media.PlayEarlyMedia()  # noqa: E501
-        if include_optional :
-            return PlayEarlyMedia(
-                file = '0'
-            )
-        else :
-            return PlayEarlyMedia(
-                file = '0',
-        )
-
     def testPlayEarlyMedia(self):
         """Test PlayEarlyMedia"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PlayEarlyMedia()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

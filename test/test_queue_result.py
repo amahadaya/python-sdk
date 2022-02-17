@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.queue_result import QueueResult  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.mutable_resource_model import MutableResourceModel
+from freeclimb.model.queue_result_all_of import QueueResultAllOf
+globals()['MutableResourceModel'] = MutableResourceModel
+globals()['QueueResultAllOf'] = QueueResultAllOf
+
+from freeclimb.model.queue_result import QueueResult  # noqa: E501
 
 class TestQueueResult(unittest.TestCase):
     """QueueResult unit test stubs"""
@@ -29,34 +29,11 @@ class TestQueueResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test QueueResult
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.queue_result.QueueResult()  # noqa: E501
-        if include_optional :
-            return QueueResult(
-                uri = '0', 
-                date_created = '0', 
-                date_updated = '0', 
-                revision = 56, 
-                account_id = '0', 
-                queue_id = '0', 
-                alias = '0', 
-                max_size = 56, 
-                current_size = '0', 
-                average_wait_time = '0', 
-                subresource_uris = None
-            )
-        else :
-            return QueueResult(
-        )
-
     def testQueueResult(self):
         """Test QueueResult"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = QueueResult()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

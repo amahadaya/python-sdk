@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,18 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.conference_participant_list import ConferenceParticipantList  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.conference_participant_list_all_of import ConferenceParticipantListAllOf
+from freeclimb.model.conference_participant_result import ConferenceParticipantResult
+from freeclimb.model.pagination_model import PaginationModel
+globals()['ConferenceParticipantListAllOf'] = ConferenceParticipantListAllOf
+globals()['ConferenceParticipantResult'] = ConferenceParticipantResult
+globals()['PaginationModel'] = PaginationModel
+
+from freeclimb.model.conference_participant_list import ConferenceParticipantList  # noqa: E501
 
 class TestConferenceParticipantList(unittest.TestCase):
     """ConferenceParticipantList unit test stubs"""
@@ -29,33 +31,11 @@ class TestConferenceParticipantList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test ConferenceParticipantList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.conference_participant_list.ConferenceParticipantList()  # noqa: E501
-        if include_optional :
-            return ConferenceParticipantList(
-                total = 56, 
-                start = 56, 
-                end = 56, 
-                page = 56, 
-                num_pages = 56, 
-                page_size = 56, 
-                next_page_uri = '0', 
-                participants = [
-                    null
-                    ]
-            )
-        else :
-            return ConferenceParticipantList(
-        )
-
     def testConferenceParticipantList(self):
         """Test ConferenceParticipantList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = ConferenceParticipantList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

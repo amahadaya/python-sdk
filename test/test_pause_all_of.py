@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.pause_all_of import PauseAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.pause_all_of import PauseAllOf  # noqa: E501
 
 class TestPauseAllOf(unittest.TestCase):
     """PauseAllOf unit test stubs"""
@@ -29,25 +25,11 @@ class TestPauseAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PauseAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.pause_all_of.PauseAllOf()  # noqa: E501
-        if include_optional :
-            return PauseAllOf(
-                length = 56
-            )
-        else :
-            return PauseAllOf(
-                length = 56,
-        )
-
     def testPauseAllOf(self):
         """Test PauseAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PauseAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

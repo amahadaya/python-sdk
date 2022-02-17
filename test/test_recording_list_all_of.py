@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.recording_list_all_of import RecordingListAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.recording_result import RecordingResult
+globals()['RecordingResult'] = RecordingResult
+
+from freeclimb.model.recording_list_all_of import RecordingListAllOf  # noqa: E501
 
 class TestRecordingListAllOf(unittest.TestCase):
     """RecordingListAllOf unit test stubs"""
@@ -29,26 +27,11 @@ class TestRecordingListAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RecordingListAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.recording_list_all_of.RecordingListAllOf()  # noqa: E501
-        if include_optional :
-            return RecordingListAllOf(
-                recordings = [
-                    null
-                    ]
-            )
-        else :
-            return RecordingListAllOf(
-        )
-
     def testRecordingListAllOf(self):
         """Test RecordingListAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RecordingListAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

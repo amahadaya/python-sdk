@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.recording_result import RecordingResult  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.mutable_resource_model import MutableResourceModel
+from freeclimb.model.recording_result_all_of import RecordingResultAllOf
+globals()['MutableResourceModel'] = MutableResourceModel
+globals()['RecordingResultAllOf'] = RecordingResultAllOf
+
+from freeclimb.model.recording_result import RecordingResult  # noqa: E501
 
 class TestRecordingResult(unittest.TestCase):
     """RecordingResult unit test stubs"""
@@ -29,32 +29,11 @@ class TestRecordingResult(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RecordingResult
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.recording_result.RecordingResult()  # noqa: E501
-        if include_optional :
-            return RecordingResult(
-                uri = '0', 
-                date_created = '0', 
-                date_updated = '0', 
-                revision = 56, 
-                recording_id = '0', 
-                account_id = '0', 
-                call_id = '0', 
-                duration_sec = 56, 
-                conference_id = '0'
-            )
-        else :
-            return RecordingResult(
-        )
-
     def testRecordingResult(self):
         """Test RecordingResult"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RecordingResult()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

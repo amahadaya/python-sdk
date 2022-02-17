@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.queue_result_all_of import QueueResultAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.queue_result_all_of import QueueResultAllOf  # noqa: E501
 
 class TestQueueResultAllOf(unittest.TestCase):
     """QueueResultAllOf unit test stubs"""
@@ -29,30 +25,11 @@ class TestQueueResultAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test QueueResultAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.queue_result_all_of.QueueResultAllOf()  # noqa: E501
-        if include_optional :
-            return QueueResultAllOf(
-                account_id = '0', 
-                queue_id = '0', 
-                alias = '0', 
-                max_size = 56, 
-                current_size = '0', 
-                average_wait_time = '0', 
-                subresource_uris = None
-            )
-        else :
-            return QueueResultAllOf(
-        )
-
     def testQueueResultAllOf(self):
         """Test QueueResultAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = QueueResultAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

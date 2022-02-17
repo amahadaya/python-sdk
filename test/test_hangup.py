@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.hangup import Hangup  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.hangup_all_of import HangupAllOf
+from freeclimb.model.percl_command import PerclCommand
+globals()['HangupAllOf'] = HangupAllOf
+globals()['PerclCommand'] = PerclCommand
+
+from freeclimb.model.hangup import Hangup  # noqa: E501
 
 class TestHangup(unittest.TestCase):
     """Hangup unit test stubs"""
@@ -29,24 +29,11 @@ class TestHangup(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Hangup
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.hangup.Hangup()  # noqa: E501
-        if include_optional :
-            return Hangup(
-                reason = '0'
-            )
-        else :
-            return Hangup(
-        )
-
     def testHangup(self):
         """Test Hangup"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Hangup()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

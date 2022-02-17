@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,18 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.recording_list import RecordingList  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.pagination_model import PaginationModel
+from freeclimb.model.recording_list_all_of import RecordingListAllOf
+from freeclimb.model.recording_result import RecordingResult
+globals()['PaginationModel'] = PaginationModel
+globals()['RecordingListAllOf'] = RecordingListAllOf
+globals()['RecordingResult'] = RecordingResult
+
+from freeclimb.model.recording_list import RecordingList  # noqa: E501
 
 class TestRecordingList(unittest.TestCase):
     """RecordingList unit test stubs"""
@@ -29,33 +31,11 @@ class TestRecordingList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RecordingList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.recording_list.RecordingList()  # noqa: E501
-        if include_optional :
-            return RecordingList(
-                total = 56, 
-                start = 56, 
-                end = 56, 
-                page = 56, 
-                num_pages = 56, 
-                page_size = 56, 
-                next_page_uri = '0', 
-                recordings = [
-                    null
-                    ]
-            )
-        else :
-            return RecordingList(
-        )
-
     def testRecordingList(self):
         """Test RecordingList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RecordingList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

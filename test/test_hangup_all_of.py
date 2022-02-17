@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.hangup_all_of import HangupAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.hangup_all_of import HangupAllOf  # noqa: E501
 
 class TestHangupAllOf(unittest.TestCase):
     """HangupAllOf unit test stubs"""
@@ -29,24 +25,11 @@ class TestHangupAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test HangupAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.hangup_all_of.HangupAllOf()  # noqa: E501
-        if include_optional :
-            return HangupAllOf(
-                reason = '0'
-            )
-        else :
-            return HangupAllOf(
-        )
-
     def testHangupAllOf(self):
         """Test HangupAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = HangupAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.sms import Sms  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.sms_all_of import SmsAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['SmsAllOf'] = SmsAllOf
+
+from freeclimb.model.sms import Sms  # noqa: E501
 
 class TestSms(unittest.TestCase):
     """Sms unit test stubs"""
@@ -29,30 +29,11 @@ class TestSms(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Sms
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.sms.Sms()  # noqa: E501
-        if include_optional :
-            return Sms(
-                to = '0', 
-                _from = '0', 
-                text = '0', 
-                notification_url = '0'
-            )
-        else :
-            return Sms(
-                to = '0',
-                _from = '0',
-                text = '0',
-        )
-
     def testSms(self):
         """Test Sms"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Sms()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

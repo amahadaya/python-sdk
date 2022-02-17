@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.queue_list_all_of import QueueListAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.queue_result import QueueResult
+globals()['QueueResult'] = QueueResult
+
+from freeclimb.model.queue_list_all_of import QueueListAllOf  # noqa: E501
 
 class TestQueueListAllOf(unittest.TestCase):
     """QueueListAllOf unit test stubs"""
@@ -29,26 +27,11 @@ class TestQueueListAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test QueueListAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.queue_list_all_of.QueueListAllOf()  # noqa: E501
-        if include_optional :
-            return QueueListAllOf(
-                queues = [
-                    null
-                    ]
-            )
-        else :
-            return QueueListAllOf(
-        )
-
     def testQueueListAllOf(self):
         """Test QueueListAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = QueueListAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

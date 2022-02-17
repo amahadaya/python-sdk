@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.add_to_conference_all_of import AddToConferenceAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.add_to_conference_all_of import AddToConferenceAllOf  # noqa: E501
 
 class TestAddToConferenceAllOf(unittest.TestCase):
     """AddToConferenceAllOf unit test stubs"""
@@ -29,34 +25,11 @@ class TestAddToConferenceAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test AddToConferenceAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.add_to_conference_all_of.AddToConferenceAllOf()  # noqa: E501
-        if include_optional :
-            return AddToConferenceAllOf(
-                allow_call_control = True, 
-                call_control_sequence = '0', 
-                call_control_url = '0', 
-                conference_id = '0', 
-                call_id = True, 
-                leave_conference_url = '0', 
-                listen = True, 
-                notification_url = '0', 
-                start_conf_on_enter = True, 
-                talk = True
-            )
-        else :
-            return AddToConferenceAllOf(
-                conference_id = '0',
-        )
-
     def testAddToConferenceAllOf(self):
         """Test AddToConferenceAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = AddToConferenceAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

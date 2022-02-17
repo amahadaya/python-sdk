@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.redirect import Redirect  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.redirect_all_of import RedirectAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['RedirectAllOf'] = RedirectAllOf
+
+from freeclimb.model.redirect import Redirect  # noqa: E501
 
 class TestRedirect(unittest.TestCase):
     """Redirect unit test stubs"""
@@ -29,25 +29,11 @@ class TestRedirect(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Redirect
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.redirect.Redirect()  # noqa: E501
-        if include_optional :
-            return Redirect(
-                action_url = '0'
-            )
-        else :
-            return Redirect(
-                action_url = '0',
-        )
-
     def testRedirect(self):
         """Test Redirect"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Redirect()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.queue_member import QueueMember  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.queue_member import QueueMember  # noqa: E501
 
 class TestQueueMember(unittest.TestCase):
     """QueueMember unit test stubs"""
@@ -29,28 +25,11 @@ class TestQueueMember(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test QueueMember
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.queue_member.QueueMember()  # noqa: E501
-        if include_optional :
-            return QueueMember(
-                uri = '0', 
-                call_id = '0', 
-                wait_time = 56, 
-                position = 56, 
-                date_enqueued = '0'
-            )
-        else :
-            return QueueMember(
-        )
-
     def testQueueMember(self):
         """Test QueueMember"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = QueueMember()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

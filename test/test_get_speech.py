@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.get_speech import GetSpeech  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.get_speech_all_of import GetSpeechAllOf
+from freeclimb.model.percl_command import PerclCommand
+globals()['GetSpeechAllOf'] = GetSpeechAllOf
+globals()['PerclCommand'] = PerclCommand
+
+from freeclimb.model.get_speech import GetSpeech  # noqa: E501
 
 class TestGetSpeech(unittest.TestCase):
     """GetSpeech unit test stubs"""
@@ -29,40 +29,11 @@ class TestGetSpeech(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test GetSpeech
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.get_speech.GetSpeech()  # noqa: E501
-        if include_optional :
-            return GetSpeech(
-                action_url = '0', 
-                grammar_type = 56, 
-                grammar_file = '0', 
-                grammar_rule = True, 
-                play_beep = '0', 
-                prompts = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ], 
-                no_input_timeout_ms = 56, 
-                recognition_timeout_ms = 56, 
-                confidence_threshold = 1.337, 
-                sensitivity_level = 1.337, 
-                speech_complete_timeout_ms = 56, 
-                speech_incomplete_timeout_ms = 56, 
-                privacy_mode = True
-            )
-        else :
-            return GetSpeech(
-                action_url = '0',
-                grammar_file = '0',
-        )
-
     def testGetSpeech(self):
         """Test GetSpeech"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = GetSpeech()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

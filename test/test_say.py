@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.say import Say  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.say_all_of import SayAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['SayAllOf'] = SayAllOf
+
+from freeclimb.model.say import Say  # noqa: E501
 
 class TestSay(unittest.TestCase):
     """Say unit test stubs"""
@@ -29,29 +29,11 @@ class TestSay(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Say
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.say.Say()  # noqa: E501
-        if include_optional :
-            return Say(
-                text = '0', 
-                language = '0', 
-                loop = 56, 
-                conference_id = '0', 
-                privacy_mode = True
-            )
-        else :
-            return Say(
-                text = '0',
-        )
-
     def testSay(self):
         """Test Say"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Say()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

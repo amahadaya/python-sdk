@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.redirect_all_of import RedirectAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.redirect_all_of import RedirectAllOf  # noqa: E501
 
 class TestRedirectAllOf(unittest.TestCase):
     """RedirectAllOf unit test stubs"""
@@ -29,25 +25,11 @@ class TestRedirectAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RedirectAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.redirect_all_of.RedirectAllOf()  # noqa: E501
-        if include_optional :
-            return RedirectAllOf(
-                action_url = '0'
-            )
-        else :
-            return RedirectAllOf(
-                action_url = '0',
-        )
-
     def testRedirectAllOf(self):
         """Test RedirectAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RedirectAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

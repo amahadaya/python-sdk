@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.record_utterance import RecordUtterance  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.record_utterance_all_of import RecordUtteranceAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['RecordUtteranceAllOf'] = RecordUtteranceAllOf
+
+from freeclimb.model.record_utterance import RecordUtterance  # noqa: E501
 
 class TestRecordUtterance(unittest.TestCase):
     """RecordUtterance unit test stubs"""
@@ -29,31 +29,11 @@ class TestRecordUtterance(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RecordUtterance
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.record_utterance.RecordUtterance()  # noqa: E501
-        if include_optional :
-            return RecordUtterance(
-                action_url = '0', 
-                silence_timeout_ms = 56, 
-                finish_on_key = '0', 
-                max_length_sec = 56, 
-                play_beep = True, 
-                auto_start = True, 
-                privacy_mode = True
-            )
-        else :
-            return RecordUtterance(
-                action_url = '0',
-        )
-
     def testRecordUtterance(self):
         """Test RecordUtterance"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RecordUtterance()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':
