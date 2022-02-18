@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.message_result_all_of import MessageResultAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.message_result_all_of import MessageResultAllOf  # noqa: E501
 
 class TestMessageResultAllOf(unittest.TestCase):
     """MessageResultAllOf unit test stubs"""
@@ -29,31 +25,11 @@ class TestMessageResultAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test MessageResultAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.message_result_all_of.MessageResultAllOf()  # noqa: E501
-        if include_optional :
-            return MessageResultAllOf(
-                account_id = '0', 
-                message_id = '0', 
-                status = 'new', 
-                _from = '0', 
-                to = '0', 
-                text = '0', 
-                direction = '0', 
-                notification_url = '0'
-            )
-        else :
-            return MessageResultAllOf(
-        )
-
     def testMessageResultAllOf(self):
         """Test MessageResultAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = MessageResultAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

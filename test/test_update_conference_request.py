@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.update_conference_request import UpdateConferenceRequest  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.update_conference_request import UpdateConferenceRequest  # noqa: E501
 
 class TestUpdateConferenceRequest(unittest.TestCase):
     """UpdateConferenceRequest unit test stubs"""
@@ -29,26 +25,11 @@ class TestUpdateConferenceRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test UpdateConferenceRequest
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.update_conference_request.UpdateConferenceRequest()  # noqa: E501
-        if include_optional :
-            return UpdateConferenceRequest(
-                alias = '0', 
-                play_beep = 'always', 
-                status = 'empty'
-            )
-        else :
-            return UpdateConferenceRequest(
-        )
-
     def testUpdateConferenceRequest(self):
         """Test UpdateConferenceRequest"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = UpdateConferenceRequest()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

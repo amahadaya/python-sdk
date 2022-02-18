@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.message_request_all_of import MessageRequestAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.message_request_all_of import MessageRequestAllOf  # noqa: E501
 
 class TestMessageRequestAllOf(unittest.TestCase):
     """MessageRequestAllOf unit test stubs"""
@@ -29,31 +25,11 @@ class TestMessageRequestAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test MessageRequestAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.message_request_all_of.MessageRequestAllOf()  # noqa: E501
-        if include_optional :
-            return MessageRequestAllOf(
-                _from = '0', 
-                to = '0', 
-                text = '0', 
-                notification_url = '0', 
-                account_id = '0'
-            )
-        else :
-            return MessageRequestAllOf(
-                _from = '0',
-                to = '0',
-                text = '0',
-        )
-
     def testMessageRequestAllOf(self):
         """Test MessageRequestAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = MessageRequestAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

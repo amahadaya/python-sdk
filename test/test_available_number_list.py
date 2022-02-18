@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,18 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.available_number_list import AvailableNumberList  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.available_number import AvailableNumber
+from freeclimb.model.available_number_list_all_of import AvailableNumberListAllOf
+from freeclimb.model.pagination_model import PaginationModel
+globals()['AvailableNumber'] = AvailableNumber
+globals()['AvailableNumberListAllOf'] = AvailableNumberListAllOf
+globals()['PaginationModel'] = PaginationModel
+
+from freeclimb.model.available_number_list import AvailableNumberList  # noqa: E501
 
 class TestAvailableNumberList(unittest.TestCase):
     """AvailableNumberList unit test stubs"""
@@ -29,38 +31,11 @@ class TestAvailableNumberList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test AvailableNumberList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.available_number_list.AvailableNumberList()  # noqa: E501
-        if include_optional :
-            return AvailableNumberList(
-                total = 56, 
-                start = 56, 
-                end = 56, 
-                page = 56, 
-                num_pages = 56, 
-                page_size = 56, 
-                next_page_uri = '0', 
-                available_phone_numbers = [
-                    freeclimb.models.available_number.AvailableNumber(
-                        phone_number = '0', 
-                        voice_enabled = True, 
-                        sms_enabled = True, 
-                        region = '0', 
-                        country = '0', )
-                    ]
-            )
-        else :
-            return AvailableNumberList(
-        )
-
     def testAvailableNumberList(self):
         """Test AvailableNumberList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = AvailableNumberList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.send_digits_all_of import SendDigitsAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.send_digits_all_of import SendDigitsAllOf  # noqa: E501
 
 class TestSendDigitsAllOf(unittest.TestCase):
     """SendDigitsAllOf unit test stubs"""
@@ -29,27 +25,11 @@ class TestSendDigitsAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test SendDigitsAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.send_digits_all_of.SendDigitsAllOf()  # noqa: E501
-        if include_optional :
-            return SendDigitsAllOf(
-                digits = '0', 
-                pause_ms = 56, 
-                privacy_mode = True
-            )
-        else :
-            return SendDigitsAllOf(
-                digits = '0',
-        )
-
     def testSendDigitsAllOf(self):
         """Test SendDigitsAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = SendDigitsAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

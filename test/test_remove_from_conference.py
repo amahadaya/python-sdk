@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.remove_from_conference import RemoveFromConference  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.remove_from_conference_all_of import RemoveFromConferenceAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['RemoveFromConferenceAllOf'] = RemoveFromConferenceAllOf
+
+from freeclimb.model.remove_from_conference import RemoveFromConference  # noqa: E501
 
 class TestRemoveFromConference(unittest.TestCase):
     """RemoveFromConference unit test stubs"""
@@ -29,25 +29,11 @@ class TestRemoveFromConference(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RemoveFromConference
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.remove_from_conference.RemoveFromConference()  # noqa: E501
-        if include_optional :
-            return RemoveFromConference(
-                call_id = '0'
-            )
-        else :
-            return RemoveFromConference(
-                call_id = '0',
-        )
-
     def testRemoveFromConference(self):
         """Test RemoveFromConference"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RemoveFromConference()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

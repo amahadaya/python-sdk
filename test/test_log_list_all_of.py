@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.log_list_all_of import LogListAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.log_result import LogResult
+globals()['LogResult'] = LogResult
+
+from freeclimb.model.log_list_all_of import LogListAllOf  # noqa: E501
 
 class TestLogListAllOf(unittest.TestCase):
     """LogListAllOf unit test stubs"""
@@ -29,33 +27,11 @@ class TestLogListAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test LogListAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.log_list_all_of.LogListAllOf()  # noqa: E501
-        if include_optional :
-            return LogListAllOf(
-                logs = [
-                    freeclimb.models.log_result.LogResult(
-                        timestamp = 56, 
-                        level = 'info', 
-                        request_id = '0', 
-                        account_id = '0', 
-                        call_id = '0', 
-                        message = '0', 
-                        metadata = freeclimb.models.metadata.metadata(), )
-                    ]
-            )
-        else :
-            return LogListAllOf(
-        )
-
     def testLogListAllOf(self):
         """Test LogListAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = LogListAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

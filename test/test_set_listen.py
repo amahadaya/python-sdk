@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.set_listen import SetListen  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.set_listen_all_of import SetListenAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['SetListenAllOf'] = SetListenAllOf
+
+from freeclimb.model.set_listen import SetListen  # noqa: E501
 
 class TestSetListen(unittest.TestCase):
     """SetListen unit test stubs"""
@@ -29,26 +29,11 @@ class TestSetListen(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test SetListen
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.set_listen.SetListen()  # noqa: E501
-        if include_optional :
-            return SetListen(
-                call_id = '0', 
-                listen = True
-            )
-        else :
-            return SetListen(
-                call_id = '0',
-        )
-
     def testSetListen(self):
         """Test SetListen"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = SetListen()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

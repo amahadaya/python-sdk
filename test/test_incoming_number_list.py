@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,18 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.incoming_number_list import IncomingNumberList  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.incoming_number_list_all_of import IncomingNumberListAllOf
+from freeclimb.model.incoming_number_result import IncomingNumberResult
+from freeclimb.model.pagination_model import PaginationModel
+globals()['IncomingNumberListAllOf'] = IncomingNumberListAllOf
+globals()['IncomingNumberResult'] = IncomingNumberResult
+globals()['PaginationModel'] = PaginationModel
+
+from freeclimb.model.incoming_number_list import IncomingNumberList  # noqa: E501
 
 class TestIncomingNumberList(unittest.TestCase):
     """IncomingNumberList unit test stubs"""
@@ -29,33 +31,11 @@ class TestIncomingNumberList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test IncomingNumberList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.incoming_number_list.IncomingNumberList()  # noqa: E501
-        if include_optional :
-            return IncomingNumberList(
-                total = 56, 
-                start = 56, 
-                end = 56, 
-                page = 56, 
-                num_pages = 56, 
-                page_size = 56, 
-                next_page_uri = '0', 
-                incoming_phone_numbers = [
-                    null
-                    ]
-            )
-        else :
-            return IncomingNumberList(
-        )
-
     def testIncomingNumberList(self):
         """Test IncomingNumberList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = IncomingNumberList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

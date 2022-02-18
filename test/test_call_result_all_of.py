@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.call_result_all_of import CallResultAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.call_result_all_of import CallResultAllOf  # noqa: E501
 
 class TestCallResultAllOf(unittest.TestCase):
     """CallResultAllOf unit test stubs"""
@@ -29,38 +25,11 @@ class TestCallResultAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test CallResultAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.call_result_all_of.CallResultAllOf()  # noqa: E501
-        if include_optional :
-            return CallResultAllOf(
-                call_id = '0', 
-                parent_call_id = '0', 
-                account_id = '0', 
-                _from = '0', 
-                to = '0', 
-                phone_number_id = '0', 
-                status = 'queued', 
-                start_time = '0', 
-                connect_time = '0', 
-                end_time = '0', 
-                duration = 56, 
-                connect_duration = 56, 
-                direction = '0', 
-                answered_by = '0', 
-                subresource_uris = None
-            )
-        else :
-            return CallResultAllOf(
-        )
-
     def testCallResultAllOf(self):
         """Test CallResultAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = CallResultAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

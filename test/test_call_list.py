@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,18 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.call_list import CallList  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.call_list_all_of import CallListAllOf
+from freeclimb.model.call_result import CallResult
+from freeclimb.model.pagination_model import PaginationModel
+globals()['CallListAllOf'] = CallListAllOf
+globals()['CallResult'] = CallResult
+globals()['PaginationModel'] = PaginationModel
+
+from freeclimb.model.call_list import CallList  # noqa: E501
 
 class TestCallList(unittest.TestCase):
     """CallList unit test stubs"""
@@ -29,33 +31,11 @@ class TestCallList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test CallList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.call_list.CallList()  # noqa: E501
-        if include_optional :
-            return CallList(
-                total = 56, 
-                start = 56, 
-                end = 56, 
-                page = 56, 
-                num_pages = 56, 
-                page_size = 56, 
-                next_page_uri = '0', 
-                calls = [
-                    null
-                    ]
-            )
-        else :
-            return CallList(
-        )
-
     def testCallList(self):
         """Test CallList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = CallList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

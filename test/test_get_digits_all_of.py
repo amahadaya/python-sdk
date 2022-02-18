@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.get_digits_all_of import GetDigitsAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+globals()['PerclCommand'] = PerclCommand
+
+from freeclimb.model.get_digits_all_of import GetDigitsAllOf  # noqa: E501
 
 class TestGetDigitsAllOf(unittest.TestCase):
     """GetDigitsAllOf unit test stubs"""
@@ -29,35 +27,11 @@ class TestGetDigitsAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test GetDigitsAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.get_digits_all_of.GetDigitsAllOf()  # noqa: E501
-        if include_optional :
-            return GetDigitsAllOf(
-                action_url = '0', 
-                digit_timeout_ms = 56, 
-                finish_on_key = '0', 
-                flush_buffer = True, 
-                initial_timeout_ms = '0', 
-                max_digits = 56, 
-                min_digits = 56, 
-                prompts = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ], 
-                privacy_mode = True
-            )
-        else :
-            return GetDigitsAllOf(
-                action_url = '0',
-        )
-
     def testGetDigitsAllOf(self):
         """Test GetDigitsAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = GetDigitsAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

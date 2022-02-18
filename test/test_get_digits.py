@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.get_digits import GetDigits  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.get_digits_all_of import GetDigitsAllOf
+from freeclimb.model.percl_command import PerclCommand
+globals()['GetDigitsAllOf'] = GetDigitsAllOf
+globals()['PerclCommand'] = PerclCommand
+
+from freeclimb.model.get_digits import GetDigits  # noqa: E501
 
 class TestGetDigits(unittest.TestCase):
     """GetDigits unit test stubs"""
@@ -29,35 +29,11 @@ class TestGetDigits(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test GetDigits
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.get_digits.GetDigits()  # noqa: E501
-        if include_optional :
-            return GetDigits(
-                action_url = '0', 
-                digit_timeout_ms = 56, 
-                finish_on_key = '0', 
-                flush_buffer = True, 
-                initial_timeout_ms = '0', 
-                max_digits = 56, 
-                min_digits = 56, 
-                prompts = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ], 
-                privacy_mode = True
-            )
-        else :
-            return GetDigits(
-                action_url = '0',
-        )
-
     def testGetDigits(self):
         """Test GetDigits"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = GetDigits()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

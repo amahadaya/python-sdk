@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.reject import Reject  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.reject_all_of import RejectAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['RejectAllOf'] = RejectAllOf
+
+from freeclimb.model.reject import Reject  # noqa: E501
 
 class TestReject(unittest.TestCase):
     """Reject unit test stubs"""
@@ -29,24 +29,11 @@ class TestReject(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Reject
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.reject.Reject()  # noqa: E501
-        if include_optional :
-            return Reject(
-                reason = '0'
-            )
-        else :
-            return Reject(
-        )
-
     def testReject(self):
         """Test Reject"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Reject()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

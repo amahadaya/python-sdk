@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.make_call_request import MakeCallRequest  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.make_call_request import MakeCallRequest  # noqa: E501
 
 class TestMakeCallRequest(unittest.TestCase):
     """MakeCallRequest unit test stubs"""
@@ -29,35 +25,11 @@ class TestMakeCallRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test MakeCallRequest
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.make_call_request.MakeCallRequest()  # noqa: E501
-        if include_optional :
-            return MakeCallRequest(
-                _from = '0', 
-                to = '0', 
-                application_id = '0', 
-                send_digits = '0', 
-                if_machine = '0', 
-                if_machine_url = '0', 
-                timeout = 56, 
-                parent_call_id = '0', 
-                privacy_mode = True, 
-                call_connect_url = '0'
-            )
-        else :
-            return MakeCallRequest(
-                _from = '0',
-                to = '0',
-        )
-
     def testMakeCallRequest(self):
         """Test MakeCallRequest"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = MakeCallRequest()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

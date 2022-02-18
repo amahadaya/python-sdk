@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.out_dial import OutDial  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.out_dial_all_of import OutDialAllOf
+from freeclimb.model.percl_command import PerclCommand
+globals()['OutDialAllOf'] = OutDialAllOf
+globals()['PerclCommand'] = PerclCommand
+
+from freeclimb.model.out_dial import OutDial  # noqa: E501
 
 class TestOutDial(unittest.TestCase):
     """OutDial unit test stubs"""
@@ -29,37 +29,11 @@ class TestOutDial(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test OutDial
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.out_dial.OutDial()  # noqa: E501
-        if include_optional :
-            return OutDial(
-                action_url = '0', 
-                call_connect_url = '0', 
-                calling_number = 1.337, 
-                destination = 1.337, 
-                if_machine = '0', 
-                if_machine_url = '0', 
-                send_digits = '0', 
-                status_callback_url = '0', 
-                timeout = 56, 
-                privacy_mode = True
-            )
-        else :
-            return OutDial(
-                action_url = '0',
-                call_connect_url = '0',
-                calling_number = 1.337,
-                destination = 1.337,
-        )
-
     def testOutDial(self):
         """Test OutDial"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = OutDial()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

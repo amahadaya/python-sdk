@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.percl_script import PerclScript  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+globals()['PerclCommand'] = PerclCommand
+
+from freeclimb.model.percl_script import PerclScript  # noqa: E501
 
 class TestPerclScript(unittest.TestCase):
     """PerclScript unit test stubs"""
@@ -29,26 +27,11 @@ class TestPerclScript(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PerclScript
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.percl_script.PerclScript()  # noqa: E501
-        if include_optional :
-            return PerclScript(
-                commands = [
-                    freeclimb.models.percl_command.PerclCommand()
-                    ]
-            )
-        else :
-            return PerclScript(
-        )
-
     def testPerclScript(self):
         """Test PerclScript"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PerclScript()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

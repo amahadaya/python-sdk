@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.terminate_conference import TerminateConference  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.terminate_conference_all_of import TerminateConferenceAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['TerminateConferenceAllOf'] = TerminateConferenceAllOf
+
+from freeclimb.model.terminate_conference import TerminateConference  # noqa: E501
 
 class TestTerminateConference(unittest.TestCase):
     """TerminateConference unit test stubs"""
@@ -29,25 +29,11 @@ class TestTerminateConference(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test TerminateConference
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.terminate_conference.TerminateConference()  # noqa: E501
-        if include_optional :
-            return TerminateConference(
-                conference_id = '0'
-            )
-        else :
-            return TerminateConference(
-                conference_id = '0',
-        )
-
     def testTerminateConference(self):
         """Test TerminateConference"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = TerminateConference()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

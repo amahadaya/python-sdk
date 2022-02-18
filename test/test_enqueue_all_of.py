@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.enqueue_all_of import EnqueueAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.enqueue_all_of import EnqueueAllOf  # noqa: E501
 
 class TestEnqueueAllOf(unittest.TestCase):
     """EnqueueAllOf unit test stubs"""
@@ -29,30 +25,11 @@ class TestEnqueueAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test EnqueueAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.enqueue_all_of.EnqueueAllOf()  # noqa: E501
-        if include_optional :
-            return EnqueueAllOf(
-                action_url = '0', 
-                notification_url = '0', 
-                queue_id = '0', 
-                wait_url = '0'
-            )
-        else :
-            return EnqueueAllOf(
-                action_url = '0',
-                queue_id = '0',
-                wait_url = '0',
-        )
-
     def testEnqueueAllOf(self):
         """Test EnqueueAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = EnqueueAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

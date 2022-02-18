@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.record_utterance_all_of import RecordUtteranceAllOf  # noqa: E501
-from freeclimb.rest import ApiException
+
+from freeclimb.model.record_utterance_all_of import RecordUtteranceAllOf  # noqa: E501
 
 class TestRecordUtteranceAllOf(unittest.TestCase):
     """RecordUtteranceAllOf unit test stubs"""
@@ -29,31 +25,11 @@ class TestRecordUtteranceAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RecordUtteranceAllOf
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.record_utterance_all_of.RecordUtteranceAllOf()  # noqa: E501
-        if include_optional :
-            return RecordUtteranceAllOf(
-                action_url = '0', 
-                silence_timeout_ms = 56, 
-                finish_on_key = '0', 
-                max_length_sec = 56, 
-                play_beep = True, 
-                auto_start = True, 
-                privacy_mode = True
-            )
-        else :
-            return RecordUtteranceAllOf(
-                action_url = '0',
-        )
-
     def testRecordUtteranceAllOf(self):
         """Test RecordUtteranceAllOf"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RecordUtteranceAllOf()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

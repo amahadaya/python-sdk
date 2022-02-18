@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     FreeClimb API
 
@@ -11,14 +9,16 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import freeclimb
-from freeclimb.models.play import Play  # noqa: E501
-from freeclimb.rest import ApiException
+from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.play_all_of import PlayAllOf
+globals()['PerclCommand'] = PerclCommand
+globals()['PlayAllOf'] = PlayAllOf
+
+from freeclimb.model.play import Play  # noqa: E501
 
 class TestPlay(unittest.TestCase):
     """Play unit test stubs"""
@@ -29,28 +29,11 @@ class TestPlay(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Play
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = freeclimb.models.play.Play()  # noqa: E501
-        if include_optional :
-            return Play(
-                file = '0', 
-                loop = 56, 
-                conference_id = '0', 
-                privacy_mode = True
-            )
-        else :
-            return Play(
-                file = '0',
-        )
-
     def testPlay(self):
         """Test Play"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Play()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':
