@@ -264,5 +264,27 @@ class PerclScript(ModelNormal):
                                      f"class with read only attributes.")
 
 
+    def to_percl_dict(self, percl_command_inst):
+        if hasattr(percl_command_inst, 'command') == False:
+            raise ApiAttributeError("{0} has no attribute '{1}'".format(percl_command_inst.__class__.name, 'command'))
+        command = getattr(percl_command_inst, 'command')
+        attributes = [attribute for attribute in percl_command_inst.openapi_types if attribute != 'command']
+        attribute_map = {}
+        for attribute in attributes:
+            val = percl_command_inst.get(attribute)
+            if val is None:
+                continue
+            if hasattr(val, 'command'):
+                attribute_map[attribute] = self.to_percl_dict(val)
+                continue
+            if isinstance(val, list):
+                attribute_map[attribute] = [self.to_percl_dict(item) if hasattr(item, 'command') else item for item in val]
+                continue
+            attribute_map[attribute] = val 
+        percl_dict = {
+            command: attribute_map
+        }
+        return percl_dict
+
     def to_json(self):
-        return json.dumps([command.to_percl_dict() for command in self.commands])
+        return json.dumps([self.to_percl_dict(command) for command in self.commands])

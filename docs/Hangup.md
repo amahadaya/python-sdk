@@ -5,6 +5,7 @@ The `Hangup` command terminates a Call. If `Hangup` is used as the first action 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | **str** | The user defined reason for the hangup. In general, applications should use a set of enumerated values that are predefined to cover all exit points of the Call flows for the given application. | [optional] 
+**command** | **str** | Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

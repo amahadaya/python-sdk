@@ -5,6 +5,7 @@ The `Pause` command halts execution of the current PerCL script for a specified 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **length** | **int** | Length in milliseconds. FreeClimb will wait silently before continuing on. | 
+**command** | **str** | Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
