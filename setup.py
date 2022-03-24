@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "FreeClimb"
-VERSION = "4.0.0"
+VERSION = "4.0.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -29,7 +29,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="FreeClimb API",
-    author="OpenAPI Generator community",
+    author="FreeClimb API Support",
     author_email="support@freeclimb.com",
     url="https://freeclimb.com",
     keywords=["OpenAPI", "OpenAPI-Generator", "FreeClimb API"],

@@ -269,7 +269,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     account_id = "accountId_example" # str | ID of the account
     queue_request = QueueRequest(
         alias="alias_example",
-        max_size=1,
+        max_size=100,
     ) # QueueRequest | Queue details used to create a queue (optional)
 
     # example passing only required values which don't have defaults set
@@ -3035,7 +3035,7 @@ with freeclimb.ApiClient(configuration) as api_client:
         send_digits="send_digits_example",
         if_machine="if_machine_example",
         if_machine_url="if_machine_url_example",
-        timeout=1,
+        timeout=30,
         parent_call_id="parent_call_id_example",
         privacy_mode=True,
         call_connect_url="call_connect_url_example",
@@ -3634,7 +3634,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     queue_id = "queueId_example" # str | A string that uniquely identifies this Queue resource.
     queue_request = QueueRequest(
         alias="alias_example",
-        max_size=1,
+        max_size=100,
     ) # QueueRequest | Queue Details to update (optional)
 
     # example passing only required values which don't have defaults set
