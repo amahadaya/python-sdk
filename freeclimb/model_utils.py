@@ -253,11 +253,15 @@ class OpenApiModel(object):
         # The discriminator name is obtained from the discriminator meta-data
         # and the discriminator value is obtained from the input data.
         discr_propertyname_py = list(cls.discriminator.keys())[0]
-        discr_propertyname_js = cls.attribute_map[discr_propertyname_py]
+        discr_propertyname_js = cls.attribute_map.get(discr_propertyname_py)
+        cls_with_attr = [c for c in list(visited_composed_classes) + [cls] if hasattr(c, discr_propertyname_py)]
         if discr_propertyname_js in kwargs:
             discr_value = kwargs[discr_propertyname_js]
         elif discr_propertyname_py in kwargs:
             discr_value = kwargs[discr_propertyname_py]
+        elif len(cls_with_attr) > 0:
+            discr_value = getattr(cls_with_attr[0], discr_propertyname_py)
+            kwargs[discr_propertyname_py] = discr_value
         else:
             # The input data does not contain the discriminator property.
             path_to_item = kwargs.get('_path_to_item', ())
@@ -1675,7 +1679,7 @@ def model_to_dict(model_instance, serialize=True):
                 # we use get here because additional property key names do not
                 # exist in attribute_map
                 try:
-                    attr = model_instance.attribute_map[attr]
+                    attr = model_instance.attribute_map.get(attr)
                     py_to_json_map.update(model_instance.attribute_map)
                     seen_json_attribute_names.add(attr)
                 except KeyError:

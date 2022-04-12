@@ -139,7 +139,7 @@ class QueueRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             alias (str): Description for this Queue. Max length is 64 characters.. [optional]  # noqa: E501
-            max_size (int): Maximum number of calls this queue can hold. Default is 100. Maximum is 1000. **Note:** Reducing the maxSize of a Queue causes the Queue to reject incoming requests until it shrinks below the new value of maxSize.. [optional]  # noqa: E501
+            max_size (int): Maximum number of calls this queue can hold. Default is 100. Maximum is 1000. **Note:** Reducing the maxSize of a Queue causes the Queue to reject incoming requests until it shrinks below the new value of maxSize.. [optional] if omitted the server will use the default value of 100  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,7 +222,7 @@ class QueueRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             alias (str): Description for this Queue. Max length is 64 characters.. [optional]  # noqa: E501
-            max_size (int): Maximum number of calls this queue can hold. Default is 100. Maximum is 1000. **Note:** Reducing the maxSize of a Queue causes the Queue to reject incoming requests until it shrinks below the new value of maxSize.. [optional]  # noqa: E501
+            max_size (int): Maximum number of calls this queue can hold. Default is 100. Maximum is 1000. **Note:** Reducing the maxSize of a Queue causes the Queue to reject incoming requests until it shrinks below the new value of maxSize.. [optional] if omitted the server will use the default value of 100  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
