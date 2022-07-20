@@ -40,6 +40,7 @@ def lazy_import():
     from freeclimb.model.get_speech import GetSpeech
     from freeclimb.model.hangup import Hangup
     from freeclimb.model.out_dial import OutDial
+    from freeclimb.model.park import Park
     from freeclimb.model.pause import Pause
     from freeclimb.model.play import Play
     from freeclimb.model.play_early_media import PlayEarlyMedia
@@ -54,6 +55,7 @@ def lazy_import():
     from freeclimb.model.sms import Sms
     from freeclimb.model.start_record_call import StartRecordCall
     from freeclimb.model.terminate_conference import TerminateConference
+    from freeclimb.model.unpark import Unpark
     globals()['AddToConference'] = AddToConference
     globals()['CreateConference'] = CreateConference
     globals()['Dequeue'] = Dequeue
@@ -62,6 +64,7 @@ def lazy_import():
     globals()['GetSpeech'] = GetSpeech
     globals()['Hangup'] = Hangup
     globals()['OutDial'] = OutDial
+    globals()['Park'] = Park
     globals()['Pause'] = Pause
     globals()['Play'] = Play
     globals()['PlayEarlyMedia'] = PlayEarlyMedia
@@ -76,6 +79,7 @@ def lazy_import():
     globals()['Sms'] = Sms
     globals()['StartRecordCall'] = StartRecordCall
     globals()['TerminateConference'] = TerminateConference
+    globals()['Unpark'] = Unpark
 
 
 class PerclCommand(ModelNormal):
@@ -146,6 +150,7 @@ class PerclCommand(ModelNormal):
             'GetSpeech': GetSpeech,
             'Hangup': Hangup,
             'OutDial': OutDial,
+            'Park': Park,
             'Pause': Pause,
             'Play': Play,
             'PlayEarlyMedia': PlayEarlyMedia,
@@ -160,6 +165,7 @@ class PerclCommand(ModelNormal):
             'Sms': Sms,
             'StartRecordCall': StartRecordCall,
             'TerminateConference': TerminateConference,
+            'Unpark': Unpark,
         }
         if not val:
             return None

@@ -13,10 +13,54 @@ import sys
 import unittest
 
 import freeclimb
+from freeclimb.model.add_to_conference import AddToConference
+from freeclimb.model.create_conference import CreateConference
+from freeclimb.model.dequeue import Dequeue
+from freeclimb.model.enqueue import Enqueue
+from freeclimb.model.get_digits import GetDigits
+from freeclimb.model.get_speech import GetSpeech
+from freeclimb.model.hangup import Hangup
+from freeclimb.model.out_dial import OutDial
+from freeclimb.model.pause import Pause
 from freeclimb.model.pause_all_of import PauseAllOf
 from freeclimb.model.percl_command import PerclCommand
+from freeclimb.model.play import Play
+from freeclimb.model.play_early_media import PlayEarlyMedia
+from freeclimb.model.record_utterance import RecordUtterance
+from freeclimb.model.redirect import Redirect
+from freeclimb.model.reject import Reject
+from freeclimb.model.remove_from_conference import RemoveFromConference
+from freeclimb.model.say import Say
+from freeclimb.model.send_digits import SendDigits
+from freeclimb.model.set_listen import SetListen
+from freeclimb.model.set_talk import SetTalk
+from freeclimb.model.sms import Sms
+from freeclimb.model.start_record_call import StartRecordCall
+from freeclimb.model.terminate_conference import TerminateConference
+globals()['AddToConference'] = AddToConference
+globals()['CreateConference'] = CreateConference
+globals()['Dequeue'] = Dequeue
+globals()['Enqueue'] = Enqueue
+globals()['GetDigits'] = GetDigits
+globals()['GetSpeech'] = GetSpeech
+globals()['Hangup'] = Hangup
+globals()['OutDial'] = OutDial
+globals()['Pause'] = Pause
 globals()['PauseAllOf'] = PauseAllOf
 globals()['PerclCommand'] = PerclCommand
+globals()['Play'] = Play
+globals()['PlayEarlyMedia'] = PlayEarlyMedia
+globals()['RecordUtterance'] = RecordUtterance
+globals()['Redirect'] = Redirect
+globals()['Reject'] = Reject
+globals()['RemoveFromConference'] = RemoveFromConference
+globals()['Say'] = Say
+globals()['SendDigits'] = SendDigits
+globals()['SetListen'] = SetListen
+globals()['SetTalk'] = SetTalk
+globals()['Sms'] = Sms
+globals()['StartRecordCall'] = StartRecordCall
+globals()['TerminateConference'] = TerminateConference
 
 from freeclimb.model.pause import Pause  # noqa: E501
 
