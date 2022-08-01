@@ -1680,6 +1680,8 @@ def model_to_dict(model_instance, serialize=True):
                 # exist in attribute_map
                 try:
                     attr = model_instance.attribute_map.get(attr)
+                    if (attr == None):
+                        continue
                     py_to_json_map.update(model_instance.attribute_map)
                     seen_json_attribute_names.add(attr)
                 except KeyError:
