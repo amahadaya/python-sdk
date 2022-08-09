@@ -197,7 +197,7 @@ class Say(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             language (str): Language and (by implication) the locale to use. This implies the accent and pronunciations to be usde for the TTS. The complete list of valid values for the language attribute is shown below.. [optional]  # noqa: E501
-            loop (int): Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.. [optional]  # noqa: E501
+            loop (int): Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.. [optional] if omitted the server will use the default value of 1  # noqa: E501
             conference_id (str): D of the Conference the speech should be rendered to. If this is not specified, the speech is by default rendered to the Caller associated with the call leg that corresponds to the current PerCL execution context. The call leg associated with this command must be in the specified Conference or the command will return an error.. [optional]  # noqa: E501
             privacy_mode (bool): Parameter `privacyMode` will not log the `text` as required by PCI compliance.. [optional]  # noqa: E501
             command (str): Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments). [optional]  # noqa: E501
@@ -302,7 +302,7 @@ class Say(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             language (str): Language and (by implication) the locale to use. This implies the accent and pronunciations to be usde for the TTS. The complete list of valid values for the language attribute is shown below.. [optional]  # noqa: E501
-            loop (int): Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.. [optional]  # noqa: E501
+            loop (int): Number of times the text is said. Specifying '0' causes the `Say` action to loop until the Call is hung up.. [optional] if omitted the server will use the default value of 1  # noqa: E501
             conference_id (str): D of the Conference the speech should be rendered to. If this is not specified, the speech is by default rendered to the Caller associated with the call leg that corresponds to the current PerCL execution context. The call leg associated with this command must be in the specified Conference or the command will return an error.. [optional]  # noqa: E501
             privacy_mode (bool): Parameter `privacyMode` will not log the `text` as required by PCI compliance.. [optional]  # noqa: E501
             command (str): Name of PerCL Command (this is automatically derived from mapping configuration and should not be manually supplied in any arguments). [optional]  # noqa: E501
