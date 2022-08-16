@@ -7,6 +7,13 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [Unreleased]
 None
 
+<a name="4.0.2"></a>
+## [4.0.2] - 2022-08-09
+### Added
+- Added optional property `campaign_id`
+### Changed
+- Update default value for `loop` value in Say command to `1`
+
 <a name="4.0.0"></a>
 ## [4.0.0] - 2022-02-16
 ### Added
