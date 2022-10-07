@@ -57,6 +57,12 @@ class UpdateConferenceRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('play_beep',): {
+            'ALWAYS': "always",
+            'NEVER': "never",
+            'ENTRY_ONLY': "entryOnly",
+            'EXIT_ONLY': "exitOnly",
+        },
         ('status',): {
             'EMPTY': "empty",
             'TERMINATED': "terminated",

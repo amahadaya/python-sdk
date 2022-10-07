@@ -61,15 +61,15 @@ class ConferenceResultAllOf(ModelNormal):
             'None': None,
             'ALWAYS': "always",
             'NEVER': "never",
-            'ENTRYONLY': "entryOnly",
-            'EXITONLY': "exitOnly",
+            'ENTRY_ONLY': "entryOnly",
+            'EXIT_ONLY': "exitOnly",
         },
         ('status',): {
             'None': None,
             'CREATING': "creating",
             'EMPTY': "empty",
             'POPULATED': "populated",
-            'INPROGRESS': "inProgress",
+            'IN_PROGRESS': "inProgress",
             'TERMINATED': "terminated",
         },
     }

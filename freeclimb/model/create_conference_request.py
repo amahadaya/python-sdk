@@ -60,8 +60,8 @@ class CreateConferenceRequest(ModelNormal):
         ('play_beep',): {
             'ALWAYS': "always",
             'NEVER': "never",
-            'ENTRYONLY': "entryOnly",
-            'EXITONLY': "exitOnly",
+            'ENTRY_ONLY': "entryOnly",
+            'EXIT_ONLY': "exitOnly",
         },
     }
 

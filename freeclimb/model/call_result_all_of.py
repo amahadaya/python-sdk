@@ -61,12 +61,12 @@ class CallResultAllOf(ModelNormal):
             'None': None,
             'QUEUED': "queued",
             'RINGING': "ringing",
-            'INPROGRESS': "inProgress",
+            'IN_PROGRESS': "inProgress",
             'CANCELED': "canceled",
             'COMPLETED': "completed",
             'BUSY': "busy",
             'FAILED': "failed",
-            'NOANSWER': "noAnswer",
+            'NO_ANSWER': "noAnswer",
         },
     }
 
