@@ -2574,6 +2574,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     capabilities_toll_free = True # bool |  (optional)
     capabilities_ten_dlc = True # bool |  (optional)
     capabilities_short_code = True # bool |  (optional)
+    offnet = True # bool | Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -2587,7 +2588,7 @@ with freeclimb.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List Incoming Numbers
-        api_response = api_instance.list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code)
+        api_response = api_instance.list_incoming_numbers(account_id, phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, offnet=offnet)
         pprint(api_response)
     except freeclimb.ApiException as e:
         print("Exception when calling DefaultApi->list_incoming_numbers: %s\n" % e)
@@ -2612,6 +2613,7 @@ Name | Type | Description  | Notes
  **capabilities_toll_free** | **bool**|  | [optional]
  **capabilities_ten_dlc** | **bool**|  | [optional]
  **capabilities_short_code** | **bool**|  | [optional]
+ **offnet** | **bool**| Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. | [optional]
 
 ### Return type
 
