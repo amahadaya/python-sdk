@@ -1893,6 +1893,7 @@ class DefaultApi(object):
                     'capabilities_toll_free',
                     'capabilities_ten_dlc',
                     'capabilities_short_code',
+                    'offnet',
                 ],
                 'required': [
                     'account_id',
@@ -1938,6 +1939,8 @@ class DefaultApi(object):
                         (bool,),
                     'capabilities_short_code':
                         (bool,),
+                    'offnet':
+                        (bool,),
                 },
                 'attribute_map': {
                     'account_id': 'accountId',
@@ -1954,6 +1957,7 @@ class DefaultApi(object):
                     'capabilities_toll_free': 'capabilities.tollFree',
                     'capabilities_ten_dlc': 'capabilities.tenDLC',
                     'capabilities_short_code': 'capabilities.shortCode',
+                    'offnet': 'offnet',
                 },
                 'location_map': {
                     'account_id': 'path',
@@ -1970,6 +1974,7 @@ class DefaultApi(object):
                     'capabilities_toll_free': 'query',
                     'capabilities_ten_dlc': 'query',
                     'capabilities_short_code': 'query',
+                    'offnet': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -5533,6 +5538,7 @@ class DefaultApi(object):
             capabilities_toll_free (bool): [optional]
             capabilities_ten_dlc (bool): [optional]
             capabilities_short_code (bool): [optional]
+            offnet (bool): Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
