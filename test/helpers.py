@@ -55,6 +55,8 @@ class TestHelpers(object):
             return 'empty'
         if param == 'direction':
             return 'inbound'
+        if param == 'offnet':
+            return True
         return 'TEST_' + param.upper()
 
     @staticmethod
