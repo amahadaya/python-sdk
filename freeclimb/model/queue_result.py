@@ -98,8 +98,8 @@ class QueueResult(ModelComposed):
             'queue_id': (str, none_type,),  # noqa: E501
             'alias': (str, none_type,),  # noqa: E501
             'max_size': (int, none_type,),  # noqa: E501
-            'current_size': (str, none_type,),  # noqa: E501
-            'average_wait_time': (str, none_type,),  # noqa: E501
+            'current_size': (int, none_type,),  # noqa: E501
+            'average_queue_removal_time': (int, none_type,),  # noqa: E501
             'subresource_uris': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
@@ -118,7 +118,7 @@ class QueueResult(ModelComposed):
         'alias': 'alias',  # noqa: E501
         'max_size': 'maxSize',  # noqa: E501
         'current_size': 'currentSize',  # noqa: E501
-        'average_wait_time': 'averageWaitTime',  # noqa: E501
+        'average_queue_removal_time': 'averageQueueRemovalTime',  # noqa: E501
         'subresource_uris': 'subresourceUris',  # noqa: E501
     }
 
@@ -169,8 +169,8 @@ class QueueResult(ModelComposed):
             queue_id (str, none_type): A string that uniquely identifies this Queue resource.. [optional]  # noqa: E501
             alias (str, none_type): A description for this Queue.. [optional]  # noqa: E501
             max_size (int, none_type): The maximum number of Calls permitted in the Queue. Default is 100. Maximum is 1000.. [optional]  # noqa: E501
-            current_size (str, none_type): Count of Calls currently in the Queue.. [optional]  # noqa: E501
-            average_wait_time (str, none_type): Average wait time (in seconds) of all Calls in the Queue.. [optional]  # noqa: E501
+            current_size (int, none_type): Count of Calls currently in the Queue.. [optional]  # noqa: E501
+            average_queue_removal_time (int, none_type): The average amount of time (in seconds) for a call to be removed from the queue.. [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): List of subresources for this Queue (which includes Queue members).. [optional]  # noqa: E501
         """
 
@@ -279,8 +279,8 @@ class QueueResult(ModelComposed):
             queue_id (str, none_type): A string that uniquely identifies this Queue resource.. [optional]  # noqa: E501
             alias (str, none_type): A description for this Queue.. [optional]  # noqa: E501
             max_size (int, none_type): The maximum number of Calls permitted in the Queue. Default is 100. Maximum is 1000.. [optional]  # noqa: E501
-            current_size (str, none_type): Count of Calls currently in the Queue.. [optional]  # noqa: E501
-            average_wait_time (str, none_type): Average wait time (in seconds) of all Calls in the Queue.. [optional]  # noqa: E501
+            current_size (int, none_type): Count of Calls currently in the Queue.. [optional]  # noqa: E501
+            average_queue_removal_time (int, none_type): The average amount of time (in seconds) for a call to be removed from the queue.. [optional]  # noqa: E501
             subresource_uris ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): List of subresources for this Queue (which includes Queue members).. [optional]  # noqa: E501
         """
 

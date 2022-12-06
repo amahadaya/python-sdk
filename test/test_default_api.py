@@ -92,7 +92,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -123,7 +123,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -154,7 +154,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -185,7 +185,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -214,7 +214,7 @@ class TestDefaultApi(unittest.TestCase):
             fields=TestHelpers.serialize_query_params(query_params),
             headers={
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -243,7 +243,7 @@ class TestDefaultApi(unittest.TestCase):
             fields=TestHelpers.serialize_query_params(query_params),
             headers={
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -272,7 +272,7 @@ class TestDefaultApi(unittest.TestCase):
             fields=TestHelpers.serialize_query_params(query_params),
             headers={
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -304,7 +304,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -334,7 +334,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -364,7 +364,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'audio/x-wav',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -395,7 +395,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -425,7 +425,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -455,7 +455,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -487,7 +487,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -519,7 +519,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -549,7 +549,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -579,7 +579,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -607,7 +607,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -637,7 +637,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -667,7 +667,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -697,7 +697,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -727,7 +727,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -757,7 +757,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -785,7 +785,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -815,7 +815,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -861,7 +861,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -891,7 +891,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -923,7 +923,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -965,7 +965,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1001,7 +1001,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1057,7 +1057,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1087,7 +1087,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1121,7 +1121,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1155,7 +1155,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1193,7 +1193,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1224,7 +1224,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1255,7 +1255,7 @@ class TestDefaultApi(unittest.TestCase):
             fields=TestHelpers.serialize_query_params(query_params),
             headers={
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1286,7 +1286,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1316,7 +1316,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Accept':  'audio/x-wav',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1349,7 +1349,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1381,7 +1381,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1416,7 +1416,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1449,7 +1449,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1479,7 +1479,7 @@ class TestDefaultApi(unittest.TestCase):
             headers={
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1512,7 +1512,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None
@@ -1545,7 +1545,7 @@ class TestDefaultApi(unittest.TestCase):
                 'Accept':  'application/json',
                 'Content-Type':  'application/json',
                 'Authorization': self.auth_header,
-                'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+                'User-Agent': 'OpenAPI-Generator/4.0.6/python',
             },
             preload_content=True,
             timeout=None

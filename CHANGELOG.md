@@ -6,8 +6,13 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 None
-<a name="4.0.5"></a>
+<a name-"4.0.6"></a>
+## [4.0.6] - 2022-12-01
+### Changed
+ - Changed `QueueResult` property `current_size` from string to int
+ - Renamed `QueueResult` property `average_wait_time` to `average_queue_removal_time`
 
+<a name="4.0.5"></a>
 ## [4.0.5] - 2022-11-01
 ### Added
 - Add `offnet` property in IncomingNumber resource
