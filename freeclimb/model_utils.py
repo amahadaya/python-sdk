@@ -11,6 +11,7 @@
 
 from datetime import date, datetime  # noqa: F401
 from copy import deepcopy
+from enum import Enum
 import inspect
 import io
 import os
@@ -734,7 +735,8 @@ COERCION_INDEX_BY_TYPE = {
     datetime: 9,
     date: 10,
     str: 11,
-    file_type: 12,   # 'file_type' is an alias for the built-in 'file' or 'io.IOBase' type.
+    file_type: 12,
+    Enum: 13   # 'file_type' is an alias for the built-in 'file' or 'io.IOBase' type.
 }
 
 # these are used to limit what type conversions we try to do
@@ -1071,6 +1073,9 @@ def order_response_types(required_types):
         elif (inspect.isclass(class_or_instance)
                 and issubclass(class_or_instance, ModelSimple)):
             return COERCION_INDEX_BY_TYPE[ModelSimple]
+        elif (inspect.isclass(class_or_instance)
+                and issubclass(class_or_instance, Enum)):
+            return COERCION_INDEX_BY_TYPE[Enum]
         elif class_or_instance in COERCION_INDEX_BY_TYPE:
             return COERCION_INDEX_BY_TYPE[class_or_instance]
         raise ApiValueError("Unsupported type: %s" % class_or_instance)

@@ -95,8 +95,8 @@ class AccountResultAllOf(ModelNormal):
             'api_key': (str, none_type,),  # noqa: E501
             'alias': (str, none_type,),  # noqa: E501
             'label': (str, none_type,),  # noqa: E501
-            'type': (AccountType,),  # noqa: E501
-            'status': (AccountStatus,),  # noqa: E501
+            'type': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'subresource_uris': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 

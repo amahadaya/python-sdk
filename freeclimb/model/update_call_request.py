@@ -89,7 +89,7 @@ class UpdateCallRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (UpdateCallRequestStatus,),  # noqa: E501
+            'status': (str,),  # noqa: E501
         }
 
     @cached_property

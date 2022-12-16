@@ -832,10 +832,10 @@ class Endpoint(object):
 
         params = self.__gather_params(kwargs)
 
-        accept_headers_list = self.headers_map['accept']
-        if accept_headers_list:
-            params['header']['Accept'] = self.api_client.select_header_accept(
-                accept_headers_list)
+        # accept_headers_list = self.headers_map['accept']
+        # if accept_headers_list:
+        #     params['header']['Accept'] = self.api_client.select_header_accept(
+        #         accept_headers_list)
 
         if kwargs.get('_content_type'):
             params['header']['Content-Type'] = kwargs['_content_type']

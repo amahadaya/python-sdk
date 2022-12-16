@@ -92,8 +92,8 @@ class UpdateConferenceRequest(ModelNormal):
         lazy_import()
         return {
             'alias': (str,),  # noqa: E501
-            'play_beep': (PlayBeep,),  # noqa: E501
-            'status': (UpdateConferenceRequestStatus,),  # noqa: E501
+            'play_beep': (str,),  # noqa: E501
+            'status': (str,),  # noqa: E501
         }
 
     @cached_property
