@@ -14,6 +14,8 @@ import pprint
 import unittest
 from freeclimb.model.play_beep import PlayBeep
 from freeclimb.model.call_status import CallStatus
+from freeclimb.model.message_direction import MessageDirection
+from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
 from test.helpers import TestHelpers, MockPoolManager
 
 import freeclimb
@@ -683,11 +685,11 @@ class TestDefaultApi(unittest.TestCase):
         assert isinstance(api_response, RecordingResult)
         # self.api.get_a_recording(recording_id=recording_id)
 
-    # def test_get_an_account(self):
-    #     """Test case for get_an_account
+    def test_get_an_account(self):
+        """Test case for get_an_account
 
-    #     Get an Account  # noqa: E501
-    #     """
+        Get an Account  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -708,6 +710,9 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        account_id = "accountId_example" # str | ID of the account
+        api_response = self.api.get_an_account()
+        assert isinstance(api_response, AccountResult)
 
     #     self.api.get_an_account()
 
@@ -997,68 +1002,69 @@ class TestDefaultApi(unittest.TestCase):
         assert isinstance(api_response, AvailableNumberList)
     #     self.api.list_available_numbers(phone_number=phone_number,region=region,country=country,voice_enabled=voice_enabled,sms_enabled=sms_enabled,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code)
 
+    #Invalid type for variable 'status'. Required value type is CallStatus and passed type was str at ['status']
     def test_list_call_logs(self):
         """Test case for list_call_logs
 
         List Call Logs  # noqa: E501
         """
-        # query_params = {}
-        # path_params = {}
-        # body = None
-        # account_id = TestHelpers.build_path_param('account_id')
-        # path_params['accountId'] = account_id
-        # call_id = TestHelpers.build_path_param('call_id')
-        # path_params['callId'] = call_id
-        # url = TestHelpers.build_url('/Accounts/{accountId}/Calls/{callId}/Logs', path_params)
+    #     # query_params = {}
+    #     # path_params = {}
+    #     # body = None
+    #     # account_id = TestHelpers.build_path_param('account_id')
+    #     # path_params['accountId'] = account_id
+    #     # call_id = TestHelpers.build_path_param('call_id')
+    #     # path_params['callId'] = call_id
+    #     # url = TestHelpers.build_url('/Accounts/{accountId}/Calls/{callId}/Logs', path_params)
         
-        # self.mock_pool.expect_request(
-        #     'GET',
-        #     self.base_url + url,
-        #     body=body,
-        #     fields=TestHelpers.serialize_query_params(query_params),
-        #     headers={
-        #         'Accept':  'application/json',
-        #         'Authorization': self.auth_header,
-        #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-        #     },
-        #     preload_content=True,
-        #     timeout=None
-        # )
+    #     # self.mock_pool.expect_request(
+    #     #     'GET',
+    #     #     self.base_url + url,
+    #     #     body=body,
+    #     #     fields=TestHelpers.serialize_query_params(query_params),
+    #     #     headers={
+    #     #         'Accept':  'application/json',
+    #     #         'Authorization': self.auth_header,
+    #     #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+    #     #     },
+    #     #     preload_content=True,
+    #     #     timeout=None
+    #     # )
         call_id = "callId_example" # str | String that uniquely identifies this call resource.
         api_response = self.api.list_call_logs(call_id)
         assert isinstance(api_response, LogList)
         # self.api.list_call_logs(call_id=call_id)
         
-
+    
     def test_list_call_recordings(self):
         """Test case for list_call_recordings
 
         List Call Recordings  # noqa: E501
         """
-        # query_params = {}
-        # path_params = {}
-        # body = None
-        # account_id = TestHelpers.build_path_param('account_id')
-        # path_params['accountId'] = account_id
-        # call_id = TestHelpers.build_path_param('call_id')
-        # path_params['callId'] = call_id
-        # date_created = TestHelpers.build_query_param('date_created')
-        # query_params['dateCreated'] = date_created
-        # url = TestHelpers.build_url('/Accounts/{accountId}/Calls/{callId}/Recordings', path_params)
+    #     # query_params = {}
+    #     # path_params = {}
+    #     # body = None
+    #     # account_id = TestHelpers.build_path_param('account_id')
+    #     # path_params['accountId'] = account_id
+    #     # call_id = TestHelpers.build_path_param('call_id')
+    #     # path_params['callId'] = call_id
+    #     # date_created = TestHelpers.build_query_param('date_created')
+    #     # query_params['dateCreated'] = date_created
+    #     # url = TestHelpers.build_url('/Accounts/{accountId}/Calls/{callId}/Recordings', path_params)
         
-        # self.mock_pool.expect_request(
-        #     'GET',
-        #     self.base_url + url,
-        #     body=body,
-        #     fields=TestHelpers.serialize_query_params(query_params),
-        #     headers={
-        #         'Accept':  'application/json',
-        #         'Authorization': self.auth_header,
-        #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-        #     },
-        #     preload_content=True,
-        #     timeout=None
-        # )
+    #     # self.mock_pool.expect_request(
+    #     #     'GET',
+    #     #     self.base_url + url,
+    #     #     body=body,
+    #     #     fields=TestHelpers.serialize_query_params(query_params),
+    #     #     headers={
+    #     #         'Accept':  'application/json',
+    #     #         'Authorization': self.auth_header,
+    #     #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+    #     #     },
+    #     #     preload_content=True,
+    #     #     timeout=None
+    #     # )
 
         call_id = "callId_example" # str | String that uniquely identifies this call resource.
         date_created = "dateCreated_example" # str | Only show recordings created on the specified date, in the form *YYYY-MM-DD*. (optional)
@@ -1073,46 +1079,46 @@ class TestDefaultApi(unittest.TestCase):
 
     #     List Calls  # noqa: E501
     #     """
-    # #     query_params = {}
-    # #     path_params = {}
-    # #     body = None
-    # #     account_id = TestHelpers.build_path_param('account_id')
-    # #     path_params['accountId'] = account_id
-    # #     active = TestHelpers.build_query_param('active')
-    # #     query_params['active'] = active
-    # #     to = TestHelpers.build_query_param('to')
-    # #     query_params['to'] = to
-    # #     _from = TestHelpers.build_query_param('_from')
-    # #     query_params['_from'] = _from
-    # #     status = TestHelpers.build_query_param('statusEnum')
-    # #     query_params['status'] = status 
-    # #     start_time = TestHelpers.build_query_param('start_time')
-    # #     query_params['startTime'] = start_time
-    # #     end_time = TestHelpers.build_query_param('end_time')
-    # #     query_params['endTime'] = end_time
-    # #     parent_call_id = TestHelpers.build_query_param('parent_call_id')
-    # #     query_params['parentCallId'] = parent_call_id
-    # #     url = TestHelpers.build_url('/Accounts/{accountId}/Calls', path_params)
+    # # #     query_params = {}
+    # # #     path_params = {}
+    # # #     body = None
+    # # #     account_id = TestHelpers.build_path_param('account_id')
+    # # #     path_params['accountId'] = account_id
+    # # #     active = TestHelpers.build_query_param('active')
+    # # #     query_params['active'] = active
+    # # #     to = TestHelpers.build_query_param('to')
+    # # #     query_params['to'] = to
+    # # #     _from = TestHelpers.build_query_param('_from')
+    # # #     query_params['_from'] = _from
+    # # #     status = TestHelpers.build_query_param('statusEnum')
+    # # #     query_params['status'] = status 
+    # # #     start_time = TestHelpers.build_query_param('start_time')
+    # # #     query_params['startTime'] = start_time
+    # # #     end_time = TestHelpers.build_query_param('end_time')
+    # # #     query_params['endTime'] = end_time
+    # # #     parent_call_id = TestHelpers.build_query_param('parent_call_id')
+    # # #     query_params['parentCallId'] = parent_call_id
+    # # #     url = TestHelpers.build_url('/Accounts/{accountId}/Calls', path_params)
         
-    # #     self.mock_pool.expect_request(
-    # #         'GET',
-    # #         self.base_url + url,
-    # #         body=body,
-    # #         fields=TestHelpers.serialize_query_params(query_params),
-    # #         headers={
-    # #             'Accept':  'application/json',
-    # #             'Authorization': self.auth_header,
-    # #             'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-    # #         },
-    # #         preload_content=True,
-    # #         timeout=None
-    # #     )
+    # # #     self.mock_pool.expect_request(
+    # # #         'GET',
+    # # #         self.base_url + url,
+    # # #         body=body,
+    # # #         fields=TestHelpers.serialize_query_params(query_params),
+    # # #         headers={
+    # # #             'Accept':  'application/json',
+    # # #             'Authorization': self.auth_header,
+    # # #             'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+    # # #         },
+    # # #         preload_content=True,
+    # # #         timeout=None
+    # # #     )
 
     #     account_id = "accountId_example" # str | ID of the account
     #     active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
     #     to = "to_example" # str | Only show Calls to this phone number. (optional)
     #     _from = "from_example" # str | Only show Calls from this phone number. (optional)
-    #     status = json.dumps(CallStatus.QUEUED) # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
+    #     status = CallStatus.QUEUED # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
     #     start_time = "startTime_example" # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
     #     end_time = "endTime_example" # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
     #     parent_call_id = "parentCallId_example" # str | Only show Calls spawned by the call with this ID. (optional)
@@ -1123,7 +1129,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_list_conferences(self):
         """Test case for list_conferences
-
         List Conferences  # noqa: E501
         """
         # query_params = {}
@@ -1273,147 +1278,188 @@ class TestDefaultApi(unittest.TestCase):
         assert isinstance(api_response, QueueMemberList)
         # self.api.list_members(queue_id=queue_id)
 
-    # def test_list_participants(self):
-    #     """Test case for list_participants
+    #Bool has some problems here
+    def test_list_participants(self):
+        """Test case for list_participants
 
-    #     List Participants  # noqa: E501
-    #     """
-    #     query_params = {}
-    #     path_params = {}
-    #     body = None
-    #     account_id = TestHelpers.build_path_param('account_id')
-    #     path_params['accountId'] = account_id
-    #     conference_id = TestHelpers.build_path_param('conference_id')
-    #     path_params['conferenceId'] = conference_id
-    #     talk = TestHelpers.build_query_param('talk')
-    #     query_params['talk'] = talk
-    #     listen = TestHelpers.build_query_param('listen')
-    #     query_params['listen'] = listen
-    #     url = TestHelpers.build_url('/Accounts/{accountId}/Conferences/{conferenceId}/Participants', path_params)
+        List Participants  # noqa: E501
+        """
+        # query_params = {}
+        # path_params = {}
+        # body = None
+        # account_id = TestHelpers.build_path_param('account_id')
+        # path_params['accountId'] = account_id
+        # conference_id = TestHelpers.build_path_param('conference_id')
+        # path_params['conferenceId'] = conference_id
+        # talk = TestHelpers.build_query_param('talk')
+        # query_params['talk'] = talk
+        # listen = TestHelpers.build_query_param('listen')
+        # query_params['listen'] = listen
+        # url = TestHelpers.build_url('/Accounts/{accountId}/Conferences/{conferenceId}/Participants', path_params)
         
-    #     # self.mock_pool.expect_request(
-    #     #     'GET',
-    #     #     self.base_url + url,
-    #     #     body=body,
-    #     #     fields=TestHelpers.serialize_query_params(query_params),
-    #     #     headers={
-    #     #         'Accept':  'application/json',
-    #     #         'Authorization': self.auth_header,
-    #     #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-    #     #     },
-    #     #     preload_content=True,
-    #     #     timeout=None
-    #     # )
+        # self.mock_pool.expect_request(
+        #     'GET',
+        #     self.base_url + url,
+        #     body=body,
+        #     fields=TestHelpers.serialize_query_params(query_params),
+        #     headers={
+        #         'Accept':  'application/json',
+        #         'Authorization': self.auth_header,
+        #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+        #     },
+        #     preload_content=True,
+        #     timeout=None
+        # )
+        account_id = "accountId_example"
+        conference_id = "conferenceId_example" # str | ID of the conference this participant is in.
+        talk = True # bool | Only show Participants with the talk privilege. (optional)
+        listen = True # bool | Only show Participants with the listen privilege. (optional)
+
+        api_response = self.api.list_participants(conference_id)
+        assert isinstance(api_response, ConferenceParticipantList)
 
     #     self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen)
 
-    # def test_list_recordings(self):
-    #     """Test case for list_recordings
+    def test_list_recordings(self):
+        """Test case for list_recordings
 
-    #     List Recordings  # noqa: E501
-    #     """
-    #     query_params = {}
-    #     path_params = {}
-    #     body = None
-    #     account_id = TestHelpers.build_path_param('account_id')
-    #     path_params['accountId'] = account_id
-    #     call_id = TestHelpers.build_query_param('call_id')
-    #     query_params['callId'] = call_id
-    #     conference_id = TestHelpers.build_query_param('conference_id')
-    #     query_params['conferenceId'] = conference_id
-    #     date_created = TestHelpers.build_query_param('date_created')
-    #     query_params['dateCreated'] = date_created
-    #     url = TestHelpers.build_url('/Accounts/{accountId}/Recordings', path_params)
+        List Recordings  # noqa: E501
+        """
+        # query_params = {}
+        # path_params = {}
+        # body = None
+        # account_id = TestHelpers.build_path_param('account_id')
+        # path_params['accountId'] = account_id
+        # call_id = TestHelpers.build_query_param('call_id')
+        # query_params['callId'] = call_id
+        # conference_id = TestHelpers.build_query_param('conference_id')
+        # query_params['conferenceId'] = conference_id
+        # date_created = TestHelpers.build_query_param('date_created')
+        # query_params['dateCreated'] = date_created
+        # url = TestHelpers.build_url('/Accounts/{accountId}/Recordings', path_params)
         
-    #     # self.mock_pool.expect_request(
-    #     #     'GET',
-    #     #     self.base_url + url,
-    #     #     body=body,
-    #     #     fields=TestHelpers.serialize_query_params(query_params),
-    #     #     headers={
-    #     #         'Accept':  'application/json',
-    #     #         'Authorization': self.auth_header,
-    #     #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-    #     #     },
-    #     #     preload_content=True,
-    #     #     timeout=None
-    #     # )
+        # self.mock_pool.expect_request(
+        #     'GET',
+        #     self.base_url + url,
+        #     body=body,
+        #     fields=TestHelpers.serialize_query_params(query_params),
+        #     headers={
+        #         'Accept':  'application/json',
+        #         'Authorization': self.auth_header,
+        #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+        #     },
+        #     preload_content=True,
+        #     timeout=None
+        # )
 
-    #     self.api.list_recordings(call_id=call_id,conference_id=conference_id,date_created=date_created)
+        call_id = "callId_example" # str | Show only Recordings made during the Call with this ID. (optional)
+        conference_id = "conferenceId_example" # str | Show only Recordings made during the conference with this ID. (optional)
+        date_created = "dateCreated_example" # str | Only show Recordings created on this date, formatted as *YYYY-MM-DD*. (optional)
 
+   
+        api_response = self.api.list_recordings(call_id=call_id, conference_id=conference_id, date_created=date_created)
+        assert isinstance(api_response, RecordingList)
+        # self.api.list_recordings(call_id=call_id,conference_id=conference_id,date_created=date_created)
+
+    # Invalid type for variable 'direction'. Required value type is MessageDirection and passed type was MessageDirection at ['direction']
     # def test_list_sms_messages(self):
     #     """Test case for list_sms_messages
 
     #     List SMS Messages  # noqa: E501
     #     """
-    #     query_params = {}
-    #     path_params = {}
-    #     body = None
-    #     account_id = TestHelpers.build_path_param('account_id')
-    #     path_params['accountId'] = account_id
-    #     to = TestHelpers.build_query_param('to')
-    #     query_params['to'] = to
-    #     _from = TestHelpers.build_query_param('_from')
-    #     query_params['_from'] = _from
-    #     begin_time = TestHelpers.build_query_param('begin_time')
-    #     query_params['beginTime'] = begin_time
-    #     end_time = TestHelpers.build_query_param('end_time')
-    #     query_params['endTime'] = end_time
-    #     direction = TestHelpers.build_query_param('direction')
-    #     query_params['direction'] = direction
-    #     url = TestHelpers.build_url('/Accounts/{accountId}/Messages', path_params)
+        # query_params = {}
+        # path_params = {}
+        # body = None
+        # account_id = TestHelpers.build_path_param('account_id')
+        # path_params['accountId'] = account_id
+        # to = TestHelpers.build_query_param('to')
+        # query_params['to'] = to
+        # _from = TestHelpers.build_query_param('_from')
+        # query_params['_from'] = _from
+        # begin_time = TestHelpers.build_query_param('begin_time')
+        # query_params['beginTime'] = begin_time
+        # end_time = TestHelpers.build_query_param('end_time')
+        # query_params['endTime'] = end_time
+        # direction = TestHelpers.build_query_param('direction')
+        # query_params['direction'] = direction
+        # url = TestHelpers.build_url('/Accounts/{accountId}/Messages', path_params)
         
-    #     # self.mock_pool.expect_request(
-    #     #     'GET',
-    #     #     self.base_url + url,
-    #     #     body=body,
-    #     #     fields=TestHelpers.serialize_query_params(query_params),
-    #     #     headers={
-    #     #         'Accept':  'application/json',
-    #     #         'Authorization': self.auth_header,
-    #     #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-    #     #     },
-    #     #     preload_content=True,
-    #     #     timeout=None
-    #     # )
+        # self.mock_pool.expect_request(
+        #     'GET',
+        #     self.base_url + url,
+        #     body=body,
+        #     fields=TestHelpers.serialize_query_params(query_params),
+        #     headers={
+        #         'Accept':  'application/json',
+        #         'Authorization': self.auth_header,
+        #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+        #     },
+        #     preload_content=True,
+        #     timeout=None
+        # )
 
-    #     self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction)
+        # account_id = "accountId_example" # str | ID of the account
+        # to = "to_example" # str | Only show Messages to this phone number. (optional)
+        # _from = "from_example" # str | Only show Messages from this phone number. (optional)
+        # begin_time = "beginTime_example" # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
+        # end_time = "endTime_example" # str | Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. (optional)
+        # direction = MessageDirection.INBOUND # MessageDirection | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
 
-    # def test_make_a_call(self):
-    #     """Test case for make_a_call
+        # api_response = self.api.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
+        # assert isinstance(api_response, MessagesList)  
+        # self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction)
 
-    #     Make a Call  # noqa: E501
-    #     """
-    #     query_params = {}
-    #     path_params = {}
-    #     body = None
-    #     account_id = TestHelpers.build_path_param('account_id')
-    #     path_params['accountId'] = account_id
-    #     make_call_request = TestHelpers.build_body_param('make_call_request', MakeCallRequest)
-    #     body = TestHelpers.serialize_body_param(make_call_request)
-    #     url = TestHelpers.build_url('/Accounts/{accountId}/Calls', path_params)
+    def test_make_a_call(self):
+        """Test case for make_a_call
+
+        Make a Call  # noqa: E501
+        """
+        # query_params = {}
+        # path_params = {}
+        # body = None
+        # account_id = TestHelpers.build_path_param('account_id')
+        # path_params['accountId'] = account_id
+        # make_call_request = TestHelpers.build_body_param('make_call_request', MakeCallRequest)
+        # body = TestHelpers.serialize_body_param(make_call_request)
+        # url = TestHelpers.build_url('/Accounts/{accountId}/Calls', path_params)
         
-    #     # self.mock_pool.expect_request(
-    #     #     'POST',
-    #     #     self.base_url + url,
-    #     #     body=body,
-    #     #     fields=TestHelpers.serialize_query_params(query_params),
-    #     #     headers={
-    #     #         'Accept':  'application/json',
-    #     #         'Content-Type':  'application/json',
-    #     #         'Authorization': self.auth_header,
-    #     #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
-    #     #     },
-    #     #     preload_content=True,
-    #     #     timeout=None
-    #     # )
+        # self.mock_pool.expect_request(
+        #     'POST',
+        #     self.base_url + url,
+        #     body=body,
+        #     fields=TestHelpers.serialize_query_params(query_params),
+        #     headers={
+        #         'Accept':  'application/json',
+        #         'Content-Type':  'application/json',
+        #         'Authorization': self.auth_header,
+        #         'User-Agent': 'OpenAPI-Generator/4.0.5/python',
+        #     },
+        #     preload_content=True,
+        #     timeout=None
+        # )
 
+        make_call_request = MakeCallRequest(
+        _from="_from_example",
+        to="to_example",
+        application_id="application_id_example",
+        send_digits="send_digits_example",
+        if_machine="if_machine_example",
+        if_machine_url="if_machine_url_example",
+        timeout=30,
+        parent_call_id="parent_call_id_example",
+        privacy_mode=True,
+        call_connect_url="call_connect_url_example",
+    ) # MakeCallRequest | Call details for making a call (optional)
+
+    
+        api_response = self.api.make_a_call(make_call_request=make_call_request)
+        assert isinstance(api_response, CallResult)  
     #     self.api.make_a_call(make_call_request=make_call_request)
 
-    # def test_remove_a_participant(self):
-    #     """Test case for remove_a_participant
+    def test_remove_a_participant(self):
+        """Test case for remove_a_participant
 
-    #     Remove a Participant  # noqa: E501
+        Remove a Participant  # noqa: E501
     #     """
     #     query_params = {}
     #     path_params = {}
@@ -1439,13 +1485,18 @@ class TestDefaultApi(unittest.TestCase):
     #     #     timeout=None
     #     # )
 
+        conference_id = "conferenceId_example" # str | ID of the conference this participant is in.
+        call_id = "callId_example" # str | ID of the Call associated with this participant.
+
+        api_response = self.api.remove_a_participant(conference_id, call_id)
+
     #     self.api.remove_a_participant(conference_id=conference_id,call_id=call_id)
 
-    # def test_send_an_sms_message(self):
-    #     """Test case for send_an_sms_message
+    def test_send_an_sms_message(self):
+        """Test case for send_an_sms_message
 
-    #     Send an SMS Message  # noqa: E501
-    #     """
+        Send an SMS Message  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1469,14 +1520,21 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        message_request = MessageRequest(
+            _from="_from_example",
+            to="to_example",
+            text="Example Text",
+        ) # MessageRequest | Details to create a message
+        api_response = self.api.send_an_sms_message(message_request)
+        assert isinstance(api_response, MessageResult)
 
     #     self.api.send_an_sms_message(message_request=message_request)
 
-    # def test_stream_a_recording_file(self):
-    #     """Test case for stream_a_recording_file
+    def test_stream_a_recording_file(self):
+        """Test case for stream_a_recording_file
 
-    #     Stream a Recording File  # noqa: E501
-    #     """
+        Stream a Recording File  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1532,14 +1590,16 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        recording_id = "recordingId_example" # str | String that uniquely identifies this recording resource.
+        api_response = self.api.stream_a_recording_file(recording_id)
 
     #     self.api.update_a_conference(conference_id=conference_id,update_conference_request=update_conference_request)
 
-    # def test_update_a_live_call(self):
-    #     """Test case for update_a_live_call
+    def test_update_a_live_call(self):
+        """Test case for update_a_live_call
 
-    #     Update a Live Call  # noqa: E501
-    #     """
+        Update a Live Call  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1564,14 +1624,19 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        call_id = "callId_example" # str | String that uniquely identifies this call resource.
+        update_call_request = UpdateCallRequest(
+            status=UpdateCallRequestStatus.CANCELED,
+        ) 
+        api_response=self.api.update_a_live_call(call_id, update_call_request)
 
     #     self.api.update_a_live_call(call_id=call_id,update_call_request=update_call_request)
 
-    # def test_update_a_participant(self):
-    #     """Test case for update_a_participant
+    def test_update_a_participant(self):
+        """Test case for update_a_participant
 
-    #     Update a Participant  # noqa: E501
-    #     """
+        Update a Participant  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1599,14 +1664,23 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        conference_id = "conferenceId_example" # str | ID of the conference this participant is in.
+        call_id = "callId_example" # str | ID of the Call associated with this participant.
+        update_conference_participant_request = UpdateConferenceParticipantRequest(
+            talk=True,
+            listen=True,
+        ) # UpdateConferenceParticipantRequest | Conference participant details to update (optional)
 
+        
+        api_response = self.api.update_a_participant(conference_id, call_id, update_conference_participant_request=update_conference_participant_request)
+        assert isinstance(api_response, ConferenceParticipantResult)
     #     self.api.update_a_participant(conference_id=conference_id,call_id=call_id,update_conference_participant_request=update_conference_participant_request)
 
-    # def test_update_a_queue(self):
-    #     """Test case for update_a_queue
+    def test_update_a_queue(self):
+        """Test case for update_a_queue
 
-    #     Update a Queue  # noqa: E501
-    #     """
+        Update a Queue  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1632,14 +1706,20 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
-
+        queue_id = "queueId_example" # str | A string that uniquely identifies this Queue resource.
+        queue_request = QueueRequest(
+            alias="alias_example",
+            max_size=100,
+        ) # QueueRequest | Queue Details to update (optional)
+        api_response = self.api.update_a_queue(queue_id, queue_request=queue_request)
+        assert isinstance(api_response, QueueResult)
     #     self.api.update_a_queue(queue_id=queue_id,queue_request=queue_request)
 
-    # def test_update_an_account(self):
-    #     """Test case for update_an_account
+    def test_update_an_account(self):
+        """Test case for update_an_account
 
-    #     Manage an account  # noqa: E501
-    #     """
+        Manage an account  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1662,14 +1742,20 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        account_request = AccountRequest(
+        alias="alias_example",
+        label="label_example",
+        ) 
+        api_response=self.api.update_an_account(account_request=account_request)
+
 
     #     self.api.update_an_account(account_request=account_request)
 
-    # def test_update_an_application(self):
-    #     """Test case for update_an_application
+    def test_update_an_application(self):
+        """Test case for update_an_application
 
-    #     Update an application  # noqa: E501
-    #     """
+        Update an application  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1695,14 +1781,26 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        application_id = "applicationId_example" # str | A string that uniquely identifies this application resource.
+        application_request = ApplicationRequest(
+            alias="alias_example",
+            voice_url="voice_url_example",
+            voice_fallback_url="voice_fallback_url_example",
+            call_connect_url="call_connect_url_example",
+            status_callback_url="status_callback_url_example",
+            sms_url="sms_url_example",
+            sms_fallback_url="sms_fallback_url_example",
+        ) 
+        api_response = self.api.update_an_application(application_id, application_request=application_request)
+        assert isinstance(api_response, ApplicationResult)
 
     #     self.api.update_an_application(application_id=application_id,application_request=application_request)
 
-    # def test_update_an_incoming_number(self):
-    #     """Test case for update_an_incoming_number
+    def test_update_an_incoming_number(self):
+        """Test case for update_an_incoming_number
 
-    #     Update an Incoming Number  # noqa: E501
-    #     """
+        Update an Incoming Number  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1728,7 +1826,13 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
-
+        phone_number_id = "phoneNumberId_example"
+        incoming_number_request = IncomingNumberRequest(
+            application_id="application_id_example",
+            alias="alias_example",
+        ) 
+        api_response = self.api.update_an_incoming_number(phone_number_id, incoming_number_request=incoming_number_request)
+        assert isinstance(api_response, IncomingNumberResult)
     #     self.api.update_an_incoming_number(phone_number_id=phone_number_id,incoming_number_request=incoming_number_request)
 
 

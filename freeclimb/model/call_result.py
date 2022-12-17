@@ -106,7 +106,7 @@ class CallResult(ModelComposed):
             '_from': (str, none_type,),  # noqa: E501
             'to': (str, none_type,),  # noqa: E501
             'phone_number_id': (str, none_type,),  # noqa: E501
-            'status': (CallStatus,),  # noqa: E501
+            'status': (CallStatus, str,),  # noqa: E501
             'start_time': (str, none_type,),  # noqa: E501
             'connect_time': (str, none_type,),  # noqa: E501
             'end_time': (str, none_type,),  # noqa: E501

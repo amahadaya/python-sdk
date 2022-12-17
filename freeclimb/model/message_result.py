@@ -34,9 +34,11 @@ from freeclimb.exceptions import ApiAttributeError
 def lazy_import():
     from freeclimb.model.message_result_all_of import MessageResultAllOf
     from freeclimb.model.message_status import MessageStatus
+    from freeclimb.model.message_direction import MessageDirection
     from freeclimb.model.mutable_resource_model import MutableResourceModel
     globals()['MessageResultAllOf'] = MessageResultAllOf
     globals()['MessageStatus'] = MessageStatus
+    globals()['MessageDirection'] = MessageDirection
     globals()['MutableResourceModel'] = MutableResourceModel
 
 class MessageResult(ModelComposed):
@@ -98,11 +100,11 @@ class MessageResult(ModelComposed):
             'revision': (int,),  # noqa: E501
             'account_id': (str, none_type,),  # noqa: E501
             'message_id': (str, none_type,),  # noqa: E501
-            'status': (MessageStatus,),  # noqa: E501
+            'status': (MessageStatus, str),  # noqa: E501
             '_from': (str, none_type,),  # noqa: E501
             'to': (str, none_type,),  # noqa: E501
             'text': (str, none_type,),  # noqa: E501
-            'direction': (str, none_type,),  # noqa: E501
+            'direction': (MessageDirection, str,),  # noqa: E501
             'notification_url': (str, none_type,),  # noqa: E501
         }
 
