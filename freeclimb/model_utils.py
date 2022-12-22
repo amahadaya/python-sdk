@@ -11,8 +11,6 @@
 
 from datetime import date, datetime  # noqa: F401
 from copy import deepcopy
-from enum import Enum
-import enum
 import inspect
 import io
 import os
@@ -29,7 +27,6 @@ from freeclimb.exceptions import (
     ApiTypeError,
     ApiValueError,
 )
-from freeclimb.model.call_status import CallStatus
 
 none_type = type(None)
 file_type = io.IOBase
@@ -737,8 +734,7 @@ COERCION_INDEX_BY_TYPE = {
     datetime: 9,
     date: 10,
     str: 11,
-    file_type: 12,
-    Enum: 13   # 'file_type' is an alias for the built-in 'file' or 'io.IOBase' type.
+    file_type: 12,   # 'file_type' is an alias for the built-in 'file' or 'io.IOBase' type.
 }
 
 # these are used to limit what type conversions we try to do
@@ -838,8 +834,6 @@ def get_simple_class(input_value):
         return date
     elif isinstance(input_value, str):
         return str
-    elif isinstance(input_value, Enum):
-        return Enum
     return type(input_value)
 
 
@@ -1077,9 +1071,6 @@ def order_response_types(required_types):
         elif (inspect.isclass(class_or_instance)
                 and issubclass(class_or_instance, ModelSimple)):
             return COERCION_INDEX_BY_TYPE[ModelSimple]
-        elif (inspect.isclass(class_or_instance)
-                and issubclass(class_or_instance, Enum)):
-            return COERCION_INDEX_BY_TYPE[Enum]
         elif class_or_instance in COERCION_INDEX_BY_TYPE:
             return COERCION_INDEX_BY_TYPE[class_or_instance]
         raise ApiValueError("Unsupported type: %s" % class_or_instance)
@@ -1113,12 +1104,11 @@ def remove_uncoercible(required_types_classes, current_item, spec_property_namin
         (list): the remaining coercible required types, classes only
     """
     current_type_simple = get_simple_class(current_item)
+
     results_classes = []
     for required_type_class in required_types_classes:
         # convert our models to OpenApiModel
         required_type_class_simplified = required_type_class
-        print(required_type_class_simplified)
-        print(current_type_simple)
         if isinstance(required_type_class_simplified, type):
             if issubclass(required_type_class_simplified, ModelComposed):
                 required_type_class_simplified = ModelComposed
@@ -1579,12 +1569,9 @@ def validate_and_convert_types(input_value, required_types_mixed, path_to_item,
     """
     results = get_required_type_classes(required_types_mixed, spec_property_naming)
     valid_classes, child_req_types_by_current_type = results
-    print(input_value)
+
     input_class_simple = get_simple_class(input_value)
-    print(input_class_simple)
-    print(valid_classes)
     valid_type = is_valid_type(input_class_simple, valid_classes)
-    print(valid_type)
     if not valid_type:
         if configuration:
             # if input_value is not valid_type try to convert it

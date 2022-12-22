@@ -106,14 +106,14 @@ class CallResult(ModelComposed):
             '_from': (str, none_type,),  # noqa: E501
             'to': (str, none_type,),  # noqa: E501
             'phone_number_id': (str, none_type,),  # noqa: E501
-            'status': (CallStatus, str,),  # noqa: E501
+            'status': (CallStatus,),  # noqa: E501
             'start_time': (str, none_type,),  # noqa: E501
             'connect_time': (str, none_type,),  # noqa: E501
             'end_time': (str, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
             'connect_duration': (int, none_type,),  # noqa: E501
-            'direction': (CallDirection, str,),  # noqa: E501
-            'answered_by': (AnsweredBy, str,),  # noqa: E501
+            'direction': (CallDirection,),  # noqa: E501
+            'answered_by': (AnsweredBy,),  # noqa: E501
             'subresource_uris': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 

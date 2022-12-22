@@ -90,7 +90,7 @@ class CreateConferenceRequest(ModelNormal):
         lazy_import()
         return {
             'alias': (str,),  # noqa: E501
-            'play_beep': (PlayBeep, str,),  # noqa: E501
+            'play_beep': (PlayBeep,),  # noqa: E501
             'record': (bool,),  # noqa: E501
             'wait_url': (str,),  # noqa: E501
             'status_callback_url': (str,),  # noqa: E501

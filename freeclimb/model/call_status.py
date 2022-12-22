@@ -9,18 +9,39 @@
 """
 
 
-from enum import Enum
 import re  # noqa: F401
 import sys  # noqa: F401
 
+from freeclimb.model_utils import (  # noqa: F401
+    ApiTypeError,
+    ModelComposed,
+    ModelNormal,
+    ModelSimple,
+    cached_property,
+    change_keys_js_to_python,
+    convert_js_args_to_python_args,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_get_composed_info,
+    OpenApiModel
+)
+from freeclimb.exceptions import ApiAttributeError
+
+
+
+from enum import Enum
+
+# class syntax
 class CallStatus(str, Enum):
-   QUEUED="queued"
-   RINGING="ringing"
-   IN_PROGRESS="inProgress"
-   CANCELED="cancelled"
-   COMPLETED="completed"
-   FAILED="failed"
-   BUSY="busy"
-   NO_ANSWER="noAnswer"
+    QUEUED= "queued",
+    RINGING= "ringing",
+    IN_PROGRESS= "inProgress",
+    CANCELED= "canceled",
+    COMPLETED= "completed",
+    FAILED= "failed",
+    BUSY= "busy",
+    NO_ANSWER= "noAnswer",
 
 

@@ -9,7 +9,6 @@
 """
 
 
-import json
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -5393,7 +5392,6 @@ class DefaultApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )

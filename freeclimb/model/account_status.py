@@ -9,13 +9,34 @@
 """
 
 
-from enum import Enum
 import re  # noqa: F401
 import sys  # noqa: F401
 
+from freeclimb.model_utils import (  # noqa: F401
+    ApiTypeError,
+    ModelComposed,
+    ModelNormal,
+    ModelSimple,
+    cached_property,
+    change_keys_js_to_python,
+    convert_js_args_to_python_args,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_get_composed_info,
+    OpenApiModel
+)
+from freeclimb.exceptions import ApiAttributeError
+
+
+
+from enum import Enum
+
+# class syntax
 class AccountStatus(str, Enum):
-    CLOSED="human"
-    SUSPENDED="machine"
-    ACTIVE="machine"
+    CLOSED= "closed",
+    SUSPENDED= "suspended",
+    ACTIVE= "active",
 
 

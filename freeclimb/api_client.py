@@ -162,13 +162,9 @@ class ApiClient(object):
 
         # query parameters
         if query_params:
-            #print(self.sanitize_for_query_params(query_params))
             query_params = self.sanitize_for_query_params(query_params)
-            print(query_params)
-            #Add a console log here as well to see if it does format
             query_params = self.parameters_to_tuples(query_params,
                                                      collection_formats)
-            #print(query_params)
 
         # post parameters
         if post_params or files:
@@ -868,10 +864,10 @@ class Endpoint(object):
 
         params = self.__gather_params(kwargs)
 
-        # accept_headers_list = self.headers_map['accept']
-        # if accept_headers_list:
-        #     params['header']['Accept'] = self.api_client.select_header_accept(
-        #         accept_headers_list)
+        accept_headers_list = self.headers_map['accept']
+        if accept_headers_list:
+            params['header']['Accept'] = self.api_client.select_header_accept(
+                accept_headers_list)
 
         if kwargs.get('_content_type'):
             params['header']['Content-Type'] = kwargs['_content_type']
