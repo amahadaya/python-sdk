@@ -5393,7 +5393,7 @@ class DefaultApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs["status"] = json.dumps(kwargs["status"])
+        
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )

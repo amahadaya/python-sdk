@@ -12,6 +12,7 @@
 from datetime import date, datetime  # noqa: F401
 from copy import deepcopy
 from enum import Enum
+import enum
 import inspect
 import io
 import os
@@ -28,6 +29,7 @@ from freeclimb.exceptions import (
     ApiTypeError,
     ApiValueError,
 )
+from freeclimb.model.call_status import CallStatus
 
 none_type = type(None)
 file_type = io.IOBase
@@ -836,6 +838,8 @@ def get_simple_class(input_value):
         return date
     elif isinstance(input_value, str):
         return str
+    elif isinstance(input_value, Enum):
+        return Enum
     return type(input_value)
 
 
@@ -1109,11 +1113,12 @@ def remove_uncoercible(required_types_classes, current_item, spec_property_namin
         (list): the remaining coercible required types, classes only
     """
     current_type_simple = get_simple_class(current_item)
-
     results_classes = []
     for required_type_class in required_types_classes:
         # convert our models to OpenApiModel
         required_type_class_simplified = required_type_class
+        print(required_type_class_simplified)
+        print(current_type_simple)
         if isinstance(required_type_class_simplified, type):
             if issubclass(required_type_class_simplified, ModelComposed):
                 required_type_class_simplified = ModelComposed
@@ -1517,7 +1522,8 @@ def is_valid_type(input_class_simple, valid_classes):
         bool
     """
     if issubclass(input_class_simple, OpenApiModel) and \
-        valid_classes == (bool, date, datetime, dict, float, int, list, str, none_type,):
+        valid_classes == (bool, date, datetime, dict, float, int, list, str, none_type,) or \
+        "enum" in str(valid_classes):
         return True
     valid_type = input_class_simple in valid_classes
     if not valid_type and (
@@ -1573,9 +1579,12 @@ def validate_and_convert_types(input_value, required_types_mixed, path_to_item,
     """
     results = get_required_type_classes(required_types_mixed, spec_property_naming)
     valid_classes, child_req_types_by_current_type = results
-
+    print(input_value)
     input_class_simple = get_simple_class(input_value)
+    print(input_class_simple)
+    print(valid_classes)
     valid_type = is_valid_type(input_class_simple, valid_classes)
+    print(valid_type)
     if not valid_type:
         if configuration:
             # if input_value is not valid_type try to convert it

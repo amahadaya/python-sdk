@@ -91,7 +91,7 @@ class MessageResultAllOf(ModelNormal):
         return {
             'account_id': (str, none_type,),  # noqa: E501
             'message_id': (str, none_type,),  # noqa: E501
-            'status': (MessageStatus,),  # noqa: E501
+            'status': (MessageStatus, str, none_type),  # noqa: E501
             '_from': (str, none_type,),  # noqa: E501
             'to': (str, none_type,),  # noqa: E501
             'text': (str, none_type,),  # noqa: E501

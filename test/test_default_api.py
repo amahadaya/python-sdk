@@ -997,8 +997,15 @@ class TestDefaultApi(unittest.TestCase):
         phone_number = "phoneNumber_example" # str | PCRE-compatible regular expression to filter against `phoneNumber` field, which is in E.164 format. (optional)
         region = "region_example" # str | State or province of this phone number. (optional)
         country = "country_example" # str | Country of this phone number. (optional)
+        voice_enabled = True # bool | Indicates whether the phone number can handle Calls. Typically set to true for all numbers. (optional) if omitted the server will use the default value of True
+        sms_enabled = True # bool | Indication of whether the phone number can handle sending and receiving SMS messages. Typically set to true for all numbers. (optional) if omitted the server will use the default value of True
+        capabilities_voice = True # bool |  (optional)
+        capabilities_sms = True # bool |  (optional)
+        capabilities_toll_free = True # bool |  (optional)
+        capabilities_ten_dlc = True # bool |  (optional)
+        capabilities_short_code = True # bool |  (optional)
 
-        api_response = self.api.list_available_numbers(phone_number=phone_number, region=region, country=country)
+        api_response = self.api.list_available_numbers(phone_number=phone_number, region=region, country=country, voice_enabled=voice_enabled, sms_enabled=sms_enabled, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code)
         assert isinstance(api_response, AvailableNumberList)
     #     self.api.list_available_numbers(phone_number=phone_number,region=region,country=country,voice_enabled=voice_enabled,sms_enabled=sms_enabled,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code)
 
@@ -1074,11 +1081,11 @@ class TestDefaultApi(unittest.TestCase):
     #     self.api.list_call_recordings(call_id=call_id,date_created=date_created)
 
     #This has problems with not being able to recognize change in CallResult value
-    # def test_list_calls(self):
-    #     """Test case for list_calls
+    def test_list_calls(self):
+        """Test case for list_calls
 
-    #     List Calls  # noqa: E501
-    #     """
+        List Calls  # noqa: E501
+        """
     # # #     query_params = {}
     # # #     path_params = {}
     # # #     body = None
@@ -1114,17 +1121,17 @@ class TestDefaultApi(unittest.TestCase):
     # # #         timeout=None
     # # #     )
 
-    #     account_id = "accountId_example" # str | ID of the account
-    #     active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
-    #     to = "to_example" # str | Only show Calls to this phone number. (optional)
-    #     _from = "from_example" # str | Only show Calls from this phone number. (optional)
-    #     status = CallStatus.QUEUED # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
-    #     start_time = "startTime_example" # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
-    #     end_time = "endTime_example" # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
-    #     parent_call_id = "parentCallId_example" # str | Only show Calls spawned by the call with this ID. (optional)
+        account_id = "accountId_example" # str | ID of the account
+        active = False # bool | If active is set to true then all calls of the nature queued, ringing, inProgress are returned in the query. (optional) if omitted the server will use the default value of False
+        to = "to_example" # str | Only show Calls to this phone number. (optional)
+        _from = "from_example" # str | Only show Calls from this phone number. (optional)
+        status = CallStatus.QUEUED # CallStatus | Only show Calls currently in this status. May be `queued`, `ringing`, `inProgress`, `canceled`, `completed`, `failed`, `busy`, or `noAnswer`. (optional)
+        start_time = "startTime_example" # str | Only show Calls that started at or after this time, given as YYYY-MM-DD hh:mm:ss. (optional)
+        end_time = "endTime_example" # str | Only show Calls that ended at or before this time, given as YYYY-MM- DD hh:mm:ss. (optional)
+        parent_call_id = "parentCallId_example" # str | Only show Calls spawned by the call with this ID. (optional)
 
-    #     api_response = self.api.list_calls(active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
-    #     assert isinstance(api_response, CallList)
+        api_response = self.api.list_calls(active=active, to=to, _from=_from, status=status, start_time=start_time, end_time=end_time, parent_call_id=parent_call_id)
+        assert isinstance(api_response, CallList)
     #     self.api.list_calls(active=active,to=to,_from=_from,status=str(status),start_time=start_time,end_time=end_time,parent_call_id=parent_call_id)
 
     def test_list_conferences(self):
@@ -1239,7 +1246,8 @@ class TestDefaultApi(unittest.TestCase):
         capabilities_short_code = True # bool |  (optional)
         offnet = True # bool, none_type | Indication of whether the phone number was registered as an offnet number. This field will be rendered only for requests to the IncomingPhone number resource. (optional)
 
-        api_response = self.api.list_incoming_numbers(phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id)
+        #api_response = self.api.list_incoming_numbers(phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id)
+        api_response = self.api.list_incoming_numbers(phone_number=phone_number, alias=alias, region=region, country=country, application_id=application_id, has_application=has_application, voice_enabled=voice_enabled, sms_enabled=sms_enabled, capabilities_voice=capabilities_voice, capabilities_sms=capabilities_sms, capabilities_toll_free=capabilities_toll_free, capabilities_ten_dlc=capabilities_ten_dlc, capabilities_short_code=capabilities_short_code, offnet=offnet)
         assert isinstance(api_response, IncomingNumberList)
 
     #     self.api.list_incoming_numbers(phone_number=phone_number,alias=alias,region=region,country=country,application_id=application_id,has_application=has_application,voice_enabled=voice_enabled,sms_enabled=sms_enabled,capabilities_voice=capabilities_voice,capabilities_sms=capabilities_sms,capabilities_toll_free=capabilities_toll_free,capabilities_ten_dlc=capabilities_ten_dlc,capabilities_short_code=capabilities_short_code,offnet=offnet)
@@ -1315,7 +1323,7 @@ class TestDefaultApi(unittest.TestCase):
         talk = True # bool | Only show Participants with the talk privilege. (optional)
         listen = True # bool | Only show Participants with the listen privilege. (optional)
 
-        api_response = self.api.list_participants(conference_id)
+        api_response = self.api.list_participants(conference_id, talk=talk, listen=listen)
         assert isinstance(api_response, ConferenceParticipantList)
 
     #     self.api.list_participants(conference_id=conference_id,talk=talk,listen=listen)
@@ -1362,11 +1370,11 @@ class TestDefaultApi(unittest.TestCase):
         # self.api.list_recordings(call_id=call_id,conference_id=conference_id,date_created=date_created)
 
     # Invalid type for variable 'direction'. Required value type is MessageDirection and passed type was MessageDirection at ['direction']
-    # def test_list_sms_messages(self):
-    #     """Test case for list_sms_messages
+    def test_list_sms_messages(self):
+        """Test case for list_sms_messages
 
-    #     List SMS Messages  # noqa: E501
-    #     """
+        List SMS Messages  # noqa: E501
+        """
         # query_params = {}
         # path_params = {}
         # body = None
@@ -1398,16 +1406,16 @@ class TestDefaultApi(unittest.TestCase):
         #     timeout=None
         # )
 
-        # account_id = "accountId_example" # str | ID of the account
-        # to = "to_example" # str | Only show Messages to this phone number. (optional)
-        # _from = "from_example" # str | Only show Messages from this phone number. (optional)
-        # begin_time = "beginTime_example" # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
-        # end_time = "endTime_example" # str | Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. (optional)
-        # direction = MessageDirection.INBOUND # MessageDirection | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
+        account_id = "accountId_example" # str | ID of the account
+        to = "to_example" # str | Only show Messages to this phone number. (optional)
+        _from = "from_example" # str | Only show Messages from this phone number. (optional)
+        begin_time = "beginTime_example" # str | Only show Messages sent at or after this time (GMT), given as *YYYY-MM-DD hh:mm:ss*. (optional)
+        end_time = "endTime_example" # str | Only show messages sent at or before this time (GMT), given as *YYYY-MM-DD hh:mm*.. (optional)
+        direction = MessageDirection.INBOUND # MessageDirection | Either `inbound` or `outbound`. Only show Messages that were either *sent from* or *received by* FreeClimb. (optional)
 
-        # api_response = self.api.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
-        # assert isinstance(api_response, MessagesList)  
-        # self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction)
+        api_response = self.api.list_sms_messages(to=to, _from=_from, begin_time=begin_time, end_time=end_time, direction=direction)
+        assert isinstance(api_response, MessagesList)  
+        self.api.list_sms_messages(to=to,_from=_from,begin_time=begin_time,end_time=end_time,direction=direction)
 
     def test_make_a_call(self):
         """Test case for make_a_call
