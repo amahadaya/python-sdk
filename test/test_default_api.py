@@ -69,7 +69,7 @@ class TestDefaultApi(unittest.TestCase):
 
         self.api = DefaultApi(freeclimb.ApiClient(configuration))  # noqa: E501
         # self.auth_header = configuration.get_basic_auth_token()
-        self.base_url = self.api.api_client.configuration.host
+        # self.base_url = self.api.api_client.configuration.host
         # self.mock_pool = MockPoolManager(self)
         # self.api.api_client.rest_client.pool_manager = self.mock_pool
 
