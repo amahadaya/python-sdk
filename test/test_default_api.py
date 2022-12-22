@@ -16,6 +16,7 @@ from freeclimb.model.play_beep import PlayBeep
 from freeclimb.model.call_status import CallStatus
 from freeclimb.model.message_direction import MessageDirection
 from freeclimb.model.update_call_request_status import UpdateCallRequestStatus
+from freeclimb.model.update_conference_request_status import UpdateConferenceRequestStatus
 from test.helpers import TestHelpers, MockPoolManager
 
 import freeclimb
@@ -104,7 +105,7 @@ class TestDefaultApi(unittest.TestCase):
         #     preload_content=True,
         #     timeout=None
         # )
-        buy_incoming_number_request = BuyIncomingNumberRequest(
+        buy_incoming_number_request =  BuyIncomingNumberRequest(
             phone_number="phone_number_example",
             alias="alias_example",
             application_id="application_id_example",
@@ -745,9 +746,10 @@ class TestDefaultApi(unittest.TestCase):
         # )
 
         account_id = "accountId_example"
+        application_id = "applicationId_example"
 
-        api_response = self.api.get_an_account()
-        assert isinstance(api_response, AccountResult)
+        api_response = self.api.get_an_application(application_id=application_id)
+        assert isinstance(api_response, ApplicationResult)
 
     #     self.api.get_an_application(application_id=application_id)
 
@@ -1457,7 +1459,7 @@ class TestDefaultApi(unittest.TestCase):
         parent_call_id="parent_call_id_example",
         privacy_mode=True,
         call_connect_url="call_connect_url_example",
-    ) # MakeCallRequest | Call details for making a call (optional)
+        ) # MakeCallRequest | Call details for making a call (optional)
 
     
         api_response = self.api.make_a_call(make_call_request=make_call_request)
@@ -1565,14 +1567,14 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
+        recording_id = "recordingId_example"
+        self.api.stream_a_recording_file(recording_id=recording_id)
 
-    #     self.api.stream_a_recording_file(recording_id=recording_id)
+    def test_update_a_conference(self):
+        """Test case for update_a_conference
 
-    # def test_update_a_conference(self):
-    #     """Test case for update_a_conference
-
-    #     Update a Conference  # noqa: E501
-    #     """
+        Update a Conference  # noqa: E501
+        """
     #     query_params = {}
     #     path_params = {}
     #     body = None
@@ -1598,10 +1600,16 @@ class TestDefaultApi(unittest.TestCase):
     #     #     preload_content=True,
     #     #     timeout=None
     #     # )
-        recording_id = "recordingId_example" # str | String that uniquely identifies this recording resource.
-        api_response = self.api.stream_a_recording_file(recording_id)
+        conference_id = "conferenceId_example" # str | String that uniquely identifies this conference resource.
+        update_conference_request = UpdateConferenceRequest(
+            alias="alias_example",
+            play_beep=PlayBeep.ALWAYS,
+            status=UpdateConferenceRequestStatus.EMPTY,
+        ) 
 
-    #     self.api.update_a_conference(conference_id=conference_id,update_conference_request=update_conference_request)
+        api_response = self.api.update_a_conference(conference_id, update_conference_request=update_conference_request)
+        assert isinstance(api_response, ConferenceResult)
+    #    self.api.update_a_conference(conference_id=conference_id,update_conference_request=update_conference_request)
 
     def test_update_a_live_call(self):
         """Test case for update_a_live_call
