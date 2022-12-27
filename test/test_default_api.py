@@ -12,6 +12,7 @@
 import io
 import pprint
 import unittest
+from io import BufferedReader as file_type
 from freeclimb.model.play_beep import PlayBeep
 from freeclimb.model.call_status import CallStatus
 from freeclimb.model.message_direction import MessageDirection
@@ -434,7 +435,7 @@ class TestDefaultApi(unittest.TestCase):
         recording_id = "recordingId_example" # str | String that uniquely identifies this recording resource.
 
         api_response = self.api.download_a_recording_file(recording_id)
-        # assert isinstance(api_response, io.TextIOBase)
+        assert isinstance(api_response, file_type)
 
     #     self.api.download_a_recording_file(recording_id=recording_id)
 
@@ -1568,7 +1569,8 @@ class TestDefaultApi(unittest.TestCase):
     #     #     timeout=None
     #     # )
         recording_id = "recordingId_example"
-        self.api.stream_a_recording_file(recording_id=recording_id)
+        api_response = self.api.stream_a_recording_file(recording_id=recording_id)
+        assert isinstance(api_response, file_type)
 
     def test_update_a_conference(self):
         """Test case for update_a_conference
