@@ -269,6 +269,4 @@ requirements.txt
 setup.cfg
 setup.py
 test/__init__.py
-test/test_queue_result.py
-test/test_queue_result_all_of.py
 tox.ini
